@@ -1,0 +1,9 @@
+.outside-header > h3 {
+    font-size: 2rem;
+}
+
+.outside-header img {
+    height: 3rem;
+    margin-left: 5rem;
+    margin-right: 10px;
+}

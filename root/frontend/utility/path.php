@@ -2,6 +2,7 @@
 
 define('BASE_PATH', '../');
 
+define('COMPONENT_PATH', BASE_PATH . 'component/');
 define('SCRIPT_PATH', BASE_PATH . 'script/');
 define('STYLE_PATH', BASE_PATH . 'style/');
 define('UTILITY_PATH', BASE_PATH . 'utility/');

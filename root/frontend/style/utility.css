@@ -57,6 +57,11 @@
     align-items: center;
 }
 
+.flex-child-end-h {
+    display: flex;
+    align-items: end;
+}
+
 /* --------POSITION ELEMENT-------- */
 
 .center-child {
