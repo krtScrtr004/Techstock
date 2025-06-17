@@ -1,86 +1,82 @@
 .banner {
-  background-image: url(../asset/image/devices.jpg);
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-blend-mode: multiply;
+    background-image: url(../asset/image/devices.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-blend-mode: multiply;
 }
 
-/* FORM WRAPPER */
+/* -------------------- FORM WRAPPER -------------------- */
 .form-wrapper {
-  gap: var(--space);
-  padding: var(--space);
+    gap: var(--space);
+    padding: 2rem;
 }
 
 .form-wrapper > form {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space);
 }
 
 .form-wrapper > form > h3 {
-  font-size: 1.5rem;
+    font-size: 1.5rem;
 }
 
 .form-wrapper > form input {
-    border: 1px solid var(--light-black);
+        border: 1px solid var(--light-black);
 }
-/* ------------------------*/
 
-/* PASSWORD TOGGLE WRAPPER */
+/* ---------------- PASSWORD TOGGLE WRAPPER ---------------- */
 .password-toggle-wrapper {
-    position: relative;
+        position: relative;
 }
 
 .password-toggle-wrapper > img {
-    display: none;
-    position: absolute;
-    top: 50%;
-    right: 8px;
-    transform: translate(0, -50%);
-    z-index: 10;
-    cursor: pointer;
+        display: none;
+        position: absolute;
+        top: 50%;
+        right: 8px;
+        transform: translate(0, -50%);
+        z-index: 10;
+        cursor: pointer;
 }
-/* ------------------------*/
 
-/* LINE DIVIDER */
+/* --------------------- LINE DIVIDER --------------------- */
 .line-divider > hr {
-  width: 100%;
+    width: 100%;
 }
 
 .line-divider > p {
-  top: -13px;
-  left: 50%;
-  transform: translate(-50%, 0);
-  padding: 5px;
+    top: -13px;
+    left: 50%;
+    transform: translate(-50%, 0);
+    padding: 5px;
 }
-/* ------------------------*/
 
-/* OAUTH PROVIDER LINK BOX */
+/* --------------- OAUTH PROVIDER LINK BOX --------------- */
 .oath-provider-link,
 .oath-provider-link > div {
-  display: flex;
+    display: flex;
 }
 
 .oath-provider-link {
-  gap: var(--space);
+    gap: var(--space);
 }
 
 .oath-provider-link > div {
-  flex: 1 1 0;
-  justify-content: center;
-  align-items: center;
-  border: 1px solid var(--light-black);
-  padding: 5px 15px;
-  border-radius: var(--border-radius);
+    flex: 1 1 0;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid var(--light-black);
+    padding: 5px 15px;
+    border-radius: var(--border-radius);
 }
 
 .oath-provider-link > div > img {
-    height: 32px;
-    width: 32px;
-    margin-right: 5px;
+        height: 32px;
+        width: 32px;
+        margin-right: 5px;
 }
 
 .oath-provider-link > div > h3 {
-  color: var(--black);
+    color: var(--black);
 }
-/* ------------------------*/

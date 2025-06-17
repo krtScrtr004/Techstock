@@ -8,6 +8,10 @@
     height: 100%;
 }
 
+.login .banner > section {
+    width: 80%;
+}
+
 .right-pane {
     gap: var(--space);
     font-size: 1.5rem;
