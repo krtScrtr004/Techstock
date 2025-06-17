@@ -1,0 +1,48 @@
+/* --------TEXT COLOR-------- */
+.black-text {
+    color: var(--black);
+}
+
+.blue-text {
+    color: var(--blue);
+}
+
+.white-text {
+    color: var(--white);
+}
+
+/* --------BG COLOR-------- */
+
+.black-bg {
+    background-color: var(--black);
+}
+
+.blue-bg {
+    background-color: var(--blue);
+}
+
+.white-bg {
+    background-color: var(--white);
+}
+
+/* --------FLEX DISPLAY-------- */
+
+.flex-row {
+    display: flex;
+    flex-direction: row;
+}
+
+.flex-col {
+    display: flex;
+    flex-direction: col;
+}
+
+.flex-child-center-v {
+    display: flex;
+    justify-content: center;
+}
+
+.flex-child-center-h {
+    display: flex;
+    align-items: center;
+}
