@@ -21,12 +21,27 @@
   font-size: 1.5rem;
 }
 
-.form-wrapper > form > input {
+.form-wrapper > form input {
     border: 1px solid var(--light-black);
 }
 /* ------------------------*/
 
-/* LINE DIVIDER  */
+/* PASSWORD TOGGLE WRAPPER */
+.password-toggle-wrapper {
+    position: relative;
+}
+
+.password-toggle-wrapper > img {
+    position: absolute;
+    top: 50%;
+    right: 8px;
+    transform: translate(0, -50%);
+    z-index: 10;
+    cursor: pointer;
+}
+/* ------------------------*/
+
+/* LINE DIVIDER */
 .line-divider > hr {
   width: 100%;
 }
