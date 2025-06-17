@@ -42,8 +42,7 @@ require_once dirname(__DIR__, 1) . '/utility/definition.php';
                     <div class="password-toggle-wrapper">
                         <img class="absolute" src="<?php echo htmlspecialchars(ICON_PATH . 'show.svg'); ?>" alt="Show password icon" title="Show password icon" width="18" height="18"/>
 
-                        <input class="relative" type="password" name="l_password" id="l_password" placeholder="Please enter your password here" min="8" max="255" required>
-
+                        <input type="password" name="l_password" id="l_password" placeholder="Please enter your password here" min="8" max="255" required>
                     </div>
 
                     <button class="blue-bg white-text" type="submit">LOG IN</button>
@@ -74,6 +73,8 @@ require_once dirname(__DIR__, 1) . '/utility/definition.php';
             </div>
         </section>
     </main>
+
+    <script src="<?php echo htmlspecialchars(EVENT_PATH . 'toggle-password.js'); ?>"></script>
 </body>
 
 </html>
