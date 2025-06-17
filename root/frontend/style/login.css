@@ -1,0 +1,14 @@
+.login .banner,
+.right-pane,
+.left-pane {
+    flex: 1 1 0;
+}
+
+.login .banner {
+    height: 100%;
+}
+
+.right-pane {
+    gap: var(--space);
+    font-size: 1.5rem;
+}

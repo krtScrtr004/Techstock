@@ -25,6 +25,16 @@
     background-color: var(--white);
 }
 
+/* --------DISPLAY-------- */
+
+.inline {
+    display: inline-block;
+}
+
+.block {
+    display: block;
+}
+
 /* --------FLEX DISPLAY-------- */
 
 .flex-row {
@@ -34,7 +44,7 @@
 
 .flex-col {
     display: flex;
-    flex-direction: col;
+    flex-direction: column;
 }
 
 .flex-child-center-v {
@@ -45,4 +55,28 @@
 .flex-child-center-h {
     display: flex;
     align-items: center;
+}
+
+/* --------POSITION ELEMENT-------- */
+
+.center-child {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* --------ELEMENT POSITION-------- */
+
+.relative {
+    position: relative;
+}
+
+.absolute {
+    position: absolute;
+}
+
+/* --------TEXT ALIGNMENT-------- */
+
+.center-text {
+    text-align: center;
 }
