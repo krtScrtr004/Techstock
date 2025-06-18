@@ -1,6 +1,7 @@
 <?php
 require_once dirname(__DIR__, 1) . '/utility/path.php';
 
+echo REL_PATH;
 ?>
 
 <!DOCTYPE html>
@@ -11,23 +12,32 @@ require_once dirname(__DIR__, 1) . '/utility/path.php';
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 	<title>Login</title>
+	<base href="/Techstock/root/frontend/">
 
-	<link rel="stylesheet" href="<?php echo STYLE_PATH . 'root.css' ?>">
-	<link rel="stylesheet" href="<?php echo STYLE_PATH . 'utility.css' ?>">
-	<link rel="stylesheet" href="<?php echo STYLE_PATH . 'component.css' ?>">
-    <link rel="stylesheet" href="<?php echo STYLE_PATH . 'header.css' ?>">
+	<link rel="stylesheet" href="<?php echo REL_STYLE_PATH . 'root.css' ?>">
+	<link rel="stylesheet" href="<?php echo REL_STYLE_PATH . 'utility.css' ?>">
+	<link rel="stylesheet" href="<?php echo REL_STYLE_PATH . 'component.css' ?>">
+    <link rel="stylesheet" href="<?php echo REL_STYLE_PATH . 'header.css' ?>">
 
-	<link rel="stylesheet" href="<?php echo STYLE_PATH . 'login.css' ?>">
+	<link rel="stylesheet" href="<?php echo REL_STYLE_PATH . 'login.css' ?>">
+
+	<!-- <link rel="stylesheet" href="style/root.css">
+	<link rel="stylesheet" href="style/component.css">
+	<link rel="stylesheet" href="style/utility.css">
+	<link rel="stylesheet" href="style/header.css">
+
+	<link rel="stylesheet" href="style/login.css"> -->
+
 </head>
 
 <body class="login flex-col">
-	<?php require_once COMPONENT_PATH . 'outside-header.php'; ?>
+	<?php require_once ABS_COMPONENT_PATH . 'outside-header.php'; ?>
 
 	<main class="banner flex-row center-child black-bg">
 		<section class="flex-row">
 
 			<section class="right-pane flex-col center-child">
-				<img src="<?php echo htmlspecialchars(LOGO_PATH . 'logo_complete_hor.svg'); ?>" alt="Techstock Logo" title="Techstock Logo" />
+				<img src="<?php echo htmlspecialchars(REL_LOGO_PATH . 'logo_complete_hor.svg'); ?>" alt="Techstock Logo" title="Techstock Logo" />
 
 				<h3 class="blue-text">Tech You Want. Stock You Need.</h3>
 			</section>
@@ -40,7 +50,7 @@ require_once dirname(__DIR__, 1) . '/utility/path.php';
 						<input type="email" name="l_email" id="l_email" placeholder="Please enter your email here" autocomplete="on" min="3" max="255" required>
 
 						<div class="password-toggle-wrapper">
-							<img class="absolute" src="<?php echo htmlspecialchars(ICON_PATH . 'show.svg'); ?>" alt="Show password icon" title="Show password icon" width="18" height="18" />
+							<img class="absolute" src="<?php echo htmlspecialchars(REL_ICON_PATH . 'show.svg'); ?>" alt="Show password icon" title="Show password icon" width="18" height="18" />
 
 							<input type="password" name="l_password" id="l_password" placeholder="Please enter your password here" min="8" max="255" required>
 						</div>
@@ -57,13 +67,13 @@ require_once dirname(__DIR__, 1) . '/utility/path.php';
 
 					<section class="oath-provider-link">
 						<div>
-							<img src="<?php echo htmlspecialchars(ICON_PATH . 'facebook.svg'); ?>" alt="Facebook Logo" title="Facebook Logo" width="45" height="45">
+							<img src="<?php echo htmlspecialchars(REL_ICON_PATH . 'facebook.svg'); ?>" alt="Facebook Logo" title="Facebook Logo" width="45" height="45">
 
 							<h3>Facebook</h3>
 						</div>
 
 						<div>
-							<img src="<?php echo htmlspecialchars(ICON_PATH . 'google.svg'); ?>" alt="Google Logo" title="Google Logo" width="45" height="45">
+							<img src="<?php echo htmlspecialchars(REL_ICON_PATH . 'google.svg'); ?>" alt="Google Logo" title="Google Logo" width="45" height="45">
 
 							<h3>Google</h3>
 						</div>
@@ -76,7 +86,7 @@ require_once dirname(__DIR__, 1) . '/utility/path.php';
 		</section>
 	</main>
 
-	<script src="<?php echo htmlspecialchars(EVENT_PATH . 'toggle-password.js'); ?>"></script>
+	<script src="<?php echo htmlspecialchars(REL_EVENT_PATH . 'toggle-password.js'); ?>"></script>
 </body>
 
 </html>

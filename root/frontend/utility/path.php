@@ -1,18 +1,23 @@
 <?php
 
-define('BASE_PATH', '../');
+define('ABS_PATH', dirname(__DIR__, 1) . '/');
+define('REL_PATH', '');
 
-define('COMPONENT_PATH', BASE_PATH . 'component/');
-define('SCRIPT_PATH', BASE_PATH . 'script/');
-define('STYLE_PATH', BASE_PATH . 'style/');
-define('UTILITY_PATH', BASE_PATH . 'utility/');
+// Absolute paths
+define('ABS_VIEW_PATH', ABS_PATH . 'view/');
+define('ABS_COMPONENT_PATH', ABS_PATH . 'component/');
 
-// Script paths
-define('EVENT_PATH', SCRIPT_PATH . 'event/');
-define('SCRIPT_UTILITY_PATH', SCRIPT_PATH . 'utility/');
+// Relative paths
+define('REL_VIEW_PATH', REL_PATH . 'view/');
+define('REL_COMPONENT_PATH', REL_PATH . 'component/');
+define('REL_SCRIPT_PATH', REL_PATH . 'script/');
+define('REL_STYLE_PATH', REL_PATH . 'style/');
+define('REL_UTILITY_PATH', REL_PATH . 'utility/');
 
-// Asset paths
-define('ASSET_PATH', BASE_PATH . 'asset/');
-define('IMAGE_PATH', ASSET_PATH . 'image/');
-define('LOGO_PATH', IMAGE_PATH . 'logo/');
-define('ICON_PATH', IMAGE_PATH . 'icon/');
+define('REL_EVENT_PATH', REL_SCRIPT_PATH . 'event/');
+define('REL_SCRIPT_UTILITY_PATH', REL_SCRIPT_PATH . 'utility/');
+
+define('REL_ASSET_PATH', REL_PATH . 'asset/');
+define('REL_IMAGE_PATH', REL_ASSET_PATH . 'image/');
+define('REL_LOGO_PATH', REL_IMAGE_PATH . 'logo/');
+define('REL_ICON_PATH', REL_IMAGE_PATH . 'icon/');
