@@ -36,16 +36,18 @@
 
                 <!-- Password validator guide -->
                 <ul class="flex-col password-list-validator">
-                    <li>At least one lowercase character</li>
-                    <li>At least one uppercase character</li>
-                    <li>8 to 255 chacrters</li>
-                    <li>Only letters, numbers, and common punctuation can be used</li>
+                    <li id="lower_case">At least one lowercase character</li>
+                    <li id="upper_case">At least one uppercase character</li>
+                    <li id="count">8 to 255 chacrters</li>
+                    <li id="characters">Only letters, numbers, and common punctuation (! @ ' . -) can be used</li>
                 </ul>
 
                 <button class="blue-bg white-text" type="submit">SIGN UP</button>
             </form>
         </div>
     </main>
+
+    <script src="<?php echo htmlspecialchars(EVENT_PATH . 'password-list-validator.js'); ?>" defer></script>
 </body>
 
 </html>

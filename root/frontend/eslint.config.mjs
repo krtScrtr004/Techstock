@@ -22,7 +22,7 @@ export default defineConfig([
 	  eqeqeq: [2, 'always'],
 	  quotes: [1, 'single'],
 	  semi: [0, 'always'],
-	  indent: [2, 2],
+	  indent: [2, 4],
 	  curly: 2,
     },
   },
