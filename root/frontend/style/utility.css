@@ -1,87 +1,87 @@
 /* --------TEXT COLOR-------- */
 .black-text {
-    color: var(--black);
+	color: var(--black);
 }
 
 .blue-text {
-    color: var(--blue);
+	color: var(--blue);
 }
 
 .white-text {
-    color: var(--white);
+	color: var(--white);
 }
 
 /* --------BG COLOR-------- */
 
 .black-bg {
-    background-color: var(--black);
+	background-color: var(--black);
 }
 
 .blue-bg {
-    background-color: var(--blue);
+	background-color: var(--blue);
 }
 
 .white-bg {
-    background-color: var(--white);
+	background-color: var(--white);
 }
 
 /* --------DISPLAY-------- */
 
 .inline {
-    display: inline-block;
+	display: inline-block;
 }
 
 .block {
-    display: block;
+	display: block;
 }
 
 /* --------FLEX DISPLAY-------- */
 
 .flex-row {
-    display: flex;
-    flex-direction: row;
+	display: flex;
+	flex-direction: row;
 }
 
 .flex-col {
-    display: flex;
-    flex-direction: column;
+	display: flex;
+	flex-direction: column;
 }
 
 .flex-child-center-v {
-    display: flex;
-    justify-content: center;
+	display: flex;
+	justify-content: center;
 }
 
 .flex-child-center-h {
-    display: flex;
-    align-items: center;
+	display: flex;
+	align-items: center;
 }
 
 .flex-child-end-h {
-    display: flex;
-    align-items: end;
+	display: flex;
+	align-items: end;
 }
 
 /* --------POSITION ELEMENT-------- */
 
 .center-child {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
 /* --------ELEMENT POSITION-------- */
 
 .relative {
-    position: relative;
+	position: relative;
 }
 
 .absolute {
-    position: absolute;
+	position: absolute;
 }
 
 /* --------TEXT ALIGNMENT-------- */
 
 .center-text {
-    text-align: center;
+	text-align: center;
 }
