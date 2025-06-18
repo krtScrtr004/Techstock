@@ -5,8 +5,14 @@ define('REL_PATH', '');
 define('REDIRECT_PATH', 'http://localhost/Techstock/');
 
 // Absolute paths
-define('VIEW_PATH', ABS_PATH . 'frontend/view/');
-define('COMPONENT_PATH', ABS_PATH . 'frontend/component/');
+define('BACKEND_PATH', ABS_PATH . 'backend/');
+define('FRONTEND_PATH', ABS_PATH . 'frontend/');
+
+define('VIEW_PATH', FRONTEND_PATH . 'view/');
+define('COMPONENT_PATH', FRONTEND_PATH . 'component/');
+
+define('CONTROLLER_PATH', BACKEND_PATH . 'controller/');
+define('ROUTER_PATH', BACKEND_PATH . 'router/');
 
 // Relative paths
 define('SCRIPT_PATH', REL_PATH . 'script/');
