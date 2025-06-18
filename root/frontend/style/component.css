@@ -1,5 +1,4 @@
-.banner {
-	background-image: url(../asset/image/devices.jpg);
+.lazy-bg {
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-blend-mode: multiply;

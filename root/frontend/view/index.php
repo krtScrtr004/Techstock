@@ -19,7 +19,7 @@
 <body class="index flex-col">
 	<?php require_once COMPONENT_PATH . 'outside-header.php'; ?>
 
-	<main class="banner flex-row center-child black-bg">
+	<main class="lazy-bg flex-row center-child black-bg relative" data-bg="<?php echo htmlspecialchars(IMAGE_PATH . 'devices.jpg'); ?>">
 		<section class="flex-row">
 
 			<section class="right-pane flex-col center-child">
@@ -38,6 +38,7 @@
 	</main>
 
 	<script src="<?php echo htmlspecialchars(EVENT_PATH . 'toggle-password.js'); ?>"></script>
+	<script src="<?php echo htmlspecialchars(EVENT_PATH . 'lazy-background.js'); ?>"></script>
 </body>
 
 </html>

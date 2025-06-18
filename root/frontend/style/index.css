@@ -2,17 +2,17 @@
     max-width: 400px;
 }
 
-.index .banner,
+.index .lazy-bg,
 .right-pane,
 .left-pane {
     flex: 1 1 0;
 }
 
-.index .banner {
+.index .lazy-bg {
     height: 100%;
 }
 
-.index .banner > section {
+.index .lazy-bg > section {
     width: 80%;
 }
 
