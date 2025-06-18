@@ -1,15 +1,14 @@
 <?php
 
-define('ABS_PATH', dirname(__DIR__, 1) . '/');
+define('ABS_PATH', dirname(__DIR__, 2) . '/');
 define('REL_PATH', '');
+define('REDIRECT_PATH', dirname(ABS_PATH, 1) . '/');
 
 // Absolute paths
-define('ABS_VIEW_PATH', ABS_PATH . 'view/');
-define('ABS_COMPONENT_PATH', ABS_PATH . 'component/');
+define('ABS_VIEW_PATH', ABS_PATH . 'frontend/view/');
+define('ABS_COMPONENT_PATH', ABS_PATH . 'frontend/component/');
 
 // Relative paths
-define('REL_VIEW_PATH', REL_PATH . 'view/');
-define('REL_COMPONENT_PATH', REL_PATH . 'component/');
 define('REL_SCRIPT_PATH', REL_PATH . 'script/');
 define('REL_STYLE_PATH', REL_PATH . 'style/');
 define('REL_UTILITY_PATH', REL_PATH . 'utility/');

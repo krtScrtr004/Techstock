@@ -1,4 +1,4 @@
-const path = '../asset/image/icon/';
+const path = 'asset/image/icon/';
 
 const inputs = document.querySelectorAll(
   '.password-toggle-wrapper > input[type="password"]',

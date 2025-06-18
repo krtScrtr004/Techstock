@@ -1,9 +1,3 @@
-<?php
-require_once dirname(__DIR__, 1) . '/utility/path.php';
-
-echo REL_PATH;
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -12,22 +6,14 @@ echo REL_PATH;
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 	<title>Login</title>
-	<base href="/Techstock/root/frontend/">
 
+	<base href="/Techstock/root/frontend/">
 	<link rel="stylesheet" href="<?php echo REL_STYLE_PATH . 'root.css' ?>">
 	<link rel="stylesheet" href="<?php echo REL_STYLE_PATH . 'utility.css' ?>">
 	<link rel="stylesheet" href="<?php echo REL_STYLE_PATH . 'component.css' ?>">
     <link rel="stylesheet" href="<?php echo REL_STYLE_PATH . 'header.css' ?>">
 
 	<link rel="stylesheet" href="<?php echo REL_STYLE_PATH . 'login.css' ?>">
-
-	<!-- <link rel="stylesheet" href="style/root.css">
-	<link rel="stylesheet" href="style/component.css">
-	<link rel="stylesheet" href="style/utility.css">
-	<link rel="stylesheet" href="style/header.css">
-
-	<link rel="stylesheet" href="style/login.css"> -->
-
 </head>
 
 <body class="login flex-col">
