@@ -3,7 +3,11 @@ require_once 'root/backend/config/config.php';
 
 $router = Router::getRouter();
 
-$router->register("/Techstock/login", "GET", "index");
-$router->register("/Techstock/signup", "GET", "index");
-
+$routesFile = DATA_PATH . 'routes.json';
+$routes = decodeData($routesFile);
+foreach ($routes as $method => $route) {
+    foreach ($route as $path => $action) {
+        $router->register($path, $method, $action);
+    }
+}
 $router->dispatch();

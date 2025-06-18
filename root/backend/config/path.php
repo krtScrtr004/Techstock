@@ -12,6 +12,7 @@ define('VIEW_PATH', FRONTEND_PATH . 'view/');
 define('COMPONENT_PATH', FRONTEND_PATH . 'component/');
 
 define('CONTROLLER_PATH', BACKEND_PATH . 'controller/');
+define('DATA_PATH', BACKEND_PATH . 'data/');
 define('ROUTER_PATH', BACKEND_PATH . 'router/');
 define('UTILITY_PATH', BACKEND_PATH . 'utility/');
 

@@ -1,0 +1,8 @@
+{
+	"GET": {
+		"/Techstock/": "index",
+		"/Techstock/login": "index",
+		"/Techstock/login/": "index",
+		"/Techstock/signup": "index"
+	}
+}
