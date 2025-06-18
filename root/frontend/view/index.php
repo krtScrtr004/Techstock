@@ -30,10 +30,7 @@
 
 			<section class="left-pane center-child">
 				<div class="form-wrapper flex-col white-bg">
-					<?php 
-						if ($page === 'login') 
-							include_once ABS_COMPONENT_PATH . 'login-form.php';
-					?>
+					<?php include_once ABS_COMPONENT_PATH . ($page === 'login' ? 'login-form.php' : 'signup-form.php'); ?>
 				</div>
 			</section>
 
