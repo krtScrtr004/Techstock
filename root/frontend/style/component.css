@@ -1,3 +1,4 @@
+/* --------------- LAZY BACKGROUND IMAGE ----------------- */
 .lazy-bg {
 	background-repeat: no-repeat;
 	background-size: cover;
@@ -10,19 +11,56 @@
 	padding: 2rem;
 }
 
+.form-wrapper > h3 {
+	font-size: 1.5rem;
+}
+
 .form-wrapper > form {
 	display: flex;
 	flex-direction: column;
 	gap: var(--space);
 }
 
-.form-wrapper > form > h3 {
-	font-size: 1.5rem;
-}
-
 .form-wrapper > form input {
 	border: 1px solid var(--light-black);
 }
+
+/* -------------------- FORM MESSAGE --------------------- */
+
+.form-message {
+	display: none;
+	position: relative;
+	padding: 0.5rem var(--space);
+	border-radius: var(--border-radius);
+	position: relative;
+	z-index: 1;
+}
+
+.form-message::before {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	opacity: 0.2;
+	pointer-events: none;
+	z-index: 0;
+}
+
+.form-message > * {
+	position: relative;
+	z-index: 1;
+}
+
+.form-message.success::before {
+	background-color: var(--green);
+}
+
+.form-message.error::before {
+	background-color: var(--red);
+}
+
 
 /* ---------------- PASSWORD TOGGLE WRAPPER ---------------- */
 .password-toggle-wrapper {

@@ -1,6 +1,10 @@
-<form action="" method="POST">
-    <h3 class="black-text">Log In</h3>
+<h3 class="black-text">Log In</h3>
 
+<article class="form-message success center-text">
+    Incorrect email or password.
+</article>
+
+<form action="" method="POST">
     <input type="email" name="l_email" id="l_email" placeholder="Please enter your email here" autocomplete="on" min="3" max="255" required>
 
     <div class="password-toggle-wrapper">

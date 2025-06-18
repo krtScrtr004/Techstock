@@ -1,6 +1,10 @@
-<form action="" method="POST">
-    <h3 class="black-text">Sign Up</h3>
+<h3 class="black-text">Sign Up</h3>
 
+<article class="form-message success center-text">
+    Invalid email.
+</article>
+
+<form action="" method="POST">
     <input type="email" name="s_email" id="s_email" placeholder="Please enter your email here" autocomplete="on" min="3" max="255" required>
 
     <button class="blue-bg white-text" type="submit">NEXT</button>
