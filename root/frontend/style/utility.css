@@ -85,3 +85,10 @@
 .center-text {
 	text-align: center;
 }
+
+/* --------ELEMENT SIZING-------- */
+
+.full-body-content {
+	height: 100%;
+	width: 100%;
+}

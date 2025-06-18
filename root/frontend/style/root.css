@@ -38,6 +38,10 @@ p {
 	white-space: normal;
 }
 
+li {
+	list-style: none;
+}
+
 input,
 button {
 	display: block;

@@ -117,3 +117,21 @@
 .oath-provider-link > div > h3 {
 	color: var(--black);
 }
+
+/* --------------- HEADER WITH BACK NUTTON --------------- */
+.header-w-back {
+	position: relative;
+}
+
+.header-w-back > h1,
+.header-w-back > h3 {
+	text-align: center;
+}
+
+.header-w-back > img {
+	position: absolute;
+	top: 50%;
+    left: -25px;
+    transform: translate(0, -50%);
+	cursor: pointer;
+}
