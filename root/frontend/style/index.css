@@ -1,18 +1,26 @@
-.login .banner,
+.index .form-wrapper{
+    max-width: 400px;
+}
+
+.index .banner,
 .right-pane,
 .left-pane {
     flex: 1 1 0;
 }
 
-.login .banner {
+.index .banner {
     height: 100%;
 }
 
-.login .banner > section {
+.index .banner > section {
     width: 80%;
 }
 
 .right-pane {
     gap: var(--space);
     font-size: 1.5rem;
+}
+
+.agreement {
+    width: 80%;
 }

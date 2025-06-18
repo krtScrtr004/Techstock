@@ -2,7 +2,7 @@
 
 define('ABS_PATH', dirname(__DIR__, 2) . '/');
 define('REL_PATH', '');
-define('REDIRECT_PATH', dirname(ABS_PATH, 1) . '/');
+define('REDIRECT_PATH', 'http://localhost/Techstock/');
 
 // Absolute paths
 define('ABS_VIEW_PATH', ABS_PATH . 'frontend/view/');

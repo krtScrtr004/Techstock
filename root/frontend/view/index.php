@@ -13,10 +13,10 @@
 	<link rel="stylesheet" href="<?php echo REL_STYLE_PATH . 'component.css' ?>">
 	<link rel="stylesheet" href="<?php echo REL_STYLE_PATH . 'header.css' ?>">
 
-	<link rel="stylesheet" href="<?php echo REL_STYLE_PATH . 'login.css' ?>">
+	<link rel="stylesheet" href="<?php echo REL_STYLE_PATH . 'index.css' ?>">
 </head>
 
-<body class="login flex-col">
+<body class="index flex-col">
 	<?php require_once ABS_COMPONENT_PATH . 'outside-header.php'; ?>
 
 	<main class="banner flex-row center-child black-bg">

@@ -102,9 +102,9 @@ class Router
                 $routeParams = array_combine($routeParamsNames, $routeParamsValues);
 
                 return  $this->resolveAction($action, $routeParams);
-            } else {
-                echo '404 not found.';
             }
         }
+
+        echo '404 not found';
     }
 }
