@@ -13,13 +13,13 @@
 
 <section class="oath-provider-link">
     <div>
-        <img src="<?php echo htmlspecialchars(REL_ICON_PATH . 'facebook.svg'); ?>" alt="Facebook Logo" title="Facebook Logo" width="45" height="45">
+        <img src="<?php echo htmlspecialchars(ICON_PATH . 'facebook.svg'); ?>" alt="Facebook Logo" title="Facebook Logo" width="45" height="45">
 
         <h3>Facebook</h3>
     </div>
 
     <div>
-        <img src="<?php echo htmlspecialchars(REL_ICON_PATH . 'google.svg'); ?>" alt="Google Logo" title="Google Logo" width="45" height="45">
+        <img src="<?php echo htmlspecialchars(ICON_PATH . 'google.svg'); ?>" alt="Google Logo" title="Google Logo" width="45" height="45">
 
         <h3>Google</h3>
     </div>
