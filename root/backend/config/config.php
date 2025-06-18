@@ -2,6 +2,7 @@
 
 require_once 'path.php';
 
+require_once UTILITY_PATH . 'utility.php';
 foreach (glob(CONTROLLER_PATH . '*.php') as $fileName) {
     require_once $fileName;
 }

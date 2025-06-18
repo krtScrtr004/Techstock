@@ -13,11 +13,11 @@ define('COMPONENT_PATH', FRONTEND_PATH . 'component/');
 
 define('CONTROLLER_PATH', BACKEND_PATH . 'controller/');
 define('ROUTER_PATH', BACKEND_PATH . 'router/');
+define('UTILITY_PATH', BACKEND_PATH . 'utility/');
 
 // Relative paths
 define('SCRIPT_PATH', REL_PATH . 'script/');
 define('STYLE_PATH', REL_PATH . 'style/');
-define('UTILITY_PATH', REL_PATH . 'utility/');
 
 define('EVENT_PATH', SCRIPT_PATH . 'event/');
 define('SCRIPT_UTILITY_PATH', SCRIPT_PATH . 'utility/');
