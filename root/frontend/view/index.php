@@ -30,7 +30,7 @@
 
 			<section class="left-pane center-child">
 				<div class="form-wrapper flex-col white-bg">
-					<?php include_once COMPONENT_PATH . ($page === 'login' ? 'login-form.php' : 'signup-form.php'); ?>
+					<?php include_once COMPONENT_PATH . ($page === 'signup' ? 'signup-form.php' : 'login-form.php'); ?>
 				</div>
 			</section>
 
