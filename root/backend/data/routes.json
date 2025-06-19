@@ -6,6 +6,9 @@
 		"/Techstock/signup": "index",
 		"/Techstock/signup/": "index",
 
+		"Techstock/forget-password": "singleForm",
+		"Techstock/forget-password/": "singleForm",
+
 		"Techstock/set-signup-password": "singleForm",
 		"Techstock/set-signup-password/": "singleForm",
 

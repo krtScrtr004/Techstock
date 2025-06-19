@@ -15,5 +15,5 @@
         <li id="characters">Only letters, numbers, and common punctuation (! @ ' . -) can be used</li>
     </ul>
 
-    <button class="blue-bg white-text" type="submit">SIGN UP</button>
+    <button class="blue-bg white-text" type="submit">SUBMIT</button>
 </form>
