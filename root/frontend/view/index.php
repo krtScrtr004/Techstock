@@ -17,10 +17,8 @@
 </head>
 
 <body class="index flex-col">
-	<?php 
-		tooManyAttemptDialog();
-
-		include_once COMPONENT_PATH . 'outside-header.php';
+	<?php
+	include_once COMPONENT_PATH . 'outside-header.php';
 	?>
 
 	<main class="lazy-bg flex-row center-child black-bg relative" data-bg="<?php echo htmlspecialchars(IMAGE_PATH . 'devices.jpg'); ?>">

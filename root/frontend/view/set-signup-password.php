@@ -17,9 +17,6 @@
 </head>
 
 <body>
-    <?php
-        errorOccuredDialog();
-    ?>
     <main class="full-body-content center-child">
         <div class="set-signup-password form-wrapper flex-col">
             <div class="header-w-back">
