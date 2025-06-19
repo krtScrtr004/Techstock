@@ -6,7 +6,7 @@
     <input type="email" name="l_email" id="l_email" placeholder="Please enter your email here" autocomplete="on" min="3" max="255" required>
 
     <div class="password-toggle-wrapper">
-        <img class="absolute" src="<?php echo htmlspecialchars(ICON_PATH . 'show.svg'); ?>" alt="Show password icon" title="Show password icon" width="18" height="18" />
+        <img class="back-button absolute" src="<?php echo htmlspecialchars(ICON_PATH . 'show.svg'); ?>" alt="Show password icon" title="Show password icon" width="18" height="18" />
 
         <input type="password" name="l_password" id="l_password" placeholder="Please enter your password here" min="8" max="255" required>
     </div>

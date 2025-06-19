@@ -22,7 +22,7 @@
             <div class="header-w-back">
                 <h3><?php echo $components[$page][0]; ?></h3>
 
-                <img src="<?php echo htmlspecialchars(ICON_PATH . 'back.svg') ?>" alt="Back button" title="Back button" height="24" width="24">
+                <img class="back-button" src="<?php echo htmlspecialchars(ICON_PATH . 'back.svg') ?>" alt="Back button" title="Back button" height="24" width="24">
             </div>
 
             <?php include_once COMPONENT_PATH . $components[$page][2]; ?>    
@@ -30,6 +30,7 @@
         </div>
     </main>
 
+    <script src="<?php echo htmlspecialchars(EVENT_PATH . 'back-button.js'); ?>" defer></script>
     <script src="<?php echo htmlspecialchars(EVENT_PATH . 'password-list-validator.js'); ?>" defer></script>
     <script src="<?php echo htmlspecialchars(EVENT_PATH . 'hide-modal.js'); ?>" defer></script>
 </body>
