@@ -61,7 +61,6 @@
 	background-color: var(--red);
 }
 
-
 /* ---------------- PASSWORD TOGGLE WRAPPER ---------------- */
 .password-toggle-wrapper {
 	position: relative;
@@ -131,7 +130,67 @@
 .header-w-back > img {
 	position: absolute;
 	top: 50%;
-    left: -25px;
-    transform: translate(0, -50%);
+	left: -25px;
+	transform: translate(0, -50%);
 	cursor: pointer;
 }
+
+/* ------------------------ MODAL ------------------------ */
+
+.modal-wrapper,
+.modal-wrapper::before {
+	height: 100%;
+	width: 100%;
+	position: absolute;
+}
+
+.modal-wrapper,
+.modal-wrapper > * {
+	z-index: 100;
+}
+
+.modal-wrapper,
+.modal-wrapper > div.dialog {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: var(--space);
+}
+
+.modal-wrapper {
+	/* display: none; */
+	background-color: transparent;
+}
+
+.modal-wrapper::before {
+	content: '';
+	top: 0;
+	left: 0;
+	background-color: var(--black);
+	opacity: 0.5;
+}
+
+.modal-wrapper h1 {
+	font-size: 2rem;
+	font-weight: 800;
+}
+
+.modal-wrapper p {
+	font-size: 1.2rem;
+	font-weight: 300;
+}
+
+.modal-wrapper > div {
+	box-sizing: content-box;
+	background-color: var(--white);
+	padding: var(--space);
+	box-shadow: 0 0 1px 1px var(--light-black);
+}
+
+/* DIALOG ------------ */
+.modal-wrapper > div.dialog {
+	flex-direction: column;
+	width: 350px;
+	padding: 2rem;
+}
+

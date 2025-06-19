@@ -17,6 +17,9 @@
 </head>
 
 <body>
+    <?php
+		include_once DIALOG_PATH . 'change-password-success.php';
+    ?>
     <main class="full-body-content center-child">
         <div class="set-signup-password form-wrapper flex-col">
             <div class="header-w-back">
