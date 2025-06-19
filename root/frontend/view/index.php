@@ -41,6 +41,7 @@
 
 	<script src="<?php echo htmlspecialchars(EVENT_PATH . 'toggle-password.js'); ?>"></script>
 	<script src="<?php echo htmlspecialchars(EVENT_PATH . 'lazy-background.js'); ?>"></script>
+	<script src="<?php echo htmlspecialchars(EVENT_PATH . 'hide-modal.js'); ?>" defer></script>
 </body>
 
 </html>

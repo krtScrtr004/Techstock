@@ -48,6 +48,7 @@
     </main>
 
     <script src="<?php echo htmlspecialchars(EVENT_PATH . 'password-list-validator.js'); ?>" defer></script>
+    <script src="<?php echo htmlspecialchars(EVENT_PATH . 'hide-modal.js'); ?>" defer></script>
 </body>
 
 </html>
