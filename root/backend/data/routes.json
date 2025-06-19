@@ -6,7 +6,7 @@
 		"/Techstock/signup": "index",
 		"/Techstock/signup/": "index",
 
-		"Techstock/set-signup-password": "setSignupPassword",
-		"Techstock/set-signup-password/": "setSignupPassword"
+		"Techstock/set-signup-password": "singleForm",
+		"Techstock/set-signup-password/": "singleForm"
 	}
 }

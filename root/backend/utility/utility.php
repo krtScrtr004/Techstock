@@ -12,3 +12,13 @@ function decodeData(String $rawData): array
 
     return $contents;
 }
+
+function kebabToCamelCase(string $string): string {
+    // Converts kebab-case to camelCase
+    return lcfirst(str_replace(' ', '', ucwords(str_replace('-', ' ', $string))));
+}
+
+function camelToSentenceCase(string $string): string {
+    // Converts camelCase to sentence case
+    return ucfirst(trim(preg_replace('/([a-z])([A-Z])/', '$1 $2', $string)));
+}
