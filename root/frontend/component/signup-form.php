@@ -1,5 +1,3 @@
-<h3 class="black-text">Sign Up</h3>
-
 <article class="form-message success center-text">
     Invalid email.
 </article>

@@ -1,5 +1,3 @@
-<h3 class="black-text">Log In</h3>
-
 <article class="form-message success center-text">
     Incorrect email or password.
 </article>
@@ -16,7 +14,7 @@
     <button class="blue-bg white-text" type="submit">LOG IN</button>
 </form>
 
-<a class="inline black-text" href="#">Forget Password</a>
+<a class="inline black-text" href="<?php echo htmlspecialchars(REDIRECT_PATH . 'forget-password'); ?>">Forget Password</a>
 
 <div class="line-divider relative">
     <hr>

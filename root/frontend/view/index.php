@@ -32,7 +32,9 @@
 
 			<section class="left-pane center-child">
 				<div class="form-wrapper flex-col white-bg">
-					<?php include_once COMPONENT_PATH . ($page === 'signup' ? 'signup-form.php' : 'login-form.php'); ?>
+					<h3 class="black-text"><?php echo $components[$page][0]; ?></h3>
+
+					<?php include_once COMPONENT_PATH . $components[$page][1]; ?>
 				</div>
 			</section>
 
