@@ -18,7 +18,8 @@
 
 <body>
     <?php
-		include_once DIALOG_PATH . 'change-password-success.php';
+    	include_once DIALOG_PATH . 'change-password-success.php';
+		include_once DIALOG_PATH . 'error-occured.php';
     ?>
     <main class="full-body-content center-child">
         <div class="set-signup-password form-wrapper flex-col">
