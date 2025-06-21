@@ -1,4 +1,4 @@
-<!-- <?php session_start(); ?> -->
+<?php session_start(); ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -41,8 +41,8 @@
 		</section>
 	</main>
 
-	<script src="<?php echo htmlspecialchars(EVENT_PATH . 'toggle-password.js'); ?>"></script>
-	<script src="<?php echo htmlspecialchars(EVENT_PATH . 'lazy-background.js'); ?>"></script>
+	<script src="<?php echo htmlspecialchars(EVENT_PATH . 'toggle-password.js'); ?>" defer></script>
+	<script src="<?php echo htmlspecialchars(EVENT_PATH . 'lazy-background.js'); ?>" defer></script>
 	<script src="<?php echo htmlspecialchars(EVENT_PATH . 'hide-modal.js'); ?>" defer></script>
 </body>
 

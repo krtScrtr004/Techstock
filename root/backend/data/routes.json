@@ -13,6 +13,10 @@
 		"Techstock/set-signup-password/": "singleForm",
 
 		"Techstock/change-password": "singleForm",
-		"Techstock/change-password/": "singleForm"
+		"Techstock/change-password/": "singleForm",
+
+		"Techstock/home": "home",
+		"Techstock/home/": "home"
+
 	}
 }
