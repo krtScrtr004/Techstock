@@ -193,3 +193,22 @@
 	width: 350px;
 	padding: 2rem;
 }
+
+/* --------------- ICON WITH NOTIFICATION BADGE --------------- */
+
+.icon-w-badge {
+	position: relative;
+}
+
+.icon-w-badge > p {
+	background-color: var(--white);
+	position: absolute;
+	top: -5px;
+	right: -8px;
+	display: grid;
+	place-items: center;
+	box-sizing: content-box;
+	border: 3px solid var(--black);
+	border-radius: 50%;
+	font-size: 0.8rem;
+}

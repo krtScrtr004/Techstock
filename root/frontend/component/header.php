@@ -69,8 +69,8 @@
 
             <span class="icon-section flex-row flex-child-center-h">
                 <!-- Cart -->
-                <div class="relative">
-                    <p class="cart-count circle absolute center-child white-bg">3</p>
+                <div class="icon-w-badge">
+                    <p class="cart-count">3</p>
 
                     <a href="#">
                         <img src="<?php echo htmlspecialchars(ICON_PATH . 'cart.svg'); ?>" alt="Shoppingcart icon" title="Shoppingcart icon" height="32">
@@ -78,8 +78,8 @@
                 </div>
 
                 <!-- Chat -->
-                <div class="relative">
-                    <p class="cart-count circle absolute center-child white-bg">3</p>
+                <div class="icon-w-badge">
+                    <p class="cart-count">99</p>
 
                     <a href="#">
                         <img src="<?php echo htmlspecialchars(ICON_PATH . 'chat_w.svg'); ?>" alt="Message icon" title="Message icon" height="32">
