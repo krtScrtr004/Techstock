@@ -24,13 +24,13 @@
     <main class="dark-white-bg">
         <section class="banner-section white-bg">
             <div class="slide-show-wrapper relative">
-                <img class="slide-show" src="<?php echo htmlspecialchars(IMAGE_PATH . 'console-1.jpg'); ?>" alt="Slideshow" title="Slideshow" height="300" loading="lazy">
+                <img class="slide-show fade" src="<?php echo htmlspecialchars(IMAGE_PATH . 'console-1.jpg'); ?>" alt="Slideshow" title="Slideshow" height="300" loading="lazy">
 
-                <div class="change-button previous circle center-child absolute white-bg">
+                <div class="change-button previous center-child absolute white-bg">
                     <img src="<?php echo htmlspecialchars(ICON_PATH . 'next.svg'); ?>" alt="Previous button" title="Previous button" height="20" width="20">
                 </div>
 
-                <div class="change-button next circle center-child absolute white-bg">
+                <div class="change-button next center-child absolute white-bg">
                     <img src="<?php echo htmlspecialchars(ICON_PATH . 'next.svg'); ?>" alt="Next button" title="Next button" height="20" width="20">
                 </div>
 
@@ -46,6 +46,8 @@
 
         </section>
     </main>
+
+    <script src="<?php echo htmlspecialchars(EVENT_PATH . 'slideshow.js'); ?>" defer></script>
 </body>
 
 </html>
