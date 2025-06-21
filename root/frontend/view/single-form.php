@@ -17,6 +17,8 @@
 </head>
 
 <body>
+    <?php if (!isset($page)) $page = 'forgetPassword' ?>
+
     <main class="full-body-content center-child">
         <div class="single-form form-wrapper flex-col">
             <div class="header-w-back">
