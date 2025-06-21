@@ -7,3 +7,12 @@
 	margin-left: 5rem;
 	margin-right: 10px;
 }
+
+.top-link-section > * {
+	flex: 1;
+	gap: 0.5rem;
+}
+
+.link-w-icon {
+	gap: 7px;
+}

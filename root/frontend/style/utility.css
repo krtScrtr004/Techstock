@@ -32,7 +32,7 @@
 /* --------DISPLAY-------- */
 
 .inline {
-	display: inline-block;
+	display: inline;
 }
 
 .block {
@@ -59,6 +59,11 @@
 .flex-child-center-h {
 	display: flex;
 	align-items: center;
+}
+
+.flex-child-end-v {
+	display: flex;
+	justify-content: end;
 }
 
 .flex-child-end-h {
