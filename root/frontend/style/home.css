@@ -1,0 +1,73 @@
+.home main {
+	padding: 0;
+}
+
+.banner-section {
+	padding: var(--space) var(--content-side-padding);
+}
+
+.slide-show-wrapper {
+	height: 300px;
+	width: 100%;
+    
+}
+
+.slide-show {
+	width: 100%;
+	object-fit: cover;
+}
+
+.slide-show-wrapper:hover .change-button {
+    visibility: visible;
+}
+
+.change-button,
+.dot-tab {
+    opacity: 0.5;
+	z-index: 50;
+    cursor: pointer;
+}
+
+.change-button:hover,
+.dot-tab:hover {
+	opacity: 1;
+}
+
+.change-button {
+	visibility: hidden;
+	width: 30px;
+	height: 30px;
+	top: 50%;
+	transform: translate(0, -50%);
+	/* box-shadow: 0 0 2px 5px var(--white); */
+	transition: visibility .2s ease-in;
+}
+
+.change-button > img {
+	margin-left: 5px;
+}
+
+.change-button.previous {
+	left: 20px;
+	transform: scaleX(-1);
+}
+
+.change-button.next {
+	right: 20px;
+}
+
+.slide-show-wrapper > span {
+	gap: 10px;
+	bottom: 20px;
+	left: 50%;
+	transform: translate(-50%, 0);
+}
+
+.dot-tab {
+	width: 10px;
+	height: 10px;
+}
+
+.dot-tab.active {
+    opacity: 1;
+}
