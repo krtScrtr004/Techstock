@@ -4,8 +4,10 @@
 
 .outside-header img {
 	height: 3rem;
-	margin-left: 5rem;
-	margin-right: 10px;
+}
+
+.inside-header {
+	gap: 1rem;
 }
 
 .top-link-section > * {
@@ -17,6 +19,10 @@
 	gap: 7px;
 }
 
+.lower-header-body {
+	gap: 3rem;
+}
+
 .lower-header-body > span {
 	min-width: 200px;
 }
@@ -26,7 +32,7 @@
 }
 
 .search-section > form {
-	width: 90%;
+	width: 100%;
 }
 
 .search-button {
@@ -34,6 +40,18 @@
 	border: 1px solid var(--white);
 	padding: 8px;
 	margin-left: 5px;
+}
+
+.search-button > img {
+	transition: opacity 300ms ease;
+}
+
+.search-button:hover > img {
+	opacity: 0.5;
+}
+
+.icon-section {
+	gap: var(--space);
 }
 
 .cart-count {

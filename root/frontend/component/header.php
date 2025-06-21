@@ -10,7 +10,7 @@
 
 <?php elseif (session_status() === PHP_SESSION_ACTIVE): ?>
     <!-- Header for logged in pages -->
-    <header class="inside-header black-bg">
+    <header class="inside-header flex-col black-bg">
 
         <!-- Top Links -->
         <section class="top-link-section flex-row white-text">
@@ -32,20 +32,20 @@
             </section>
 
             <section class="right-side flex-row flex-child-end-v">
-                <span class="link-w-icon flex-row">
+                <a class="link-w-icon flex-row" href="#">
                     <img src="<?php echo htmlspecialchars(ICON_PATH . 'notification.svg'); ?>" alt="Bell icon" title="Bell icon" height="16" width="16">
-                    <p>Notification</p>
-                </span>
+                    <p class="white-text">Notification</p>
+                </a>
 
-                <span class="link-w-icon flex-row">
+                <a class="link-w-icon flex-row" href="#">
                     <img src="<?php echo htmlspecialchars(ICON_PATH . 'help.svg'); ?>" alt="Question mark icon" title="Question mark icon" height="16" width="16">
-                    <p>Help</p>
-                </span>
+                    <p class="white-text">Help</p>
+                </a>
 
-                <span class="link-w-icon flex-row">
+                <a class="link-w-icon flex-row" href="#">
                     <img src="<?php echo htmlspecialchars(ICON_PATH . 'user-profile.svg'); ?>" alt="User profile icon" title="User profile icon" height="16" width="16">
-                    <p>Username-123</p>
-                </span>
+                    <p class="white-text">Username-123</p>
+                </a>
             </section>
         </section>
 
@@ -53,11 +53,11 @@
 
             <span class="inline">
                 <a href="#">
-                    <img src="<?php echo htmlspecialchars(LOGO_PATH . 'logo_complete_ver.svg'); ?>" alt="Techstock logo" title="Techstack logo" height="45">
+                    <img src="<?php echo htmlspecialchars(LOGO_PATH . 'logo_complete_ver.svg'); ?>" alt="Techstock logo" title="Techstack logo" height="57">
                 </a>
             </span>
 
-            <section class="search-section center-child">
+            <section class="search-section flex-child-center-h">
                 <form class="flex-row" action="" method="GET">
                     <input class="" type="text" id="search_input" name="search_input" autocomplete="on" min="1" max="255" required>
 
@@ -67,13 +67,13 @@
                 </form>
             </section>
 
-            <span class="flex-row flex-child-center-h flex-space-evenly">
+            <span class="icon-section flex-row flex-child-center-h">
                 <!-- Cart -->
                 <div class="relative">
                     <p class="cart-count circle absolute center-child white-bg">3</p>
 
                     <a href="#">
-                        <img src="<?php echo htmlspecialchars(ICON_PATH . 'cart.svg'); ?>" alt="Shoppingcart icon" title="Shoppingcart icon" height="24">
+                        <img src="<?php echo htmlspecialchars(ICON_PATH . 'cart.svg'); ?>" alt="Shoppingcart icon" title="Shoppingcart icon" height="32">
                     </a>
                 </div>
 
@@ -82,12 +82,10 @@
                     <p class="cart-count circle absolute center-child white-bg">3</p>
 
                     <a href="#">
-                        <img src="<?php echo htmlspecialchars(ICON_PATH . 'chat_w.svg'); ?>" alt="Message icon" title="Message icon" height="24">
+                        <img src="<?php echo htmlspecialchars(ICON_PATH . 'chat_w.svg'); ?>" alt="Message icon" title="Message icon" height="32">
                     </a>
                 </div>
             </span>
         </section>
     </header>
-<?php else: ?>
-
 <?php endif ?>
