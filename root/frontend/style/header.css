@@ -16,3 +16,29 @@
 .link-w-icon {
 	gap: 7px;
 }
+
+.lower-header-body > span {
+	min-width: 200px;
+}
+
+.search-section {
+	flex: 1;
+}
+
+.search-section > form {
+	width: 90%;
+}
+
+.search-button {
+	width: fit-content;
+	border: 1px solid var(--white);
+	padding: 8px;
+	margin-left: 5px;
+}
+
+.cart-count {
+	height: 15px;
+	width: 15px;
+	top: -5px;
+	right: -8px;
+}

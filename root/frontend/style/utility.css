@@ -71,6 +71,14 @@
 	align-items: end;
 }
 
+.flex-space-between {
+	justify-content: space-between;
+}
+
+.flex-space-evenly {
+	justify-content: space-evenly;
+}
+
 /* --------POSITION ELEMENT-------- */
 
 .center-child {
@@ -100,4 +108,11 @@
 .full-body-content {
 	height: 100%;
 	width: 100%;
+}
+
+/* --------ELEMENT SHAPE--------- */
+
+.circle {
+	border-radius: 50%;
+	aspect-ratio: 1/1;
 }
