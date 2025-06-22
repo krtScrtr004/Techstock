@@ -126,20 +126,48 @@
 
                 <section class="carousel">
                     <?php
-                    for ($i = 0, $n = 10; $i < $n; $i++) {
+                    for ($i = 0, $n = 8; $i < $n; $i++) {
                     ?>
-                        <div class="product-card">
-                            <img src="<?php echo htmlspecialchars(IMAGE_PATH . 'laptop-1.jpg') ?>" alt="Product image" title="Product image" height="200">
+                        <a href="">
+                            <div class="product-card">
+                                <img src="<?php echo htmlspecialchars(IMAGE_PATH . 'laptop-1.jpg') ?>" alt="Product image" title="Product image" height="200">
 
-                            <h3 class="multi-line-ellipsis">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo, est.
-                            </h3>
+                                <h3 class="multi-line-ellipsis">
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo, est.
+                                </h3>
 
-                            <span>
-                                <p>&#x20B1;50 999</p>
-                                <p>1.3k Sold</p>
-                            </span>
-                        </div>
+                                <span>
+                                    <p>&#x20B1;50 999</p>
+                                    <p>1.3k Sold</p>
+                                </span>
+                            </div>
+                        </a>
+                    <?php } ?>
+                </section>
+
+                <div class="tracker left">
+                    <img src="<?php echo htmlspecialchars(ICON_PATH . 'next.svg') ?>" alt="Next button" title="Next button" height="20">
+                </div>
+
+                <div class="tracker right">
+                    <img src="<?php echo htmlspecialchars(ICON_PATH . 'next.svg') ?>" alt="Next button" title="Next button" height="20">
+                </div>
+            </section>
+        </section>
+
+        <section class="top-store-section featured-item">
+            <section class="carousel-wrapper">
+                <h1>Top Stores</h1>
+
+                <section class="carousel">
+                    <?php
+                    for ($i = 0, $n = 8; $i < $n; $i++) {
+                    ?>
+                        <a href="">
+                            <div class="store-card center-child white-bg">
+                                <img src="<?php echo htmlspecialchars(IMAGE_PATH . 'brand logo/hp.png') ?>" alt="Store logo image" title="Store logo image">
+                            </div>
+                        </a>
                     <?php } ?>
                 </section>
 
