@@ -47,7 +47,7 @@
 
             <!-- Category Selection -->
             <section class="category-section flex-row flex-space-evenly">
-                <a href="#">
+                <a href="">
                     <div class="category-card flex-col flex-child-center-v">
                         <img src="<?php echo htmlspecialchars(ICON_PATH . 'phone_b.svg') ?>" alt="Smartphone & Accessories category" title="Smartphone & Accessories category" height="57">
                         <h3 class="center-text black-text">Smartphone & Accessories</h3>
@@ -121,10 +121,10 @@
         </section>
 
         <section class="top-product-section featured-item">
-            <section class="content-wrapper">
+            <section class="carousel-wrapper">
                 <h1>Top Products</h1>
 
-                <section>
+                <section class="carousel">
                     <?php
                     for ($i = 0, $n = 10; $i < $n; $i++) {
                     ?>
@@ -156,6 +156,7 @@
 
     <script src="<?php echo htmlspecialchars(EVENT_PATH . 'slideshow.js'); ?>" defer></script>
     <script src="<?php echo htmlspecialchars(EVENT_PATH . 'break-text-fallback.js'); ?>" defer></script>
+    <script src="<?php echo htmlspecialchars(EVENT_PATH . 'carousel-tracker.js'); ?>" defer></script>
 </body>
 
 </html>
