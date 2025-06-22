@@ -183,6 +183,7 @@
             </section>
         </section>
 
+        <!-- Discover More -->
         <section class="discover-more-section ">
             <h3 class="home-section-heading center-text">Discover More</h3>
 
@@ -219,6 +220,68 @@
 
                 <img class="next center-child" src="<?php echo htmlspecialchars(ICON_PATH . 'next.svg') ?>" alt="Next button" title="Next button" height="24">
             </div>
+        </section>
+
+        <section class="article-list flex-col white-bg">
+            <article class="article">
+                <h3>Buy and Sell Electronics Online on Techstock </h3>
+                <p>Techstock is your trusted, all-in-one online marketplace for electronics in the Philippines. Whether you're looking to buy the latest gadgets or sell your own tech products, Techstock makes it easy, secure, and exciting. Our platform supports both individual buyers and multi-seller stores, giving everyone the chance to be part of a growing tech-driven community.</p>
+                <br>
+                <p>From mobile phones, laptops, computer accessories, gaming gear, and home tech appliances, you’ll find great deals and quality items from sellers all over the country. With Techstock Buyer Protection, you can shop worry-free - get the item you ordered, or your money back!</p>
+            </article>
+
+            <article class="article">
+                <h3>Empowering Sellers to Build Their Tech Empire</h3>
+                <p>Techstock isn’t just for buyers - it’s a platform built for sellers too. We offer tools to create your own tech store, manage your listings, handle sales, and connect with customers all in one place. You can even collaborate with other sellers under one store, making Techstock a powerful solution for individuals and teams looking to grow their online business.</p>
+                <br>
+                <p>List your products with zero setup fees, manage orders easily, and enjoy visibility from a growing tech-focused customer base.</p>
+            </article>
+
+            <div class="flex-row">
+                <article class="article">
+                    <h3>Shop with Confidence and Ease</h3>
+
+                    <p>Techstock makes buying simple and secure:</p>
+                    <ul>
+                        <li>Check product reviews and seller ratings before you buy.</li>
+                        <li>Use Techstock Buyer Protection to secure your purchase - we’ll refund you if you don’t receive what you ordered.</li>
+                        <li>Enjoy curated collections and trending tech products based on your interests and browsing history.</li>
+                    </ul>
+
+                    <br>
+
+                    <p>Looking for inspiration? Browse categories like:</p>
+                    <ul>
+                        <li>Smartphones & Tablets – including fan favorites like iPhone, Samsung, Xiaomi, and Realme.</li>
+                        <li>Laptops & Accessories – find gaming laptops, SSDs, RAM, and cooling pads.</li>
+                        <li>Home Electronics – smart home devices, LED lighting, and speakers.</li>
+                        <li>Gaming Gear – keyboards, headsets, controllers, and more.</li>
+                        <li>Pet Tech & Wearables – yes, even your pets can get the latest gadgets!</li>
+                    </ul>
+                </article>
+
+                <article class="article">
+                    <h3>Discover the Best Tech Deals - All in One Place</h3>
+
+                    <p>Stay updated with Techstock Trends to catch the latest tech waves like Piso WiFi systems, smartwatches, or even viral gadgets from YouTube and TikTok. Use our smart search, or browse through personalized recommendations to find what fits your needs and budget.</p>
+
+                    <br>
+
+                    <p>Enjoy perks like:</p>
+                    <ul>
+                        <li>Free shipping on select items</li>
+                        <li>Discount vouchers from top store</li>
+                        <li>Flash sales and limited-time deals</li>
+                    </ul>
+                </article>
+
+            </div>
+
+            <article class="article">
+                <h3>Join the Techstock Community Today!</h3>
+
+                <p>Whether you’re a tech enthusiast, a startup seller, or just looking for reliable electronics, Techstock is the place to be. So what are you waiting for? Start building your store or fill your cart today - only at Techstock Philippines.</p>
+            </article>
         </section>
     </main>
 

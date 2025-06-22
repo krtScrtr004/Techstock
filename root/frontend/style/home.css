@@ -211,3 +211,36 @@
 .page-tab > img.previous {
 	transform: scaleX(-1);
 }
+
+.article-list {
+	gap: var(--space);
+}
+
+.article-list > div {
+	gap: 20px;
+}
+
+.article-list > div > * {
+	flex: 1 1 0;
+}
+
+.article > h3 {
+	font-size: 1.5rem;
+	font-weight: 800;
+	margin-bottom: 1rem;
+}
+
+.article p {
+	line-height: 1.6;
+}
+
+.article > ul {
+	padding-inline-start: 0;
+}
+
+.article li {
+	list-style: disc;
+	list-style-position: inside;
+	padding-left: 1.5em;
+	text-indent: -1.4em;	
+}
