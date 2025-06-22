@@ -22,8 +22,10 @@
     <?php include_once COMPONENT_PATH . 'header.php'; ?>
 
     <main class="dark-white-bg">
+        <!-- Banner Section -->
         <section class="banner-section white-bg">
-            <div class="slide-show-wrapper relative">
+            <!-- Slideshow -->
+            <section class="slide-show-wrapper relative">
                 <img class="slide-show fade" src="<?php echo htmlspecialchars(IMAGE_PATH . 'console-1.jpg'); ?>" alt="Slideshow" title="Slideshow" height="300" loading="lazy">
 
                 <div class="change-button previous center-child absolute white-bg">
@@ -41,9 +43,81 @@
                     <div class="dot-tab circle white-bg"></div>
                     <div class="dot-tab circle white-bg"></div>
                 </span>
-            </div>
+            </section>
 
+            <!-- Category Selection -->
+            <section class="category-section flex-row flex-space-evenly">
+                <a href="#">
+                    <div class="category-card flex-col flex-child-center-v">
+                        <img src="<?php echo htmlspecialchars(ICON_PATH . 'phone_b.svg') ?>" alt="Smartphone & Accessories category" title="Smartphone & Accessories category" height="57">
+                        <h3 class="center-text black-text">Smartphone & Accessories</h3>
+                    </div>
+                </a>
 
+                <a href="">
+                    <div class="category-card flex-col flex-child-center-v">
+                        <img src="<?php echo htmlspecialchars(ICON_PATH . 'pc_b.svg') ?>" alt="Computers & Laptops category" title="Computers & Laptops category" height="57">
+                        <h3 class="center-text black-text">Computers & Laptops</h3>
+                    </div>
+                </a>
+
+                <a href="">
+                    <div class="category-card flex-col flex-child-center-v">
+                        <img src="<?php echo htmlspecialchars(ICON_PATH . 'pc-parts_b.svg') ?>" alt="Components & PC Parts category" title="Components & PC Parts category" height="57">
+                        <h3 class="center-text black-text">Components & PC Parts</h3>
+                    </div>
+                </a>
+
+                <a href="">
+                    <div class="category-card flex-col flex-child-center-v">
+                        <img src="<?php echo htmlspecialchars(ICON_PATH . 'console_b.svg') ?>" alt="Gaming category" title="Gaming category" height="57">
+                        <h3 class="center-text black-text">Gaming</h3>
+                    </div>
+                </a>
+
+                <a href="">
+                    <div class="category-card flex-col flex-child-center-v">
+                        <img src="<?php echo htmlspecialchars(ICON_PATH . 'router_b.svg') ?>" alt="Network & Smarthome category" title="Network & Smarthome category" height="57">
+                        <h3 class="center-text black-text">Network & Smarthome</h3>
+                    </div>
+                </a>
+
+                <a href="">
+                    <div class="category-card flex-col flex-child-center-v">
+                        <img src="<?php echo htmlspecialchars(ICON_PATH . 'headphone_b.svg') ?>" alt="Audio & Music category" title="Audio & Music category" height="57">
+                        <h3 class="center-text black-text">Audio & Music</h3>
+                    </div>
+                </a>
+
+                <a href="">
+                    <div class="category-card flex-col flex-child-center-v">
+                        <img src="<?php echo htmlspecialchars(ICON_PATH . 'smartwatch_b.svg') ?>" alt="Wearables & Health  Tech category" title="Wearables & Health  Tech category" height="57">
+                        <h3 class="center-text black-text">Wearables & Health Tech</h3>
+                    </div>
+                </a>
+
+                <a href="">
+                    <div class="category-card flex-col flex-child-center-v">
+                        <img src="<?php echo htmlspecialchars(ICON_PATH . 'printer_b.svg') ?>" alt="Office & Productivity category" title="Office & Productivity category" height="57">
+                        <h3 class="center-text black-text">Office & Productivity</h3>
+                    </div>
+                </a>
+
+                <a href="">
+                    <div class="category-card flex-col flex-child-center-v">
+                        <img src="<?php echo htmlspecialchars(ICON_PATH . 'camera_b.svg') ?>" alt="Drone & Cameras category" title="Drone & Cameras category" height="57">
+                        <h3 class="center-text black-text">Drone & Cameras</h3>
+                    </div>
+                </a>
+
+                <a href="">
+                    <div class="category-card flex-col flex-child-center-v">
+                        <img src="<?php echo htmlspecialchars(ICON_PATH . 'arduino_b.svg') ?>" alt="Tech For Education category" title="Tech For Education category" height="57">
+                        <h3 class="center-text black-text">Tech For Education</h3>
+                    </div>
+                </a>
+
+            </section>
         </section>
     </main>
 

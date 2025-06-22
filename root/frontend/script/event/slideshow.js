@@ -1,5 +1,4 @@
 const path = 'asset/image/'
-
 const images = [
     'console-1.jpg',
     'controller-1.jpg',
@@ -20,7 +19,6 @@ const reflowImage = () => {
     slideshowImage.classList.remove('fade');
     void slideshowImage.offsetWidth; // force reflow
     slideshowImage.classList.add('fade');
-
 }
 
 const autoNextImage = () => {
@@ -40,7 +38,7 @@ changeButtons.forEach(button => {
     button.addEventListener('click', e => {
         e.stopPropagation()
 
-        autoNextImage()
+        autoNextImage()          
 
         dotTabs[imageIndex].classList.remove('active')
         if (button.classList.contains('next')) {
