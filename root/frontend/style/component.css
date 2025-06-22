@@ -205,11 +205,49 @@
 	position: absolute;
 	top: -5px;
 	right: -8px;
-	display: grid;	place-items: center;
+	display: grid;
+	place-items: center;
 	box-sizing: content-box;
 	border: 3px solid var(--black);
 	border-radius: 50%;
 	font-size: 0.8rem;
 }
 
-/* --------------- ICON WITH NOTIFICATION BADGE --------------- */
+/* ---------------------- PRODUCT CARD ---------------------- */
+
+.product-card,
+.product-card > span {
+	display: flex;
+}
+
+.product-card {
+	width: 250px;
+	height: 350px;
+	background-color: var(--white);
+	flex-direction: column;
+	gap: 5px;
+	padding: 10px;
+}
+
+.product-card > img {
+	width: 100%;
+	object-fit: cover;
+}
+
+.product-card > span {
+	margin-top: auto;
+}
+
+.product-card > span > * {
+	flex: 1 1 0;
+	width: 100%;
+}
+
+.product-card > span > p:nth-child(1) {
+	color: var(--blue);
+	font-weight: 600;
+}
+
+.product-card > span > p:nth-child(2) {
+	text-align: right;
+}

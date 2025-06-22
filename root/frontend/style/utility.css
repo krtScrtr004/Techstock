@@ -101,10 +101,24 @@
 	position: absolute;
 }
 
-/* --------TEXT ALIGNMENT-------- */
+/* --------TEXT STYLE-------- */
 
 .center-text {
 	text-align: center;
+}
+
+.single-line-ellipsis {
+	white-space: nowrap; /* Keep text on one line */
+	overflow: hidden; /* Hide overflowing text */
+	text-overflow: ellipsis;
+}
+
+.multi-line-ellipsis {
+	display: -webkit-box;
+	-webkit-line-clamp: 2; /* Number of lines */
+	line-clamp: 2; /* Standard property for compatibility */
+	-webkit-box-orient: vertical;
+	overflow: hidden;
 }
 
 /* --------ELEMENT SIZING-------- */
