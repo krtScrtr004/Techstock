@@ -6,7 +6,7 @@
     <input type="email" name="l_email" id="l_email" placeholder="Please enter your email here" autocomplete="on" min="3" max="255" required>
 
     <div class="password-toggle-wrapper">
-        <img class="back-button absolute" src="<?php echo htmlspecialchars(ICON_PATH . 'show.svg'); ?>" alt="Show password icon" title="Show password icon" width="18" height="18" />
+        <img class="back-button absolute" src="<?php echo htmlspecialchars(ICON_PATH . 'show.svg'); ?>" alt="Show password" title="Show password" width="18" height="18" />
 
         <input type="password" name="l_password" id="l_password" placeholder="Please enter your password here" min="8" max="255" required>
     </div>
@@ -23,13 +23,13 @@
 
 <section class="oath-provider-link">
     <div>
-        <img src="<?php echo htmlspecialchars(ICON_PATH . 'facebook.svg'); ?>" alt="Facebook Logo" title="Facebook Logo" width="45" height="45">
+        <img src="<?php echo htmlspecialchars(ICON_PATH . 'facebook.svg'); ?>" alt="Facebook log in" title="Facebook log in" width="45" height="45">
 
         <h3>Facebook</h3>
     </div>
 
     <div>
-        <img src="<?php echo htmlspecialchars(ICON_PATH . 'google.svg'); ?>" alt="Google Logo" title="Google Logo" width="45" height="45">
+        <img src="<?php echo htmlspecialchars(ICON_PATH . 'google.svg'); ?>" alt="Google log in" title="Google log in" width="45" height="45">
 
         <h3>Google</h3>
     </div>
