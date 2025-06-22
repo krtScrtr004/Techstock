@@ -227,6 +227,15 @@
 	flex-direction: column;
 	gap: 5px;
 	padding: 10px;
+	border: 1px solid transparent;
+}
+
+.product-card:hover {
+	border: 1px solid var(--black);
+}
+
+.product-card * {
+	color: var(--black);
 }
 
 .product-card > img {

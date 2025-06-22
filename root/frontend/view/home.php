@@ -120,9 +120,10 @@
             </section>
         </section>
 
+        <!-- Top Products -->
         <section class="top-product-section featured-item">
             <section class="carousel-wrapper">
-                <h1>Top Products</h1>
+                <h1 class="home-section-heading">Top Products</h1>
 
                 <section class="carousel">
                     <?php
@@ -155,9 +156,10 @@
             </section>
         </section>
 
+        <!-- Top Stores -->
         <section class="top-store-section featured-item">
             <section class="carousel-wrapper">
-                <h1>Top Stores</h1>
+                <h1 class="home-section-heading">Top Stores</h1>
 
                 <section class="carousel">
                     <?php
@@ -179,6 +181,44 @@
                     <img src="<?php echo htmlspecialchars(ICON_PATH . 'next.svg') ?>" alt="Next button" title="Next button" height="20">
                 </div>
             </section>
+        </section>
+
+        <section class="discover-more-section ">
+            <h3 class="home-section-heading center-text">Discover More</h3>
+
+            <section class="product-list ">
+                <?php
+                for ($i = 0, $n = 10; $i < $n; $i++) {
+                ?>
+                    <a href="">
+                        <div class="product-card">
+                            <img src="<?php echo htmlspecialchars(IMAGE_PATH . 'laptop-1.jpg') ?>" alt="Product image" title="Product image" height="200">
+
+                            <h3 class="multi-line-ellipsis">
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo, est.
+                            </h3>
+
+                            <span>
+                                <p>&#x20B1;50 999</p>
+                                <p>1.3k Sold</p>
+                            </span>
+                        </div>
+                    </a>
+                <?php } ?>
+            </section>
+
+            <div class="page-tab center-child">
+                <img class="previous center-child" src="<?php echo htmlspecialchars(ICON_PATH . 'next.svg') ?>" alt="Previous button" title="Previous button" height="24">
+
+                <p class="active">1</p>
+                <p>2</p>
+                <p>3</p>
+                <p>4</p>
+                <p>5</p>
+                <p>...</p>
+
+                <img class="next center-child" src="<?php echo htmlspecialchars(ICON_PATH . 'next.svg') ?>" alt="Next button" title="Next button" height="24">
+            </div>
         </section>
     </main>
 

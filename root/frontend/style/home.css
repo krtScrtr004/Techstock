@@ -7,17 +7,21 @@
 }
 
 @keyframes fade {
-  from {opacity: .4}
-  to {opacity: 1}
+	from {
+		opacity: 0.4;
+	}
+	to {
+		opacity: 1;
+	}
 }
 
 .fade {
-    animation: fade 1s ease forwards;
+	animation: fade 1s ease forwards;
 }
 
 .slide-show-wrapper {
 	height: 300px;
-	width: 100%;    
+	width: 100%;
 }
 
 .slide-show {
@@ -26,14 +30,14 @@
 }
 
 .slide-show-wrapper:hover .change-button {
-    visibility: visible;
+	visibility: visible;
 }
 
 .change-button,
 .dot-tab {
-    opacity: 0.5;
+	opacity: 0.5;
 	z-index: 50;
-    cursor: pointer;
+	cursor: pointer;
 }
 
 .change-button:hover,
@@ -74,7 +78,7 @@
 }
 
 .dot-tab.active {
-    opacity: 1;
+	opacity: 1;
 }
 
 .category-section {
@@ -87,6 +91,13 @@
 	max-width: 15ch;
 	font-size: 1rem;
 	font-weight: 500;
+}
+
+.home-section-heading {
+	background-color: var(--white);
+	padding: 10px 1rem;
+	border-bottom: 3px solid var(--black);
+	margin-bottom: 5px;
 }
 
 .featured-item,
@@ -105,13 +116,6 @@
 
 .carousel-wrapper {
 	position: relative;
-}
-
-.carousel-wrapper > h1 {
-	background-color: var(--white);
-	padding: 10px 1rem;
-	border-bottom: 3px solid var(--black);
-	margin-bottom: 5px;
 }
 
 .carousel {
@@ -158,13 +162,52 @@
 	position: relative;
 }
 
-.store-card  {
+.store-card {
 	width: 250px;
-	height: 275px;
+	height: 350px;
 	overflow: hidden;
+	border: 1px solid transparent;
+}
+
+.store-card:hover {
+	border: 1px solid var(--black);
 }
 
 .store-card > img {
 	width: 100%;
 	padding: 10px;
+}
+
+.discover-more-section > .product-list {
+	overflow: hidden;
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+	justify-content: stretch;
+	place-items: center;
+	gap: 25px;
+}
+
+.page-tab {
+	margin-top: 3rem;
+	gap: 5px;
+}
+
+.page-tab > * {
+	width: 30px;
+	height: 30px;
+	background-color: transparent;
+	padding: 10px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	cursor: pointer;
+}
+
+.page-tab > p.active {
+	color: var(--white);
+	background-color: var(--blue);
+}
+
+.page-tab > img.previous {
+	transform: scaleX(-1);
 }
