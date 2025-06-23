@@ -1,5 +1,3 @@
-<?php session_start(); ?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -14,6 +12,7 @@
 	<link rel="stylesheet" href="<?php echo STYLE_PATH . 'utility.css' ?>">
 	<link rel="stylesheet" href="<?php echo STYLE_PATH . 'component.css' ?>">
 	<link rel="stylesheet" href="<?php echo STYLE_PATH . 'header.css' ?>">
+	<link rel="stylesheet" href="<?php echo STYLE_PATH . 'footer.css' ?>">
 
 	<link rel="stylesheet" href="<?php echo STYLE_PATH . 'index.css' ?>">
 </head>
@@ -40,6 +39,8 @@
 
 		</section>
 	</main>
+
+	<?php require_once COMPONENT_PATH . 'footer.php'; ?>
 
 	<script src="<?php echo htmlspecialchars(EVENT_PATH . 'toggle-password.js'); ?>" defer></script>
 	<script src="<?php echo htmlspecialchars(EVENT_PATH . 'lazy-background.js'); ?>" defer></script>

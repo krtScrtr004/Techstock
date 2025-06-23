@@ -1,5 +1,8 @@
-<footer class="footer black-bg">
+<?php $hasSession = (session_status() === PHP_SESSION_ACTIVE) ?>
+
+<footer class="footer black-bg <?php echo ((!$hasSession) ? 'flex-row' : '') ?>">
     <section class="footer-links flex-row flex-space-between">
+        <?php if ($hasSession): ?>
         <section>
             <h3>Navigate Our Site</h3>
             <ul>
@@ -11,6 +14,7 @@
                 <li><a href="">About Us</a></li>
             </ul>
         </section>
+        <?php endif; ?>
 
         <section>
             <h3>Contacts</h3>

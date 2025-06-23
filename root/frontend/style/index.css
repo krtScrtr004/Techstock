@@ -9,8 +9,8 @@
 }
 
 .index .lazy-bg {
-    padding: 0;
-    height: 100%;
+    padding: 8rem var(--space);
+    height: 100vh;
 }
 
 .index .lazy-bg > section {

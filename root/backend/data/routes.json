@@ -1,22 +1,15 @@
 {
 	"GET": {
-		"/Techstock/": "index",
+		"/Techstock": "index",
 		"/Techstock/login": "index",
-		"/Techstock/login/": "index",
 		"/Techstock/signup": "index",
-		"/Techstock/signup/": "index",
 
 		"Techstock/forget-password": "singleForm",
-		"Techstock/forget-password/": "singleForm",
 
 		"Techstock/set-signup-password": "singleForm",
-		"Techstock/set-signup-password/": "singleForm",
 
 		"Techstock/change-password": "singleForm",
-		"Techstock/change-password/": "singleForm",
 
-		"Techstock/home": "home",
-		"Techstock/home/": "home"
-
+		"Techstock/home": "home"
 	}
 }
