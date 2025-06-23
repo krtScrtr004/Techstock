@@ -122,7 +122,7 @@
         <!-- Top Products -->
         <section class="top-product-section featured-item">
             <section class="carousel-wrapper">
-                <h1 class="home-section-heading">Top Products</h1>
+                <h1 class="home-section-heading sticky">Top Products</h1>
 
                 <section class="carousel">
                     <?php
@@ -144,7 +144,7 @@
         <!-- Top Stores -->
         <section class="top-store-section featured-item">
             <section class="carousel-wrapper">
-                <h1 class="home-section-heading">Top Stores</h1>
+                <h1 class="home-section-heading sticky">Top Stores</h1>
 
                 <section class="carousel">
                     <?php
@@ -170,7 +170,7 @@
 
         <!-- Discover More -->
         <section class="discover-more-section">
-            <h3 class="home-section-heading center-text">Discover More</h3>
+            <h3 class="home-section-heading sticky center-text">Discover More</h3>
 
             <?php include_once COMPONENT_PATH . 'product-list.php' ?>
         </section>

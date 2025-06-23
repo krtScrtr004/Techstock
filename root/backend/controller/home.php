@@ -19,6 +19,62 @@ function home(): void
             'This is product 2.',
             99.23,
             321
+        ),
+        new Product(
+            456,
+            'Product 3',
+            'This is product 3.',
+            45.50,
+            456
+        ),
+        new Product(
+            789,
+            'Product 4',
+            'This is product 4.',
+            12.75,
+            789
+        ),
+        new Product(
+            654,
+            'Product 5',
+            'This is product 5.',
+            67.00,
+            654
+        ),
+        new Product(
+            987,
+            'Product 6',
+            'This is product 6.',
+            23.99,
+            987
+        ),
+        new Product(
+            159,
+            'Product 7',
+            'This is product 7.',
+            150.00,
+            159
+        ),
+        new Product(
+            753,
+            'Product 8',
+            'This is product 8.',
+            8.49,
+            753
+        ),
+        new Product(
+            852,
+            'Product 9',
+            'This is product 9.',
+            34.99,
+            852
+        ),
+        new Product(
+            951,
+            'Product 10',
+            'This is product 10.',
+            120.00,
+            951
         )
     ];
 

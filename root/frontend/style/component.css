@@ -218,10 +218,15 @@
 .product-list {
 	overflow: hidden;
 	display: grid;
-	grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+	grid-template-columns: repeat(auto-fit, 250px);
 	justify-content: stretch;
 	place-items: center;
 	gap: 25px;
+}
+
+.product-list .product-card {
+	place-self: stretch;
+	justify-self: stretch;
 }
 
 .product-card,

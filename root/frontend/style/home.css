@@ -98,6 +98,7 @@
 	padding: 10px 1rem;
 	border-bottom: 3px solid var(--black);
 	margin-bottom: var(--space);
+	top: 0;
 }
 
 .featured-item,
@@ -178,7 +179,6 @@
 	padding: 10px;
 }
 
-
 .article-list {
 	gap: var(--space);
 }
@@ -213,5 +213,5 @@
 	list-style: disc;
 	list-style-position: inside;
 	padding-left: 1.5em;
-	text-indent: -1.4em;	
+	text-indent: -1.4em;
 }
