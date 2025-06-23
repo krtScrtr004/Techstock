@@ -16,6 +16,7 @@ define('DIALOG_PATH', COMPONENT_PATH . 'dialog/');
 define('CONTROLLER_PATH', BACKEND_PATH . 'controller/');
 define('DATA_PATH', BACKEND_PATH . 'data/');
 define('ROUTER_PATH', BACKEND_PATH . 'router/');
+define('ENTITY_PATH', BACKEND_PATH . 'entity/');
 define('BE_UTILITY_PATH', BACKEND_PATH . 'utility/');
 define('FE_UTILITY_PATH', FRONTEND_PATH . 'utility/');
 

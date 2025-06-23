@@ -126,8 +126,8 @@
 
                 <section class="carousel">
                     <?php
-                    for ($i = 0, $n = 8; $i < $n; $i++) {
-                        renderProductCard();
+                    foreach ($products as $product) {
+                        renderProductCard($product);
                     } ?>
                 </section>
 
@@ -172,10 +172,10 @@
         <section class="discover-more-section ">
             <h3 class="home-section-heading center-text">Discover More</h3>
 
-            <section class="product-list ">
+            <section class="product-list">
                 <?php
-                for ($i = 0, $n = 10; $i < $n; $i++) {
-                    renderProductCard();
+                foreach ($products as $product) {
+                    renderProductCard($product);
                 } ?>
             </section>
 
