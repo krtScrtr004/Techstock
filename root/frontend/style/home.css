@@ -178,14 +178,6 @@
 	padding: 10px;
 }
 
-.discover-more-section > .product-list {
-	overflow: hidden;
-	display: grid;
-	grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-	justify-content: stretch;
-	place-items: center;
-	gap: 25px;
-}
 
 .page-tab {
 	margin-top: 3rem;
