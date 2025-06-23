@@ -269,3 +269,30 @@
 .product-card > span > p:nth-child(2) {
 	text-align: right;
 }
+
+/* --------------------- PAGE TAB --------------------- */
+
+.page-tab {
+	margin-top: 3rem;
+	gap: 5px;
+}
+
+.page-tab > * {
+	width: 30px;
+	height: 30px;
+	background-color: transparent;
+	padding: 10px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	cursor: pointer;
+}
+
+.page-tab > p.active {
+	color: var(--white);
+	background-color: var(--blue);
+}
+
+.page-tab > img.previous {
+	transform: scaleX(-1);
+}
