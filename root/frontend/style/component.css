@@ -272,8 +272,10 @@
 
 /* --------------------- PAGE TAB --------------------- */
 
+
 .page-tab {
-	margin-top: 3rem;
+	margin-top: auto;
+	padding-top: 3rem;
 	gap: 5px;
 }
 
