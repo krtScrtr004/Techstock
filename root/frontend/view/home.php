@@ -127,22 +127,8 @@
                 <section class="carousel">
                     <?php
                     for ($i = 0, $n = 8; $i < $n; $i++) {
-                    ?>
-                        <a href="">
-                            <div class="product-card">
-                                <img src="<?php echo htmlspecialchars(IMAGE_PATH . 'laptop-1.jpg') ?>" alt="Product image" title="Product image" height="200">
-
-                                <h3 class="multi-line-ellipsis">
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo, est.
-                                </h3>
-
-                                <span>
-                                    <p>&#x20B1;50 999</p>
-                                    <p>1.3k Sold</p>
-                                </span>
-                            </div>
-                        </a>
-                    <?php } ?>
+                        renderProductCard();
+                    } ?>
                 </section>
 
                 <div class="tracker left">
@@ -189,22 +175,8 @@
             <section class="product-list ">
                 <?php
                 for ($i = 0, $n = 10; $i < $n; $i++) {
-                ?>
-                    <a href="">
-                        <div class="product-card">
-                            <img src="<?php echo htmlspecialchars(IMAGE_PATH . 'laptop-1.jpg') ?>" alt="Product image" title="Product image" height="200">
-
-                            <h3 class="multi-line-ellipsis">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo, est.
-                            </h3>
-
-                            <span>
-                                <p>&#x20B1;50 999</p>
-                                <p>1.3k Sold</p>
-                            </span>
-                        </div>
-                    </a>
-                <?php } ?>
+                    renderProductCard();
+                } ?>
             </section>
 
             <div class="page-tab center-child">

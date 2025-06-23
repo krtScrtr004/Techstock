@@ -2,7 +2,6 @@
 
 require_once __DIR__ . '/path.php';
 
-// require_once COMPONENT_PATH . 'dialog.php';
 require_once BE_UTILITY_PATH . 'utility.php';
 
 foreach (glob(CONTROLLER_PATH . '*.php') as $fileName) {
