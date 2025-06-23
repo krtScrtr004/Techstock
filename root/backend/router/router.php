@@ -71,7 +71,6 @@ class Router
      */
     public function dispatch()
     {
-        global $logger;
         // Get the requested route.
         $requestedRoute = trim($_SERVER['REQUEST_URI'], '/') ?? '/';
 
