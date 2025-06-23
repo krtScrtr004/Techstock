@@ -289,6 +289,7 @@
     <script src="<?php echo htmlspecialchars(EVENT_PATH . 'slideshow.js'); ?>" defer></script>
     <script src="<?php echo htmlspecialchars(EVENT_PATH . 'break-text-fallback.js'); ?>" defer></script>
     <script src="<?php echo htmlspecialchars(EVENT_PATH . 'carousel-tracker.js'); ?>" defer></script>
+    <script src="<?php echo htmlspecialchars(EVENT_PATH . 'hide-modal.js'); ?>" defer></script>
 </body>
 
 </html>

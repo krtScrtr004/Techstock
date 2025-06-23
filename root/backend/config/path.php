@@ -16,9 +16,11 @@ define('DIALOG_PATH', COMPONENT_PATH . 'dialog/');
 define('CONTROLLER_PATH', BACKEND_PATH . 'controller/');
 define('DATA_PATH', BACKEND_PATH . 'data/');
 define('ROUTER_PATH', BACKEND_PATH . 'router/');
-define('UTILITY_PATH', BACKEND_PATH . 'utility/');
+define('BE_UTILITY_PATH', BACKEND_PATH . 'utility/');
+define('FE_UTILITY_PATH', FRONTEND_PATH . 'utility/');
 
 // Relative paths
+
 define('SCRIPT_PATH', REL_PATH . 'script/');
 define('STYLE_PATH', REL_PATH . 'style/');
 
