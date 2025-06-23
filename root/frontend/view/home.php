@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="<?php echo STYLE_PATH . 'utility.css' ?>">
     <link rel="stylesheet" href="<?php echo STYLE_PATH . 'component.css' ?>">
     <link rel="stylesheet" href="<?php echo STYLE_PATH . 'header.css' ?>">
+    <link rel="stylesheet" href="<?php echo STYLE_PATH . 'footer.css' ?>">
 
     <link rel="stylesheet" href="<?php echo STYLE_PATH . 'home.css' ?>">
 </head>
@@ -284,6 +285,8 @@
             </article>
         </section>
     </main>
+
+    <?php require_once COMPONENT_PATH . 'footer.php'; ?>
 
     <script src="<?php echo htmlspecialchars(EVENT_PATH . 'slideshow.js'); ?>" defer></script>
     <script src="<?php echo htmlspecialchars(EVENT_PATH . 'break-text-fallback.js'); ?>" defer></script>

@@ -97,7 +97,7 @@
 	background-color: var(--white);
 	padding: 10px 1rem;
 	border-bottom: 3px solid var(--black);
-	margin-bottom: 5px;
+	margin-bottom: var(--space);
 }
 
 .featured-item,
@@ -214,6 +214,10 @@
 
 .article-list {
 	gap: var(--space);
+}
+
+.article-list * {
+	color: var(--black);
 }
 
 .article-list > div {

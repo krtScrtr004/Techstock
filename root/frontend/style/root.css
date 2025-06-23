@@ -37,7 +37,8 @@ body {
 }
 
 header,
-main {
+main,
+footer {
 	min-width: var(--min-width);
 
 	padding: 0 var(--content-side-padding);
@@ -46,6 +47,11 @@ main {
 header {
 	padding-top: 0.5rem;
 	padding-bottom: 0.5rem;
+}
+
+footer {
+	padding-top: var(--space);
+	padding-bottom: var(--space);
 }
 
 a {
