@@ -1,7 +1,5 @@
 <?php
 
-
-
 function renderDialog(bool $status, string $id, string $title, string $message)
 {
     $icons = ['confirm.svg', 'reject.svg'];

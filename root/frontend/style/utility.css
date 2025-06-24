@@ -101,6 +101,10 @@
 	position: absolute;
 }
 
+.sticky {
+	position: sticky;
+}
+
 /* --------TEXT STYLE-------- */
 
 .center-text {

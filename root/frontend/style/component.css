@@ -213,7 +213,21 @@
 	font-size: 0.8rem;
 }
 
-/* ---------------------- PRODUCT CARD ---------------------- */
+/* ----------------- PRODUCT CARD & PRODUCT LIST ----------------- */
+
+.product-list {
+	overflow: hidden;
+	display: grid;
+	grid-template-columns: repeat(auto-fit, 250px);
+	justify-content: stretch;
+	place-items: center;
+	gap: 25px;
+}
+
+.product-list .product-card {
+	place-self: stretch;
+	justify-self: stretch;
+}
 
 .product-card,
 .product-card > span {
@@ -259,4 +273,41 @@
 
 .product-card > span > p:nth-child(2) {
 	text-align: right;
+}
+
+/* --------------------- PAGE TAB --------------------- */
+
+
+.page-tab {
+	margin-top: auto;
+	padding-top: 3rem;
+	gap: 20px;
+}
+
+.page-tab > * {
+	width: 40px;
+	height: 40px;
+	aspect-ratio: 1/1;
+	background-color: transparent;
+	padding: 10px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	cursor: pointer;
+}
+
+.page-tab > p {
+	font-size: 1.3rem;
+	font-weight: 300;
+}
+
+.page-tab > p.active {
+	color: var(--white);
+	background-color: var(--blue);
+	border-radius: var(--border-radius);
+	font-weight: 500;
+}
+
+.page-tab > img.previous {
+	transform: scaleX(-1);
 }
