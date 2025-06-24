@@ -10,6 +10,6 @@
 
 		"Techstock/home": "home",
 
-		"Techstock/discover-more\\?page={page:[0-9]}": "discoverMore"
+		"Techstock/discover-more\\?page={page:[\\d]+}": "discoverMore"
 	}
 }

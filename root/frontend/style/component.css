@@ -281,12 +281,13 @@
 .page-tab {
 	margin-top: auto;
 	padding-top: 3rem;
-	gap: 5px;
+	gap: 20px;
 }
 
 .page-tab > * {
-	width: 30px;
-	height: 30px;
+	width: 40px;
+	height: 40px;
+	aspect-ratio: 1/1;
 	background-color: transparent;
 	padding: 10px;
 	display: flex;
@@ -295,9 +296,16 @@
 	cursor: pointer;
 }
 
+.page-tab > p {
+	font-size: 1.3rem;
+	font-weight: 300;
+}
+
 .page-tab > p.active {
 	color: var(--white);
 	background-color: var(--blue);
+	border-radius: var(--border-radius);
+	font-weight: 500;
 }
 
 .page-tab > img.previous {

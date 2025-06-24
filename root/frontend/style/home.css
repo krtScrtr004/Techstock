@@ -58,7 +58,7 @@
 }
 
 .change-button.previous {
-	transform: scaleX(-1);
+	transform: translate(0, -50%) scaleX(-1);
 }
 
 .change-button.next {

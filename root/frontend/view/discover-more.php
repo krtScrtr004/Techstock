@@ -37,6 +37,8 @@
     </main>
 
     <?php require_once COMPONENT_PATH . 'footer.php'; ?>
+
+    <script src="<?php echo htmlspecialchars(EVENT_PATH . 'page-tab.js'); ?>" defer></script>
 </body>
 
 </html>
