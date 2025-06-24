@@ -1,3 +1,5 @@
+import { redirect } from '../utility/redirect.js'
+
 const urlParam = new URLSearchParams(window.location.search)
 const pageNumber = parseInt(urlParam.get('page') ?? 1)
 
@@ -13,7 +15,11 @@ tabs.forEach((tab, index) => {
     if (index !== (pageNumber - 1)) {
         tab.addEventListener('click', e => {
             e.stopPropagation()
-            window.location.href = `/Techstock/${(index === 0) ? 'home' : `discover-more?page=${index + 1}`}`
+            if (index === 0) {
+                redirect.redirectToHome()
+            } else {
+                redirect.redirectToDiscoverMore(index + 1)
+            }
         })
     }
 })
@@ -22,9 +28,19 @@ buttons.forEach(button => {
     button.addEventListener('click', e => {
         e.stopPropagation()
         if (button.classList.contains('previous')) {
-            window.location.href = `/Techstock/${(pageNumber === 1 || pageNumber === 2) ? 'home' : `discover-more?page=${pageNumber - 1}`}`
+            if (pageNumber === 1) {
+                redirect.redirectToDiscoverMore(maxPage)
+            } else if (pageNumber === 2) {
+                redirect.redirectToHome()
+            } else {
+                redirect.redirectToDiscoverMore(pageNumber - 1)
+            }
         } else {
-            window.location.href = `/Techstock/${(pageNumber === maxPage) ? 'home' : `discover-more?page=${pageNumber + 1}`}`
+            if (pageNumber === maxPage) {
+                redirect.redirectToHome()
+            } else {
+                redirect.redirectToDiscoverMore(pageNumber + 1)
+            }
         }
     })
 })
