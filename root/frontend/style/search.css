@@ -4,17 +4,20 @@
 
 .search main > * {
 	margin: var(--space) var(--content-side-padding);
-	padding: 15px;
+	padding: var(--space);
 }
 
 .search aside {
+    position: sticky;
+    top: 0;
+    gap: 15px;
 	margin-right: 0;
     color: var(--black);
 }
 
 .search aside > *:not(:last-child),
-.category-filter > *:not(:last-child) {
-	margin-bottom: 10px;
+.search aside > section > *:not(:last-child) {
+	margin-bottom: 15px;
 }
 
 .category-form > * {
@@ -22,7 +25,7 @@
 }
 
 .category-form > *:not(:last-child) {
-	margin-bottom: 5px;
+	margin-bottom: 10px;
 }
 
 .category-form input[type='checkbox'] {
@@ -32,19 +35,48 @@
 	justify-content: end;
 }
 
+.rating-filter *:not(h3),
+.price-filter *:not(h3) {
+    font-size: 0.8rem;
+    font-weight: 200;
+}
+
+
 .rating-filter > button {
 	background-color: transparent;
 	padding: 0;
 }
 
 .rating-filter div {
+    font-size: 1rem;
+    font-weight: 800;
 	gap: 5px;
 	align-items: flex-end;
 }
 
-.rating-filter div > p {
+.price-filter > form {
+    gap: 5px;
+}
+
+.price-filter > form > input {
+    flex: 1 1 0;
+}
+
+.filter-button {
+    gap: 5px;
+}
+
+.filter-button > button {
     font-size: 0.8rem;
-	font-weight: 200;
+    font-weight: 700;
+}
+
+.filter-button > button:nth-child(1) {
+    width: 40%;
+}
+
+.filter-button > button:nth-child(2) {
+    flex: 1 1 0;
 }
 
 .result-grid {

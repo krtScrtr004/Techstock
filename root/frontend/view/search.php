@@ -117,7 +117,7 @@
                             echo '<div class="inline ' . (($i < 4) ? 'yellow-text' : 'black-text') . '">&#9733;</div>';
                         }
                         ?>
-                        <p class="black-text">& Up</p> 
+                        <p class="black-text">& Up</p>
                     </div>
                 </button>
 
@@ -128,7 +128,7 @@
                             echo '<div class="inline ' . (($i < 3) ? 'yellow-text' : 'black-text') . '">&#9733;</div>';
                         }
                         ?>
-                        <p class="black-text">& Up</p> 
+                        <p class="black-text">& Up</p>
                     </div>
                 </button>
 
@@ -139,7 +139,7 @@
                             echo '<div class="inline ' . (($i < 2) ? 'yellow-text' : 'black-text') . '">&#9733;</div>';
                         }
                         ?>
-                        <p class="black-text">& Up</p> 
+                        <p class="black-text">& Up</p>
                     </div>
                 </button>
 
@@ -150,12 +150,33 @@
                             echo '<div class="inline ' . (($i < 1) ? 'yellow-text' : 'black-text') . '">&#9733;</div>';
                         }
                         ?>
-                        <p class="black-text">& Up</p> 
+                        <p class="black-text">& Up</p>
                     </div>
                 </button>
 
             </section>
 
+            <section class="price-filter">
+                <h3>Price Range</h3>
+
+                <form class="center-child" action="" method="GET">
+                    <input class="dark-white-bg" type="number" id="min_price" name="min_price" placeholder="MIN" min="0" max="99999">
+
+                    <p class="">&#8212;</p>
+
+                    <input class="dark-white-bg" type="number" id="max_price" name="max_price" placeholder="MAX" min="0" max="99999">
+                </form>
+            </section>
+
+            <div class="filter-button flex-row">
+                <button class="red-bg white-text" type="submit">
+                    CLEAR
+                </button>
+
+                <button class="black-bg white-text" type="submit">
+                    APPLY
+                </button>
+            </div>
 
         </aside>
 
