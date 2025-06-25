@@ -95,6 +95,68 @@
                     </div>
                 </form>
             </section>
+
+            <section class="rating-filter">
+                <h3>By Rating</h3>
+
+                <!-- 5 Star Rating -->
+                <button>
+                    <div class="flex-row">
+                        <?php
+                        for ($i = 0; $i < 5; ++$i) {
+                            echo '<div class="inline yellow-text">&#9733;</div>';
+                        }
+                        ?>
+                    </div>
+                </button>
+
+                <button>
+                    <div class="flex-row">
+                        <?php
+                        for ($i = 0; $i < 5; ++$i) {
+                            echo '<div class="inline ' . (($i < 4) ? 'yellow-text' : 'black-text') . '">&#9733;</div>';
+                        }
+                        ?>
+                        <p class="black-text">& Up</p> 
+                    </div>
+                </button>
+
+                <button>
+                    <div class="flex-row">
+                        <?php
+                        for ($i = 0; $i < 5; ++$i) {
+                            echo '<div class="inline ' . (($i < 3) ? 'yellow-text' : 'black-text') . '">&#9733;</div>';
+                        }
+                        ?>
+                        <p class="black-text">& Up</p> 
+                    </div>
+                </button>
+
+                <button>
+                    <div class="flex-row">
+                        <?php
+                        for ($i = 0; $i < 5; ++$i) {
+                            echo '<div class="inline ' . (($i < 2) ? 'yellow-text' : 'black-text') . '">&#9733;</div>';
+                        }
+                        ?>
+                        <p class="black-text">& Up</p> 
+                    </div>
+                </button>
+
+                <button>
+                    <div class="flex-row">
+                        <?php
+                        for ($i = 0; $i < 5; ++$i) {
+                            echo '<div class="inline ' . (($i < 1) ? 'yellow-text' : 'black-text') . '">&#9733;</div>';
+                        }
+                        ?>
+                        <p class="black-text">& Up</p> 
+                    </div>
+                </button>
+
+            </section>
+
+
         </aside>
 
         <section class="result-grid">

@@ -11,6 +11,14 @@
 	color: var(--white);
 }
 
+.dark-white-text {
+	color: var(--dark-white);
+}
+
+.yellow-text {
+	color: var(--yellow);
+}
+
 /* --------BG COLOR-------- */
 
 .black-bg {
