@@ -13,7 +13,7 @@ function renderProductCard(Product $product): void
 
             <span>
                 <p>
-                    <?php echo $product->getCurrency() . $product->getPrice()?>
+                    <?php echo $product->getCurrency() . htmlspecialchars($product->getPrice()); ?>
                 </p>
                 <p>1.3k Sold</p>
             </span>
