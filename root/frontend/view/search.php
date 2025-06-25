@@ -110,6 +110,7 @@
                     </div>
                 </button>
 
+                <!-- 4 Star Rating -->
                 <button>
                     <div class="flex-row">
                         <?php
@@ -121,6 +122,7 @@
                     </div>
                 </button>
 
+                <!-- 3 Star Rating -->
                 <button>
                     <div class="flex-row">
                         <?php
@@ -132,6 +134,7 @@
                     </div>
                 </button>
 
+                <!-- 2 Star Rating -->
                 <button>
                     <div class="flex-row">
                         <?php
@@ -143,6 +146,7 @@
                     </div>
                 </button>
 
+                <!-- 1 Star Rating -->
                 <button>
                     <div class="flex-row">
                         <?php
@@ -177,14 +181,16 @@
                     APPLY
                 </button>
             </div>
-
         </aside>
 
-        <section class="result-grid">
-
+        <section class="result-grid flex-col">
+            <?php  include_once COMPONENT_PATH . 'product-list.php' ?>
         </section>
     </main>
 
+    <?php require_once COMPONENT_PATH . 'footer.php' ?>    
+
+    <script src="<?php echo htmlspecialchars(EVENT_PATH . 'page-tab.js'); ?>" defer></script>
 </body>
 
 </html>

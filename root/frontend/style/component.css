@@ -280,7 +280,7 @@
 .page-tab {
 	margin-top: auto;
 	padding-top: 3rem;
-	gap: 20px;
+	gap: 10px;
 }
 
 .page-tab > * {
@@ -311,7 +311,7 @@
 	transform: scaleX(-1);
 }
 
-/*  */
+/* -------------------- TEXT WITH ICON -------------------- */
 
 .text-w-icon,
 .text-w-icon > * {

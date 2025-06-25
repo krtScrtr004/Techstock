@@ -11,6 +11,6 @@
 		"Techstock/home": "home",
 
 		"Techstock/discover-more\\?page={page:[\\d]+}": "discoverMore",
-		"Techstock/search\\?(?:[\\w%+-]+=[\\w%+-]*&?)+": "search"
+		"Techstock/search\\?(?=.*page=\\d+)(?:[\\w%+-]+=[\\w%+-]*&?)+": "search"
 	}
 }
