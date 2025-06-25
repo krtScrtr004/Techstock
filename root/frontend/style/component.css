@@ -194,7 +194,7 @@
 	padding: 2rem;
 }
 
-/* --------------- ICON WITH NOTIFICATION BADGE --------------- */
+/* -------------------- ICON WITH  BADGE -------------------- */
 
 .icon-w-badge {
 	position: relative;
@@ -277,7 +277,6 @@
 
 /* --------------------- PAGE TAB --------------------- */
 
-
 .page-tab {
 	margin-top: auto;
 	padding-top: 3rem;
@@ -310,4 +309,20 @@
 
 .page-tab > img.previous {
 	transform: scaleX(-1);
+}
+
+/*  */
+
+.text-w-icon,
+.text-w-icon > * {
+	display: flex;
+}
+
+.text-w-icon > * {
+	justify-content: center;
+	align-items: center;
+}
+
+.text-w-icon > img {
+	margin-right: 10px;
 }

@@ -50,14 +50,29 @@
 	flex-direction: row;
 }
 
+.flex-row-reverse {
+	display: flex;
+	flex-direction: row-reverse;
+}
+
 .flex-col {
 	display: flex;
 	flex-direction: column;
 }
 
+.flex-child-start-v {
+	display: flex;
+	justify-content: start;	
+}
+
+.flex-child-start-h {
+	display: flex;
+	justify-content: start;	
+}
+
 .flex-child-center-v {
 	display: flex;
-	justify-content: center;
+	align-items: start;
 }
 
 .flex-child-center-h {

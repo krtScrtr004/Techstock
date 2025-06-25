@@ -1,0 +1,36 @@
+.search main {
+    padding: 0;
+}
+
+.search main > * {
+    margin: var(--space) var(--content-side-padding);
+    padding: 15px;
+}
+
+.search aside {
+    margin-right: 0;
+}
+
+.search aside > *:not(:last-child),
+.category-filter > *:not(:last-child) {
+    margin-bottom: 10px;
+}
+
+.category-form > * {
+    justify-content: start;
+}
+
+.category-form > *:not(:last-child) {
+    margin-bottom: 5px;
+}
+
+.category-form input[type="checkbox"] {
+    width: 1rem;
+    height: 1rem;
+    margin-right: 5px;
+    justify-content: end;
+}
+
+.result-grid {
+    margin-left: 0;
+}
