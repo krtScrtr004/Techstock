@@ -37,61 +37,61 @@
                     <div class="flex-row-reverse">
                         <label for="<?php echo Category::sna->value ?>">Smartphone and Accessories</label>
 
-                        <input type="checkbox" name="<?php echo Category::sna->value ?>" id="<?php echo Category::sna->value ?>">
+                        <input type="checkbox" name="<?php echo Category::sna->value ?>" id="<?php echo Category::sna->value ?>" value="<?php echo Category::sna->value ?>">
                     </div>
 
                     <div class="flex-row-reverse">
                         <label for="<?php echo Category::cnl->value ?>">Computers and Laptops</label>
 
-                        <input type="checkbox" name="<?php echo Category::cnl->value ?>" id="<?php echo Category::cnl->value ?>">
+                        <input type="checkbox" name="<?php echo Category::cnl->value ?>" id="<?php echo Category::cnl->value ?>" value="<?php echo Category::cnl->value ?>">
                     </div>
 
                     <div class="flex-row-reverse">
                         <label for="<?php echo Category::cnpp->value ?>">Components and PC Parts</label>
 
-                        <input type="checkbox" name="<?php echo Category::cnpp->value ?>" id="<?php echo Category::cnpp->value ?>">
+                        <input type="checkbox" name="<?php echo Category::cnpp->value ?>" id="<?php echo Category::cnpp->value ?>" value="<?php echo Category::cnpp->value ?>">
                     </div>
 
                     <div class="flex-row-reverse">
                         <label for="<?php echo Category::gm->value ?>">Gaming</label>
 
-                        <input type="checkbox" name="<?php echo Category::gm->value ?>" id="<?php echo Category::gm->value ?>">
+                        <input type="checkbox" name="<?php echo Category::gm->value ?>" id="<?php echo Category::gm->value ?>" value="<?php echo Category::gm->value ?>">
                     </div>
 
                     <div class="flex-row-reverse">
                         <label for="<?php echo Category::nnsh->value ?>">Networking and Smart Home</label>
 
-                        <input type="checkbox" name="<?php echo Category::nnsh->value ?>" id="<?php echo Category::nnsh->value ?>">
+                        <input type="checkbox" name="<?php echo Category::nnsh->value ?>" id="<?php echo Category::nnsh->value ?>" value="<?php echo Category::nnsh->value ?>">
                     </div>
 
                     <div class="flex-row-reverse">
                         <label for="<?php echo Category::anm->value ?>">Audio and Music</label>
 
-                        <input type="checkbox" name="<?php echo Category::anm->value ?>" id="<?php echo Category::anm->value ?>">
+                        <input type="checkbox" name="<?php echo Category::anm->value ?>" id="<?php echo Category::anm->value ?>" value="<?php echo Category::anm->value ?>">
                     </div>
 
                     <div class="flex-row-reverse">
                         <label for="<?php echo Category::wnht->value ?>">Wearables and Health Tech</label>
 
-                        <input type="checkbox" name="<?php echo Category::wnht->value ?>" id="<?php echo Category::wnht->value ?>">
+                        <input type="checkbox" name="<?php echo Category::wnht->value ?>" id="<?php echo Category::wnht->value ?>" value="<?php echo Category::wnht->value ?>">
                     </div>
 
                     <div class="flex-row-reverse">
                         <label for="<?php echo Category::onp->value ?>">Office and Productivity</label>
 
-                        <input type="checkbox" name="<?php echo Category::onp->value ?>" id="<?php echo Category::onp->value ?>">
+                        <input type="checkbox" name="<?php echo Category::onp->value ?>" id="<?php echo Category::onp->value ?>" value="<?php echo Category::onp->value ?>">
                     </div>
 
                     <div class="flex-row-reverse">
                         <label for="<?php echo Category::dnc->value ?>">Drones and Cameras</label>
 
-                        <input type="checkbox" name="<?php echo Category::dnc->value ?>" id="<?php echo Category::dnc->value ?>">
+                        <input type="checkbox" name="<?php echo Category::dnc->value ?>" id="<?php echo Category::dnc->value ?>" value="<?php echo Category::dnc->value ?>">
                     </div>
 
                     <div class="flex-row-reverse">
                         <label for="<?php echo Category::tfe->value ?>">Tech for Education</label>
 
-                        <input type="checkbox" name="<?php echo Category::tfe->value ?>" id="<?php echo Category::tfe->value ?>">
+                        <input type="checkbox" name="<?php echo Category::tfe->value ?>" id="<?php echo Category::tfe->value ?>" value="<?php echo Category::tfe->value ?>">
                     </div>
                 </form>
             </section>
@@ -100,7 +100,7 @@
                 <h3>By Rating</h3>
 
                 <!-- 5 Star Rating -->
-                <button>
+                <button data-rate="5">
                     <div class="flex-row">
                         <?php
                         for ($i = 0; $i < 5; ++$i) {
@@ -111,7 +111,7 @@
                 </button>
 
                 <!-- 4 Star Rating -->
-                <button>
+                <button data-rate="4">
                     <div class="flex-row">
                         <?php
                         for ($i = 0; $i < 5; ++$i) {
@@ -123,7 +123,7 @@
                 </button>
 
                 <!-- 3 Star Rating -->
-                <button>
+                <button data-rate="3">
                     <div class="flex-row">
                         <?php
                         for ($i = 0; $i < 5; ++$i) {
@@ -135,7 +135,7 @@
                 </button>
 
                 <!-- 2 Star Rating -->
-                <button>
+                <button data-rate="2">
                     <div class="flex-row">
                         <?php
                         for ($i = 0; $i < 5; ++$i) {
@@ -147,7 +147,7 @@
                 </button>
 
                 <!-- 1 Star Rating -->
-                <button>
+                <button data-rate="1">
                     <div class="flex-row">
                         <?php
                         for ($i = 0; $i < 5; ++$i) {
@@ -164,20 +164,20 @@
                 <h3>Price Range</h3>
 
                 <form class="center-child" action="" method="GET">
-                    <input class="dark-white-bg" type="number" id="min_price" name="min_price" placeholder="MIN" min="0" max="99999">
+                    <input class="min dark-white-bg" type="number" id="min_price" name="min_price" placeholder="MIN" min="0" max="99999">
 
                     <p class="">&#8212;</p>
 
-                    <input class="dark-white-bg" type="number" id="max_price" name="max_price" placeholder="MAX" min="0" max="99999">
+                    <input class="max dark-white-bg" type="number" id="max_price" name="max_price" placeholder="MAX" min="0" max="99999">
                 </form>
             </section>
 
             <div class="filter-button flex-row">
-                <button class="red-bg white-text" type="submit">
+                <button class="clear red-bg white-text" type="submit">
                     CLEAR
                 </button>
 
-                <button class="black-bg white-text" type="submit">
+                <button class="apply black-bg white-text" type="submit">
                     APPLY
                 </button>
             </div>
@@ -186,13 +186,15 @@
         <section class="result-grid flex-col">
             <!-- TODO: Add relavant store result here -->
 
-            <?php  include_once COMPONENT_PATH . 'product-list.php' ?>
+            <?php include_once COMPONENT_PATH . 'product-list.php' ?>
         </section>
     </main>
 
-    <?php require_once COMPONENT_PATH . 'footer.php' ?>    
+    <?php require_once COMPONENT_PATH . 'footer.php' ?>
 
     <script src="<?php echo htmlspecialchars(EVENT_PATH . 'page-tab.js'); ?>" type="module" defer></script>
+    <script src="<?php echo htmlspecialchars(EVENT_PATH . 'search-filter.js'); ?>" type="module" defer></script>
+
 </body>
 
 </html>
