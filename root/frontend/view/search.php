@@ -184,13 +184,15 @@
         </aside>
 
         <section class="result-grid flex-col">
+            <!-- TODO: Add relavant store result here -->
+
             <?php  include_once COMPONENT_PATH . 'product-list.php' ?>
         </section>
     </main>
 
     <?php require_once COMPONENT_PATH . 'footer.php' ?>    
 
-    <script src="<?php echo htmlspecialchars(EVENT_PATH . 'page-tab.js'); ?>" defer></script>
+    <script src="<?php echo htmlspecialchars(EVENT_PATH . 'page-tab.js'); ?>" type="module" defer></script>
 </body>
 
 </html>
