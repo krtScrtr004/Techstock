@@ -4,7 +4,7 @@ carouselWrapper.forEach(wrapper => {
     const carousel = wrapper.querySelector('.carousel')
     const trackers = wrapper.querySelectorAll('.tracker')
 
-    const hideTracker = () => {
+    function hideTracker() {
         const left = Array.from(trackers).find(l => l.classList.contains('left'))
         const right = Array.from(trackers).find(r => r.classList.contains('right'))
 

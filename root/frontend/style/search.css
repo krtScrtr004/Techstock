@@ -44,6 +44,12 @@
 .rating-filter > button {
 	background-color: transparent;
 	padding: 0;
+    padding-left: 5px;
+}
+
+.rating-filter > button.checked {
+    background-color: var(--dark-white);
+    border-radius: 5px;
 }
 
 .rating-filter div {

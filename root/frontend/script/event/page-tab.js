@@ -13,7 +13,7 @@ const pageTabWrapper = document.querySelector('.page-tab')
 const previous = pageTabWrapper.querySelector('button.previous')
 const next = pageTabWrapper.querySelector('button.next')
 
-const redirectPageHandler = (page) => {
+function redirectPageHandler(page) {
     switch (paths[2]) {
     case 'search':
         redirect.redirectToSearch(urlParam, page)
@@ -26,7 +26,7 @@ const redirectPageHandler = (page) => {
     }
 }
 
-const getPagination = () => {
+function getPagination() {
     // Will hold the page numbers to display 
     const range = [] // Without dots
     const rangeWithDots = [] // With dots -> To be DISPLAYED
@@ -59,27 +59,32 @@ const getPagination = () => {
     return rangeWithDots
 }
 
-// Display page tab buttons
-const pages = getPagination()
-pages.forEach(p => {
-    const btn = document.createElement('button')
-    btn.textContent = p
+function displayPageTabs() {
+    const pages = getPagination()
+    pages.forEach(p => {
+        const btn = document.createElement('button')
+        btn.textContent = p
 
-    const number = parseInt(p)
-    if (!isNaN(number)) {
-        if (number === pageNumber) {
-            btn.classList.add('active')
+        const number = parseInt(p)
+        if (!isNaN(number)) {
+            if (number === pageNumber) {
+                btn.classList.add('active')
+            } else {
+                btn.addEventListener('click', e => {
+                    e.stopPropagation()
+                    redirectPageHandler(number)
+                }) 
+            }
         } else {
-            btn.addEventListener('click', e => {
-                e.stopPropagation()
-                redirectPageHandler(number)
-            }) 
+            btn.disabled = true
         }
-    } else {
-        btn.disabled = true
-    }
-    pageTabWrapper.appendChild(btn)
-})
+        pageTabWrapper.appendChild(btn)
+    })
+
+}
+
+// Display page tab buttons
+displayPageTabs()
 pageTabWrapper.appendChild(next) // Move the next button to the end
 
 // Hide previous / next button when on first / last page

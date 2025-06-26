@@ -7,7 +7,7 @@ enum Category: string {
     case gm     = 'gaming';
     case nnsh   = 'networking-and-smart-home';
     case anm    = 'audio-and-music';
-    case wnht   = 'wearable-and=home-tech';
+    case wnht   = 'wearable-and-health-tech';
     case onp    = 'office-and-productivity';
     case dnc    = 'drone-and-cameras';
     case tfe    = 'tech-for-education';
