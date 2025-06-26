@@ -26,8 +26,7 @@ const Redirect = () => {
             } else {
                 q.append('page', 1)
             }
-            const urlParam = q.toString()
-            redirectTo(`search?${urlParam}`)
+            redirectTo(`search?${q.toString()}`)
         }
     }
 }

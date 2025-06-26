@@ -300,7 +300,11 @@
 	font-weight: 300;
 }
 
-.page-tab > p.active {
+.page-tab > button {
+	font-weight: 300;
+}
+
+.page-tab > button.active {
 	color: var(--white);
 	background-color: var(--blue);
 	border-radius: var(--border-radius);

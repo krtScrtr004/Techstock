@@ -1,66 +1,90 @@
 import { redirect } from '../utility/redirect.js'
 
+const productCount = 800
+const maxPage = Math.ceil(productCount / 30)
+
 const url = new URL(window.location.href)
 const paths = url.pathname.split('/')
-const currentPath = paths[2]
 
 const urlParam = new URLSearchParams(window.location.search)
 const pageNumber = parseInt(urlParam.get('page') ?? 1)
 
-// TODO: Make page tabs rendering dynamic
-
 const pageTabWrapper = document.querySelector('.page-tab')
-const tabs = pageTabWrapper.querySelectorAll('p')
-const previous = pageTabWrapper.querySelector('img.previous')
-const next = pageTabWrapper.querySelector('img.next')
+const previous = pageTabWrapper.querySelector('button.previous')
+const next = pageTabWrapper.querySelector('button.next')
 
-// const productCount = 800
-// const maxPage = Match.ceil(productCount / 30)
-const maxPage = 10
+const redirectPageHandler = (page) => {
+    switch (paths[2]) {
+    case 'search':
+        redirect.redirectToSearch(urlParam, page)
+        break
+
+    case 'home':
+    case 'discover-more':
+        redirect.redirectToDiscoverMore(page)
+        break
+    }
+}
+
+const getPagination = () => {
+    // Will hold the page numbers to display 
+    const range = [] // Without dots
+    const rangeWithDots = [] // With dots -> To be DISPLAYED
+    
+    const delta = 2 // Number of pages to show on each side of the current page
+    let l // Tracks the last page number added to rangeWithDots
+
+    for (let i = 1 ; i <= maxPage ; i++) {
+        // Include the first and last page, and the pages within 'delta' of the current pageNumber
+        if (i === 1 || i === maxPage || (i >= pageNumber - delta && i <= pageNumber + delta)) {
+            range.push(i)
+        }
+    }
+
+    // Build the final pagination array, inserting dots where needed
+    for (const i of range) {
+        if (l) {
+            // If there's exactly one page skipped, insert that page number
+            if (i - l === 2) {
+                rangeWithDots.push(l + 1)
+            // If more than one page is skipped, insert '...'
+            } else if (i - l !== 1) {
+                rangeWithDots.push('...')
+            }
+        }
+        rangeWithDots.push(i)
+        l = i
+    }
+
+    return rangeWithDots
+}
+
+// Display page tab buttons
+const pages = getPagination()
+pages.forEach(p => {
+    const btn = document.createElement('button')
+    btn.textContent = p
+
+    const number = parseInt(p)
+    if (!isNaN(number)) {
+        if (number === pageNumber) {
+            btn.classList.add('active')
+        } else {
+            btn.addEventListener('click', e => {
+                e.stopPropagation()
+                redirectPageHandler(number)
+            }) 
+        }
+    } else {
+        btn.disabled = true
+    }
+    pageTabWrapper.appendChild(btn)
+})
+pageTabWrapper.appendChild(next) // Move the next button to the end
 
 // Hide previous / next button when on first / last page
 previous.style.display = (pageNumber === 1) ? 'none' : 'block'
 next.style.display = (pageNumber === maxPage) ? 'none' : 'block'
 
-tabs[pageNumber - 1].classList.add('active')
-
-const findNextHandler = (page) => {
-    const nextPage = page + 1
-    switch (currentPath) {
-    case 'search':
-        redirect.redirectToSearch(urlParam, nextPage)
-        break
-
-    case 'home':
-    case 'discover-more':
-        redirect.redirectToDiscoverMore(nextPage)
-        break
-    }
-}
-
-const findPrevHandler = (page) => {
-    const prevPage = page - 1
-    switch (currentPath) {
-    case 'search':
-        redirect.redirectToSearch(urlParam, prevPage)
-        break
-
-    case 'home':
-    case 'discover-more':
-        redirect.redirectToDiscoverMore(prevPage)
-        break
-    }
-}
-
-tabs.forEach((tab, index) => {
-    if (index !== (pageNumber - 1)) {
-        tab.addEventListener('click', e => {
-            e.stopPropagation()
-
-            findNextHandler(index)
-        })
-    }
-})
-
-previous.addEventListener('click', () => findPrevHandler(pageNumber))
-next.addEventListener('click', () => findNextHandler(pageNumber))
+previous.addEventListener('click', () => redirectPageHandler(pageNumber - 1))
+next.addEventListener('click', () => redirectPageHandler(pageNumber + 1))
