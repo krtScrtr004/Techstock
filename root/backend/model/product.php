@@ -3,27 +3,30 @@
 class Product implements Model
 {
     private $id;
-    private $name;
-    private $description;
-    private $price;
+    private string $name;
+    private ?string $description;
+    private float $price;
     private $storeId;
-    private $currency;
-    private $rating;
-    private $images = [];
-    private $category = [];
+    private string $currency;
+    private float $rating;
+    private ?array $images;
+    private ?array $category;
 
     public function __construct(array $data = [])
     {
-        $this->id = $data['id'];
-        $this->name = $data['name'];
-        $this->description = $data['description'];
-        $this->price = $data['price'];
-        $this->storeId = $data['storeId'];
-        $this->currency = $data['currency'];
-        $this->rating = $data['rating'];
-        $this->images = $data['images'];
-        $this->category = $data['category'];
+        if ($data) {
+            $this->id = $data['id'];
+            $this->name = $data['name'];
+            $this->description = $data['description'] ?? null;
+            $this->price = $data['price'];
+            $this->storeId = $data['storeId'];
+            $this->currency = $data['currency']  ?? 'PHP';
+            $this->rating = $data['rating'] ?? 0.0;
+            $this->images = $data['images'] ?? null;
+            $this->category = $data['category'] ?? null;
+        }
     }
+
     // Getter methods
     public function getId()
     {
@@ -35,7 +38,7 @@ class Product implements Model
         return $this->name;
     }
 
-    public function getDescription(): string
+    public function getDescription(): ?string
     {
         return $this->description;
     }
@@ -53,13 +56,20 @@ class Product implements Model
     public function getCurrency(): string
     {
         switch ($this->currency) {
-            case 'USD':     return '&dollar;';
-            case 'YEN':     return '&yen;';
-            case 'EURO':    return '&euro;';
-            case 'RUBLE':   return '&#8381;';
-            case 'YUAN':    return '&#20803;';
-            case 'WON':     return '&#8361;';
-            default:        return '&#x20B1;'; // Default to Philippine Peso
+            case 'USD':
+                return '&dollar;';
+            case 'YEN':
+                return '&yen;';
+            case 'EURO':
+                return '&euro;';
+            case 'RUBLE':
+                return '&#8381;';
+            case 'YUAN':
+                return '&#20803;';
+            case 'WON':
+                return '&#8361;';
+            default:
+                return '&#x20B1;'; // Default to Philippine Peso
         }
     }
 
@@ -68,17 +78,17 @@ class Product implements Model
         return $this->rating;
     }
 
-    public function getImage(int $index): string
+    public function getImage(int $index): ?string
     {
         return $this->images[$index];
     }
 
-    public function getImages(): array 
+    public function getImages(): ?array
     {
         return $this->images;
     }
 
-    public function getCategory(): array
+    public function getCategory(): ?array
     {
         return $this->category;
     }
@@ -138,10 +148,36 @@ class Product implements Model
         return null;
     }
 
-    public static function all(): array 
+    public static function all(): array
     {
         // TODO:
-        return [];
+        // Dummy
+        return [
+            new self([
+                'id' => 1,
+                'name' => 'abc',
+                'price' => 52084.99,
+                'storeId' => 1
+            ]),
+            new self([
+                'id' => 1,
+                'name' => 'abc',
+                'price' => 52084.99,
+                'storeId' => 1
+            ]),
+            new self([
+                'id' => 1,
+                'name' => 'abc',
+                'price' => 52084.99,
+                'storeId' => 1
+            ]),
+            new self([
+                'id' => 1,
+                'name' => 'abc',
+                'price' => 52084.99,
+                'storeId' => 1
+            ])
+        ];
     }
 
     public static function create(array $data): self
@@ -149,18 +185,20 @@ class Product implements Model
         return new self($data);
     }
 
-    public function save(): bool {
+    public function save(): bool
+    {
         // TODO:
         return true;
     }
 
-    public function delete(): bool {
+    public function delete(): bool
+    {
         // TODO:
         return true;
     }
 
-    public function fill(array $data): void {
+    public function fill(array $data): void
+    {
         self::__construct($data);
     }
 }
-

@@ -8,7 +8,7 @@
 		"Techstock/set-signup-password": "singleForm",
 		"Techstock/change-password": "singleForm",
 
-		"Techstock/home": "home",
+		"Techstock/home": "HomeController",
 
 		"Techstock/discover-more\\?page={page:[\\d]+}": "discoverMore",
 		"Techstock/search\\?(?=.*page=\\d+)(?:[\\w%+-]+=[\\w%+-]*&?)+": "search"

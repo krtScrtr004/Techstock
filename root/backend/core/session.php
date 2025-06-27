@@ -11,7 +11,7 @@ class Session
         }
     }
 
-    public static function instantiate(): self
+    public static function create(): self
     {
         if (!self::$instance) {
             self::$instance = new self();
