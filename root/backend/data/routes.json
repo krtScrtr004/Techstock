@@ -4,13 +4,13 @@
 		"/Techstock/login": "IndexController",
 		"/Techstock/signup": "IndexController",
 
-		"Techstock/forget-password": "singleForm",
-		"Techstock/set-signup-password": "singleForm",
-		"Techstock/change-password": "singleForm",
+		"Techstock/forget-password": "SingleFormController",
+		"Techstock/set-signup-password": "SingleFormController",
+		"Techstock/change-password": "SingleFormController",
 
 		"Techstock/home": "HomeController",
 
-		"Techstock/discover-more\\?page={page:[\\d]+}": "discoverMore",
-		"Techstock/search\\?(?=.*page=\\d+)(?:[\\w%+-]+=[\\w%+-]*&?)+": "search"
+		"Techstock/discover-more\\?page={page:[\\d]+}": "DiscoverMoreController",
+		"Techstock/search\\?(?=.*page=\\d+)(?:[\\w%+-]+=[\\w%+-]*&?)+": "SearchController"
 	}
 }

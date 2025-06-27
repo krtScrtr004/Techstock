@@ -22,12 +22,12 @@
     <main class="full-body-content center-child">
         <div class="single-form form-wrapper flex-col">
             <div class="header-w-back">
-                <h3><?php echo $components[$page][0]; ?></h3>
+                <h3><?php echo $component['title']; ?></h3>
 
                 <img class="back-button" src="<?php echo htmlspecialchars(ICON_PATH . 'back.svg') ?>" alt="Back button" title="Back button" height="24" width="24">
             </div>
 
-            <?php include_once COMPONENT_PATH . $components[$page][2]; ?>    
+            <?php include_once COMPONENT_PATH . $component['form']; ?>    
         
         </div>
     </main>
