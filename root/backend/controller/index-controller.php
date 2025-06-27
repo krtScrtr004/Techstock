@@ -22,6 +22,6 @@ class IndexController implements Controller {
 
         // Hidden modal components
         tooManyAttemptDialog();
-        errorOccuredDialog();
+        errorOccurredDialog();
     }
 }

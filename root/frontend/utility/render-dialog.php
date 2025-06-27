@@ -18,7 +18,7 @@ function renderDialog(bool $status, string $id, string $title, string $message)
     <?php
 }
 
-function errorOccuredDialog() {
+function errorOccurredDialog() {
     renderDialog(
         false,
         'error-occured-dialog',

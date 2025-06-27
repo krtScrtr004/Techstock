@@ -34,6 +34,6 @@ class SingleFormController implements Controller
 
         changePasswordDialog(true);
         changePasswordDialog(false);
-        errorOccuredDialog();
+        errorOccurredDialog();
     }
 }

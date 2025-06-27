@@ -27,6 +27,6 @@ class SearchController implements Controller
 
         require_once VIEW_PATH . 'search.php';
 
-        errorOccuredDialog();
+        errorOccurredDialog();
     }
 }
