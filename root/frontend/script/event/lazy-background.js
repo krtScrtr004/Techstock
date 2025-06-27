@@ -11,8 +11,9 @@ document.addEventListener('DOMContentLoaded', function () {
             if (entry.isIntersecting) {
                 const el = entry.target;
                 // Set the background image using the value from the data-bg attribute
-                el.style.backgroundImage = `url(${el.dataset.bg})`;
-                // Stop observing this element since its background has been loaded
+                const imageSource = `url(${el.dataset.bg})`
+                el.style.backgroundImage = imageSource.replaceAll('\\', '\\\\'); // Replace directory separator with two escaped backward slash
+
                 observer.unobserve(el);
             }
         });
