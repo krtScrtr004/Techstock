@@ -23,8 +23,7 @@ class SearchController implements Controller
         global $session;
         if (!isset($session)) $session = Session::create();
 
-        $productModel = new Product();
-        $products = $productModel->all();
+        $products = Product::all();
 
         require_once VIEW_PATH . 'search.php';
 
