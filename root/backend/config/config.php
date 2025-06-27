@@ -2,16 +2,6 @@
 
 require_once __DIR__ . '/path.php';
 
-require_once BE_UTILITY_PATH . 'utility.php';
-
-foreach (glob(CONTROLLER_PATH . '*.php') as $fileName) {
-    require_once $fileName;
-}
-
-foreach (glob(FE_UTILITY_PATH . '*.php') as $fileName) {
-    include_once $fileName;
-}
-
 spl_autoload_register(function ($class) {
     $paths = [CORE_PATH, ROUTER_PATH, ENTITY_PATH];
     foreach ($paths as $path) {
@@ -23,5 +13,15 @@ spl_autoload_register(function ($class) {
             require_once $file;
     }
 });
+
+require_once BE_UTILITY_PATH . 'utility.php';
+
+foreach (glob(CONTROLLER_PATH . '*.php') as $fileName) {
+    require_once $fileName;
+}
+
+foreach (glob(FE_UTILITY_PATH . '*.php') as $fileName) {
+    include_once $fileName;
+}
 
 $session = null;

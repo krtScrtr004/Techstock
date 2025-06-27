@@ -1,7 +1,6 @@
 <?php
 
-class IndexController
-{
+class IndexController implements Controller {
     private static array $components = [
         'login' => ['title' => 'Log In', 'form'  => 'login-form.php'],
         'signup' => ['title' => 'Sign Up', 'form'  => 'signup-form.php'],
