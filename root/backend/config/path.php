@@ -17,7 +17,8 @@ define('CORE_PATH', BACKEND_PATH . 'core/');
 define('CONTROLLER_PATH', BACKEND_PATH . 'controller/');
 define('DATA_PATH', BACKEND_PATH . 'data/');
 define('ROUTER_PATH', BACKEND_PATH . 'router/');
-define('ENTITY_PATH', BACKEND_PATH . 'entity/');
+define('MODEL_PATH', BACKEND_PATH . 'model/');
+
 define('BE_UTILITY_PATH', BACKEND_PATH . 'utility/');
 define('FE_UTILITY_PATH', FRONTEND_PATH . 'utility/');
 

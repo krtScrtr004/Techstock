@@ -1,6 +1,6 @@
 <?php
 
-class Product
+class Product implements Model
 {
     private $id;
     private $name;
@@ -12,28 +12,18 @@ class Product
     private $images = [];
     private $category = [];
 
-    public function __construct(
-        $id,
-        string $name,
-        string $description,
-        float $price,
-        $storeId,
-        string $currency = 'PHP',
-        float $rating = 0.0,
-        array $images = [],
-        array $category = []
-    ) {
-        $this->id = $id;
-        $this->name = $name;
-        $this->description = $description;
-        $this->price = $price;
-        $this->storeId = $storeId;
-        $this->currency = $currency;
-        $this->rating = $rating;
-        $this->images = $images;
-        $this->category = $category;
+    public function __construct(array $data = [])
+    {
+        $this->id = $data['id'];
+        $this->name = $data['name'];
+        $this->description = $data['description'];
+        $this->price = $data['price'];
+        $this->storeId = $data['storeId'];
+        $this->currency = $data['currency'];
+        $this->rating = $data['rating'];
+        $this->images = $data['images'];
+        $this->category = $data['category'];
     }
-
     // Getter methods
     public function getId()
     {
@@ -78,9 +68,14 @@ class Product
         return $this->rating;
     }
 
-    public function getImage(int $index): array
+    public function getImage(int $index): string
     {
         return $this->images[$index];
+    }
+
+    public function getImages(): array 
+    {
+        return $this->images;
     }
 
     public function getCategory(): array
@@ -133,6 +128,39 @@ class Product
     public function setCategory(array $category): void
     {
         $this->category = $category;
+    }
+
+    // Implemented methods
+
+    public static function find($id): ?self
+    {
+        // TODO:
+        return null;
+    }
+
+    public static function all(): array 
+    {
+        // TODO:
+        return [];
+    }
+
+    public static function create(array $data): self
+    {
+        return new self($data);
+    }
+
+    public function save(): bool {
+        // TODO:
+        return true;
+    }
+
+    public function delete(): bool {
+        // TODO:
+        return true;
+    }
+
+    public function fill(array $data): void {
+        self::__construct($data);
     }
 }
 
