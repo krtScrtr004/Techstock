@@ -24,5 +24,5 @@ function camelToSentenceCase(string $string): string {
 }
 
 function camelToKebabCase(string $string): string {
-    return strtolower(preg_replace('/[a-z][A-Z]/', '$1-$2', $string));
+    return strtolower(preg_replace('/([a-z])([A-Z])/', '$1-$2', $string));
 }
