@@ -1,6 +1,6 @@
 /* --------TEXT COLOR-------- */
 .light-black-text {
-	color: var(--light-black)
+	color: var(--light-black);
 }
 
 .black-text {
