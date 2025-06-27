@@ -16,7 +16,7 @@ spl_autoload_register(function ($class) {
     $paths = [ROUTER_PATH, ENTITY_PATH];
     foreach ($paths as $path) {
         // Turn camel case to kebab case
-        $class = strtolower($class);
+        $class = camelToKebabCase($class);
 
         $file = $path . '/' . str_replace('\\', '/', $class) . '.php';
         if (file_exists($file))
