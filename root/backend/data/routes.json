@@ -1,8 +1,8 @@
 {
 	"GET": {
-		"/Techstock": "index",
-		"/Techstock/login": "index",
-		"/Techstock/signup": "index",
+		"/Techstock": "IndexController",
+		"/Techstock/login": "IndexController",
+		"/Techstock/signup": "IndexController",
 
 		"Techstock/forget-password": "singleForm",
 		"Techstock/set-signup-password": "singleForm",

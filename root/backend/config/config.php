@@ -13,7 +13,7 @@ foreach (glob(FE_UTILITY_PATH . '*.php') as $fileName) {
 }
 
 spl_autoload_register(function ($class) {
-    $paths = [ROUTER_PATH, ENTITY_PATH];
+    $paths = [CORE_PATH, ROUTER_PATH, ENTITY_PATH];
     foreach ($paths as $path) {
         // Turn camel case to kebab case
         $class = camelToKebabCase($class);
@@ -23,3 +23,5 @@ spl_autoload_register(function ($class) {
             require_once $file;
     }
 });
+
+$session = null;

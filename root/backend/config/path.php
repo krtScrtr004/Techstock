@@ -13,6 +13,7 @@ define('COMPONENT_PATH', FRONTEND_PATH . 'component/');
 
 define('DIALOG_PATH', COMPONENT_PATH . 'dialog/');
 
+define('CORE_PATH', BACKEND_PATH . 'core/');
 define('CONTROLLER_PATH', BACKEND_PATH . 'controller/');
 define('DATA_PATH', BACKEND_PATH . 'data/');
 define('ROUTER_PATH', BACKEND_PATH . 'router/');
