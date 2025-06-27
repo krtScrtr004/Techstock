@@ -1,5 +1,7 @@
 <?php
 
+define('DS', DIRECTORY_SEPARATOR);
+
 require_once __DIR__ . '/path.php';
 
 spl_autoload_register(function ($class) {
@@ -8,7 +10,7 @@ spl_autoload_register(function ($class) {
         // Turn camel case to kebab case
         $class = camelToKebabCase($class);
 
-        $file = $path . '/' . str_replace('\\', '/', $class) . '.php';
+        $file = $path . DS . str_replace('\\', '/', $class) . '.php';
         if (file_exists($file))
             require_once $file;
     }
