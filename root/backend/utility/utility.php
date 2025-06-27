@@ -22,3 +22,7 @@ function camelToSentenceCase(string $string): string {
     // Converts camelCase to sentence case
     return ucfirst(trim(preg_replace('/([a-z])([A-Z])/', '$1 $2', $string)));
 }
+
+function camelToKebabCase(string $string): string {
+    return strtolower(preg_replace('/([a-z])([A-Z])/', '$1-$2', $string));
+}

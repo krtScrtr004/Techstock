@@ -1,0 +1,91 @@
+.search main {
+	padding: 0;
+}
+
+.search main > * {
+	margin: var(--space) var(--content-side-padding);
+	padding: var(--space);
+}
+
+.search aside {
+    height: fit-content;
+    gap: 15px;
+	margin-right: var(--space);
+    color: var(--black);
+}
+
+.search aside > *:not(:last-child),
+.search aside > section > *:not(:last-child) {
+	margin-bottom: 15px;
+}
+
+.category-form > * {
+	justify-content: start;
+}
+
+.category-form > *:not(:last-child) {
+	margin-bottom: 10px;
+}
+
+.category-form input[type='checkbox'] {
+	width: 1rem;
+	height: 1rem;
+	margin-right: 5px;
+	justify-content: end;
+}
+
+.rating-filter *:not(h3),
+.price-filter *:not(h3) {
+    font-size: 0.8rem;
+    font-weight: 200;
+}
+
+
+.rating-filter > button {
+	background-color: transparent;
+	padding: 0;
+    padding-left: 5px;
+}
+
+.rating-filter > button.checked {
+    background-color: var(--dark-white);
+    border-radius: 5px;
+}
+
+.rating-filter div {
+    font-size: 1rem;
+    font-weight: 800;
+	gap: 5px;
+	align-items: flex-end;
+}
+
+.price-filter > form {
+    gap: 5px;
+}
+
+.price-filter > form > input {
+    flex: 1 1 0;
+}
+
+.filter-button {
+    gap: 5px;
+}
+
+.filter-button > button {
+    font-size: 0.8rem;
+    font-weight: 700;
+}
+
+.filter-button > button:nth-child(1) {
+    width: 40%;
+}
+
+.filter-button > button:nth-child(2) {
+    flex: 1 1 0;
+}
+
+.result-grid {
+    flex: 1 1 0;
+    padding: 0 !important;
+	margin-left: 0 !important;
+}

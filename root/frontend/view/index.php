@@ -31,9 +31,9 @@
 
 			<section class="left-pane center-child">
 				<div class="form-wrapper flex-col white-bg">
-					<h3 class="black-text"><?php echo $components[$page][0]; ?></h3>
+					<h3 class="black-text"><?php echo $component['title']; ?></h3>
 
-					<?php include_once COMPONENT_PATH . $components[$page][1]; ?>
+					<?php include_once COMPONENT_PATH . $component['form']; ?>
 				</div>
 			</section>
 

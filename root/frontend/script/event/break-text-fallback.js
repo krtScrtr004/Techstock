@@ -1,4 +1,4 @@
-function applyEllipsisFallback(selector = '.multi-line-ellipsis', lines = 2) {
+const applyEllipsisFallback = (selector = '.multi-line-ellipsis', lines = 2) => {
     const elements = document.querySelectorAll(selector);
 
     elements.forEach(el => {

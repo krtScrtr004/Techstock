@@ -1,4 +1,4 @@
-<?php if (session_status() === PHP_SESSION_NONE): ?>
+<?php if (!isset($session)): ?>
     <!-- Header for non-logged in pages -->
     <header class="outside-header flex-row flex-child-end-h">
         <a href="<?php echo htmlspecialchars(REDIRECT_PATH . 'login/'); ?> ">
@@ -8,7 +8,7 @@
         <h3><?php echo ($page === 'signup') ? "Sign Up" : "Log In"; ?></h3>
     </header>
 
-<?php elseif (session_status() === PHP_SESSION_ACTIVE): ?>
+<?php elseif ($session && $session->isSet()): ?>
     <!-- Header for logged in pages -->
     <header class="inside-header flex-col black-bg">
 

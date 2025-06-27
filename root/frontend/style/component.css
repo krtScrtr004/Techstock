@@ -194,7 +194,7 @@
 	padding: 2rem;
 }
 
-/* --------------- ICON WITH NOTIFICATION BADGE --------------- */
+/* -------------------- ICON WITH  BADGE -------------------- */
 
 .icon-w-badge {
 	position: relative;
@@ -277,11 +277,10 @@
 
 /* --------------------- PAGE TAB --------------------- */
 
-
 .page-tab {
 	margin-top: auto;
 	padding-top: 3rem;
-	gap: 20px;
+	gap: 10px;
 }
 
 .page-tab > * {
@@ -301,7 +300,11 @@
 	font-weight: 300;
 }
 
-.page-tab > p.active {
+.page-tab > button {
+	font-weight: 300;
+}
+
+.page-tab > button.active {
 	color: var(--white);
 	background-color: var(--blue);
 	border-radius: var(--border-radius);
@@ -310,4 +313,20 @@
 
 .page-tab > img.previous {
 	transform: scaleX(-1);
+}
+
+/* -------------------- TEXT WITH ICON -------------------- */
+
+.text-w-icon,
+.text-w-icon > * {
+	display: flex;
+}
+
+.text-w-icon > * {
+	justify-content: center;
+	align-items: center;
+}
+
+.text-w-icon > img {
+	margin-right: 10px;
 }

@@ -15,13 +15,13 @@ const slideshowImage = slideshowImageWrapper.querySelector('.slide-show')
 const changeButtons = slideshowImageWrapper.querySelectorAll('.change-button')
 const dotTabs = slideshowImageWrapper.querySelectorAll('.dot-tab')
 
-const reflowImage = () => {
+function reflowImage() {
     slideshowImage.classList.remove('fade');
     void slideshowImage.offsetWidth; // force reflow
     slideshowImage.classList.add('fade');
 }
 
-const autoNextImage = () => {
+function autoNextImage() {
     clearInterval(slideshowInterval)
     slideshowInterval = setInterval(() => {
         dotTabs[imageIndex].classList.remove('active')
