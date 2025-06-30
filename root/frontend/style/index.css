@@ -1,4 +1,8 @@
-.index .form-wrapper{
+body.index {
+    min-height: 900px;
+}
+
+.index .form-wrapper {
     max-width: 400px;
 }
 
