@@ -7,8 +7,7 @@ class HomeController implements Controller
     public static function index(): void
     {
         global $session;
-        if (!isset($session))
-            $session = Session::create();
+        if (!isset($session)) $session = Session::create();
 
         $productModel = new Product();
 

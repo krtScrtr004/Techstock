@@ -9,6 +9,7 @@ foreach ($routes as $method => $route) {
         // Remove trailing forward slash
         if ($path[strlen($path) - 1] === '/')
             $path = substr($path, 0, strlen($path) - 1);
+        
         /*
         If action provided is an array:
             - The first element is the controller class name
