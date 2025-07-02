@@ -330,3 +330,44 @@
 .text-w-icon > img {
 	margin-right: 10px;
 }
+
+
+.carousel-wrapper {
+	position: relative;
+}
+
+.carousel {
+	flex-wrap: nowrap;
+	gap: 5px;
+	overflow-x: auto;
+	scroll-behavior: smooth;
+	scrollbar-width: none;
+	-ms-overflow-style: none;
+}
+
+.carousel::-webkit-scrollbar {
+	display: none;
+}
+
+.carousel-wrapper .tracker {
+	background-color: var(--white);
+	position: absolute;
+	top: 50%;
+	transform: translate(0, -50%);
+	padding: 5px;
+	opacity: 0.5;
+	cursor: pointer;
+	z-index: 2;
+}
+
+.carousel-wrapper .tracker:hover {
+	opacity: 1;
+}
+
+.carousel-wrapper .tracker.left {
+	transform: translate(0, -50%) scaleX(-1);
+}
+
+.carousel-wrapper .tracker.right {
+	right: 0;
+}

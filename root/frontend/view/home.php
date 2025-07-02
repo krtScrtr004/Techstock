@@ -121,9 +121,9 @@
 
         <!-- Top Products -->
         <section class="top-product-section featured-item">
-            <section class="carousel-wrapper">
-                <h1 class="home-section-heading sticky">Top Products</h1>
+            <h1 class="home-section-heading sticky">Top Products</h1>
 
+            <section class="carousel-wrapper">
                 <section class="carousel">
                     <?php
                     foreach ($products as $product) {
@@ -143,9 +143,9 @@
 
         <!-- Top Stores -->
         <section class="top-store-section featured-item">
-            <section class="carousel-wrapper">
-                <h1 class="home-section-heading sticky">Top Stores</h1>
+            <h1 class="home-section-heading sticky">Top Stores</h1>
 
+            <section class="carousel-wrapper">
                 <section class="carousel">
                     <?php
                     for ($i = 0, $n = 8; $i < $n; $i++) {
