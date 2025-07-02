@@ -11,6 +11,7 @@
 		"Techstock/home": "HomeController",
 
 		"Techstock/discover-more\\?page={page:[\\d]+}": "DiscoverMoreController",
-		"Techstock/search\\?(?=.*page=\\d+)(?:[\\w%+-]+=[\\w%+-]*&?)+": "SearchController"
+		"Techstock/search\\?(?=.*page=\\d+)(?:[\\w%+-]+=[\\w%+-]*&?)+": "SearchController",
+		"Techstock/product/{slug:[\\w\\s+-]+}-i.{store_id:[\\d+_-]+}.{product_id:[\\d+_-]+}": ["ProductController", "productInfo"]
 	}
 }
