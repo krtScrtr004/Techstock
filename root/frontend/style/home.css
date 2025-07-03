@@ -101,12 +101,12 @@
 	z-index: 10;
 }
 
-.featured-item,
-.carousel-wrapper > section {
-	display: flex;
+.discover-more-section > .home-section-heading {
+	margin-bottom: var(--space);
 }
 
 .featured-item {
+	display: flex;
 	flex-direction: column;
 	gap: var(--space);
 }

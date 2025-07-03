@@ -337,11 +337,12 @@
 }
 
 .carousel {
+	display: flex;
 	flex-wrap: nowrap;
 	gap: 5px;
 	overflow-x: auto;
 	scroll-behavior: smooth;
-	scrollbar-width: none;
+	scrollbar-width: none; 
 	-ms-overflow-style: none;
 }
 
