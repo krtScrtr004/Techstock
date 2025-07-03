@@ -11,6 +11,7 @@ class Product implements Model
     private float $rating;
     private ?array $images;
     private ?array $category;
+    private int $soldCount;
 
     public function __construct(array $data = [])
     {
@@ -24,6 +25,7 @@ class Product implements Model
             $this->rating = $data['rating'] ?? 0.0;
             $this->images = $data['images'] ?? null;
             $this->category = $data['category'] ?? null;
+            $this->soldCount = $data['sold_cold'] ?? 0;
         }
     }
 
@@ -93,6 +95,11 @@ class Product implements Model
         return $this->category;
     }
 
+    public function getSoldCount(): int
+    {
+        return $this->soldCount;
+    }
+
     // Setter methods
 
     public function setId($id): void
@@ -140,6 +147,11 @@ class Product implements Model
         $this->category = $category;
     }
 
+    public function setSoldCount(int $soldCount): void
+    {
+        $this->soldCount = $soldCount;
+    }
+    
     // Implemented methods
 
     public static function find($id): ?self
