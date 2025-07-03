@@ -15,6 +15,9 @@ class ProductController implements Controller
         $products = Product::all();
         $product = $products[0];
 
+        $ratingCount = 923;
+        $soldCount = 109;
+
         require_once VIEW_PATH . 'product-info.php';
 
         errorOccurredDialog();

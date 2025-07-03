@@ -2,6 +2,10 @@
     padding: var(--space);
 }
 
+.purchase-info {
+    gap: 1rem;
+}
+
 .images-section {
 	width: 30rem;
     gap: 10px;
@@ -26,14 +30,6 @@
     gap: var(--space);
 }
 
-.misc_section button {
-    width: fit-content;
-    height: fit-content;
-    padding: 0;
-    background-color: transparent;
-    border-radius: unset;
-}
-
 .misc_section > * {
     gap: 5px;
 }
@@ -49,4 +45,24 @@
     margin-right: 0;
 }
 
+.info-section {
+    flex: 1;
+}
+
+.product-name {
+    font-size: 1.5rem;
+    margin-bottom: 5px;
+}
+
+.misc-info {
+    gap: var(--space);
+}
+
+.misc-info > :last-child {
+    flex: 1;
+}
+
+.rating-stars {
+    margin-left: 8px;
+}
 

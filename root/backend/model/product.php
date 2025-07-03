@@ -22,7 +22,7 @@ class Product implements Model
             $this->price = $data['price'];
             $this->storeId = $data['storeId'];
             $this->currency = $data['currency']  ?? 'PHP';
-            $this->rating = $data['rating'] ?? 0.0;
+            $this->rating = (float) $data['rating'] ?? 0.0;
             $this->images = $data['images'] ?? null;
             $this->category = $data['category'] ?? null;
             $this->soldCount = $data['sold_cold'] ?? 0;
@@ -151,7 +151,7 @@ class Product implements Model
     {
         $this->soldCount = $soldCount;
     }
-    
+
     // Implemented methods
 
     public static function find($id): ?self
@@ -164,32 +164,64 @@ class Product implements Model
     {
         // TODO:
         // Dummy
-        return [
-            new self([
-                'id' => 1,
-                'name' => 'abc',
-                'price' => 52084.99,
-                'storeId' => 1
-            ]),
-            new self([
-                'id' => 1,
-                'name' => 'abc',
-                'price' => 52084.99,
-                'storeId' => 1
-            ]),
-            new self([
-                'id' => 1,
-                'name' => 'abc',
-                'price' => 52084.99,
-                'storeId' => 1
-            ]),
-            new self([
-                'id' => 1,
-                'name' => 'abc',
-                'price' => 52084.99,
-                'storeId' => 1
-            ])
+        $images = [
+            'console-1.jpg',
+            'controller-1.jpg',
+            'devices.jpg',
+            'handheld-1.jpg',
+            'laptop-1.jpg',
+            'laptop-2.jpg',
+            'mouse-1.jpg',
         ];
+
+        $categories = [
+            'Smartphones & Accessories',
+            'Computers & Laptops',
+            'Components & PC Parts',
+            'Gaming',
+            'Networking & Smart Home',
+            'Audio & Music',
+            'Wearables & Health Tech',
+            'Office & Productivity',
+            'Drones & Cameras',
+            'Tech for Education',
+        ];
+
+        $products = [];
+
+        for ($i = 1; $i <= 20; $i++) {
+            $product = new Product([
+                'id' => uniqid(),
+                
+                'name' => "Sed ut perspiciatis unde omnis iste natus error  sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo $i.",
+                
+                'description' => "But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness. No one rejects, dislikes, or avoids pleasure itself, because it is pleasure, but because those who do not know how to pursue pleasure rationally encounter consequences that are extremely painful $i.",
+                
+                'price' => round(mt_rand(1000, 20000) / 100, 2), // 10.00 to 200.00
+                
+                'storeId' => rand(1, 5),
+                
+                'rating' => round(mt_rand(10, 50) / 10, 1), // 1.0 to 5.0
+                
+                'images' => [
+                    IMAGE_PATH . $images[array_rand($images)],
+                    IMAGE_PATH . $images[array_rand($images)],
+                    IMAGE_PATH . $images[array_rand($images)]
+                ],
+
+                'category' => [
+                    $categories[array_rand($categories)],
+                    $categories[array_rand($categories)],
+                    $categories[array_rand($categories)]
+                ],
+                
+                'sold_cold' => rand(0, 500),
+            ]);
+
+            $products[] = $product;
+        }
+
+        return $products;
     }
 
     public static function create(array $data): self
