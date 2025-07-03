@@ -1,0 +1,52 @@
+.page-info > main > section {
+    padding: var(--space);
+}
+
+.images-section {
+	width: 30rem;
+    gap: 10px;
+}
+
+.images-section img {
+	aspect-ratio: 1 / 1;
+	object-fit: contain;
+    background-color: var(--dark-white);
+}
+
+.images-section > .featured-image {
+	width: 100%;
+}
+
+.image-collection > .carousel > img {
+	width: calc(30rem / 4);
+	height: auto;
+}
+
+.misc_section {
+    gap: var(--space);
+}
+
+.misc_section button {
+    width: fit-content;
+    height: fit-content;
+    padding: 0;
+    background-color: transparent;
+    border-radius: unset;
+}
+
+.misc_section > * {
+    gap: 5px;
+}
+
+.misc_section > * > * {
+    display: flex;
+    align-items: center;
+    font-size: 1rem;
+    font-weight: 500; 
+}
+
+.misc_section > .text-w-icon > img {
+    margin-right: 0;
+}
+
+

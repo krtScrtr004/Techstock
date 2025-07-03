@@ -331,6 +331,7 @@
 	margin-right: 10px;
 }
 
+/* ------------------------- CAROUSEL ------------------------- */
 
 .carousel-wrapper {
 	position: relative;
@@ -351,6 +352,8 @@
 }
 
 .carousel-wrapper .tracker {
+	width: fit-content;
+	height: fit-content;
 	background-color: var(--white);
 	position: absolute;
 	top: 50%;

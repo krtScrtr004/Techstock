@@ -27,13 +27,13 @@
             <section class="slide-show-wrapper relative">
                 <img class="slide-show fade" src="<?php echo htmlspecialchars(IMAGE_PATH . 'console-1.jpg'); ?>" alt="Slideshow" title="Slideshow" height="300" loading="lazy">
 
-                <div class="change-button previous center-child absolute white-bg">
+                <button type="button" class="change-button previous center-child absolute white-bg">
                     <img src="<?php echo htmlspecialchars(ICON_PATH . 'next.svg'); ?>" alt="Previous button" title="Previous button" height="20" width="20">
-                </div>
+                </button>
 
-                <div class="change-button next center-child absolute white-bg">
+                <button type="button" class="change-button next center-child absolute white-bg">
                     <img src="<?php echo htmlspecialchars(ICON_PATH . 'next.svg'); ?>" alt="Next button" title="Next button" height="20" width="20">
-                </div>
+                </button>
 
                 <span class="absolute flex-row">
                     <div class="dot-tab active circle white-bg"></div>
@@ -131,13 +131,13 @@
                     } ?>
                 </section>
 
-                <div class="tracker left">
+                <button type="button" class="tracker left">
                     <img src="<?php echo htmlspecialchars(ICON_PATH . 'next.svg') ?>" alt="Next button" title="Next button" height="20">
-                </div>
+                </button>
 
-                <div class="tracker right">
+                <button type="button" class="tracker right">
                     <img src="<?php echo htmlspecialchars(ICON_PATH . 'next.svg') ?>" alt="Next button" title="Next button" height="20">
-                </div>
+                </button>
             </section>
         </section>
 
@@ -158,13 +158,13 @@
                     <?php } ?>
                 </section>
 
-                <div class="tracker left">
+                <button type="button" class="tracker left">
                     <img src="<?php echo htmlspecialchars(ICON_PATH . 'next.svg') ?>" alt="Next button" title="Next button" height="20">
-                </div>
+                </button>
 
-                <div class="tracker right">
+                <button type="button" class="tracker right">
                     <img src="<?php echo htmlspecialchars(ICON_PATH . 'next.svg') ?>" alt="Next button" title="Next button" height="20">
-                </div>
+                </button>
             </section>
         </section>
 
