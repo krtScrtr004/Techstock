@@ -46,6 +46,10 @@
 }
 
 .change-button {
+	display: grid;
+	place-items: center;
+	position: absolute;
+	background-color: var(--white);
 	visibility: hidden;
 	width: 30px;
 	height: 30px;
@@ -58,6 +62,7 @@
 }
 
 .change-button.previous {
+	left: 0;
 	transform: translate(0, -50%) scaleX(-1);
 }
 

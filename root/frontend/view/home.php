@@ -8,11 +8,11 @@
     <title>Techstock | Home</title>
 
     <base href="/Techstock/root/frontend/">
-    <link rel="stylesheet" href="<?php echo STYLE_PATH . 'root.css' ?>">
     <link rel="stylesheet" href="<?php echo STYLE_PATH . 'utility.css' ?>">
     <link rel="stylesheet" href="<?php echo STYLE_PATH . 'component.css' ?>">
     <link rel="stylesheet" href="<?php echo STYLE_PATH . 'header.css' ?>">
     <link rel="stylesheet" href="<?php echo STYLE_PATH . 'footer.css' ?>">
+    <link rel="stylesheet" href="<?php echo STYLE_PATH . 'root.css' ?>">
 
     <link rel="stylesheet" href="<?php echo STYLE_PATH . 'home.css' ?>">
 </head>
@@ -27,11 +27,11 @@
             <section class="slide-show-wrapper relative">
                 <img class="slide-show fade" src="<?php echo htmlspecialchars(IMAGE_PATH . 'console-1.jpg'); ?>" alt="Slideshow" title="Slideshow" height="300" loading="lazy">
 
-                <button type="button" class="change-button previous center-child absolute white-bg">
+                <button type="button" class="change-button previous unset-button">
                     <img src="<?php echo htmlspecialchars(ICON_PATH . 'next.svg'); ?>" alt="Previous button" title="Previous button" height="20" width="20">
                 </button>
 
-                <button type="button" class="change-button next center-child absolute white-bg">
+                <button type="button" class="change-button next unset-button">
                     <img src="<?php echo htmlspecialchars(ICON_PATH . 'next.svg'); ?>" alt="Next button" title="Next button" height="20" width="20">
                 </button>
 
@@ -131,11 +131,11 @@
                     } ?>
                 </section>
 
-                <button type="button" class="tracker left">
+                <button type="button" class="tracker left unset-button">
                     <img src="<?php echo htmlspecialchars(ICON_PATH . 'next.svg') ?>" alt="Next button" title="Next button" height="20">
                 </button>
 
-                <button type="button" class="tracker right">
+                <button type="button" class="tracker right unset-button">
                     <img src="<?php echo htmlspecialchars(ICON_PATH . 'next.svg') ?>" alt="Next button" title="Next button" height="20">
                 </button>
             </section>
@@ -158,11 +158,11 @@
                     <?php } ?>
                 </section>
 
-                <button type="button" class="tracker left">
+                <button type="button" class="tracker left unset-button">
                     <img src="<?php echo htmlspecialchars(ICON_PATH . 'next.svg') ?>" alt="Next button" title="Next button" height="20">
                 </button>
 
-                <button type="button" class="tracker right">
+                <button type="button" class="tracker right unset-button">
                     <img src="<?php echo htmlspecialchars(ICON_PATH . 'next.svg') ?>" alt="Next button" title="Next button" height="20">
                 </button>
             </section>

@@ -1,3 +1,14 @@
+/* ----------------- UNSET BUTTON STYLE-- ----------------- */
+.unset-button {
+	all: unset; /* removes all default styles */
+    font: inherit;
+    color: inherit;
+    padding: 0;
+    margin: 0;
+    background-color: transparent;
+    border: none;
+}
+
 /* --------------- LAZY BACKGROUND IMAGE ----------------- */
 .lazy-bg {
 	background-repeat: no-repeat;
