@@ -1,20 +1,20 @@
 .page-info > main > section {
-    padding: var(--space);
+	padding: var(--space);
 }
 
 .purchase-info {
-    gap: 1rem;
+	gap: 1rem;
 }
 
 .images-section {
 	width: 30rem;
-    gap: 10px;
+	gap: 10px;
 }
 
 .images-section img {
 	aspect-ratio: 1 / 1;
 	object-fit: contain;
-    background-color: var(--dark-white);
+	background-color: var(--dark-white);
 }
 
 .images-section > .featured-image {
@@ -27,42 +27,96 @@
 }
 
 .misc_section {
-    gap: var(--space);
+	gap: var(--space);
 }
 
 .misc_section > * {
-    gap: 5px;
+	gap: 5px;
 }
 
 .misc_section > * > * {
-    display: flex;
-    align-items: center;
-    font-size: 1rem;
-    font-weight: 500; 
+	display: flex;
+	align-items: center;
+	font-size: 1rem;
+	font-weight: 500;
 }
 
 .misc_section > .text-w-icon > img {
-    margin-right: 0;
+	margin-right: 0;
 }
 
 .info-section {
-    flex: 1;
+	flex: 1;
+}
+
+.info-section > *:not(:last-child) {
+	margin-bottom: 0.5rem;
 }
 
 .product-name {
-    font-size: 1.5rem;
-    margin-bottom: 5px;
+	font-size: 1.5rem;
+	margin-bottom: 5px;
 }
 
 .misc-info {
-    gap: var(--space);
+	gap: var(--space);
 }
 
 .misc-info > :last-child {
-    flex: 1;
+	flex: 1;
 }
 
 .rating-stars {
-    margin-left: 8px;
+	margin-left: 8px;
 }
 
+.product-price {
+	padding: 1rem;
+	border-radius: var(--border-radius);
+}
+
+.product-price > h3 {
+	font-size: 2rem;
+	font-variant-numeric: tabular-nums;
+}
+
+.shipping-section {
+	width: fit-content;
+	height: fit-content;
+	grid-template-columns: auto auto auto auto;
+	gap: 10px;
+    place-items: center;
+    justify-items: start;
+}
+
+.shipping-section > .title,
+.shipping-section > .icon,
+.shipping-section > .sub-title.upper,
+.shipping-section > .form {
+	grid-row: 1;
+}
+
+.shipping-section > .sub-title.lower,
+.shipping-section > .fee {
+	grid-row: 2;
+}
+
+.shipping-section > .title {
+	grid-column: 1;
+	margin-right: var(--space);
+}
+.shipping-section > .icon {
+	grid-column: 2;
+}
+.shipping-section > .sub-title.upper,
+.shipping-section > .sub-title.lower {
+	grid-column: 3;
+}
+.shipping-section > .form,
+.shipping-section > .fee {
+	grid-column: 4;
+}
+
+.shipping-section > .form > input {
+	padding: 5px 10px;
+}

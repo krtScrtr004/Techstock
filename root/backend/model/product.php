@@ -197,7 +197,7 @@ class Product implements Model
                 
                 'description' => "But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness. No one rejects, dislikes, or avoids pleasure itself, because it is pleasure, but because those who do not know how to pursue pleasure rationally encounter consequences that are extremely painful $i.",
                 
-                'price' => round(mt_rand(1000, 20000) / 100, 2), // 10.00 to 200.00
+                'price' => round(mt_rand(1000000000, 20000000000) / 100000, 2), // 10.00 to 200.00
                 
                 'storeId' => rand(1, 5),
                 

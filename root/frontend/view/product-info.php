@@ -73,12 +73,12 @@
                     </h1>
 
                     <section class="misc-info flex-row">
-                        <a href="" class="flex-row">
-                            <?php 
-                            $rating = $product->getRating(); 
+                        <a href="" class="flex-row black-text">
+                            <?php
+                            $rating = $product->getRating();
 
                             echo number_format($rating, 1);
-                            renderRatingStars($rating); 
+                            renderRatingStars($rating);
                             ?>
                         </a>
 
@@ -93,8 +93,31 @@
                     </section>
                 </section>
 
+                <section class="product-price dark-white-bg">
+                    <h3 class="black-text">
+                        <?php echo $product->getCurrency() . htmlspecialchars($product->getPrice()) ?>
+                    </h3>
+                </section>
+
+                <section class="shipping-section grid">
+                    <p class="title">Shipping</p>
+
+                    <div class="icon center-child">
+                        <img src="<?php echo htmlspecialchars(ICON_PATH . 'shipping.svg') ?>" alt="" height="24" width="24">
+                    </div>
+
+                    <p class="sub-title upper ">Shipping To</p>
+                    <form class="form" action="" method="POST">
+                        <input class="dark-white-bg" type="text" name="address" id="address" placeholder="Shipping address" min="8" max="255" required>
+                    </form>
+
+                    <p class="sub-title lower ">Shipping Fee</p>
+                    <p class="fee ">54</p>
+                </section>
             </section>
+
         </section>
+
     </main>
 
     <script src="<?php echo htmlspecialchars(EVENT_PATH . 'carousel-tracker.js'); ?>" defer></script>
