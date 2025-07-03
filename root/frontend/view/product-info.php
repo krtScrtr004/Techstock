@@ -93,12 +93,14 @@
                     </section>
                 </section>
 
+                <!-- Price Section -->
                 <section class="product-price dark-white-bg">
                     <h3 class="black-text">
                         <?php echo $product->getCurrency() . htmlspecialchars($product->getPrice()) ?>
                     </h3>
                 </section>
 
+                <!-- Shipping Section -->
                 <section class="shipping-section grid">
                     <p class="title">Shipping</p>
 
@@ -114,8 +116,22 @@
                     <p class="sub-title lower ">Shipping Fee</p>
                     <p class="fee ">54</p>
                 </section>
-            </section>
 
+                <!-- Options / Variants Section -->
+                <?php foreach ($product->getOptions() as $key => $value): ?>
+                    <section class="option-section grid">
+                        <p class="title"> <?php echo htmlspecialchars(ucwords($key)) ?> </p>
+                        
+                        <!-- Options / Variants Selection Buttons -->
+                        <div class="buttons flex-row">
+                            <?php for ($i = 0, $n = count($value); $i < $n; ++$i): ?>
+                                <button type="button" class="unset-button"><?php echo htmlspecialchars($value[$i]) ?></button>
+                            <?php endfor; ?>
+                        </div>
+                    </section>
+                <?php endforeach; ?>
+            </section>
+        </section>
         </section>
 
     </main>

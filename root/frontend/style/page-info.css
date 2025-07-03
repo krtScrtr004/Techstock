@@ -50,7 +50,7 @@
 }
 
 .info-section > *:not(:last-child) {
-	margin-bottom: 0.5rem;
+	margin-bottom: var(--space);
 }
 
 .product-name {
@@ -80,19 +80,28 @@
 	font-variant-numeric: tabular-nums;
 }
 
-.shipping-section {
+.grid {
 	width: fit-content;
 	height: fit-content;
-	grid-template-columns: auto auto auto auto;
-	gap: 10px;
-    place-items: center;
-    justify-items: start;
+	column-gap: 0.5rem;
+	row-gap: 1rem;
+	place-items: center;
+	justify-items: start;
 }
 
-.shipping-section > .title,
+.grid * {
+	color: var(--black);
+}
+
+.shipping-section {
+	grid-template-columns: auto auto auto auto;
+}
+
+.grid > .title,
 .shipping-section > .icon,
 .shipping-section > .sub-title.upper,
-.shipping-section > .form {
+.shipping-section > .form,
+.option-section > .buttons {
 	grid-row: 1;
 }
 
@@ -101,11 +110,14 @@
 	grid-row: 2;
 }
 
-.shipping-section > .title {
+.grid > .title {
+    width: 8ch;
 	grid-column: 1;
-	margin-right: var(--space);
+    column-gap: 1rem;
 }
-.shipping-section > .icon {
+
+.shipping-section > .icon,
+.option-section > .buttons {
 	grid-column: 2;
 }
 .shipping-section > .sub-title.upper,
@@ -119,4 +131,23 @@
 
 .shipping-section > .form > input {
 	padding: 5px 10px;
+}
+
+.option-section {
+    max-width: 75%;
+	grid-template-columns: auto auto auto;
+}
+
+.option-section > .buttons {
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.option-section > .buttons > button {
+    padding: 5px 10px;
+    border: 1px solid var(--black);
+}
+
+.option-section > .buttons > button:hover {
+    opacity: 0.5;
 }
