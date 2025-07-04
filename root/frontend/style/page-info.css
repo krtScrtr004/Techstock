@@ -100,7 +100,8 @@
 .shipping-section > .icon,
 .shipping-section > .sub-title.upper,
 .shipping-section > .form,
-.option-section > .buttons {
+.option-section > .buttons,
+.quantity-section > div {
 	grid-row: 1;
 }
 
@@ -116,7 +117,8 @@
 }
 
 .shipping-section > .icon,
-.option-section > .buttons {
+.option-section > .buttons,
+.quantity-section > div {
 	grid-column: 2;
 }
 .shipping-section > .sub-title.upper,
@@ -128,7 +130,7 @@
 	grid-column: 4;
 }
 
-.shipping-section > .form > input {
+.info-section input {
 	padding: 5px 10px;
 }
 
@@ -163,7 +165,7 @@
 .button-section > button {
 	width: 20ch;
 	margin: 0;
-	border: 1px solid transparent;
+	border: 1px solid var(--black);
 	border-radius: 1px;
 }
 
@@ -183,4 +185,8 @@
 	bottom: 0;
 	opacity: 0.3;
 	z-index: 5;
+}
+
+.quantity-section > div {
+	gap: 5px;;
 }

@@ -121,7 +121,7 @@
                 <?php foreach ($product->getOptions() as $key => $value): ?>
                     <section class="option-section grid">
                         <p class="title"> <?php echo htmlspecialchars(ucwords($key)) ?> </p>
-                        
+
                         <!-- Options / Variants Selection Buttons -->
                         <div class="buttons flex-row">
                             <?php for ($i = 0, $n = count($value); $i < $n; ++$i): ?>
@@ -130,6 +130,18 @@
                         </div>
                     </section>
                 <?php endforeach; ?>
+
+                <section class="quantity-section grid">
+                    <p class="title">Quantity</p>
+
+                    <div class="flex-row">
+                        <form action="" method="POST">
+                            <input class="dark-white-bg" type="number" name="quantity" id="quantity" value="1" min="0" max="<?php echo htmlspecialchars($product->getStock()) ?>" required>
+                        </form>
+
+                        <p class="center-child"><?php echo htmlspecialchars($product->getStock()) ?> Stocks available</p>
+                    </div>
+                </section>
 
                 <section class="button-section flex-row flex-child-center-h">
                     <button class="add-to-cart inline blue-text">

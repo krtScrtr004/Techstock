@@ -6,6 +6,7 @@ class Product implements Model
     private string $name;
     private ?string $description;
     private float $price;
+    private int $stock;
     private $storeId;
     private string $currency;
     private float $rating;
@@ -21,6 +22,7 @@ class Product implements Model
             $this->name = $data['name'];
             $this->description = $data['description'] ?? null;
             $this->price = $data['price'];
+            $this->stock = $data['stock'] ?? 0;
             $this->storeId = $data['storeId'];
             $this->currency = $data['currency']  ?? 'PHP';
             $this->rating = (float) $data['rating'] ?? 0.0;
@@ -50,6 +52,10 @@ class Product implements Model
     public function getPrice(): float
     {
         return $this->price;
+    }
+
+    public function getStock(): int {
+        return $this->stock;
     }
 
     public function getStoreId()
@@ -127,6 +133,11 @@ class Product implements Model
     public function setPrice($price): void
     {
         $this->price = $price;
+    }
+
+    public function setStock(int $stock): void
+    {
+        $this->stock = $stock;
     }
 
     public function setStoreId($storeId): void
@@ -208,6 +219,8 @@ class Product implements Model
             'name' => "Sed ut perspiciatis unde omnis iste natus error  sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo $i.",
 
             'description' => "But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness. No one rejects, dislikes, or avoids pleasure itself, because it is pleasure, but because those who do not know how to pursue pleasure rationally encounter consequences that are extremely painful $i.",
+
+            'stock' => rand(0, 999999) % 10000,
 
             'price' => round(mt_rand(1000000000, 20000000000) / 100000, 2), // 10.00 to 200.00
 
