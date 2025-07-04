@@ -3,7 +3,7 @@
 }
 
 .purchase-info {
-	gap: 1rem;
+	gap: var(--space);
 }
 
 .images-section {
@@ -14,7 +14,6 @@
 .images-section img {
 	aspect-ratio: 1 / 1;
 	object-fit: contain;
-	background-color: var(--dark-white);
 }
 
 .images-section > .featured-image {
@@ -150,4 +149,38 @@
 
 .option-section > .buttons > button:hover {
     opacity: 0.5;
+}
+
+.button-section {
+	gap: 1rem;
+}
+
+.button-section > button,
+.button-section > button * {
+	font-weight: 500;
+}
+
+.button-section > button {
+	width: 20ch;
+	margin: 0;
+	border: 1px solid transparent;
+	border-radius: 1px;
+}
+
+.button-section > button.add-to-cart {
+	position: relative;
+	border: 1px solid var(--blue);
+	z-index: 10;
+}
+
+.button-section > button.add-to-cart::before {
+	background-color: var(--blue);
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	opacity: 0.3;
+	z-index: 5;
 }

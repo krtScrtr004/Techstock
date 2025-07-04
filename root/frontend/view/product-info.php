@@ -130,6 +130,20 @@
                         </div>
                     </section>
                 <?php endforeach; ?>
+
+                <section class="button-section flex-row flex-child-center-h">
+                    <button class="add-to-cart inline blue-text">
+                        <div class="text-w-icon center-child">
+                            <img src="<?php echo htmlspecialchars(ICON_PATH . 'cart_b.svg') ?>" alt="Add to cart" title="Add to cart" height="16" width="16">
+
+                            <p>Add To Cart</p>
+                        </div>
+                    </button>
+
+                    <button class="inline black-bg white-text">
+                        Buy Now
+                    </button>
+                </section>
             </section>
         </section>
         </section>
