@@ -1,12 +1,16 @@
 /* ----------------- UNSET BUTTON STYLE-- ----------------- */
 .unset-button {
 	all: unset; /* removes all default styles */
-    font: inherit;
-    color: inherit;
-    padding: 0;
-    margin: 0;
-    background-color: transparent;
-    border: none;
+	font: inherit;
+	color: inherit;
+	padding: 0;
+	margin: 0;
+	background-color: transparent;
+	border: none;
+}
+
+.unset-button:focus {
+	outline: 2px solid black;
 }
 
 /* --------------- LAZY BACKGROUND IMAGE ----------------- */
@@ -354,7 +358,7 @@
 	gap: 5px;
 	overflow-x: auto;
 	scroll-behavior: smooth;
-	scrollbar-width: none; 
+	scrollbar-width: none;
 	-ms-overflow-style: none;
 }
 

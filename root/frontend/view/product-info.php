@@ -57,7 +57,7 @@
                         </button>
                     </div>
 
-                    <button type="button" class="text-w-icon unset-button">
+                    <button type="button" class="favorite text-w-icon unset-button">
                         <img src="<?php echo htmlspecialchars(ICON_PATH . 'heart_empty.svg') ?>" alt="" width="24" height="24">
 
                         <p class="black-text">Favorite</p>
@@ -166,6 +166,7 @@
 
     <script src="<?php echo htmlspecialchars(EVENT_PATH . 'carousel-tracker.js'); ?>" defer></script>
     <script src="<?php echo htmlspecialchars(EVENT_PATH . 'show-click-image.js'); ?>" defer></script>
+    <script src="<?php echo htmlspecialchars(EVENT_PATH . 'favorite.js'); ?>" defer></script>
 </body>
 
 </html>
