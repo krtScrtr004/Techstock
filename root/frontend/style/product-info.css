@@ -23,6 +23,7 @@
 .image-collection > .carousel > img {
 	width: calc(30rem / 4);
 	height: auto;
+	cursor: pointer;
 }
 
 .misc_section {
@@ -188,5 +189,5 @@
 }
 
 .quantity-section > div {
-	gap: 5px;;
+	gap: 5px;
 }

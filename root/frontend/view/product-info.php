@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="<?php echo STYLE_PATH . 'header.css' ?>">
     <link rel="stylesheet" href="<?php echo STYLE_PATH . 'footer.css' ?>">
 
-    <link rel="stylesheet" href="<?php echo STYLE_PATH . 'page-info.css' ?>">
+    <link rel="stylesheet" href="<?php echo STYLE_PATH . 'product-info.css' ?>">
 </head>
 
 <body class="page-info">
@@ -26,12 +26,12 @@
         <section class="purchase-info flex-row white-bg">
             <!-- Images Section -->
             <section class="images-section flex-col">
-                <img class="featured-image" src="<?php echo htmlspecialchars($product->getImage(0)) ?>" alt="<?php echo htmlspecialchars($product->getName()) ?>" title="<?php echo htmlspecialchars($product->getName()) ?>" height="400">
+                <img class="featured-image" src="<?php echo htmlspecialchars($product->getImage(0)) ?>" alt="<?php echo htmlspecialchars($product->getName()) ?>" title="<?php echo htmlspecialchars($product->getName()) ?>" loading="lazy" height="400">
 
                 <section class="image-collection carousel-wrapper">
                     <section class="carousel">
                         <?php foreach ($product->getImages() as $image): ?>
-                            <img class="featured-image" src="<?php echo htmlspecialchars($image) ?>" alt="<?php echo htmlspecialchars($product->getName()) ?>" title="<?php echo htmlspecialchars($product->getName()) ?>" height="400">
+                            <img class="featured-image" src="<?php echo htmlspecialchars($image) ?>" alt="<?php echo htmlspecialchars($product->getName()) ?>" title="<?php echo htmlspecialchars($product->getName()) ?>" loading="lazy" height="400">
                         <?php endforeach; ?>
                     </section>
 
@@ -82,12 +82,12 @@
                             ?>
                         </a>
 
-                        <p><?php echo htmlspecialchars($ratingCount) ?> Ratings</p>
-                        <p><?php echo htmlspecialchars($product->getSoldCount()) ?> Sold</p>
+                        <p class="black-text"><?php echo htmlspecialchars($ratingCount) ?> Ratings</p>
+                        <p class="black-text"><?php echo htmlspecialchars($product->getSoldCount()) ?> Sold</p>
 
                         <div class="flex-row-reverse">
                             <button type="button" class="unset-button">
-                                <p>Report</p>
+                                <p class="black-text">Report</p>
                             </button>
                         </div>
                     </section>
@@ -131,6 +131,7 @@
                     </section>
                 <?php endforeach; ?>
 
+                <!-- Quantity Section -->
                 <section class="quantity-section grid">
                     <p class="title">Quantity</p>
 
@@ -143,6 +144,7 @@
                     </div>
                 </section>
 
+                <!-- Button Section -->
                 <section class="button-section flex-row flex-child-center-h">
                     <button class="add-to-cart inline blue-text">
                         <div class="text-w-icon center-child">
@@ -163,6 +165,7 @@
     </main>
 
     <script src="<?php echo htmlspecialchars(EVENT_PATH . 'carousel-tracker.js'); ?>" defer></script>
+    <script src="<?php echo htmlspecialchars(EVENT_PATH . 'show-click-image.js'); ?>" defer></script>
 </body>
 
 </html>
