@@ -177,7 +177,7 @@
         </section>
 
         <section class="store-info flex-row white-bg">
-
+            
         </section>
     </main>
 

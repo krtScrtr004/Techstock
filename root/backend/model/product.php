@@ -7,7 +7,7 @@ class Product implements Model
     private ?string $description;
     private float $price;
     private int $stock;
-    private $storeId;
+    private Store $store;
     private string $currency;
     private float $rating;
     private ?array $images;
@@ -23,7 +23,7 @@ class Product implements Model
             $this->description = $data['description'] ?? null;
             $this->price = $data['price'];
             $this->stock = $data['stock'] ?? 0;
-            $this->storeId = $data['storeId'];
+            $this->store = $data['storeId'] ?? new Store();
             $this->currency = $data['currency']  ?? 'PHP';
             $this->rating = (float) $data['rating'] ?? 0.0;
             $this->images = $data['images'] ?? null;
@@ -58,9 +58,9 @@ class Product implements Model
         return $this->stock;
     }
 
-    public function getStoreId()
+    public function getStore(): Store
     {
-        return $this->storeId;
+        return $this->store;
     }
 
     public function getCurrency(): string
@@ -140,9 +140,9 @@ class Product implements Model
         $this->stock = $stock;
     }
 
-    public function setStoreId($storeId): void
+    public function setStore(Store $store): void
     {
-        $this->storeId = $storeId;
+        $this->store = $store;
     }
 
     public function setCurrency($currency): void
