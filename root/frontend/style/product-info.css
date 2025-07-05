@@ -149,21 +149,22 @@
     flex-wrap: wrap;
 }
 
-.option-section > .buttons > form {
+.option-form {
     gap: 1rem;
 }
 
-.option-section > .buttons input[type="checkbox"] {
+.option-form > .hidden-wrapper > input[type="checkbox"] {
 	display: none;
 }
 
-.option-section > .buttons button {
+.option-form > .hidden-wrapper > button {
     padding: 5px 10px;
     border: 1px solid var(--black);
 }
 
-.option-section > .buttons button:hover {
-	border: 1px solid var(--blue);
+.option-form > .hidden-wrapper > button:hover {
+    border: 1px solid var(--blue);
+    color: var(--blue);
 }
 
 .button-section {

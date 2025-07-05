@@ -130,7 +130,7 @@
 
                         <!-- Options / Variants Selection Buttons -->
                         <div class="buttons flex-row">
-                            <form class="flex-row" action="" method="POST">
+                            <form class="option-form flex-row" action="" method="POST">
                                 <?php for ($i = 0, $n = count($value); $i < $n; ++$i):
                                     $currentValue = htmlspecialchars($value[$i]);
                                 ?>
@@ -183,6 +183,7 @@
     <script src="<?php echo htmlspecialchars(EVENT_PATH . 'show-click-image.js'); ?>" defer></script>
     <script src="<?php echo htmlspecialchars(EVENT_PATH . 'copy-link.js'); ?>" defer></script>
     <script src="<?php echo htmlspecialchars(EVENT_PATH . 'favorite.js'); ?>" defer></script>
+    <script src="<?php echo htmlspecialchars(EVENT_PATH . 'select-product-option.js'); ?>" defer></script>
 </body>
 
 </html>
