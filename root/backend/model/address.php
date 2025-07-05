@@ -19,6 +19,12 @@ class Address implements Model
         $this->country = $data['country'] ?? 'Philippines';
     }
 
+    public function __toString(): string
+    {
+        $house_number = ($this->house_number) ? "$this->house_number," : '';
+        return "$house_number $this->street, $this->city, $this->postal_code, $this->region, $this->country";
+    }
+
     // Getters
     public function getHouseNumber(): ?string
     {

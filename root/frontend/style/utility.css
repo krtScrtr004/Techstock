@@ -142,6 +142,10 @@
 	text-align: center;
 }
 
+.end-text {
+	text-align: end;
+}
+
 .single-line-ellipsis {
 	white-space: nowrap; /* Keep text on one line */
 	overflow: hidden; /* Hide overflowing text */

@@ -161,7 +161,7 @@
 
                 <!-- Button Section -->
                 <section class="button-section flex-row flex-child-center-h">
-                    <button class="add-to-cart inline blue-text">
+                    <button class="add-to-cart-button inline blue-text">
                         <div class="text-w-icon center-child">
                             <img src="<?= htmlspecialchars(ICON_PATH . 'cart_b.svg') ?>" alt="Add to cart" title="Add to cart" height="16" width="16">
 
@@ -176,8 +176,59 @@
             </section>
         </section>
 
+        <!-- Store Info Section -->
         <section class="store-info flex-row white-bg">
-            
+            <!-- Store Logo Section -->
+            <section class="store-logo center-child">
+                <img src="<?= htmlspecialchars($store->getLogo()) ?>" alt="<?= htmlspecialchars($store->getName()) ?>" title="<?= htmlspecialchars($store->getName()) ?>" height="100">
+            </section>
+
+            <!-- Store Chains Section -->
+            <section class="chains flex-col flex-child-center-v">
+                <h3 class="store-name flex-row flex-child-start-v black-text"><?= htmlspecialchars($store->getName()) ?></h3>
+
+                <div class="buttons flex-row">
+                    <button type="button" class="chat-button">
+                        <div class="text-w-icon center-child">
+                            <img src="<?= htmlspecialchars(ICON_PATH . 'chat_bl.svg') ?>" alt="Chat now" title="Chat now" height="20" width="20">
+
+                            <p class="blue-text">Chat Now</p>
+                        </div>
+                    </button>
+
+                    <button type="button" class="white-bg">
+                        View Store
+                    </button>
+                </div>
+            </section>
+
+            <!-- Store Detail Section -->
+            <section class="store-details grid">
+                <section class="first-col flex-row flex-space-between">
+                    <p class="">Contact</p>
+                    <h3 class="end-text"><?= htmlspecialchars($store->getContact()) ?></h3>
+                </section>    
+
+                <section class="first-col flex-row flex-space-between">
+                    <p class="">Email</p>
+                    <h3 class="end-text"><?= htmlspecialchars($store->getEmail()) ?></h3>
+                </section>    
+
+                <section class="second-col flex-row flex-space-between">
+                    <p class="">Products</p>
+                    <h3 class="end-text"><?= htmlspecialchars(formatNumber($store->getProductCount())) ?></h3>
+                </section>    
+
+                <section class="second-col flex-row flex-space-between">
+                    <p class="">Followers</p>
+                    <h3 class="end-text"><?= htmlspecialchars(formatNumber($store->getFollowerCount())) ?></h3>
+                </section>    
+
+                <section class="first-col flex-row flex-space-between">
+                    <p class="">Location</p>
+                    <h3 class="end-text"><?= htmlspecialchars($store->getLocation()) ?></h3>
+                </section>    
+            </section>
         </section>
     </main>
 

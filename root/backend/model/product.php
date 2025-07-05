@@ -228,6 +228,7 @@ class Product implements Model
                         'id' => rand(1, 9999),
                         'name' => "Store Madrigal $i",
                         'description' => 'Lorem ipsum nam usblk block iahsn. Johel mlan ilak olsb qwicrr loue.',
+                        'logo' => IMAGE_PATH . 'brand logo/acer.png',
                         'email' => 'store-email@gmail.com',
                         'contact' => '+639150082561',
                         'location' => new Address(
@@ -239,6 +240,8 @@ class Product implements Model
                                 'country' => 'Philippines'
                             ]
                         ),
+                        'product_count' => rand(1, 99999),
+                        'follower_count' => rand(1, 99999),
                         'is_verified' => 'pending'
                     ]
                 ),

@@ -10,6 +10,8 @@ class Store implements Model
 	private string $email;
 	private string $contact;
 	private Address $location;
+	private int $productCount;
+	private int $followerCount;
 	private string $is_verified;
 	private readonly DateTime $created_at;
 
@@ -23,6 +25,8 @@ class Store implements Model
 		$this->email = $data['email'] ?? '';
 		$this->contact = $data['contact'] ?? '';
 		$this->location = $data['location'] ?? new Address();
+		$this->productCount = $data['product_count'] ?? 0;
+		$this->followerCount = $data['follower_count'] ?? 0;
 		$this->is_verified = $data['is_verified'] ?? '0';
 		$this->created_at = isset($data['created_at'])
 			? (is_a($data['created_at'], DateTime::class) ? $data['created_at'] : new DateTime($data['created_at']))
@@ -68,6 +72,14 @@ class Store implements Model
 	public function getLocation(): Address
 	{
 		return $this->location;
+	}
+
+	public function getProductCount(): int {
+		return $this->productCount;
+	}
+
+	public function getFollowerCount(): int {
+		return $this->followerCount;
 	}
 
 	public function getIsVerified(): string
@@ -119,6 +131,16 @@ class Store implements Model
 	public function setLocation(Address $location): void
 	{
 		$this->location = $location;
+	}
+
+	public function setProductCount(int $productCount): void 
+	{
+		$this->productCount = $productCount;
+	}
+
+	public function setFollowerCount(int $followerCount): void 
+	{
+		$this->followerCount = $followerCount;
 	}
 
 	public function setIsVerified(string $is_verified): void
