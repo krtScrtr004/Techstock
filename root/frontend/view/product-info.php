@@ -22,7 +22,7 @@
 <body class="page-info">
     <?php require_once COMPONENT_PATH . 'header.php' ?>
 
-    <main class="dark-white-bg">
+    <main class="dark-white-bg flex-col">
         <?=
         copyLinkNotification(true);
         copyLinkNotification(false);
@@ -102,7 +102,7 @@
                 <!-- Price Section -->
                 <section class="product-price dark-white-bg">
                     <h3 class="black-text">
-                        <?php echo $product->getCurrency() . htmlspecialchars($product->getPrice()) ?>
+                        <?php echo $product->getCurrency() . htmlspecialchars(formatNumber($product->getPrice())) ?>
                     </h3>
                 </section>
 
@@ -175,8 +175,10 @@
                 </section>
             </section>
         </section>
-        </section>
 
+        <section class="store-info flex-row white-bg">
+
+        </section>
     </main>
 
     <script src="<?php echo htmlspecialchars(EVENT_PATH . 'carousel-tracker.js'); ?>" defer></script>

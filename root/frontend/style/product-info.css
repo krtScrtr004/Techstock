@@ -1,6 +1,7 @@
 .page-info > main  {
 	padding-top: var(--space);
 	padding-bottom: var(--space);
+	gap: var(--space);
 }
 
 .page-info > main > section:not(.notification-wrapper) {
