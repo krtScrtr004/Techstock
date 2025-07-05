@@ -1,12 +1,12 @@
 <?php $hasSession = (session_status() === PHP_SESSION_ACTIVE) ?>
 
-<footer class="footer black-bg <?php echo ((!$hasSession) ? 'flex-row' : '') ?>">
+<footer class="footer black-bg <?= ((!$hasSession) ? 'flex-row' : '') ?>">
     <section class="footer-links flex-row flex-space-between">
         <?php if ($hasSession): ?>
         <section>
             <h3>Navigate Our Site</h3>
             <ul>
-                <li><a href="<?php echo htmlspecialchars(REDIRECT_PATH . 'home'); ?>">Home</a></li>
+                <li><a href="<?= htmlspecialchars(REDIRECT_PATH . 'home'); ?>">Home</a></li>
                 <li><a href="">My Orders</a></li>
                 <li><a href="">My Cart</a></li>
                 <li><a href="">My Profile</a></li>
@@ -38,7 +38,7 @@
     </section>
 
     <section class="footer-static flex-col center-child">
-        <img src="<?php echo htmlspecialchars(LOGO_PATH . 'logo_complete_ver.svg') ?>" alt="Techstock logo" title="Techstock logo" height="69">
+        <img src="<?= htmlspecialchars(LOGO_PATH . 'logo_complete_ver.svg') ?>" alt="Techstock logo" title="Techstock logo" height="69">
 
         <p>&copy; Techstock Philippines. All rights reserved.</p>
     </section>

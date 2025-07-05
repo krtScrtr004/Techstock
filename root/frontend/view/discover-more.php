@@ -8,13 +8,13 @@
     <title>Techstock | Discover More</title>
 
     <base href="/Techstock/root/frontend/">
-    <link rel="stylesheet" href="<?php echo STYLE_PATH . 'root.css' ?>">
-    <link rel="stylesheet" href="<?php echo STYLE_PATH . 'utility.css' ?>">
-    <link rel="stylesheet" href="<?php echo STYLE_PATH . 'component.css' ?>">
-    <link rel="stylesheet" href="<?php echo STYLE_PATH . 'header.css' ?>">
-    <link rel="stylesheet" href="<?php echo STYLE_PATH . 'footer.css' ?>">
+    <link rel="stylesheet" href="<?= STYLE_PATH . 'root.css' ?>">
+    <link rel="stylesheet" href="<?= STYLE_PATH . 'utility.css' ?>">
+    <link rel="stylesheet" href="<?= STYLE_PATH . 'component.css' ?>">
+    <link rel="stylesheet" href="<?= STYLE_PATH . 'header.css' ?>">
+    <link rel="stylesheet" href="<?= STYLE_PATH . 'footer.css' ?>">
 
-    <link rel="stylesheet" href="<?php echo STYLE_PATH . 'discover-more.css' ?>">
+    <link rel="stylesheet" href="<?= STYLE_PATH . 'discover-more.css' ?>">
 
 </head>
 
@@ -38,7 +38,7 @@
 
     <?php require_once COMPONENT_PATH . 'footer.php'; ?>
 
-    <script src="<?php echo htmlspecialchars(EVENT_PATH . 'page-tab.js'); ?>" type="module" defer></script>
+    <script src="<?= htmlspecialchars(EVENT_PATH . 'page-tab.js'); ?>" type="module" defer></script>
 </body>
 
 </html>

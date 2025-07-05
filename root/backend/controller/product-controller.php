@@ -13,7 +13,9 @@ class ProductController implements Controller
 
         // Dummy
         $products = Product::all();
+        
         $product = $products[0];
+        $store = $product->getStore();
 
         $ratingCount = 923;
         $soldCount = 109;

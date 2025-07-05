@@ -9,7 +9,8 @@ class HomeController implements Controller
         global $session;
         if (!isset($session)) $session = Session::create();
 
-        $productModel = new Product();
+        $products = Product::all();
+        $productModel = $products[0];
 
         $products = $productModel->all();
         require_once VIEW_PATH . 'home.php';

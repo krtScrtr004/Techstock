@@ -10,17 +10,17 @@ function renderRatingStars(float $rating, int $size = 16): void {
     <div class=" rating-stars center-child">
         <!-- Display full filled stars -->
         <?php for ($i = 0; $i < $whole; ++$i): ?>
-            <img src="<?php echo htmlspecialchars(ICON_PATH . 'star_y.svg') ?>" alt="Rating" title="Rating" width="<?php echo $size ?>" height="<?php echo $size ?>">
+            <img src="<?= htmlspecialchars(ICON_PATH . 'star_y.svg') ?>" alt="Rating" title="Rating" width="<?= $size ?>" height="<?= $size ?>">
         <?php endfor; ?>
 
         <!-- Display half filled stars -->
         <?php if ($decimal > 0): ?>
-            <img src="<?php echo htmlspecialchars(ICON_PATH . 'star_half_dw.svg') ?>" alt="Rating" title="Rating" width="<?php echo $size ?>" height="<?php echo $size ?>">
+            <img src="<?= htmlspecialchars(ICON_PATH . 'star_half_dw.svg') ?>" alt="Rating" title="Rating" width="<?= $size ?>" height="<?= $size ?>">
         <?php endif; ?>
 
         <!-- Display empty stars -->
         <?php for ($i = ceil($rating); $i < 5; ++$i): ?>
-            <img src="<?php echo htmlspecialchars(ICON_PATH . 'star_dw.svg') ?>" alt="Rating" title="Rating" width="<?php echo $size ?>" height="<?php echo $size ?>">
+            <img src="<?= htmlspecialchars(ICON_PATH . 'star_dw.svg') ?>" alt="Rating" title="Rating" width="<?= $size ?>" height="<?= $size ?>">
         <?php endfor; ?>
     </div>
 <?php

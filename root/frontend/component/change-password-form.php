@@ -1,4 +1,4 @@
-<p class="center-text"><?php echo $component['description']; ?></p>
+<p class="center-text"><?= $component['description']; ?></p>
 
 <article class="form-message error">
     Invalid password format.

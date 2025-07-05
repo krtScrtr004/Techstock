@@ -9,7 +9,8 @@ class DiscoverMoreController implements Controller
         global $session;
         if (!isset($session)) $session = Session::create();
 
-        $productModel = new Product();
+        $products = Product::all();
+        $productModel = $products[1];
 
         $products = $productModel->all();
         require_once VIEW_PATH . 'discover-more.php';

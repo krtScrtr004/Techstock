@@ -128,6 +128,7 @@ class Store implements Model
 
 	public static function all(): array
 	{
+
 		// TODO: Implement method logic
 		return [];
 	}

@@ -15,13 +15,13 @@
 
 <section class="oath-provider-link">
     <div>
-        <img src="<?php echo htmlspecialchars(ICON_PATH . 'facebook.svg'); ?>" alt="Facebook sign up" title="Facebook sign up" width="45" height="45">
+        <img src="<?= htmlspecialchars(ICON_PATH . 'facebook.svg'); ?>" alt="Facebook sign up" title="Facebook sign up" width="45" height="45">
 
         <h3>Facebook</h3>
     </div>
 
     <div>
-        <img src="<?php echo htmlspecialchars(ICON_PATH . 'google.svg'); ?>" alt="Google sign up" title="Google sign up" width="45" height="45">
+        <img src="<?= htmlspecialchars(ICON_PATH . 'google.svg'); ?>" alt="Google sign up" title="Google sign up" width="45" height="45">
 
         <h3>Google</h3>
     </div>
@@ -31,4 +31,4 @@
     <p class="agreement center-text">By signing up, you agree to Trchstock's <a class="blue-text" href="">Terms and Conditions</a> and <a class="blue-text" href="">Privacy Policy</a>.</p>
 </div>
 
-<p class="block center-text">Already have an account? <a class="blue-text" href="<?php echo htmlspecialchars(REDIRECT_PATH . 'login'); ?>">Log In</a></p>
+<p class="block center-text">Already have an account? <a class="blue-text" href="<?= htmlspecialchars(REDIRECT_PATH . 'login'); ?>">Log In</a></p>

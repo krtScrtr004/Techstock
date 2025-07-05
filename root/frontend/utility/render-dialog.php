@@ -5,14 +5,14 @@ function renderDialog(bool $status, string $id, string $title, string $message)
     $icons = ['confirm.svg', 'reject.svg'];
 
     ?>
-    <section id="<?php echo htmlspecialchars($id); ?>" class="modal-wrapper">
+    <section id="<?= htmlspecialchars($id); ?>" class="modal-wrapper">
         <div class="dialog">
-            <img src="<?php echo htmlspecialchars(ICON_PATH . ($status ? $icons[0] : $icons[1])); ?>" alt="Result icon" title="Result icon" height="69" width="69">
+            <img src="<?= htmlspecialchars(ICON_PATH . ($status ? $icons[0] : $icons[1])); ?>" alt="Result icon" title="Result icon" height="69" width="69">
 
-            <h1 class="center-text"><?php echo htmlspecialchars($title); ?></h1>
-            <p class="center-text"><?php echo htmlspecialchars($message); ?></p>
+            <h1 class="center-text"><?= htmlspecialchars($title); ?></h1>
+            <p class="center-text"><?= htmlspecialchars($message); ?></p>
 
-            <button class="<?php echo $status ? 'blue-bg'  : 'red-bg'?> white-text">OKAY</button>
+            <button class="<?= $status ? 'blue-bg'  : 'red-bg'?> white-text">OKAY</button>
         </div>
     </section>
     <?php

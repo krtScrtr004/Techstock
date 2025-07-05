@@ -17,20 +17,18 @@ class Product implements Model
 
     public function __construct(array $data = [])
     {
-        if ($data) {
-            $this->id = $data['id'];
-            $this->name = $data['name'];
-            $this->description = $data['description'] ?? null;
-            $this->price = $data['price'];
-            $this->stock = $data['stock'] ?? 0;
-            $this->store = $data['storeId'] ?? new Store();
-            $this->currency = $data['currency']  ?? 'PHP';
-            $this->rating = (float) $data['rating'] ?? 0.0;
-            $this->images = $data['images'] ?? null;
-            $this->category = $data['category'] ?? null;
-            $this->options = $data['option'] ?? null;
-            $this->soldCount = $data['sold_cold'] ?? 0;
-        }
+        $this->id = $data['id'] ?? 1;
+        $this->name = $data['name'] ?? 'Product name';
+        $this->description = $data['description'] ?? null;
+        $this->price = $data['price'] ?? 1.0;
+        $this->stock = $data['stock'] ?? 0;
+        $this->store = $data['store'] ?? new Store();
+        $this->currency = $data['currency'] ?? 'PHP';
+        $this->rating = (float) $data['rating'] ?? 0.0;
+        $this->images = $data['images'] ?? null;
+        $this->category = $data['category'] ?? null;
+        $this->options = $data['option'] ?? null;
+        $this->soldCount = $data['sold_count'] ?? 0;
     }
 
     // Getter methods
@@ -54,7 +52,8 @@ class Product implements Model
         return $this->price;
     }
 
-    public function getStock(): int {
+    public function getStock(): int
+    {
         return $this->stock;
     }
 
@@ -214,39 +213,57 @@ class Product implements Model
 
         for ($i = 1; $i <= 20; $i++) {
             $product = new Product([
-            'id' => uniqid(),
+                'id' => uniqid(),
 
-            'name' => "Sed ut perspiciatis unde omnis iste natus error  sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo $i.",
+                'name' => "Sed ut perspiciatis unde omnis iste natus error  sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo $i.",
 
-            'description' => "But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness. No one rejects, dislikes, or avoids pleasure itself, because it is pleasure, but because those who do not know how to pursue pleasure rationally encounter consequences that are extremely painful $i.",
+                'description' => "But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness. No one rejects, dislikes, or avoids pleasure itself, because it is pleasure, but because those who do not know how to pursue pleasure rationally encounter consequences that are extremely painful $i.",
 
-            'stock' => rand(0, 999999) % 10000,
+                'stock' => rand(0, 999999) % 10000,
 
-            'price' => round(mt_rand(1000000000, 20000000000) / 100000, 2), // 10.00 to 200.00
+                'price' => round(mt_rand(1000000000, 20000000000) / 100000, 2), // 10.00 to 200.00
 
-            'storeId' => rand(1, 5),
+                'store' => new Store(
+                    [
+                        'id' => rand(1, 9999),
+                        'name' => "Store Madrigal $i",
+                        'description' => 'Lorem ipsum nam usblk block iahsn. Johel mlan ilak olsb qwicrr loue.',
+                        'email' => 'store-email@gmail.com',
+                        'contact' => '+639150082561',
+                        'location' => new Address(
+                            [
+                                'street' => 'Santol St.',
+                                'city' => 'Mandaluyong City',
+                                'region' => 'NCR',
+                                'postal_code' => 1551,
+                                'country' => 'Philippines'
+                            ]
+                        ),
+                        'is_verified' => 'pending'
+                    ]
+                ),
 
-            'rating' => round(mt_rand(10, 50) / 10, 1), // 1.0 to 5.0
+                'rating' => round(mt_rand(10, 50) / 10, 1), // 1.0 to 5.0
 
-            'images' => [
-                IMAGE_PATH . $images[array_rand($images)],
-                IMAGE_PATH . $images[array_rand($images)],
-                IMAGE_PATH . $images[array_rand($images)]
-            ],
+                'images' => [
+                    IMAGE_PATH . $images[array_rand($images)],
+                    IMAGE_PATH . $images[array_rand($images)],
+                    IMAGE_PATH . $images[array_rand($images)]
+                ],
 
-            'category' => [
-                $categories[array_rand($categories)],
-                $categories[array_rand($categories)],
-                $categories[array_rand($categories)]
-            ],
+                'category' => [
+                    $categories[array_rand($categories)],
+                    $categories[array_rand($categories)],
+                    $categories[array_rand($categories)]
+                ],
 
-            'option' => [
-                'colors' => ['Red', 'Blue', 'Green', 'Black', 'White'],
-                'variants' => ['Standard', 'Pro', 'Lite'],
-                'models' => ['2022', '2023', '2024'],
-            ],
+                'option' => [
+                    'colors' => ['Red', 'Blue', 'Green', 'Black', 'White'],
+                    'variants' => ['Standard', 'Pro', 'Lite'],
+                    'models' => ['2022', '2023', '2024'],
+                ],
 
-            'sold_cold' => rand(0, 500),
+                'sold_count' => rand(0, 500),
             ]);
 
             $products[] = $product;
