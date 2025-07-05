@@ -9,7 +9,7 @@ class Store implements Model
 	private ?string $site_link;
 	private string $email;
 	private string $contact;
-	private $location;
+	private Address $location;
 	private string $is_verified;
 	private readonly DateTime $created_at;
 
@@ -22,7 +22,7 @@ class Store implements Model
 		$this->site_link = $data['site_link'] ?? null;
 		$this->email = $data['email'] ?? '';
 		$this->contact = $data['contact'] ?? '';
-		$this->location = $data['location'] ?? null;
+		$this->location = $data['location'] ?? new Address();
 		$this->is_verified = $data['is_verified'] ?? '0';
 		$this->created_at = isset($data['created_at'])
 			? (is_a($data['created_at'], DateTime::class) ? $data['created_at'] : new DateTime($data['created_at']))
@@ -65,7 +65,7 @@ class Store implements Model
 		return $this->contact;
 	}
 
-	public function getLocation()
+	public function getLocation(): Address
 	{
 		return $this->location;
 	}
@@ -116,7 +116,7 @@ class Store implements Model
 		$this->contact = $contact;
 	}
 
-	public function setLocation($location): void
+	public function setLocation(Address $location): void
 	{
 		$this->location = $location;
 	}
@@ -125,7 +125,7 @@ class Store implements Model
 	{
 		$this->is_verified = $is_verified;
 	}
-	
+
 	public static function all(): array
 	{
 		// TODO: Implement method logic
