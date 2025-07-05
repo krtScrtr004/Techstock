@@ -130,9 +130,18 @@
 
                         <!-- Options / Variants Selection Buttons -->
                         <div class="buttons flex-row">
-                            <?php for ($i = 0, $n = count($value); $i < $n; ++$i): ?>
-                                <button type="button" class="unset-button"><?php echo htmlspecialchars($value[$i]) ?></button>
-                            <?php endfor; ?>
+                            <form class="flex-row" action="" method="POST">
+                                <?php for ($i = 0, $n = count($value); $i < $n; ++$i):
+                                    $currentValue = htmlspecialchars($value[$i]);
+                                ?>
+
+                                    <div class="hidden-wrapper">
+                                        <input type="checkbox" name="<?= $currentValue ?>" id="<?= $currentValue ?>" value="<?= $currentValue ?>">
+
+                                        <button type="button" class="unset-button"><?= $currentValue ?></button>
+                                    </div>
+                                <?php endfor; ?>
+                            </form>
                         </div>
                     </section>
                 <?php endforeach; ?>

@@ -141,21 +141,28 @@
 }
 
 .option-section {
-    max-width: 75%;
+	max-width: 75%;
 	grid-template-columns: auto auto auto;
 }
 
 .option-section > .buttons {
     flex-wrap: wrap;
+}
+
+.option-section > .buttons > form {
     gap: 1rem;
 }
 
-.option-section > .buttons > button {
+.option-section > .buttons input[type="checkbox"] {
+	display: none;
+}
+
+.option-section > .buttons button {
     padding: 5px 10px;
     border: 1px solid var(--black);
 }
 
-.option-section > .buttons > button:hover {
+.option-section > .buttons button:hover {
 	border: 1px solid var(--blue);
 }
 
@@ -163,8 +170,8 @@
 	gap: 1rem;
 }
 
-.button-section > button,
-.button-section > button * {
+.button-section button,
+.button-section button * {
 	font-weight: 500;
 }
 
