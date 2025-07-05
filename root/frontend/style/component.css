@@ -402,6 +402,9 @@
 		margin-top: 0;
 	}
 }
+.slide-down {
+	animation: slide-down 0.3s ease-in;
+}
 
 @keyframes slide-up {
 	0% {
@@ -412,9 +415,12 @@
 		margin-top: -10%;
 	}
 }
+.slide-up {
+	animation: slide-up 0.3s ease-in;
+}
 
 .notification-wrapper {
-	display: block;
+	display: none;
 	width: 100%;
 	top: 0;
 	left: 50%;
@@ -425,8 +431,12 @@
 }
 
 .notification-wrapper > div {
+	top: 0;
 	width: 100%;
 	padding: 0.8rem var(--space);
 	font-weight: 500;
-	animation: slide-down 0.3s ease-in;
+}
+
+.notification-wrapper.fail > div {
+	background-color: var(--red);
 }

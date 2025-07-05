@@ -22,8 +22,8 @@ function errorOccurredDialog() {
     renderDialog(
         false,
         'error-occured-dialog',
-        'Error Occured',
-        'An error occured. Please try again later.'
+        'Error Occurred',
+        'An error occurred. Please try again later.'
     );
 }
 
@@ -38,7 +38,8 @@ function changePasswordDialog(bool $status): void
         );
     } else {
         renderDialog(
-            false,            'change-password-error-dialog',
+            false,            
+            'change-password-error-dialog',
             'Password Reset',
             'There was a problem changing your password. Please try again.'
         );

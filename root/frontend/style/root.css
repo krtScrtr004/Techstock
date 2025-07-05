@@ -48,6 +48,11 @@ footer {
 header {
 	padding-top: 0.5rem;
 	padding-bottom: 0.5rem;
+	z-index: 100;
+}
+
+main {
+	position: relative;
 }
 
 footer {

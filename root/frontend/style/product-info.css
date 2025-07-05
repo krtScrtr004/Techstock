@@ -1,4 +1,9 @@
-.page-info > main > section {
+.page-info > main  {
+	padding-top: var(--space);
+	padding-bottom: var(--space);
+}
+
+.page-info > main > section:not(.notification-wrapper) {
 	padding: var(--space);
 }
 
@@ -151,7 +156,7 @@
 }
 
 .option-section > .buttons > button:hover {
-    /* opacity: 0.5; */
+	border: 1px solid var(--blue);
 }
 
 .button-section {

@@ -23,6 +23,12 @@
     <?php require_once COMPONENT_PATH . 'header.php' ?>
 
     <main class="dark-white-bg">
+        <?=
+        copyLinkNotification(true);
+        copyLinkNotification(false);
+        ?>
+
+        <!-- Purchase Info Section -->
         <section class="purchase-info flex-row white-bg">
             <!-- Images Section -->
             <section class="images-section flex-col">
@@ -166,6 +172,7 @@
 
     <script src="<?php echo htmlspecialchars(EVENT_PATH . 'carousel-tracker.js'); ?>" defer></script>
     <script src="<?php echo htmlspecialchars(EVENT_PATH . 'show-click-image.js'); ?>" defer></script>
+    <script src="<?php echo htmlspecialchars(EVENT_PATH . 'copy-link.js'); ?>" defer></script>
     <script src="<?php echo htmlspecialchars(EVENT_PATH . 'favorite.js'); ?>" defer></script>
 </body>
 
