@@ -34,3 +34,6 @@ define('ASSET_PATH', REL_PATH . 'asset' . DS);
 define('IMAGE_PATH', ASSET_PATH . 'image' . DS);
 define('LOGO_PATH', IMAGE_PATH . 'logo' . DS);
 define('ICON_PATH', IMAGE_PATH . 'icon' . DS);
+
+// README: Remove this
+define('DUMP_PATH', FRONTEND_PATH . 'dump' . DS);
