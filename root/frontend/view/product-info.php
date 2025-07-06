@@ -26,10 +26,12 @@
         <?=
         copyLinkNotification(true);
         copyLinkNotification(false);
+
+        renderCategoryChain($product->getCategory(), $product->getName());
         ?>
 
-        <!-- Purchase Info Section -->
-        <section class="purchase-info flex-row white-bg">
+        <!-- Product Purchase Info Section -->
+        <section class="purchase-info major-section flex-row white-bg">
             <!-- Images Section -->
             <section class="images-section flex-col">
                 <img class="featured-image" src="<?= htmlspecialchars($product->getImage(0)) ?>" alt="<?= htmlspecialchars($product->getName()) ?>" title="<?= htmlspecialchars($product->getName()) ?>" loading="lazy" height="400">
@@ -176,8 +178,8 @@
             </section>
         </section>
 
-        <!-- Store Info Section -->
-        <section class="store-info flex-row white-bg">
+        <!-- Product Store Info Section -->
+        <section class="store-info major-section flex-row white-bg">
             <!-- Store Logo Section -->
             <section class="store-logo center-child">
                 <img src="<?= htmlspecialchars($store->getLogo()) ?>" alt="<?= htmlspecialchars($store->getName()) ?>" title="<?= htmlspecialchars($store->getName()) ?>" height="100">
@@ -207,28 +209,33 @@
                 <section class="first-col flex-row flex-space-between">
                     <p class="">Contact</p>
                     <h3 class="end-text"><?= htmlspecialchars($store->getContact()) ?></h3>
-                </section>    
+                </section>
 
                 <section class="first-col flex-row flex-space-between">
                     <p class="">Email</p>
                     <h3 class="end-text"><?= htmlspecialchars($store->getEmail()) ?></h3>
-                </section>    
+                </section>
 
                 <section class="second-col flex-row flex-space-between">
                     <p class="">Products</p>
                     <h3 class="end-text"><?= htmlspecialchars(formatNumber($store->getProductCount())) ?></h3>
-                </section>    
+                </section>
 
                 <section class="second-col flex-row flex-space-between">
                     <p class="">Followers</p>
                     <h3 class="end-text"><?= htmlspecialchars(formatNumber($store->getFollowerCount())) ?></h3>
-                </section>    
+                </section>
 
                 <section class="first-col flex-row flex-space-between">
                     <p class="">Location</p>
                     <h3 class="end-text"><?= htmlspecialchars($store->getLocation()) ?></h3>
-                </section>    
+                </section>
             </section>
+        </section>
+
+        <!-- Product Description Info Section -->
+        <section class="description-info major-section">
+
         </section>
     </main>
 

@@ -11,7 +11,7 @@ class Product implements Model
     private string $currency;
     private float $rating;
     private ?array $images;
-    private ?array $category;
+    private ?SplDoublyLinkedList $category;
     private ?array $options;
     private int $soldCount;
 
@@ -97,7 +97,7 @@ class Product implements Model
         return $this->images;
     }
 
-    public function getCategory(): ?array
+    public function getCategory(): ?SplDoublyLinkedList
     {
         return $this->category;
     }
@@ -159,7 +159,7 @@ class Product implements Model
         $this->images = $images;
     }
 
-    public function setCategory(array $category): void
+    public function setCategory(SplDoublyLinkedList $category): void
     {
         $this->category = $category;
     }
@@ -197,17 +197,104 @@ class Product implements Model
         ];
 
         $categories = [
-            'Smartphones & Accessories',
-            'Computers & Laptops',
-            'Components & PC Parts',
-            'Gaming',
-            'Networking & Smart Home',
-            'Audio & Music',
-            'Wearables & Health Tech',
-            'Office & Productivity',
-            'Drones & Cameras',
-            'Tech for Education',
+            'Smartphones & Accessories' => [
+                'Smartphones (Android, iOS)',
+                'Screen Protectors, Cases',
+                'Power Banks & Chargers',
+                'Cables & Adapters',
+            ],
+            'Computers & Laptops' => [
+                'Laptops & Notebooks',
+                'Desktops & All-in-Ones',
+                'Monitors',
+                'Laptop Accessories (Cooling pads, Bags, Skins)',
+            ],
+            'Components & PC Parts' => [
+                'Processors (CPUs)',
+                'Graphics Cards (GPUs)',
+                'Motherboards',
+                'RAM & Storage (HDD/SSD)',
+                'Power Supply Units (PSUs)',
+                'Cooling Systems',
+                'Cases & Enclosures',
+            ],
+            'Gaming' => [
+                'Gaming Laptops & PCs',
+                'Consoles (PlayStation, Xbox, Nintendo)',
+                'Game Controllers',
+                'Gaming Keyboards & Mice',
+                'VR Headsets',
+                'Game Titles (Digital & Physical)',
+            ],
+            'Networking & Smart Home' => [
+                'Wi-Fi Routers & Modems',
+                'Mesh Systems',
+                'Smart Plugs & Bulbs',
+                'Smart Speakers & Hubs (Alexa, Google Home)',
+                'Security Cameras & Sensors',
+            ],
+            'Audio & Music' => [
+                'Headphones & Earbuds',
+                'Speakers (Bluetooth, Wired)',
+                'Microphones',
+                'Audio Interfaces',
+                'Soundbars & Home Theater Systems',
+            ],
+            'Wearables & Health Tech' => [
+                'Smartwatches & Fitness Bands',
+                'Health Monitors (BP, Pulse Oximeters)',
+                'Smart Glasses',
+                'Sleep Trackers',
+            ],
+            'Office & Productivity' => [
+                'Printers & Scanners',
+                'Keyboards & Mice',
+                'Webcams',
+                'UPS & Surge Protectors',
+                'Software Licenses (MS Office, Antivirus)',
+            ],
+            'Drones & Cameras' => [
+                'Drones (Consumer & Professional)',
+                'Action Cameras (GoPro, DJI)',
+                'Digital Cameras & Lenses',
+                'Tripods & Gimbals',
+            ],
+            'Tech for Education' => [
+                'Tablets & eReaders',
+                'Educational Robots (Arduino, Raspberry Pi)',
+                'Styluses & Pen Tablets',
+                'Online Course Subscriptions',
+            ],
         ];
+
+        $x = [
+            'a' => ['num' => [1], 'char' => ['b']],
+            'c' => ['num' => [2], 'char' => ['d']],
+            'e' => ['num' => [3], 'char' => ['f']]
+        ];
+
+        function isAssociative($array): bool
+        {
+            if (!is_array($array)) return false;
+            return array_keys($array) !== range(0, count($array) - 1);
+        }
+
+        function getSubCategory($arr, $key, &$list)
+        {
+            if (!isAssociative($arr)) {
+                $list->add(0, $arr[array_rand($arr)]);
+                return;
+            }
+            getSubCategory($arr[$key], $key, $list);
+            $list->add(0, $key);
+        }
+
+        function getCategory($arr): SplDoublyLinkedList
+        {
+            $list = new SplDoublyLinkedList();
+            getSubCategory($arr, array_rand($arr), $list);
+            return $list;
+        }
 
         $products = [];
 
@@ -254,11 +341,8 @@ class Product implements Model
                     IMAGE_PATH . $images[array_rand($images)]
                 ],
 
-                'category' => [
-                    $categories[array_rand($categories)],
-                    $categories[array_rand($categories)],
-                    $categories[array_rand($categories)]
-                ],
+
+                'category' => getCategory($categories),
 
                 'option' => [
                     'colors' => ['Red', 'Blue', 'Green', 'Black', 'White'],

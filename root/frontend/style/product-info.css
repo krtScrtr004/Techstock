@@ -4,7 +4,7 @@
 	gap: var(--space);
 }
 
-.page-info > main > section:not(.notification-wrapper) {
+.page-info .major-section {
 	padding: var(--space);
 }
 
@@ -55,7 +55,6 @@
 	opacity: 0.3;
 	z-index: 5;
 }
-
 
 /* Purchase Info */
 

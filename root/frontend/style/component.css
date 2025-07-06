@@ -441,3 +441,17 @@
 .notification-wrapper.fail > div {
 	background-color: var(--red);
 }
+
+/* --------------------- CATEGORY CHAIN --------------------- */
+
+.category-chain {
+	width: 100%;
+}
+
+.category-chain * {
+	font-size: 1rem;
+}
+
+.category-chain > :last-child {
+	flex: 1;
+}
