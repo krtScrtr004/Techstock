@@ -234,8 +234,27 @@
         </section>
 
         <!-- Product Description Info Section -->
-        <section class="description-info major-section">
+        <section class="description-info major-section white-bg">
+            <!-- Specification Section -->
+            <section class="specification-section">
+                <h3 class="dark-white-bg section-title black-text">
+                    Product Specification
+                </h3>
 
+                <section class="content flex-col">
+                    <div class="specification flex-row">
+                        <p class="black-text">Category</p>
+                        <?= renderCategoryChain($product->getCategory(), $product->getName()) ?>
+                    </div>
+
+                    <?php foreach ($product->getSpecifications() as $key => $value): ?>
+                        <div class="specification flex-row">
+                            <p class="black-text"><?= htmlspecialchars(ucwords($key)) ?></p>
+                            <p class="black-text"><?= htmlspecialchars($value) ?></p>
+                        </div>
+                    <?php endforeach; ?>
+                </section>
+            </section>
         </section>
     </main>
 

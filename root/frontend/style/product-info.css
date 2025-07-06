@@ -296,3 +296,27 @@
 	grid-row: 2;
 }
 
+/* Description Section */
+
+.specification-section > .section-title {
+	padding: 0.8rem 1rem;
+	margin-bottom: 1rem;
+}
+
+.specification-section > .content {
+	gap: 10px;
+}
+
+.specification > :first-child {
+	width: 20ch;
+}
+
+.specification > :last-child {
+	flex: 1;
+}
+
+.specification > .category-chain {
+	overflow: hidden;
+}
+
+
