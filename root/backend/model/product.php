@@ -12,6 +12,7 @@ class Product implements Model
     private float $rating;
     private ?array $images;
     private ?SplDoublyLinkedList $category;
+    private ?array $specification;
     private ?array $options;
     private int $soldCount;
 
@@ -27,6 +28,7 @@ class Product implements Model
         $this->rating = (float) $data['rating'] ?? 0.0;
         $this->images = $data['images'] ?? null;
         $this->category = $data['category'] ?? null;
+        $this->specification = $data['specification'] ?? null;
         $this->options = $data['option'] ?? null;
         $this->soldCount = $data['sold_count'] ?? 0;
     }
@@ -102,6 +104,16 @@ class Product implements Model
         return $this->category;
     }
 
+    public function getSpecification(string|int $key): ?string
+    {
+        return $this->specification[$key];
+    }
+
+    public function getSpecifications(): ?array
+    {
+        return $this->specification;
+    }
+
     public function getOptions(): ?array
     {
         return $this->options;
@@ -164,6 +176,10 @@ class Product implements Model
         $this->category = $category;
     }
 
+    public function setSpecification(array $specification): void {
+        $this->specification = $specification;
+    }
+
     public function setOptions(array $options): void
     {
         $this->options = $options;
@@ -198,7 +214,7 @@ class Product implements Model
 
         $categories = [
             'Smartphones & Accessories' => [
-                'Smartphones (Android, iOS)',
+                'Smartphones',
                 'Screen Protectors, Cases',
                 'Power Banks & Chargers',
                 'Cables & Adapters',
@@ -207,42 +223,42 @@ class Product implements Model
                 'Laptops & Notebooks',
                 'Desktops & All-in-Ones',
                 'Monitors',
-                'Laptop Accessories (Cooling pads, Bags, Skins)',
+                'Laptop Accessories',
             ],
             'Components & PC Parts' => [
-                'Processors (CPUs)',
-                'Graphics Cards (GPUs)',
+                'Processors',
+                'Graphics Cards',
                 'Motherboards',
-                'RAM & Storage (HDD/SSD)',
-                'Power Supply Units (PSUs)',
+                'RAM & Storage',
+                'Power Supply Units',
                 'Cooling Systems',
                 'Cases & Enclosures',
             ],
             'Gaming' => [
                 'Gaming Laptops & PCs',
-                'Consoles (PlayStation, Xbox, Nintendo)',
+                'Consoles',
                 'Game Controllers',
                 'Gaming Keyboards & Mice',
                 'VR Headsets',
-                'Game Titles (Digital & Physical)',
+                'Game Titles',
             ],
             'Networking & Smart Home' => [
                 'Wi-Fi Routers & Modems',
                 'Mesh Systems',
                 'Smart Plugs & Bulbs',
-                'Smart Speakers & Hubs (Alexa, Google Home)',
+                'Smart Speakers & Hubs',
                 'Security Cameras & Sensors',
             ],
             'Audio & Music' => [
                 'Headphones & Earbuds',
-                'Speakers (Bluetooth, Wired)',
+                'Speakers',
                 'Microphones',
                 'Audio Interfaces',
                 'Soundbars & Home Theater Systems',
             ],
             'Wearables & Health Tech' => [
                 'Smartwatches & Fitness Bands',
-                'Health Monitors (BP, Pulse Oximeters)',
+                'Health Monitors',
                 'Smart Glasses',
                 'Sleep Trackers',
             ],
@@ -251,26 +267,20 @@ class Product implements Model
                 'Keyboards & Mice',
                 'Webcams',
                 'UPS & Surge Protectors',
-                'Software Licenses (MS Office, Antivirus)',
+                'Software Licenses',
             ],
             'Drones & Cameras' => [
-                'Drones (Consumer & Professional)',
-                'Action Cameras (GoPro, DJI)',
+                'Drones',
+                'Action Cameras',
                 'Digital Cameras & Lenses',
                 'Tripods & Gimbals',
             ],
             'Tech for Education' => [
                 'Tablets & eReaders',
-                'Educational Robots (Arduino, Raspberry Pi)',
+                'Educational Robots',
                 'Styluses & Pen Tablets',
                 'Online Course Subscriptions',
             ],
-        ];
-
-        $x = [
-            'a' => ['num' => [1], 'char' => ['b']],
-            'c' => ['num' => [2], 'char' => ['d']],
-            'e' => ['num' => [3], 'char' => ['f']]
         ];
 
         function isAssociative($array): bool
@@ -338,11 +348,18 @@ class Product implements Model
                 'images' => [
                     IMAGE_PATH . $images[array_rand($images)],
                     IMAGE_PATH . $images[array_rand($images)],
+                    IMAGE_PATH . $images[array_rand($images)],
+                    IMAGE_PATH . $images[array_rand($images)],
+                    IMAGE_PATH . $images[array_rand($images)],
                     IMAGE_PATH . $images[array_rand($images)]
                 ],
 
 
                 'category' => getCategory($categories),
+
+                'specification' => [
+                    'brand' => 'Snamsung',
+                ],
 
                 'option' => [
                     'colors' => ['Red', 'Blue', 'Green', 'Black', 'White'],
