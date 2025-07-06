@@ -161,7 +161,7 @@
 
                 <!-- Button Section -->
                 <section class="button-section flex-row flex-child-center-h">
-                    <button class="add-to-cart-button inline blue-text">
+                    <button class="add-to-cart-button thin-button inline blue-text">
                         <div class="text-w-icon center-child">
                             <img src="<?= htmlspecialchars(ICON_PATH . 'cart_b.svg') ?>" alt="Add to cart" title="Add to cart" height="16" width="16">
 
@@ -169,7 +169,7 @@
                         </div>
                     </button>
 
-                    <button class="inline black-bg white-text">
+                    <button class="thin-button inline black-bg white-text">
                         Buy Now
                     </button>
                 </section>
@@ -185,10 +185,10 @@
 
             <!-- Store Chains Section -->
             <section class="chains flex-col flex-child-center-v">
-                <h3 class="store-name flex-row flex-child-start-v black-text"><?= htmlspecialchars($store->getName()) ?></h3>
+                <h3 class="store-name black-text"><?= htmlspecialchars($store->getName()) ?></h3>
 
                 <div class="buttons flex-row">
-                    <button type="button" class="chat-button">
+                    <button type="button" class="chat-button thin-button">
                         <div class="text-w-icon center-child">
                             <img src="<?= htmlspecialchars(ICON_PATH . 'chat_bl.svg') ?>" alt="Chat now" title="Chat now" height="20" width="20">
 
@@ -196,7 +196,7 @@
                         </div>
                     </button>
 
-                    <button type="button" class="white-bg">
+                    <button type="button" class="white-bg thin-button">
                         View Store
                     </button>
                 </div>

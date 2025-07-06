@@ -11,7 +11,6 @@
 .page-info .grid {
 	width: fit-content;
 	height: fit-content;
-	column-gap: 0.5rem;
 	row-gap: 1rem;
 	place-items: center;
 	justify-items: start;
@@ -20,6 +19,43 @@
 .page-info .grid * {
 	color: var(--black);
 }
+
+.button-section {
+	gap: 1rem;
+}
+
+.thin-button,
+.thin-button *  {
+	font-weight: 500;
+}
+
+.thin-button {
+	width: 20ch;
+	margin: 0;
+	border: 1px solid var(--black);
+	border-radius: 1px;
+}
+
+.add-to-cart-button,
+.chat-button {
+	position: relative;
+	border: 1px solid var(--blue);
+	z-index: 10;
+}
+
+.add-to-cart-button::before,
+.chat-button::before {
+	background-color: var(--blue);
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	opacity: 0.3;
+	z-index: 5;
+}
+
 
 /* Purchase Info */
 
@@ -105,6 +141,10 @@
 	grid-template-columns: auto auto auto auto;
 }
 
+.option-section {
+	column-gap: 0.5rem;
+}
+
 .grid > .title,
 .shipping-section > .icon,
 .shipping-section > .sub-title.upper,
@@ -170,45 +210,6 @@
     color: var(--blue);
 }
 
-.button-section {
-	gap: 1rem;
-}
-
-.button-section button,
-.button-section button *,
-.chains button, 
-.chains button *  {
-	font-weight: 500;
-}
-
-.button-section > button,
-.chains > .buttons > button {
-	width: 20ch;
-	margin: 0;
-	border: 1px solid var(--black);
-	border-radius: 1px;
-}
-
-.add-to-cart-button,
-.chains > .buttons > .chat-button {
-	position: relative;
-	border: 1px solid var(--blue) !important;
-	z-index: 10;
-}
-
-.add-to-cart-button::before,
-.chains > .buttons > .chat-button::before {
-	background-color: var(--blue);
-	content: "";
-	position: absolute;
-	top: 0;
-	left: 0;
-	right: 0;
-	bottom: 0;
-	opacity: 0.3;
-	z-index: 5;
-}
-
 .quantity-section > div {
 	gap: 5px;
 }
@@ -216,7 +217,6 @@
 /* Store Info */
 
 .store-info {
-	height: 7rem;
 	gap: 2.5rem;
 	box-sizing: content-box;
 }
