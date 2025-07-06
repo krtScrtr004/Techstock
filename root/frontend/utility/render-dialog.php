@@ -21,7 +21,7 @@ function renderDialog(bool $status, string $id, string $title, string $message)
 function errorOccurredDialog() {
     renderDialog(
         false,
-        'error-occured-dialog',
+        'error-occurred-dialog',
         'Error Occurred',
         'An error occurred. Please try again later.'
     );

@@ -19,9 +19,5 @@ class IndexController implements Controller {
         $component = self::$components[$page] ?? null; 
 
         require_once VIEW_PATH . 'index.php';
-
-        // Hidden modal components
-        tooManyAttemptDialog();
-        errorOccurredDialog();
     }
 }

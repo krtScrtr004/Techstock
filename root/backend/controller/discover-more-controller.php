@@ -12,9 +12,6 @@ class DiscoverMoreController implements Controller
         $products = Product::all();
         $productModel = $products[1];
 
-        $products = $productModel->all();
         require_once VIEW_PATH . 'discover-more.php';
-
-        errorOccurredDialog();
     }
 }

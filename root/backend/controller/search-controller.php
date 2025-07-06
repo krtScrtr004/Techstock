@@ -26,7 +26,5 @@ class SearchController implements Controller
         $products = Product::all();
 
         require_once VIEW_PATH . 'search.php';
-
-        errorOccurredDialog();
     }
 }

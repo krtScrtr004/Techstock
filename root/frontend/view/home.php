@@ -172,7 +172,7 @@
         <section class="discover-more-section">
             <h3 class="home-section-heading sticky center-text">Discover More</h3>
 
-            <?php include_once COMPONENT_PATH . 'product-list.php' ?>
+            <?= include_once COMPONENT_PATH . 'product-list.php' ?>
         </section>
 
         <section class="article-list flex-col white-bg">
@@ -238,7 +238,12 @@
         </section>
     </main>
 
-    <?php require_once COMPONENT_PATH . 'footer.php'; ?>
+    <?php 
+    require_once COMPONENT_PATH . 'footer.php'; 
+
+    // Hidden Modals
+    errorOccurredDialog();
+    ?>
 
     <script src="<?= htmlspecialchars(EVENT_PATH . 'slideshow.js'); ?>" defer></script>
     <script src="<?= htmlspecialchars(EVENT_PATH . 'break-text-fallback.js'); ?>" defer></script>

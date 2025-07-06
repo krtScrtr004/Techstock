@@ -21,7 +21,5 @@ class ProductController implements Controller
         $soldCount = 109;
 
         require_once VIEW_PATH . 'product-info.php';
-
-        errorOccurredDialog();
     }
 }

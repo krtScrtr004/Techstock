@@ -186,11 +186,15 @@
         <section class="result-grid flex-col">
             <!-- TODO: Add relavant store result here -->
 
-            <?php include_once COMPONENT_PATH . 'product-list.php' ?>
+            <?= include_once COMPONENT_PATH . 'product-list.php' ?>
         </section>
     </main>
 
-    <?php require_once COMPONENT_PATH . 'footer.php' ?>
+    <?php
+    require_once COMPONENT_PATH . 'footer.php';
+
+    errorOccurredDialog(); 
+    ?>
 
     <script src="<?= htmlspecialchars(EVENT_PATH . 'page-tab.js'); ?>" type="module" defer></script>
     <script src="<?= htmlspecialchars(EVENT_PATH . 'search-filter.js'); ?>" type="module" defer></script>

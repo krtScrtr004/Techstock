@@ -256,31 +256,33 @@
                 </section>
             </section>
 
-
+            <!-- Description Section -->
             <section class="description-section">
                 <h3 class="dark-white-bg section-title black-text">
                     Product Specification
                 </h3>
 
                 <section class="frame-wrapper">
-                    <iframe 
-                        class="description-frame" 
-                        src="/Techstock/root/frontend/dump/description-dump.php" 
+                    <iframe
+                        class="description-frame"
+                        src="/Techstock/root/frontend/dump/description-dump.php"
                         frameborder="0"
                         width="90%"
-                        height="900px"
-                        >
+                        height="900px">
                     </iframe>
                 </section>
             </section>
         </section>
     </main>
 
+    <?php errorOccurredDialog(); ?>
+
     <script src="<?= htmlspecialchars(EVENT_PATH . 'carousel-tracker.js'); ?>" defer></script>
     <script src="<?= htmlspecialchars(EVENT_PATH . 'show-click-image.js'); ?>" defer></script>
     <script src="<?= htmlspecialchars(EVENT_PATH . 'copy-link.js'); ?>" defer></script>
     <script src="<?= htmlspecialchars(EVENT_PATH . 'favorite.js'); ?>" defer></script>
     <script src="<?= htmlspecialchars(EVENT_PATH . 'select-product-option.js'); ?>" defer></script>
+    <script src="<?= htmlspecialchars(EVENT_PATH . 'break-text-fallback.js'); ?>" defer></script>
 </body>
 
 </html>

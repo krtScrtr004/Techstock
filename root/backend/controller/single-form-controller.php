@@ -31,9 +31,5 @@ class SingleFormController implements Controller
         $component = self::$components[$page];
 
         require_once VIEW_PATH . 'single-form.php';
-
-        changePasswordDialog(true);
-        changePasswordDialog(false);
-        errorOccurredDialog();
     }
 }

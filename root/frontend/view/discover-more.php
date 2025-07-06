@@ -36,7 +36,12 @@
         </section>
     </main>
 
-    <?php require_once COMPONENT_PATH . 'footer.php'; ?>
+    <?php
+    require_once COMPONENT_PATH . 'footer.php';
+
+    // Hidden Modals
+    errorOccurredDialog();
+    ?>
 
     <script src="<?= htmlspecialchars(EVENT_PATH . 'page-tab.js'); ?>" type="module" defer></script>
 </body>

@@ -12,9 +12,6 @@ class HomeController implements Controller
         $products = Product::all();
         $productModel = $products[0];
 
-        $products = $productModel->all();
         require_once VIEW_PATH . 'home.php';
-
-        errorOccurredDialog();
     }
 }
