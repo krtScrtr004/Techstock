@@ -4,11 +4,10 @@ function renderProductCard(Product $product): void
 ?>
     <a href="">
         <div class="product-card">
-            <!-- TODO: Change this to product's url -->
-            <img src="<?= htmlspecialchars(IMAGE_PATH . 'laptop-1.jpg') ?>" alt="<?= htmlspecialchars($product->getName()) ?>" title="<?= htmlspecialchars($product->getName()) ?>" height="200">
+            <img src="<?= $product->getImage(0) ?>" alt="<?= htmlspecialchars($product->getName()) ?>" title="<?= htmlspecialchars($product->getName()) ?>" loading="lazy" height="200">
 
-            <h3 class="multi-line-ellipsis">
-                <?= htmlspecialchars($product->getDescription()); ?>
+            <h3 class="multi-line-ellipsis" title="<?= htmlspecialchars($product->getName()); ?>">
+                <?= htmlspecialchars($product->getName()); ?>
             </h3>
 
             <span>
