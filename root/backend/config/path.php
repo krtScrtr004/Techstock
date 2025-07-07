@@ -8,6 +8,8 @@ define('REDIRECT_PATH', 'http://localhost/Techstock/');
 define('BACKEND_PATH', ABS_PATH . 'backend' . DS);
 define('FRONTEND_PATH', ABS_PATH . 'frontend' . DS);
 
+define('VENDOR_PATH', BACKEND_PATH . 'vendor' . DS);
+
 define('VIEW_PATH', FRONTEND_PATH . 'view' . DS);
 define('COMPONENT_PATH', FRONTEND_PATH . 'component' . DS);
 

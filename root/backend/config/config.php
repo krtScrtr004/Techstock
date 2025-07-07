@@ -2,6 +2,8 @@
 
 define('DS', DIRECTORY_SEPARATOR);
 
+require_once VENDOR_PATH . 'autoload.php' ;
+
 require_once __DIR__ . '/path.php';
 
 spl_autoload_register(function ($class) {
