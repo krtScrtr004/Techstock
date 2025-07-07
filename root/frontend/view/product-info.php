@@ -259,17 +259,11 @@
             <!-- Description Section -->
             <section class="description-section">
                 <h3 class="dark-white-bg section-title black-text">
-                    Product Specification
+                    Product Description
                 </h3>
 
-                <section class="frame-wrapper">
-                    <iframe
-                        class="description-frame"
-                        src="/Techstock/root/frontend/dump/description-dump.php"
-                        frameborder="0"
-                        width="90%"
-                        height="900px">
-                    </iframe>
+                <section class="content flex-col">
+                    <?= purifyHtml($product->getDescription()) ?>
                 </section>
             </section>
         </section>

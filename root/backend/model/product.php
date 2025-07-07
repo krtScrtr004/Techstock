@@ -315,27 +315,25 @@ class Product implements Model
                 'name' => "Sed ut perspiciatis unde omnis iste natus error  sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo $i.",
 
                 'description' => 
-                    '<div class="product-description black-text" style="display: flex; flex-direction: column; gap: 1rem;">
-                        <h4>Powerful Performance, Sleek Design</h4>
-                        <p>
-                            Experience next-level productivity with the Techstock UltraBook 15.6" Laptop. Powered by the latest Intel® Core™ i7 processor and 16GB DDR4 RAM, this laptop is designed for seamless multitasking, fast boot times, and smooth operation whether you\'re working, streaming, or gaming.
-                        </p>
+                    '<h4>Powerful Performance, Sleek Design</h4>
+                    <p>
+                        Experience next-level productivity with the Techstock UltraBook 15.6" Laptop. Powered by the latest Intel® Core™ i7 processor and 16GB DDR4 RAM, this laptop is designed for seamless multitasking, fast boot times, and smooth operation whether you\'re working, streaming, or gaming.
+                    </p>
 
-                        <img src="<?= IMAGE_PATH . \'laptop-1.jpg\' ?>" alt="">
+                    <img src="'. IMAGE_PATH . 'laptop-1.jpg' .'" alt="Product image">
 
-                        <ul style="display: flex; flex-direction: column; gap: 0.5rem;">
-                            <li><strong>Display:</strong> 15.6" Full HD IPS, anti-glare, ultra-thin bezels</li>
-                            <li><strong>Storage:</strong> 512GB NVMe SSD for lightning-fast file access</li>
-                            <li><strong>Graphics:</strong> NVIDIA® GeForce® MX450 for crisp visuals and light gaming</li>
-                            <li><strong>Battery Life:</strong> Up to 10 hours on a single charge</li>
-                            <li><strong>Connectivity:</strong> Wi-Fi 6, Bluetooth 5.1, USB-C, HDMI, and SD card reader</li>
-                            <li><strong>Operating System:</strong> Windows 11 Home pre-installed</li>
-                        </ul>
-                        
-                        <p>
-                            The UltraBook\'s lightweight aluminum chassis makes it easy to carry, while the backlit keyboard and precision touchpad ensure comfort and accuracy. Perfect for students, professionals, and creators alike.
-                        </p>
-                    </div>',
+                    <ul style="display: flex; flex-direction: column; gap: 0.5rem;">
+                        <li><strong>Display:</strong> 15.6" Full HD IPS, anti-glare, ultra-thin bezels</li>
+                        <li><strong>Storage:</strong> 512GB NVMe SSD for lightning-fast file access</li>
+                        <li><strong>Graphics:</strong> NVIDIA® GeForce® MX450 for crisp visuals and light gaming</li>
+                        <li><strong>Battery Life:</strong> Up to 10 hours on a single charge</li>
+                        <li><strong>Connectivity:</strong> Wi-Fi 6, Bluetooth 5.1, USB-C, HDMI, and SD card reader</li>
+                        <li><strong>Operating System:</strong> Windows 11 Home pre-installed</li>
+                    </ul>
+                    
+                    <p>
+                        The UltraBook\'s lightweight aluminum chassis makes it easy to carry, while the backlit keyboard and precision touchpad ensure comfort and accuracy. Perfect for students, professionals, and creators alike.
+                    </p>',
 
                 'stock' => rand(0, 999999) % 10000,
 

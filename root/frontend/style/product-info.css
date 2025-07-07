@@ -329,8 +329,18 @@
 	overflow: hidden;
 }
 
-.frame-wrapper,
-.description-frame {
+.description-section > .content {
+	gap: 10px;
+}
+
+.description-section > .content * {
+	color: var(--black);
+	line-height: var(--space);
+}
+
+.description-section > .content img {
 	width: 100%;
+	height: auto;
+	margin: 0 auto;
 }
 
