@@ -83,7 +83,7 @@
                     <section class="misc-info flex-row">
                         <a href="" class="flex-row black-text">
                             <?php
-                            $rating = $product->getRating();
+                            $rating = $product->getAverageRating();
 
                             echo number_format($rating, 1);
                             renderRatingStars($rating);

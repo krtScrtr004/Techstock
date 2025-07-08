@@ -9,7 +9,7 @@ class Product implements Model
     private int $stock;
     private Store $store;
     private string $currency;
-    private float $rating;
+    private array $rating;
     private ?array $images;
     private ?SplDoublyLinkedList $category;
     private ?array $specification;
@@ -25,7 +25,7 @@ class Product implements Model
         $this->stock = $data['stock'] ?? 0;
         $this->store = $data['store'] ?? new Store();
         $this->currency = $data['currency'] ?? 'PHP';
-        $this->rating = (float) $data['rating'] ?? 0.0;
+        $this->rating = $data['rating'] ?? ['average' => 0.0, 'count' => 0];
         $this->images = $data['images'] ?? null;
         $this->category = $data['category'] ?? null;
         $this->specification = $data['specification'] ?? null;
@@ -84,9 +84,14 @@ class Product implements Model
         }
     }
 
-    public function getRating(): float
+    public function getAverageRating(): float
     {
-        return $this->rating;
+        return $this->rating['average'];
+    }
+
+    public function getRatingCount(): int 
+    {
+        return $this->rating['count'];
     }
 
     public function getImage(int $index): ?string
@@ -161,9 +166,14 @@ class Product implements Model
         $this->currency = $currency;
     }
 
-    public function setRating($rating): void
+    public function setAverageRating(float $averageRating): void
     {
-        $this->rating = $rating;
+        $this->rating['average'] = $averageRating;
+    }
+
+    public function setRatingCount(int $ratingCount): void
+    {
+        $this->rating['count'] = $ratingCount;
     }
 
     public function setImages(array $images): void
@@ -362,7 +372,10 @@ class Product implements Model
                     ]
                 ),
 
-                'rating' => round(mt_rand(10, 50) / 10, 1), // 1.0 to 5.0
+                'rating' => [
+                    'average' => round(mt_rand(10, 50) / 10, 1),
+                    'count' => rand(1, 999)
+                ], 
 
                 'images' => [
                     IMAGE_PATH . $images[array_rand($images)],
