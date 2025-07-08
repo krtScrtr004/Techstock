@@ -1,6 +1,6 @@
 <?php
 
-class Address implements Model
+class Address
 {
     private ?string $house_number;
     private string $street;
@@ -85,41 +85,5 @@ class Address implements Model
     public function setCountry(string $country): void
     {
         $this->country = $country;
-    }
-
-
-    public static function all(): array
-    {
-        // TODO: Implement method logic
-        return [];
-    }
-
-    public static function create(array $data): Model
-    {
-        // TODO: Implement method logic
-        return new self();
-    }
-
-    public static function find($id): ?Model
-    {
-        // TODO: Implement method logic
-        return null;
-    }
-
-    public function save(): bool
-    {
-        // TODO: Implement method logic
-        return true;
-    }
-
-    public function delete(): bool
-    {
-        // TODO: Implement method logic
-        return true;
-    }
-
-    public function fill(array $data): void
-    {
-        // TODO: Implement method logic
     }
 }
