@@ -345,3 +345,48 @@
 	margin: 0 auto;
 }
 
+/* Rating Section */
+
+.rating-list {
+	gap: 1rem;
+}
+
+.rating-count {
+	font-weight: 400;
+}
+
+.rating-list > .heading {
+	gap: var(--space);
+}
+
+.rating-overview {
+	width: fit-content;
+}
+
+.average-rating {
+	font-size: 2.5rem;
+}
+
+.out-of-rating {
+	font-size: 2rem;
+}
+
+.rating-overview > .rating-stars {
+	margin: 0;
+	justify-content: start;
+	gap: 8px;
+}
+
+.star-filter-buttons {
+	max-width: 35%;
+	width: fit-content;
+	flex-wrap: wrap;
+	gap: 1rem;
+}
+
+.star-filter-buttons > button {
+	min-width: 7ch;
+	width: fit-content;
+	padding: 5px 10px;
+	border: 1px solid var(--black);
+}

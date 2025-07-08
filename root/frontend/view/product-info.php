@@ -267,6 +267,51 @@
                 </section>
             </section>
         </section>
+
+        <!-- Rating Section -->
+        <section class="rating-list major-section flex-col white-bg">
+            <h3 class="black-text">Product Rating <span class="rating-count">(<?= $product->getRatingCount() ?>)</span></h3>
+
+            <!-- Heading -->
+            <section class="heading flex-row">
+                <!-- Rating Overview -->
+                <section class="rating-overview flex-col flex-child-center-v">
+                    <h1 class="average-rating black-text"><?= $product->getAverageRating() ?><span class="out-of-rating"> out of 5</span></h1>
+
+                    <?= renderRatingStars($product->getAverageRating(), 20) ?>
+                </section>
+
+                <!-- Star Filter Buttons -->
+                <section class="star-filter-buttons flex-row flex-child-start-h">
+                    <button class="unset-button">
+                        All (2351)
+                    </button>
+
+                    <button class="unset-button">
+                        5 Stars (321)
+                    </button>
+
+                    <button class="unset-button">
+                        4 Stars (72)
+                    </button>
+
+                    <button class="unset-button">
+                        3 Stars (116)
+                    </button>
+
+                    <button class="unset-button">
+                        2 Stars (32)
+                    </button>
+
+                    <button class="unset-button">
+                        1 Stars (0)
+                    </button>
+                </section>
+            </section>
+
+
+        </section>
+
     </main>
 
     <?php errorOccurredDialog(); ?>
