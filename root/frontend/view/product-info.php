@@ -315,18 +315,26 @@
                 foreach ($ratings as $rating) {
                     renderRatingCard($rating);
                 }
-                ?>
 
-                <div class="page-tab center-child">
-                    <button class="previous center-child">&lt;</button>
-                    <button class="next center-child">&gt;</button>
-                </div>
+                include_once COMPONENT_PATH . 'page-tabs.php';
+                ?>
             </section>
         </section>
 
+        <!-- Recommended Products -->
+        <section class="recommended-products">
+            <h1 class="black-text">Recommended Products</h1>
+
+            <?php include_once COMPONENT_PATH . 'product-list.php' ?>
+        </section>
     </main>
 
-    <?php errorOccurredDialog(); ?>
+    <?php
+    require_once COMPONENT_PATH . 'footer.php';
+
+    // Hidden Modals
+    errorOccurredDialog();
+    ?>
 
     <script src="<?= htmlspecialchars(EVENT_PATH . 'carousel-tracker.js'); ?>" defer></script>
     <script src="<?= htmlspecialchars(EVENT_PATH . 'show-click-image.js'); ?>" defer></script>
