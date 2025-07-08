@@ -32,7 +32,11 @@
         </section>
 
         <section class="product-grid-wrapper flex-col">
-            <?php include_once COMPONENT_PATH . 'product-list.php'; ?>
+            <?php 
+            include_once COMPONENT_PATH . 'product-list.php'; 
+            include_once COMPONENT_PATH . 'page-tabs.php'; 
+            ?>
+
         </section>
     </main>
 

@@ -172,7 +172,10 @@
         <section id="discover-more" class="discover-more-section">
             <h3 class="home-section-heading sticky center-text">Discover More</h3>
 
-            <?php include_once COMPONENT_PATH . 'product-list.php' ?>
+            <?php 
+            include_once COMPONENT_PATH . 'product-list.php';
+            include_once COMPONENT_PATH . 'page-tabs.php';
+            ?>
         </section>
 
         <section class="article-list flex-col white-bg">
@@ -238,8 +241,8 @@
         </section>
     </main>
 
-    <?php 
-    require_once COMPONENT_PATH . 'footer.php'; 
+    <?php
+    require_once COMPONENT_PATH . 'footer.php';
 
     // Hidden Modals
     errorOccurredDialog();
