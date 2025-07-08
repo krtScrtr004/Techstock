@@ -269,7 +269,7 @@
         </section>
 
         <!-- Rating Section -->
-        <section class="rating-list major-section flex-col white-bg">
+        <section id="ratings" class="rating-list major-section flex-col white-bg">
             <h3 class="black-text">Product Rating <span class="rating-count">(<?= $product->getRatingCount() ?>)</span></h3>
 
             <!-- Heading -->
@@ -316,6 +316,11 @@
                     renderRatingCard($rating);
                 }
                 ?>
+
+                <div class="page-tab center-child">
+                    <button class="previous center-child">&lt;</button>
+                    <button class="next center-child">&gt;</button>
+                </div>
             </section>
         </section>
 
@@ -329,6 +334,8 @@
     <script src="<?= htmlspecialchars(EVENT_PATH . 'favorite.js'); ?>" defer></script>
     <script src="<?= htmlspecialchars(EVENT_PATH . 'select-product-option.js'); ?>" defer></script>
     <script src="<?= htmlspecialchars(EVENT_PATH . 'break-text-fallback.js'); ?>" defer></script>
+    <script src="<?= htmlspecialchars(EVENT_PATH . 'page-tab.js'); ?>" type="module" defer></script>
+
 </body>
 
 </html>

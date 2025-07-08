@@ -15,12 +15,16 @@ const next = pageTabWrapper.querySelector('button.next')
 
 function redirectPageHandler(page) {
     switch (paths[2]) {
-    case 'search':
+    case 'search': // For search page pagination
         redirect.redirectToSearch(urlParam, page)
         break
 
-    case 'home':
-    case 'discover-more':
+    case 'product': // For product rating pagination
+        redirect.redirectToProductRatings(paths[3], page)
+        break
+
+    case 'home': // For homepage discover more pagination
+    case 'discover-more': // For discover mode page pagination
         redirect.redirectToDiscoverMore(page)
         break
     }

@@ -169,7 +169,7 @@
         </section>
 
         <!-- Discover More -->
-        <section class="discover-more-section">
+        <section id="discover-more" class="discover-more-section">
             <h3 class="home-section-heading sticky center-text">Discover More</h3>
 
             <?= include_once COMPONENT_PATH . 'product-list.php' ?>

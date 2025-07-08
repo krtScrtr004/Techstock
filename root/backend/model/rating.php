@@ -44,11 +44,8 @@ class Rating implements Model
         return $this->comment;
     }
 
-    public function getImage(int $index): ?string {
-        return $this->images[$index];
-    }
-
-    public function getImages(): ?array {
+    public function getImages(): ?array
+    {
         return $this->images;
     }
 
@@ -86,6 +83,11 @@ class Rating implements Model
     public function setComment(?string $comment): void
     {
         $this->comment = $comment;
+    }
+
+    public function setImages(array $images): void
+    {
+        $this->images = $images;
     }
 
     public function setLike(int $like): void
