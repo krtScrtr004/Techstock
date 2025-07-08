@@ -172,7 +172,7 @@
         <section id="discover-more" class="discover-more-section">
             <h3 class="home-section-heading sticky center-text">Discover More</h3>
 
-            <?= include_once COMPONENT_PATH . 'product-list.php' ?>
+            <?php include_once COMPONENT_PATH . 'product-list.php' ?>
         </section>
 
         <section class="article-list flex-col white-bg">

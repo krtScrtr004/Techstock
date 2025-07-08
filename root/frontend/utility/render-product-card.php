@@ -14,7 +14,7 @@ function renderProductCard(Product $product): void
                 <p>
                     <?= $product->getCurrency() . htmlspecialchars($product->getPrice()); ?>
                 </p>
-                <p>1.3k Sold</p>
+                <p><?= htmlspecialchars($product->getSoldCount()) ?> Sold</p>
             </span>
         </div>
     </a>

@@ -186,7 +186,7 @@
         <section class="result-grid flex-col">
             <!-- TODO: Add relavant store result here -->
 
-            <?= include_once COMPONENT_PATH . 'product-list.php' ?>
+            <?php include_once COMPONENT_PATH . 'product-list.php' ?>
         </section>
     </main>
 
