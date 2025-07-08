@@ -6,6 +6,7 @@ class Rating implements Model
     private User $rater;
     private int $rating;
     private ?string $comment;
+    private ?array $images;
     private int $like;
     private DateTime $createdAt;
     private ?RatingReply $reply;
@@ -16,6 +17,7 @@ class Rating implements Model
         $this->rater = $data['rater'];
         $this->rating = $data['rating'] ?? 0;
         $this->comment = $data['comment'] ?? null;
+        $this->images = $data['images'] ?? null;
         $this->like = $data['like'] ?? 0;
         $this->createdAt = $data['created_at'] ?? new DateTime();
         $this->reply = $data['reply'] ?? null;
@@ -40,6 +42,14 @@ class Rating implements Model
     public function getComment(): ?string
     {
         return $this->comment;
+    }
+
+    public function getImage(int $index): ?string {
+        return $this->images[$index];
+    }
+
+    public function getImages(): ?array {
+        return $this->images;
     }
 
     public function getLike(): int

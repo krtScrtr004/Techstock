@@ -8,7 +8,7 @@ class RatingReply
 
     public function __construct(array $data = [])
     {
-        $this->$data['id'];
+        $this->id = $data['id'];
         $this->reply =  $data['reply'];
         $this->createdAt = $data['created_at'] ?? new DateTime();
     }

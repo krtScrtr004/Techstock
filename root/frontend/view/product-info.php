@@ -83,10 +83,10 @@
                     <section class="misc-info flex-row">
                         <a href="" class="flex-row black-text">
                             <?php
-                            $rating = $product->getAverageRating();
+                            $averageRating = $product->getAverageRating();
 
-                            echo number_format($rating, 1);
-                            renderRatingStars($rating);
+                            echo number_format($averageRating, 1);
+                            renderRatingStars($averageRating);
                             ?>
                         </a>
 
@@ -131,7 +131,7 @@
                         <p class="title"> <?= htmlspecialchars(ucwords($key)) ?> </p>
 
                         <!-- Options / Variants Selection Buttons -->
-                        <div class="buttons flex-row">
+                        <div class="buttons flex-row flex-wrap">
                             <form class="option-form flex-row" action="" method="POST">
                                 <?php for ($i = 0, $n = count($value); $i < $n; ++$i):
                                     $currentValue = htmlspecialchars($value[$i]);
@@ -282,7 +282,8 @@
                 </section>
 
                 <!-- Star Filter Buttons -->
-                <section class="star-filter-buttons flex-row flex-child-start-h">
+                <section class="star-filter-buttons flex-row flex-child-start-h flex-wrap">
+                    <!-- TODO -->
                     <button class="unset-button">
                         All (2351)
                     </button>
@@ -309,7 +310,13 @@
                 </section>
             </section>
 
-
+            <section class="rating-list flex-col">
+                <?php
+                foreach ($ratings as $rating) {
+                    renderRatingCard($rating);
+                }
+                ?>
+            </section>
         </section>
 
     </main>

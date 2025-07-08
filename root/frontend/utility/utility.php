@@ -1,5 +1,9 @@
 <?php
 
+function formatDateTime(DateTime $dateTime): string {
+    return $dateTime->format('o-m-d H:i:s');
+}
+
 function formatNumber(int|float $number): string
 {
     $stringNumber = (string) $number;
