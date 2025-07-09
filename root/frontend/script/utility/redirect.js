@@ -33,10 +33,6 @@ const Redirect = () => {
                 q.append('page', 2) 
             }
             redirectTo(`search?${q.toString()}`)
-        },
-
-        redirectToProductRatings: (p, page) => {
-            redirectTo(`product/${p}?page=${page}#ratings`)
         }
     }
 }
