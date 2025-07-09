@@ -386,10 +386,17 @@
 .star-filter-buttons {
 	max-width: 35%;
 	width: fit-content;
+}
+
+.star-filter-buttons > form {
 	gap: 1rem;
 }
 
-.star-filter-buttons > button {
+.star-filter-buttons input[type="checkbox"] {
+	display: none;
+}
+
+.star-filter-buttons button {
 	min-width: 7ch;
 	width: fit-content;
 	padding: 5px 10px;

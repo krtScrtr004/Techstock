@@ -282,31 +282,58 @@
                 </section>
 
                 <!-- Star Filter Buttons -->
-                <section class="star-filter-buttons flex-row flex-child-start-h flex-wrap">
+                <section class="star-filter-buttons">
                     <!-- TODO -->
-                    <button class="unset-button">
-                        All (<?= htmlspecialchars($product->getTotalRatingCount()) ?>)
-                    </button>
+                    <form class="flex-row flex-child-start-h flex-wrap" action="" method="POST">
+                        <div class="hidden-wrapper">
+                            <input type="checkbox" name="all_star" id="all_star" value="all">
 
-                    <button class="unset-button">
-                        5 Stars (<?= $product->getFiveRatingCount() ?>)
-                    </button>
+                            <button class="unset-button">
+                                All (<?= htmlspecialchars($product->getTotalRatingCount()) ?>)
+                            </button>
+                        </div>
 
-                    <button class="unset-button">
-                        4 Stars (<?= htmlspecialchars($product->getFourRatingCount()) ?>)
-                    </button>
+                        <div class="hidden-wrapper">
+                            <input type="checkbox" name="five_star" id="five_star" value="5">
 
-                    <button class="unset-button">
-                        3 Stars (<?= $product->getThreeRatingCount() ?>)
-                    </button>
+                            <button class="unset-button">
+                                5 Stars (<?= $product->getFiveRatingCount() ?>)
+                            </button>
+                        </div>
 
-                    <button class="unset-button">
-                        2 Stars (<?= htmlspecialchars($product->getTwoRatingCount()) ?>)
-                    </button>
+                        <div class="hidden-wrapper">
+                            <input type="checkbox" name="four_star" id="four_star" value="4">
 
-                    <button class="unset-button">
-                        1 Stars (<?= htmlspecialchars($product->getOneRatingCount()) ?>)
-                    </button>
+                            <button class="unset-button">
+                                4 Stars (<?= htmlspecialchars($product->getFourRatingCount()) ?>)
+                            </button>
+                        </div>
+
+                        <div class="hidden-wrapper">
+                            <input type="checkbox" name="three_star" id="three_star" value="3">
+
+                            <button class="unset-button">
+                                3 Stars (<?= $product->getThreeRatingCount() ?>)
+                            </button>
+                        </div>
+
+                        <div class="hidden-wrapper">
+                            <input type="checkbox" name="two_star" id="two_star" value="2">
+
+                            <button class="unset-button">
+                                2 Stars (<?= htmlspecialchars($product->getTwoRatingCount()) ?>)
+                            </button>
+                        </div>
+
+                        <div class="hidden-wrapper">
+                            <input type="checkbox" name="one_star" id="one_star" value="1">
+
+                            <button class="unset-button">
+                                1 Stars (<?= htmlspecialchars($product->getOneRatingCount()) ?>)
+                            </button>
+                        </div>
+
+                    </form>
                 </section>
             </section>
 
