@@ -12,16 +12,16 @@ function updateButtonStyle(status, button) {
     }
 }
 
-// TODO: Change this to display ratings queried from the BE / DB
 async function updateRatingList(ratingLevels) {
     const ratingList = ratingListWrapper.querySelector('.rating-list > .list')
     ratingList.innerHTML = '' // Remove all contents
 
     const searchQuery = new URLSearchParams({
-        'ratingLevel': ratingLevels
+        'rating-level': ratingLevels
     })
 
-    const response = await http.GET(`dump/api/rating-card?${searchQuery.toString()}`) // TODO
+    const endpoint = `dump/api/rating-card?${searchQuery.toString()}`
+    const response = await http.GET(endpoint) // TODO
     if (response) {
         response.ratingCards.forEach(html => {
             ratingList.insertAdjacentHTML('beforeend', html);
@@ -48,7 +48,7 @@ hiddenWrappers.forEach(wrapper => {
                 const targetButton = targetWrapper.querySelector('button')
                 targetCheckbox.checked = false
                 updateButtonStyle(false, targetButton)
-            };
+            }
 
             // Handle "all" filter
             if (ratingValue === 'all') {
