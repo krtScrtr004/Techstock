@@ -174,8 +174,9 @@
 
             <?php 
             include_once COMPONENT_PATH . 'product-list.php';
-            include_once COMPONENT_PATH . 'page-tabs.php';
             ?>
+
+            <div class="page-tab center-child"></div>
         </section>
 
         <section class="article-list flex-col white-bg">
