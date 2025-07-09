@@ -1,0 +1,99 @@
+import { debounce } from '../utility/debounce.js'
+
+const ratingListWrapper = document.querySelector('.rating-list-wrapper')
+const hiddenWrappers = ratingListWrapper.querySelectorAll('.star-filter-buttons > form > .hidden-wrapper')
+
+function updateButtonStyle(status, button) {
+    if (status) {
+        button.classList.add('active');
+    } else {
+        button.classList.remove('active');
+    }
+}
+
+// TODO: Change this to display ratings queried from the BE / DB
+function updateRatingList(ratingLevels) {
+    const ratingCards = ratingListWrapper.querySelectorAll('.rating-card')
+
+    // Show all if there is no selected button or "all" option is selected
+    if (ratingLevels.length === 0 || ratingLevels.includes('all')) {
+        ratingCards.forEach(card => {
+            card.style.display = 'flex'
+        })
+    } else {
+        ratingCards.forEach(card => {
+            card.style.display = 'none'
+        })
+
+        const filteredCards = Array.from(ratingCards).filter(c => ratingLevels.includes(c.getAttribute('data-rating')))
+
+        filteredCards.forEach(card => {
+            card.style.display = 'flex'
+        })
+    }
+}
+
+const firstHiddenWrapper = ratingListWrapper.querySelector('.hidden-wrapper:first-child')
+
+const checkedFilters = [firstHiddenWrapper]
+hiddenWrappers.forEach(wrapper => {
+    const checkbox = wrapper.querySelector('input[type="checkbox"]')
+    const button = wrapper.querySelector('button')
+
+    debounce(
+        button.addEventListener('click', e => {
+            e.preventDefault()
+
+            const ratingValue = checkbox.value
+
+            // Helper function to uncheck a wrapper and update its style
+            const uncheckWrapper = (targetWrapper) => {
+                const targetCheckbox = targetWrapper.querySelector('input[type="checkbox"]')
+                const targetButton = targetWrapper.querySelector('button')
+                targetCheckbox.checked = false
+                updateButtonStyle(false, targetButton)
+            };
+
+            // Handle "all" filter
+            if (ratingValue === 'all') {
+                checkedFilters.forEach(uncheckWrapper)
+                checkedFilters.length = 0 // Clear the array
+            } else {
+                // Deselect the "all" option if it was selected
+                const allWrapper = ratingListWrapper.querySelector('.hidden-wrapper:first-child')
+                const allIndex = checkedFilters.indexOf(allWrapper)
+
+                if (allIndex !== -1) {
+                    uncheckWrapper(allWrapper)
+                    checkedFilters.splice(allIndex, 1)
+                }
+            }
+
+            // Toggle current filter
+            const currentIndex = checkedFilters.indexOf(wrapper)
+            const isSelected = currentIndex === -1
+
+            checkbox.checked = isSelected;
+            updateButtonStyle(isSelected, button)
+
+            if (isSelected) {
+                checkedFilters.push(wrapper)
+            } else {
+                checkedFilters.splice(currentIndex, 1)
+            }
+
+            // Update visible product list or filters
+            updateRatingList(
+                checkedFilters.map(filter =>
+                    filter.querySelector('input[type="checkbox"]').value
+                )
+            )
+
+            // Default to "all" option if there is no other options selected
+            if (checkedFilters.length === 0) {
+                checkedFilters.push(firstHiddenWrapper)
+                updateButtonStyle(true, firstHiddenWrapper.querySelector('button'))
+            }
+        })
+    )
+})

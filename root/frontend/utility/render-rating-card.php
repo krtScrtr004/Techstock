@@ -9,7 +9,7 @@ function renderRatingCard(Rating $rating)
     $images = $rating->getImages();
     $reply = $rating->getReply();
 ?>
-    <section class="rating-card flex-row">
+    <section class="rating-card flex-row" data-rating="<?= htmlspecialchars($rating->getRating()) ?>">
         <!-- User Profile -->
         <section class="user-profile">
             <img class="circle" src="<?= htmlspecialchars($rater->getProfileImage()) ?>" alt="User profile" title="User profile" height="45" width="45">

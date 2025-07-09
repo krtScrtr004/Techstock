@@ -249,7 +249,6 @@
 
 .store-details {
 	flex: 1;
-	height: 100%;
 	grid-template-columns: auto auto;
 	column-gap: var(--space);
 	margin-left: var(--space);
@@ -348,11 +347,11 @@
 
 /* Rating Section */
 
-.rating-list {
+.rating-list-wrapper {
 	gap: 1rem;
 }
 
-.rating-list .date {
+.rating-list-wrapper .date {
 	font-size: 0.8rem;
 	font-weight: 300;
 }
@@ -361,7 +360,7 @@
 	font-weight: 400;
 }
 
-.rating-list > .heading {
+.rating-list-wrapper > .heading {
 	gap: var(--space);
 }
 
@@ -401,6 +400,12 @@
 	width: fit-content;
 	padding: 5px 10px;
 	border: 1px solid var(--black);
+}
+
+.star-filter-buttons button.active {
+	background-color: var(--blue);
+	border: 1px solid var(--blue);
+	color: var(--white);
 }
 
 .rating-list {

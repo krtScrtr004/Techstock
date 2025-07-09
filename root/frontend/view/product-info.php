@@ -269,7 +269,7 @@
         </section>
 
         <!-- Rating Section -->
-        <section id="ratings" class="rating-list major-section flex-col white-bg">
+        <section id="ratings" class="rating-list-wrapper major-section flex-col white-bg">
             <h3 class="black-text">Product Rating <span class="rating-count">(<?= $product->getTotalRatingCount() ?>)</span></h3>
 
             <!-- Heading -->
@@ -282,70 +282,75 @@
                 </section>
 
                 <!-- Star Filter Buttons -->
-                <section class="star-filter-buttons">
-                    <!-- TODO -->
-                    <form class="flex-row flex-child-start-h flex-wrap" action="" method="POST">
-                        <div class="hidden-wrapper">
-                            <input type="checkbox" name="all_star" id="all_star" value="all">
+                <?php if ($product->getTotalRatingCount() > 0): ?>
+                    <section class="star-filter-buttons">
+                        <!-- TODO -->
+                        <form class="flex-row flex-child-start-h flex-wrap" action="" method="POST">
+                            <div class="hidden-wrapper center-child">
+                                <input type="checkbox" name="all_star" id="all_star" value="all">
 
-                            <button class="unset-button">
-                                All (<?= htmlspecialchars($product->getTotalRatingCount()) ?>)
-                            </button>
-                        </div>
+                                <button class="active unset-button">
+                                    All (<?= htmlspecialchars($product->getTotalRatingCount()) ?>)
+                                </button>
+                            </div>
 
-                        <div class="hidden-wrapper">
-                            <input type="checkbox" name="five_star" id="five_star" value="5">
+                            <div class="hidden-wrapper center-child">
+                                <input type="checkbox" name="five_star" id="five_star" value="5">
 
-                            <button class="unset-button">
-                                5 Stars (<?= $product->getFiveRatingCount() ?>)
-                            </button>
-                        </div>
+                                <button class="unset-button">
+                                    5 Stars (<?= $product->getFiveRatingCount() ?>)
+                                </button>
+                            </div>
 
-                        <div class="hidden-wrapper">
-                            <input type="checkbox" name="four_star" id="four_star" value="4">
+                            <div class="hidden-wrapper center-child">
+                                <input type="checkbox" name="four_star" id="four_star" value="4">
 
-                            <button class="unset-button">
-                                4 Stars (<?= htmlspecialchars($product->getFourRatingCount()) ?>)
-                            </button>
-                        </div>
+                                <button class="unset-button">
+                                    4 Stars (<?= htmlspecialchars($product->getFourRatingCount()) ?>)
+                                </button>
+                            </div>
 
-                        <div class="hidden-wrapper">
-                            <input type="checkbox" name="three_star" id="three_star" value="3">
+                            <div class="hidden-wrapper center-child">
+                                <input type="checkbox" name="three_star" id="three_star" value="3">
 
-                            <button class="unset-button">
-                                3 Stars (<?= $product->getThreeRatingCount() ?>)
-                            </button>
-                        </div>
+                                <button class="unset-button">
+                                    3 Stars (<?= $product->getThreeRatingCount() ?>)
+                                </button>
+                            </div>
 
-                        <div class="hidden-wrapper">
-                            <input type="checkbox" name="two_star" id="two_star" value="2">
+                            <div class="hidden-wrapper center-child">
+                                <input type="checkbox" name="two_star" id="two_star" value="2">
 
-                            <button class="unset-button">
-                                2 Stars (<?= htmlspecialchars($product->getTwoRatingCount()) ?>)
-                            </button>
-                        </div>
+                                <button class="unset-button">
+                                    2 Stars (<?= htmlspecialchars($product->getTwoRatingCount()) ?>)
+                                </button>
+                            </div>
 
-                        <div class="hidden-wrapper">
-                            <input type="checkbox" name="one_star" id="one_star" value="1">
+                            <div class="hidden-wrapper center-child">
+                                <input type="checkbox" name="one_star" id="one_star" value="1">
 
-                            <button class="unset-button">
-                                1 Stars (<?= htmlspecialchars($product->getOneRatingCount()) ?>)
-                            </button>
-                        </div>
+                                <button class="unset-button">
+                                    1 Stars (<?= htmlspecialchars($product->getOneRatingCount()) ?>)
+                                </button>
+                            </div>
 
-                    </form>
+                        </form>
+                    </section>
+                <?php endif; ?>
+            </section>
+
+            <?php if ($product->getTotalRatingCount() > 0): ?>
+                <section class="rating-list flex-col">
+                    <?php
+                    foreach ($ratings as $rating) {
+                        renderRatingCard($rating);
+                    }
+
+                    include_once COMPONENT_PATH . 'page-tabs.php';
+                    ?>
                 </section>
-            </section>
+            <?php endif; ?>
 
-            <section class="rating-list flex-col">
-                <?php
-                foreach ($ratings as $rating) {
-                    renderRatingCard($rating);
-                }
-
-                include_once COMPONENT_PATH . 'page-tabs.php';
-                ?>
-            </section>
         </section>
 
         <!-- Recommended Products -->
@@ -369,6 +374,7 @@
     <script src="<?= htmlspecialchars(EVENT_PATH . 'favorite.js'); ?>" defer></script>
     <script src="<?= htmlspecialchars(EVENT_PATH . 'select-product-option.js'); ?>" defer></script>
     <script src="<?= htmlspecialchars(EVENT_PATH . 'break-text-fallback.js'); ?>" defer></script>
+    <script src="<?= htmlspecialchars(EVENT_PATH . 'filter-ratings.js'); ?>" type="module" defer></script>
     <script src="<?= htmlspecialchars(EVENT_PATH . 'page-tab.js'); ?>" type="module" defer></script>
 
 </body>
