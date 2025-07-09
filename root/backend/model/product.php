@@ -25,7 +25,18 @@ class Product implements Model
         $this->stock = $data['stock'] ?? 0;
         $this->store = $data['store'] ?? new Store();
         $this->currency = $data['currency'] ?? 'PHP';
-        $this->rating = $data['rating'] ?? ['average' => 0.0, 'count' => 0];
+        $this->rating = $data['rating'] ??
+            [
+                'average' => 0.0,
+                'count' => [
+                    'total' => 0,
+                    'five' => 0,
+                    'four' => 0,
+                    'three' => 0,
+                    'two' => 0,
+                    'one' => 0
+                ]
+            ];
         $this->images = $data['images'] ?? null;
         $this->category = $data['category'] ?? null;
         $this->specification = $data['specification'] ?? null;
@@ -89,9 +100,34 @@ class Product implements Model
         return $this->rating['average'];
     }
 
-    public function getRatingCount(): int 
+    public function getTotalRatingCount(): int
     {
-        return $this->rating['count'];
+        return $this->rating['count']['total'];
+    }
+
+    public function getFiveRatingCount(): int
+    {
+        return $this->rating['count']['five'];
+    }
+
+    public function getFourRatingCount(): int
+    {
+        return $this->rating['count']['four'];
+    }
+
+    public function getThreeRatingCount(): int
+    {
+        return $this->rating['count']['three'];
+    }
+
+    public function getTwoRatingCount(): int
+    {
+        return $this->rating['count']['two'];
+    }
+
+    public function getOneRatingCount(): int
+    {
+        return $this->rating['count']['one'];
     }
 
     public function getImage(int $index): ?string
@@ -171,9 +207,34 @@ class Product implements Model
         $this->rating['average'] = $averageRating;
     }
 
-    public function setRatingCount(int $ratingCount): void
+    public function setTotalRatingCount(int $ratingCount): void
     {
-        $this->rating['count'] = $ratingCount;
+        $this->rating['count']['total'] = $ratingCount;
+    }
+
+    public function setFiveRatingCount(int $ratingCount): void
+    {
+        $this->rating['count']['five'] = $ratingCount;
+    }
+
+    public function setFourRatingCount(int $ratingCount): void
+    {
+        $this->rating['count']['four'] = $ratingCount;
+    }
+
+    public function setThreeRatingCount(int $ratingCount): void
+    {
+        $this->rating['count']['three'] = $ratingCount;
+    }
+
+    public function setTwoRatingCount(int $ratingCount): void
+    {
+        $this->rating['count']['two'] = $ratingCount;
+    }
+
+    public function setOneRatingCount(int $ratingCount): void
+    {
+        $this->rating['count']['one'] = $ratingCount;
     }
 
     public function setImages(array $images): void
@@ -186,7 +247,8 @@ class Product implements Model
         $this->category = $category;
     }
 
-    public function setSpecification(array $specification): void {
+    public function setSpecification(array $specification): void
+    {
         $this->specification = $specification;
     }
 
@@ -324,13 +386,13 @@ class Product implements Model
 
                 'name' => "Sed ut perspiciatis unde omnis iste natus error  sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo $i.",
 
-                'description' => 
-                    '<h4>Powerful Performance, Sleek Design</h4>
+                'description' =>
+                '<h4>Powerful Performance, Sleek Design</h4>
                     <p>
                         Experience next-level productivity with the Techstock UltraBook 15.6" Laptop. Powered by the latest Intel® Core™ i7 processor and 16GB DDR4 RAM, this laptop is designed for seamless multitasking, fast boot times, and smooth operation whether you\'re working, streaming, or gaming.
                     </p>
 
-                    <img src="'. IMAGE_PATH . 'laptop-1.jpg' .'" alt="Product image">
+                    <img src="' . IMAGE_PATH . 'laptop-1.jpg' . '" alt="Product image">
 
                     <ul style="display: flex; flex-direction: column; gap: 0.5rem;">
                         <li><strong>Display:</strong> 15.6" Full HD IPS, anti-glare, ultra-thin bezels</li>
@@ -375,7 +437,7 @@ class Product implements Model
                 'rating' => [
                     'average' => round(mt_rand(10, 50) / 10, 1),
                     'count' => rand(1, 999)
-                ], 
+                ],
 
                 'images' => [
                     IMAGE_PATH . $images[array_rand($images)],
