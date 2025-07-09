@@ -1,7 +1,5 @@
 <?php
 
-$router = Router::getRouter();
-
 $routesFile = DATA_PATH . 'routes.json';
 $routes = decodeData($routesFile);
 foreach ($routes as $method => $route) {

@@ -7,7 +7,7 @@ require_once __DIR__ . '/path.php';
 require_once VENDOR_PATH . 'autoload.php' ;
 
 spl_autoload_register(function ($class) {
-    $paths = [CORE_PATH, ROUTER_PATH, MODEL_PATH];
+    $paths = [CORE_PATH, DUMP_PATH, ROUTER_PATH, MODEL_PATH];
     foreach ($paths as $path) {
         // Turn camel case to kebab case
         $class = camelToKebabCase($class);
@@ -31,3 +31,4 @@ foreach (glob(FE_UTILITY_PATH . '*.php') as $fileName) {
 }
 
 $session = null;
+$router = Router::getRouter();
