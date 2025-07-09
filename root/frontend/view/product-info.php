@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>
-        <?= htmlspecialchars($product->getName()) ?>
+        Techstock | <?= htmlspecialchars($product->getName()) ?>
     </title>
 
     <base href="/Techstock/root/frontend/">
@@ -270,7 +270,7 @@
 
         <!-- Rating Section -->
         <section id="ratings" class="rating-list major-section flex-col white-bg">
-            <h3 class="black-text">Product Rating <span class="rating-count">(<?= $product->getRatingCount() ?>)</span></h3>
+            <h3 class="black-text">Product Rating <span class="rating-count">(<?= $product->getTotalRatingCount() ?>)</span></h3>
 
             <!-- Heading -->
             <section class="heading flex-row">
@@ -285,27 +285,27 @@
                 <section class="star-filter-buttons flex-row flex-child-start-h flex-wrap">
                     <!-- TODO -->
                     <button class="unset-button">
-                        All (2351)
+                        All (<?= htmlspecialchars($product->getTotalRatingCount()) ?>)
                     </button>
 
                     <button class="unset-button">
-                        5 Stars (321)
+                        5 Stars (<?= $product->getFiveRatingCount() ?>)
                     </button>
 
                     <button class="unset-button">
-                        4 Stars (72)
+                        4 Stars (<?= htmlspecialchars($product->getFourRatingCount()) ?>)
                     </button>
 
                     <button class="unset-button">
-                        3 Stars (116)
+                        3 Stars (<?= $product->getThreeRatingCount() ?>)
                     </button>
 
                     <button class="unset-button">
-                        2 Stars (32)
+                        2 Stars (<?= htmlspecialchars($product->getTwoRatingCount()) ?>)
                     </button>
 
                     <button class="unset-button">
-                        1 Stars (0)
+                        1 Stars (<?= htmlspecialchars($product->getOneRatingCount()) ?>)
                     </button>
                 </section>
             </section>

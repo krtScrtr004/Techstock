@@ -436,7 +436,14 @@ class Product implements Model
 
                 'rating' => [
                     'average' => round(mt_rand(10, 50) / 10, 1),
-                    'count' => rand(1, 999)
+                    'count' => [
+                        'total' => rand(1, 999),
+                        'five' => rand(1, 999),
+                        'four' => rand(1, 999),
+                        'three' => rand(1, 999),
+                        'two' => rand(1, 999),
+                        'one' => rand(1, 999),
+                    ]
                 ],
 
                 'images' => [
