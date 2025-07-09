@@ -24,4 +24,4 @@ function redirectHandler(page) {
 }
 
 // Display page tab buttons
-displayPagination(pageNumber, maxPage, redirectHandler)
+displayPagination(pageNumber, maxPage)

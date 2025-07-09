@@ -408,7 +408,7 @@
 	color: var(--white);
 }
 
-.rating-list {
+.rating-list > .list {
 	gap: 1rem;
 }
 

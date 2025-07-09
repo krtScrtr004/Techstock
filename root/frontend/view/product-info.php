@@ -284,7 +284,6 @@
                 <!-- Star Filter Buttons -->
                 <?php if ($product->getTotalRatingCount() > 0): ?>
                     <section class="star-filter-buttons">
-                        <!-- TODO -->
                         <form class="flex-row flex-child-start-h flex-wrap" action="" method="POST">
                             <div class="hidden-wrapper center-child">
                                 <input type="checkbox" name="all_star" id="all_star" value="all">
@@ -341,13 +340,13 @@
 
             <?php if ($product->getTotalRatingCount() > 0): ?>
                 <section class="rating-list flex-col">
-                    <?php
-                    foreach ($ratings as $rating) {
-                        renderRatingCard($rating);
-                    }
+                    <section class="list flex-col">
+                        <?php foreach ($ratings as $rating) {
+                            renderRatingCard($rating);
+                        } ?>
+                    </section>
 
-                    include_once COMPONENT_PATH . 'page-tabs.php';
-                    ?>
+                    <div class="page-tab center-child"></div>
                 </section>
             <?php endif; ?>
 
@@ -375,7 +374,7 @@
     <script src="<?= htmlspecialchars(EVENT_PATH . 'select-product-option.js'); ?>" defer></script>
     <script src="<?= htmlspecialchars(EVENT_PATH . 'break-text-fallback.js'); ?>" defer></script>
     <script src="<?= htmlspecialchars(EVENT_PATH . 'filter-ratings.js'); ?>" type="module" defer></script>
-    <script src="<?= htmlspecialchars(EVENT_PATH . 'page-tab.js'); ?>" type="module" defer></script>
+    <script src="<?= htmlspecialchars(EVENT_PATH . 'filter-page-tab.js'); ?>" type="module" defer></script>
 
 </body>
 

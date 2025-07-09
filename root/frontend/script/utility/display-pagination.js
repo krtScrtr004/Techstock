@@ -1,6 +1,4 @@
-const pageTabWrapper = document.querySelector('.page-tab')
-const previous = pageTabWrapper.querySelector('button.previous')
-const next = pageTabWrapper.querySelector('button.next')
+import { debounce } from '../utility/debounce.js'
 
 function getPagination(pageNumber, maxPage) {
     // Will hold the page numbers to display 
@@ -36,33 +34,45 @@ function getPagination(pageNumber, maxPage) {
 }
 
 export function displayPagination(pageNumber, maxPage, redirectHandler) {
-    const pages = getPagination(pageNumber, maxPage)
+    const pageTabWrapper = document.querySelector('.page-tab')
+    pageTabWrapper.innerHTML = ''
 
-    pages.forEach(p => {
-        const btn = document.createElement('button')
-        btn.textContent = p
-
-        const number = parseInt(p)
-        if (!isNaN(number)) {
-            if (number === pageNumber) {
-                btn.classList.add('active')
-            } else {
-                btn.addEventListener('click', e => {
-                    e.stopPropagation()
-                    redirectHandler(number)
-                })
-            }
-        } else {
-            btn.disabled = true
-        }
-        pageTabWrapper.appendChild(btn)
-    })
-    pageTabWrapper.appendChild(next) // Move next button to the end
-
-    // Hide previous / next button when on first / last page
+    // Create previous button
+    const previous = document.createElement('button')
+    previous.className = 'previous'
+    previous.textContent = '<'
     previous.style.display = (pageNumber === 1) ? 'none' : 'block'
-    next.style.display = (pageNumber === maxPage) ? 'none' : 'block'
-
     previous.addEventListener('click', () => redirectHandler(pageNumber - 1))
+    pageTabWrapper.append(previous)
+
+    const pages = getPagination(pageNumber, maxPage)
+    debounce(
+        pages.forEach(p => {
+            const btn = document.createElement('button')
+            btn.textContent = p
+
+            const number = parseInt(p)
+            if (!isNaN(number)) {
+                if (number === pageNumber) {
+                    btn.classList.add('active')
+                } else {
+                    btn.addEventListener('click', e => {
+                        e.stopPropagation()
+                        redirectHandler(number)
+                    })
+                }
+            } else {
+                btn.disabled = true
+            }
+            pageTabWrapper.appendChild(btn)
+        })
+    )
+
+    // Create next button
+    const next = document.createElement('button')
+    next.className = 'next'
+    next.textContent = '>'
+    next.style.display = (pageNumber === maxPage) ? 'none' : 'block'
     next.addEventListener('click', () => redirectHandler(pageNumber + 1))
+    pageTabWrapper.appendChild(next)
 }

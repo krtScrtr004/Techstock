@@ -16,7 +16,7 @@ class User implements Model
     {
         $this->firstName = $data['first_name'];
         $this->lastName = $data['last_name'];
-        $this->profileImage = $data['profile_image_link'] ?? ICON_PATH . 'user-profile.svg';
+        $this->profileImage = $data['profile_image_link'] ?? ICON_PATH . 'user-profile_b.svg';
         $this->email = $data['email'];
         $this->contact = $data['contact'] ?? null;
         $this->address = $data['address'] ?? null;
