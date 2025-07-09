@@ -6,6 +6,7 @@ node_modules/
 vendor/
 
 dump/
+/dump-controller.php
 
 # Logs
 logs/
