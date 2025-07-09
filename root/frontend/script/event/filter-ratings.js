@@ -1,4 +1,5 @@
 import { debounce } from '../utility/debounce.js'
+import { http } from '../utility/http.js'
 
 const ratingListWrapper = document.querySelector('.rating-list-wrapper')
 const hiddenWrappers = ratingListWrapper.querySelectorAll('.star-filter-buttons > form > .hidden-wrapper')
@@ -12,23 +13,18 @@ function updateButtonStyle(status, button) {
 }
 
 // TODO: Change this to display ratings queried from the BE / DB
-function updateRatingList(ratingLevels) {
-    const ratingCards = ratingListWrapper.querySelectorAll('.rating-card')
+async function updateRatingList(ratingLevels) {
+    const ratingList = ratingListWrapper.querySelector('.rating-list > .list')
+    ratingList.innerHTML = '' // Remove all contents
 
-    // Show all if there is no selected button or "all" option is selected
-    if (ratingLevels.length === 0 || ratingLevels.includes('all')) {
-        ratingCards.forEach(card => {
-            card.style.display = 'flex'
-        })
-    } else {
-        ratingCards.forEach(card => {
-            card.style.display = 'none'
-        })
+    const searchQuery = new URLSearchParams({
+        'ratingLevel': ratingLevels
+    })
 
-        const filteredCards = Array.from(ratingCards).filter(c => ratingLevels.includes(c.getAttribute('data-rating')))
-
-        filteredCards.forEach(card => {
-            card.style.display = 'flex'
+    const response = await http.GET(`dump/api/rating-card?${searchQuery.toString()}`) // TODO
+    if (response) {
+        response.ratingCards.forEach(html => {
+            ratingList.insertAdjacentHTML('beforeend', html);
         })
     }
 }

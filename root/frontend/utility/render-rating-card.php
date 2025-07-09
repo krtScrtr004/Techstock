@@ -2,13 +2,15 @@
 
 function renderRatingCard(Rating $rating)
 {
+    ob_start();
+
     $rater = $rating->getRater();
     if (!isset($rater))
         throw new BadFunctionCallException('No rater defined in rating object.');
 
     $images = $rating->getImages();
     $reply = $rating->getReply();
-?>
+    ?>
     <section class="rating-card flex-row" data-rating="<?= htmlspecialchars($rating->getRating()) ?>">
         <!-- User Profile -->
         <section class="user-profile">
@@ -61,5 +63,7 @@ function renderRatingCard(Rating $rating)
             </section>
         </section>
     </section>
-<?php
+    <?php
+
+    return ob_get_clean();
 }

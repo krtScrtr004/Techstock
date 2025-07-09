@@ -409,6 +409,7 @@
 }
 
 .rating-list > .list {
+	min-height: var(--min-height);
 	gap: 1rem;
 }
 

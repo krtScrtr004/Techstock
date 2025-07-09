@@ -186,18 +186,17 @@
         <section class="result-grid flex-col">
             <!-- TODO: Add relavant store result here -->
 
-            <?php
-            include_once COMPONENT_PATH . 'product-list.php';
+            <?php 
+            include_once COMPONENT_PATH . 'product-list.php'; 
+            include_once COMPONENT_PATH . 'page-tabs.php'; 
             ?>
-
-            <div class="page-tab center-child"></div>
         </section>
     </main>
 
     <?php
     require_once COMPONENT_PATH . 'footer.php';
 
-    errorOccurredDialog();
+    errorOccurredDialog(); 
     ?>
 
     <script src="<?= htmlspecialchars(EVENT_PATH . 'page-tab.js'); ?>" type="module" defer></script>

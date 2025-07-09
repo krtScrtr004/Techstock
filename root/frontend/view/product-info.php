@@ -342,7 +342,7 @@
                 <section class="rating-list flex-col">
                     <section class="list flex-col">
                         <?php foreach ($ratings as $rating) {
-                            renderRatingCard($rating);
+                            echo renderRatingCard($rating);
                         } ?>
                     </section>
 
