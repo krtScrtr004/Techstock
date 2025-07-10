@@ -1,5 +1,10 @@
 <?php
 
+function createSlug(string $name): string 
+{
+    return str_replace(' ', '-', $name);
+}
+
 function decodeData(String $rawData): array
 {
     if (!$rawData)
@@ -25,4 +30,9 @@ function camelToSentenceCase(string $string): string {
 
 function camelToKebabCase(string $string): string {
     return strtolower(preg_replace('/([a-z])([A-Z])/', '$1-$2', $string));
+}
+
+function sentenceToKebabCase(string $string): string {
+    // Converts sentence case to kebab-case
+    return strtolower(str_replace(' ', '-', trim($string)));
 }

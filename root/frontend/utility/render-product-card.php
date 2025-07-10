@@ -1,12 +1,13 @@
 <?php
 function renderProductCard(Product $product): void
 {
+    $redirect = REDIRECT_PATH . 'product' . DS . htmlspecialchars(createSlug($product->getName())) . '-i.' . htmlspecialchars($product->getId()) . '.' . htmlspecialchars($product->getStore()->getId());
 ?>
-    <a href="">
-        <div class="product-card">
+    <a href="<?= $redirect ?>">
+        <div class="product-card" data-id="<?= htmlspecialchars($product->getId()) ?>">
             <img src="<?= $product->getImage(0) ?>" alt="<?= htmlspecialchars($product->getName()) ?>" title="<?= htmlspecialchars($product->getName()) ?>" loading="lazy" height="200">
 
-            <h3 class="multi-line-ellipsis" title="<?= htmlspecialchars($product->getName()); ?>">
+            <h3 class="product-name multi-line-ellipsis" title="<?= htmlspecialchars($product->getName()); ?>">
                 <?= htmlspecialchars($product->getName()); ?>
             </h3>
 

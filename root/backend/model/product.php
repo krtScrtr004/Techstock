@@ -355,36 +355,13 @@ class Product implements Model
             ],
         ];
 
-        function isAssociative($array): bool
-        {
-            if (!is_array($array)) return false;
-            return array_keys($array) !== range(0, count($array) - 1);
-        }
-
-        function getSubCategory($arr, $key, &$list)
-        {
-            if (!isAssociative($arr)) {
-                $list->add(0, $arr[array_rand($arr)]);
-                return;
-            }
-            getSubCategory($arr[$key], $key, $list);
-            $list->add(0, $key);
-        }
-
-        function getCategory($arr): SplDoublyLinkedList
-        {
-            $list = new SplDoublyLinkedList();
-            getSubCategory($arr, array_rand($arr), $list);
-            return $list;
-        }
-
         $products = [];
 
         for ($i = 1; $i <= 20; $i++) {
             $product = new Product([
                 'id' => uniqid(),
 
-                'name' => "Sed ut perspiciatis unde omnis iste natus error  sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo $i.",
+                'name' => "Product name number $i.",
 
                 'description' =>
                 '<h4>Powerful Performance, Sleek Design</h4>
@@ -498,4 +475,27 @@ class Product implements Model
     {
         self::__construct($data);
     }
+}
+
+function isAssociative($array): bool
+{
+    if (!is_array($array)) return false;
+    return array_keys($array) !== range(0, count($array) - 1);
+}
+
+function getSubCategory($arr, $key, &$list)
+{
+    if (!isAssociative($arr)) {
+        $list->add(0, $arr[array_rand($arr)]);
+        return;
+    }
+    getSubCategory($arr[$key], $key, $list);
+    $list->add(0, $key);
+}
+
+function getCategory($arr): SplDoublyLinkedList
+{
+    $list = new SplDoublyLinkedList();
+    getSubCategory($arr, array_rand($arr), $list);
+    return $list;
 }
