@@ -55,7 +55,7 @@ function reportDescriptionModal(): void
         <section class="report-description-modal modal white-bg">
             <!-- Heading -->
             <section class="heading flex-row flex-space-between flex-child-center-h">
-                <div class="center-child">
+                <div class="header-w-back">
                     <button class="back-button unset-button">
                         <img src="<?= ICON_PATH . 'back.svg' ?>" alt="Back" title="Back" height="24">
                     </button>

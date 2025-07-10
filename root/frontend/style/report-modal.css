@@ -1,6 +1,6 @@
 .report-reason-modal-wrapper > .report-reason-modal,
 .report-description-modal-wrapper > .report-description-modal {
-	width: 40%;
+    width: 600px;
 	padding: 0;
 }
 
@@ -47,11 +47,15 @@
     width: 60%;
 }
 
-.report-description-modal > .heading > div {
-    gap: 10px;
+.report-description-modal .header-w-back {
+    padding-left: 2rem;
 }
 
-.report-description-modal .back-button {
+.report-description-modal .header-w-back > button {
+    left: 0;
+}
+
+.report-description-modal .back-button  {
     height: 1.5rem;
     width: auto;
 }

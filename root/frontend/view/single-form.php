@@ -22,7 +22,9 @@
             <div class="header-w-back">
                 <h3><?= $component['title']; ?></h3>
 
-                <img class="back-button" src="<?= ICON_PATH . 'back.svg' ?>" alt="Back" title="Back" height="24" width="24">
+                <button type="button" class="back-button unset-button">
+                    <img src="<?= ICON_PATH . 'back.svg' ?>" alt="Back" title="Back" height="24" width="24">
+                </button>
             </div>
 
             <?php include_once COMPONENT_PATH . $component['form']; ?>
