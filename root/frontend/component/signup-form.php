@@ -14,17 +14,17 @@
 </div>
 
 <section class="oath-provider-link">
-    <div>
+    <button type="button" class="unset-button">
         <img src="<?= ICON_PATH . 'facebook.svg'; ?>" alt="Facebook sign up" title="Facebook sign up" width="45" height="45">
 
         <h3>Facebook</h3>
-    </div>
+    </button>
 
-    <div>
+    <button type="button" class="unset-button">
         <img src="<?= ICON_PATH . 'google.svg'; ?>" alt="Google sign up" title="Google sign up" width="45" height="45">
 
         <h3>Google</h3>
-    </div>
+    </button>
 </section>
 
 <div class="flex-row flex-child-center-v">

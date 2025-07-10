@@ -106,7 +106,7 @@
 
 /* --------------- OAUTH PROVIDER LINK BOX --------------- */
 .oath-provider-link,
-.oath-provider-link > div {
+.oath-provider-link > button {
 	display: flex;
 }
 
@@ -114,7 +114,7 @@
 	gap: var(--space);
 }
 
-.oath-provider-link > div {
+.oath-provider-link > button {
 	flex: 1 1 0;
 	justify-content: center;
 	align-items: center;
@@ -123,13 +123,13 @@
 	border-radius: var(--border-radius);
 }
 
-.oath-provider-link > div > img {
+.oath-provider-link > button > img {
 	height: 32px;
 	width: 32px;
 	margin-right: 5px;
 }
 
-.oath-provider-link > div > h3 {
+.oath-provider-link > button > h3 {
 	color: var(--black);
 }
 

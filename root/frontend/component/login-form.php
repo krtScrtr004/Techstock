@@ -22,17 +22,17 @@
 </div>
 
 <section class="oath-provider-link">
-    <div>
+    <button type="button" class="unset-button">
         <img src="<?= ICON_PATH . 'facebook.svg'; ?>" alt="Facebook log in" title="Facebook log in" width="45" height="45">
 
         <h3>Facebook</h3>
-    </div>
+    </button>
 
-    <div>
+    <button type="button" class="unset-button">
         <img src="<?= ICON_PATH . 'google.svg'; ?>" alt="Google log in" title="Google log in" width="45" height="45">
 
         <h3>Google</h3>
-    </div>
+    </button>
 </section>
 
 <p class="block center-text">New to Techstock? <a class="blue-text" href="<?= REDIRECT_PATH . 'signup'; ?>">Sign Up</a></p>
