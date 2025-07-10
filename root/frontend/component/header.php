@@ -52,7 +52,7 @@
         <section class="lower-header-body flex-row">
 
             <span class="inline">
-                <a href="<?= REDIRECT_PATH . 'home'; ?>>
+                <a href="<?= REDIRECT_PATH . 'home'; ?>">
                     <img src="<?= LOGO_PATH . 'logo_complete_ver.svg'; ?>" alt="Techstock logo" title="Techstack logo" height="57">
                 </a>
             </span>

@@ -30,7 +30,7 @@ body {
 	min-width: var(--min-width);
 	min-height: var(--min-height);
 
-	width: 100%;
+	width: fit-content;
 	height: 100%;
 	position: relative;
 	font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS',
