@@ -1,0 +1,38 @@
+.report-reason-modal-wrapper > .report-reason-modal {
+	width: 40%;
+	padding: 0;
+}
+
+.report-reason-modal > .heading,
+.reason-button {
+	padding: 1rem var(--space);
+}
+
+.report-reason-modal > .heading {
+	border-bottom: 1px solid var(--black);
+}
+
+.report-reason-modal > .heading > h3,
+.report-reason-modal .close-button {
+	font-size: 1.5rem;
+}
+
+.report-reason-modal .close-button:hover > p {
+	color: var(--red);
+}
+
+.reasons {
+    height: 20rem;
+    overflow: hidden auto;
+}
+
+.reason-button {
+	width: 100%;
+	font-weight: 500;
+	color: var(--black);
+    box-sizing: border-box;
+}
+
+.reason-button:hover {
+	background-color: var(--dark-white);
+}
