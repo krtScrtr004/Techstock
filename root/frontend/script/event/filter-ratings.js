@@ -13,15 +13,15 @@ function updateButtonStyle(status, button) {
     }
 }
 
-async function updateRatingList(ratingLevels) {
+async function updateRatingList(/*ratingLevels*/) {
     const ratingList = ratingListWrapper.querySelector('.rating-list > .list')
     ratingList.innerHTML = '' // Remove all contents
 
-    const searchQuery = new URLSearchParams({
-        'rating-level': ratingLevels
-    })
+    // const searchQuery = new URLSearchParams({
+    //     'rating-level': ratingLevels
+    // })
 
-    const endpoint = `dump/api/rating-card?${searchQuery.toString()}`
+    // const endpoint = `dump/api/rating-card?${searchQuery.toString()}`
     const response = await http.GET('dump/api/rating-card') // TODO
     if (response) {
         response.ratingCards.forEach(html => {

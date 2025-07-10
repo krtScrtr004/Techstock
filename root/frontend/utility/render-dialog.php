@@ -6,14 +6,14 @@ function renderDialog(bool $status, string $id, string $title, string $message)
 
     ?>
     <section id="<?= htmlspecialchars($id); ?>" class="modal-wrapper">
-        <div class="dialog">
+        <section class="dialog white-bg">
             <img src="<?= htmlspecialchars(ICON_PATH . ($status ? $icons[0] : $icons[1])); ?>" alt="Result icon" title="Result icon" height="69" width="69">
 
             <h1 class="center-text"><?= htmlspecialchars($title); ?></h1>
             <p class="center-text"><?= htmlspecialchars($message); ?></p>
 
             <button class="<?= $status ? 'blue-bg'  : 'red-bg'?> white-text">OKAY</button>
-        </div>
+        </section>
     </section>
     <?php
 }

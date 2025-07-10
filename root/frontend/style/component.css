@@ -168,7 +168,7 @@
 }
 
 .modal-wrapper,
-.modal-wrapper > div.dialog {
+.modal-wrapper > section.dialog {
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -176,7 +176,7 @@
 }
 
 .modal-wrapper {
-	display: none;
+	/* display: none; */
 	background-color: transparent;
 }
 
@@ -196,15 +196,14 @@
 	font-weight: 300;
 }
 
-.modal-wrapper > div {
+.modal-wrapper > section {
 	box-sizing: content-box;
-	background-color: var(--white);
 	padding: var(--space);
 	box-shadow: 0 0 1px 1px var(--light-black);
 }
 
 /* DIALOG ------------ */
-.modal-wrapper > div.dialog {
+.modal-wrapper > section.dialog {
 	flex-direction: column;
 	width: 350px;
 	padding: 2rem;

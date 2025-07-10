@@ -1,23 +1,29 @@
-.report-reason-modal-wrapper > .report-reason-modal {
+.report-reason-modal-wrapper > .report-reason-modal,
+.report-description-modal-wrapper > .report-description-modal {
 	width: 40%;
 	padding: 0;
 }
 
 .report-reason-modal > .heading,
-.reason-button {
+.reason-button,
+.report-description-modal > .heading,
+.report-description-modal > .main {
 	padding: 1rem var(--space);
 }
 
-.report-reason-modal > .heading {
+.report-reason-modal > .heading,
+.report-description-modal > .heading{
 	border-bottom: 1px solid var(--black);
 }
 
 .report-reason-modal > .heading > h3,
-.report-reason-modal .close-button {
+.report-reason-modal .close-button, 
+.reason-name {
 	font-size: 1.5rem;
 }
 
-.report-reason-modal .close-button:hover > p {
+.report-reason-modal .close-button:hover > p,
+.report-description-modal .close-button:hover > p {
 	color: var(--red);
 }
 
@@ -35,4 +41,39 @@
 
 .reason-button:hover {
 	background-color: var(--dark-white);
+}
+
+.report-description-modal {
+    width: 60%;
+}
+
+.report-description-modal > .heading > div {
+    gap: 10px;
+}
+
+.report-description-modal .back-button {
+    height: 1.5rem;
+    width: auto;
+}
+
+.report-description-modal > .main {
+    gap: 10px
+}
+
+.report-description-modal > .main > * {
+    width: 100%;
+}
+
+.report-description-modal > .main > label {
+	font-size: 1.2rem;
+}
+
+.report-description {
+    height: 10rem;
+    padding: 5px;
+    resize: none;
+}
+
+.report-description-modal .submit-button {
+    width: 40%;
 }

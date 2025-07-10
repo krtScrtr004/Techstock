@@ -23,6 +23,10 @@
 	color: var(--yellow);
 }
 
+.red-text {
+	color: var(--red);
+}
+
 /* --------BG COLOR-------- */
 
 .black-bg {
@@ -124,6 +128,14 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
+}
+
+.float-left {
+	float: left;
+}
+
+.float-right {
+	float: right;
 }
 
 /* --------ELEMENT POSITION-------- */

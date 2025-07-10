@@ -10,19 +10,19 @@ const ratingList = ratings.querySelector('.rating-list > .list')
 
 document.addEventListener('DOMContentLoaded', likeRating())// Add like rating event
 
-function createSearchParam() {
-    const checkedCheckboxes = ratings.querySelectorAll('input[type="checkbox"]:checked')
+// function createSearchParam() {
+//     const checkedCheckboxes = ratings.querySelectorAll('input[type="checkbox"]:checked')
 
-    const checkedFilters = Array.from(checkedCheckboxes).map(ch => ch.value)
+//     const checkedFilters = Array.from(checkedCheckboxes).map(ch => ch.value)
 
-    const searchParam = new URLSearchParams({
-        'rating-level': checkedFilters
-    })
-    return searchParam.toString()
-}
+//     const searchParam = new URLSearchParams({
+//         'rating-level': checkedFilters
+//     })
+//     return searchParam.toString()
+// }
 
 async function redirectHandler(page) {
-    const endpoint = `dump/api/rating-card${createSearchParam()}`
+    // const endpoint = `dump/api/rating-card${createSearchParam()}`
 
     ratingList.innerHTML = '' // Remove all contents
     
