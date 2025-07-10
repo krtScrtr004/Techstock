@@ -6,7 +6,7 @@
     <input type="email" name="l_email" id="l_email" placeholder="Please enter your email here" autocomplete="on" min="3" max="255" required>
 
     <div class="password-toggle-wrapper">
-        <img class="back-button absolute" src="<?= htmlspecialchars(ICON_PATH . 'show.svg'); ?>" alt="Show password" title="Show password" width="18" height="18" />
+        <img class="back-button absolute" src="<?= ICON_PATH . 'show.svg'; ?>" alt="Show password" title="Show password" width="18" height="18" />
 
         <input type="password" name="l_password" id="l_password" placeholder="Please enter your password here" min="8" max="255" required>
     </div>
@@ -14,7 +14,7 @@
     <button class="blue-bg white-text" type="submit">LOG IN</button>
 </form>
 
-<a class="inline black-text" href="<?= htmlspecialchars(REDIRECT_PATH . 'forget-password'); ?>">Forget Password</a>
+<a class="inline black-text" href="<?= REDIRECT_PATH . 'forget-password'; ?>">Forget Password</a>
 
 <div class="line-divider relative">
     <hr>
@@ -23,16 +23,16 @@
 
 <section class="oath-provider-link">
     <div>
-        <img src="<?= htmlspecialchars(ICON_PATH . 'facebook.svg'); ?>" alt="Facebook log in" title="Facebook log in" width="45" height="45">
+        <img src="<?= ICON_PATH . 'facebook.svg'; ?>" alt="Facebook log in" title="Facebook log in" width="45" height="45">
 
         <h3>Facebook</h3>
     </div>
 
     <div>
-        <img src="<?= htmlspecialchars(ICON_PATH . 'google.svg'); ?>" alt="Google log in" title="Google log in" width="45" height="45">
+        <img src="<?= ICON_PATH . 'google.svg'; ?>" alt="Google log in" title="Google log in" width="45" height="45">
 
         <h3>Google</h3>
     </div>
 </section>
 
-<p class="block center-text">New to Techstock? <a class="blue-text" href="<?= htmlspecialchars(REDIRECT_PATH . 'signup'); ?>">Sign Up</a></p>
+<p class="block center-text">New to Techstock? <a class="blue-text" href="<?= REDIRECT_PATH . 'signup'; ?>">Sign Up</a></p>

@@ -45,11 +45,11 @@
                     </section>
 
                     <button type="button" class="tracker left unset-button">
-                        <img src="<?= htmlspecialchars(ICON_PATH . 'next.svg') ?>" alt="Next button" title="Next button" height="20">
+                        <img src="<?= ICON_PATH . 'next.svg' ?>" alt="Previous" title="Previous" height="20">
                     </button>
 
                     <button type="button" class="tracker right unset-button">
-                        <img src="<?= htmlspecialchars(ICON_PATH . 'next.svg') ?>" alt="Next button" title="Next button" height="20">
+                        <img src="<?= ICON_PATH . 'next.svg' ?>" alt="Next" title="Next" height="20">
                     </button>
                 </section>
 
@@ -58,16 +58,16 @@
                         <p class="black-text">Share</p>
 
                         <a href="">
-                            <img src="<?= htmlspecialchars(ICON_PATH . 'facebook.svg') ?>" alt="Share to Facebook" title="Share to Facebook" height="24" width="24">
+                            <img src="<?= ICON_PATH . 'facebook.svg' ?>" alt="Share to Facebook" title="Share to Facebook" height="24" width="24">
                         </a>
 
                         <button class="copy-link unset-button">
-                            <img src="<?= htmlspecialchars(ICON_PATH . 'copy.svg') ?>" alt="Copy link" title="Copy link" height="24" width="24">
+                            <img src="<?= ICON_PATH . 'copy.svg' ?>" alt="Copy link" title="Copy link" height="24" width="24">
                         </button>
                     </div>
 
                     <button type="button" class="favorite text-w-icon unset-button">
-                        <img src="<?= htmlspecialchars(ICON_PATH . 'heart_empty.svg') ?>" alt="" width="24" height="24">
+                        <img src="<?= ICON_PATH . 'heart_empty.svg' ?>" alt="" width="24" height="24">
 
                         <p class="black-text">Favorite</p>
                     </button>
@@ -114,7 +114,7 @@
                     <p class="title">Shipping</p>
 
                     <div class="icon center-child">
-                        <img src="<?= htmlspecialchars(ICON_PATH . 'shipping.svg') ?>" alt="" height="24" width="24">
+                        <img src="<?= ICON_PATH . 'shipping.svg' ?>" alt="Ship to" title="Ship to" height="24" width="24">
                     </div>
 
                     <p class="sub-title upper ">Shipping To</p>
@@ -166,7 +166,7 @@
                 <section class="button-section flex-row flex-child-center-h">
                     <button class="add-to-cart-button thin-button inline blue-text">
                         <div class="text-w-icon center-child">
-                            <img src="<?= htmlspecialchars(ICON_PATH . 'cart_b.svg') ?>" alt="Add to cart" title="Add to cart" height="16" width="16">
+                            <img src="<?= ICON_PATH . 'cart_b.svg' ?>" alt="Add to cart" title="Add to cart" height="16" width="16">
 
                             <p>Add To Cart</p>
                         </div>
@@ -193,7 +193,7 @@
                 <div class="buttons flex-row">
                     <button type="button" class="chat-button thin-button">
                         <div class="text-w-icon center-child">
-                            <img src="<?= htmlspecialchars(ICON_PATH . 'chat_bl.svg') ?>" alt="Chat now" title="Chat now" height="20" width="20">
+                            <img src="<?= ICON_PATH . 'chat_bl.svg' ?>" alt="Chat now" title="Chat now" height="20" width="20">
 
                             <p class="blue-text">Chat Now</p>
                         </div>

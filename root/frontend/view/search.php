@@ -24,7 +24,7 @@
     <main class="flex-row dark-white-bg">
         <aside class="flex-col white-bg">
             <div class="text-w-icon flex-child-start-v">
-                <img src="<?= htmlspecialchars(ICON_PATH . 'filter.svg') ?>" alt="Search filter" title="Search filter" height="24" width="24">
+                <img src="<?= ICON_PATH . 'filter.svg' ?>" alt="Search filter" title="Search filter" height="24" width="24">
                 <h1>
                     Search Filter
                 </h1>

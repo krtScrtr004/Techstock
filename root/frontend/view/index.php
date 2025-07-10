@@ -24,7 +24,7 @@
 		<section class="flex-row">
 
 			<section class="right-pane flex-col center-child">
-				<img src="<?= htmlspecialchars(LOGO_PATH . 'logo_complete_hor.svg'); ?>" alt="Techstock logo" title="Techstock logo" />
+				<img src="<?= LOGO_PATH . 'logo_complete_hor.svg'; ?>" alt="Techstock logo" title="Techstock logo" />
 
 				<h3 class="blue-text">Tech You Want. Stock You Need.</h3>
 			</section>

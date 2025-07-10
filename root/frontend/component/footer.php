@@ -38,7 +38,7 @@
     </section>
 
     <section class="footer-static flex-col center-child">
-        <img src="<?= htmlspecialchars(LOGO_PATH . 'logo_complete_ver.svg') ?>" alt="Techstock logo" title="Techstock logo" height="69">
+        <img src="<?= LOGO_PATH . 'logo_complete_ver.svg' ?>" alt="Techstock logo" title="Techstock logo" height="69">
 
         <p>&copy; Techstock Philippines. All rights reserved.</p>
     </section>
