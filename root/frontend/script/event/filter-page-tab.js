@@ -1,4 +1,5 @@
 import { displayPagination } from '../utility/display-pagination.js'
+import { likeRating } from '../utility/like-rating.js'
 import { http } from '../utility/http.js'
 
 const maxPage = 10
@@ -23,11 +24,12 @@ async function redirectHandler(page) {
 
     ratingList.innerHTML = '' // Remove all contents
     
-    const response = await http.GET(endpoint) // TODO
+    const response = await http.GET('dump/api/rating-card') // TODO
     if (response) {
         response.ratingCards.forEach(html => {
             ratingList.insertAdjacentHTML('beforeend', html);
         })
+        likeRating() // Add like rating event
     }
 
     ratings.scrollIntoView({

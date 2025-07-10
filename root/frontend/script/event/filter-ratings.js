@@ -1,3 +1,4 @@
+import { likeRating } from '../utility/like-rating.js'
 import { debounce } from '../utility/debounce.js'
 import { http } from '../utility/http.js'
 
@@ -21,11 +22,12 @@ async function updateRatingList(ratingLevels) {
     })
 
     const endpoint = `dump/api/rating-card?${searchQuery.toString()}`
-    const response = await http.GET(endpoint) // TODO
+    const response = await http.GET('dump/api/rating-card') // TODO
     if (response) {
         response.ratingCards.forEach(html => {
             ratingList.insertAdjacentHTML('beforeend', html);
         })
+        likeRating() // Add like rating event
     }
 }
 

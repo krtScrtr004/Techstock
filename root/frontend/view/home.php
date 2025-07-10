@@ -147,15 +147,13 @@
 
             <section class="carousel-wrapper">
                 <section class="carousel">
-                    <?php
-                    for ($i = 0, $n = 8; $i < $n; $i++) {
-                    ?>
+                    <?php for ($i = 0, $n = 8; $i < $n; $i++): ?>
                         <a href="">
                             <div class="store-card center-child white-bg">
                                 <img src="<?= htmlspecialchars(IMAGE_PATH . 'brand logo/hp.png') ?>" alt="Store logo image" title="Store logo image">
                             </div>
                         </a>
-                    <?php } ?>
+                    <?php endfor; ?>
                 </section>
 
                 <button type="button" class="tracker left unset-button">
@@ -172,10 +170,11 @@
         <section id="discover-more" class="discover-more-section">
             <h3 class="home-section-heading sticky center-text">Discover More</h3>
 
-            <?php 
+            <?php
             include_once COMPONENT_PATH . 'product-list.php';
-            include_once COMPONENT_PATH . 'page-tabs.php';
             ?>
+
+            <div class="page-tab center-child"></div>
         </section>
 
         <section class="article-list flex-col white-bg">

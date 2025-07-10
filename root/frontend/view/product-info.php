@@ -375,6 +375,7 @@
     <script src="<?= htmlspecialchars(EVENT_PATH . 'break-text-fallback.js'); ?>" defer></script>
     <script src="<?= htmlspecialchars(EVENT_PATH . 'filter-ratings.js'); ?>" type="module" defer></script>
     <script src="<?= htmlspecialchars(EVENT_PATH . 'filter-page-tab.js'); ?>" type="module" defer></script>
+    <script src="<?= htmlspecialchars(EVENT_PATH . 'like-rating.js'); ?>" type="module" defer></script>
 
 </body>
 
