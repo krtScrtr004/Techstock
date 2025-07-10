@@ -8,6 +8,8 @@ let pageNumber = 1
 const ratings = document.querySelector('#ratings')
 const ratingList = ratings.querySelector('.rating-list > .list')
 
+document.addEventListener('DOMContentLoaded', likeRating())// Add like rating event
+
 function createSearchParam() {
     const checkedCheckboxes = ratings.querySelectorAll('input[type="checkbox"]:checked')
 

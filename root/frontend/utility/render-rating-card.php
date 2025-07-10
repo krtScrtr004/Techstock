@@ -56,7 +56,7 @@ function renderRatingCard(Rating $rating)
 
             <section class="flex-row">
                 <button class="like-rating unset-button">
-                    <img src="<?= ICON_PATH . 'like_dw.svg' ?>" alt="Like rating" title="Like rating" height="16" width="16">
+                    <img src="<?= ICON_PATH . ($rating->getIsLike() ? 'like_bl.svg' : 'like_dw.svg') ?>" alt="Like rating" title="Like rating" height="16" width="16">
                 </button>
 
                 <p class="inline"><?= htmlspecialchars($rating->getLike()) ?></p>

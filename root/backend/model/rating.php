@@ -10,6 +10,7 @@ class Rating implements Model
     private int $like;
     private DateTime $createdAt;
     private ?RatingReply $reply;
+    private bool $isLike;
 
     public function __construct(array $data = [])
     {
@@ -21,6 +22,7 @@ class Rating implements Model
         $this->like = $data['like'] ?? 0;
         $this->createdAt = $data['created_at'] ?? new DateTime();
         $this->reply = $data['reply'] ?? null;
+        $this->isLike = $data['is_like'] ?? false;
     }
 
     // Getters
@@ -64,6 +66,11 @@ class Rating implements Model
         return $this->reply;
     }
 
+    public function getIsLike(): bool
+    {
+        return $this->isLike;
+    }
+
     // Setters
     public function setId($id): void
     {
@@ -103,6 +110,11 @@ class Rating implements Model
     public function setReply(?RatingReply $reply): void
     {
         $this->reply = $reply;
+    }
+
+    public function setIsLike(bool $isLike): void
+    {
+        $this->isLike = $isLike;
     }
 
     // Implemented methods
