@@ -95,7 +95,7 @@
                         <p class="black-text"><?= htmlspecialchars($product->getSoldCount()) ?> Sold</p>
 
                         <div class="flex-row-reverse">
-                            <button type="button" class="unset-button">
+                            <button type="button" class="report-button unset-button">
                                 <p class="black-text">Report</p>
                             </button>
                         </div>
@@ -365,8 +365,9 @@
     require_once COMPONENT_PATH . 'footer.php';
 
     // Hidden Modals
+    reportReasonModal();
     reportDescriptionModal();
-    // errorOccurredDialog();
+    errorOccurredDialog();
     ?>
 
     <script src="<?= htmlspecialchars(EVENT_PATH . 'carousel-tracker.js'); ?>" defer></script>
@@ -374,6 +375,7 @@
     <script src="<?= htmlspecialchars(EVENT_PATH . 'copy-link.js'); ?>" defer></script>
     <script src="<?= htmlspecialchars(EVENT_PATH . 'favorite.js'); ?>" defer></script>
     <script src="<?= htmlspecialchars(EVENT_PATH . 'hide-modal.js'); ?>" defer></script>
+    <script src="<?= htmlspecialchars(EVENT_PATH . 'report-product.js'); ?>" defer></script>
     <script src="<?= htmlspecialchars(EVENT_PATH . 'select-product-option.js'); ?>" defer></script>
     <script src="<?= htmlspecialchars(EVENT_PATH . 'break-text-fallback.js'); ?>" defer></script>
     <script src="<?= htmlspecialchars(EVENT_PATH . 'filter-ratings.js'); ?>" type="module" defer></script>

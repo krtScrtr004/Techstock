@@ -12,7 +12,7 @@ function renderDialog(bool $status, string $id, string $title, string $message)
             <h1 class="center-text"><?= htmlspecialchars($title); ?></h1>
             <p class="center-text"><?= htmlspecialchars($message); ?></p>
 
-            <button class="<?= $status ? 'blue-bg'  : 'red-bg'?> white-text">OKAY</button>
+            <button class="okay-button <?= $status ? 'blue-bg'  : 'red-bg'?> white-text">OKAY</button>
         </section>
     </section>
     <?php
