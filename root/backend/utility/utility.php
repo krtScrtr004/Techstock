@@ -23,6 +23,10 @@ function kebabToCamelCase(string $string): string {
     return lcfirst(str_replace(' ', '', ucwords(str_replace('-', ' ', $string))));
 }
 
+function kebabToSentenceCase(string $string): string {
+    return str_replace('-', ' ', $string);
+}
+
 function camelToSentenceCase(string $string): string {
     // Converts camelCase to sentence case
     return ucfirst(trim(preg_replace('/([a-z])([A-Z])/', '$1 $2', $string)));

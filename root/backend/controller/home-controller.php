@@ -9,6 +9,19 @@ class HomeController implements Controller
         global $session;
         if (!isset($session)) $session = Session::create();
 
+        $categories = [
+            'phone_b.svg'      => Category::sna->value,
+            'pc_b.svg'         => Category::cnl->value,
+            'pc-parts_b.svg'   => Category::cnpp->value,
+            'console_b.svg'    => Category::gm->value,
+            'router_b.svg'     => Category::nnsh->value,
+            'headphone_b.svg'  => Category::anm->value,
+            'smartwatch_b.svg' => Category::wnht->value,
+            'printer_b.svg'    => Category::onp->value,
+            'camera_b.svg'     => Category::dnc->value,
+            'arduino_b.svg'    => Category::tfe->value,
+        ];
+
         $products = Product::all();
         $productModel = $products[0];
 
