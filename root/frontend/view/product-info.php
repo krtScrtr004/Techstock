@@ -119,7 +119,7 @@
 
                     <p class="sub-title upper ">Shipping To</p>
                     <form class="form" action="" method="POST">
-                        <input class="dark-white-bg" type="text" name="address" id="address" placeholder="Shipping address" min="8" max="255" required>
+                        <input class="dark-white-bg" type="text" name="address" id="address" value="<?= htmlspecialchars($user->getAddress()) ?>" placeholder="Shipping address" min="8" max="255" required>
                     </form>
 
                     <p class="sub-title lower ">Shipping Fee</p>

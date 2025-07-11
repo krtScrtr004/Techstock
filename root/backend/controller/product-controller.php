@@ -12,6 +12,20 @@ class ProductController implements Controller
         if (!isset($session)) $session = Session::create();
 
         // Dummy
+        $user = new User([
+            'id' => uniqid(),
+            'first_name' => 'Kurt',
+            'last_name' => 'Secretario',
+            'email' => 'kurtSecretario004@gmail.com',
+            'address' => new Address([
+                'house_number' => '30',
+                'street' => 'Santol St. Panatag Rd.',
+                'city' => 'Mandaluyong City',
+                'region' => 'NCR',
+                'postal_code' => 1550
+            ])
+        ]);
+
         $products = Product::all();
 
         $product = $products[0];
