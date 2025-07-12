@@ -23,7 +23,7 @@ class HomeController implements Controller
         ];
 
         $products = Product::all();
-        $productModel = $products[0];
+        $stores = Store::all();
 
         require_once VIEW_PATH . 'home.php';
     }

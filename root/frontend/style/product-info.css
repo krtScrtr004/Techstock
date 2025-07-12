@@ -207,6 +207,8 @@
 }
 
 .option-form > .hidden-wrapper > button {
+	display: grid;
+	place-items: center;
 	padding: 5px 10px;
 	border: 1px solid var(--black);
 }

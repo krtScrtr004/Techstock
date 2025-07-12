@@ -45,19 +45,23 @@
             </section>
 
             <!-- Category Selection -->
-            <section class="category-section flex-row flex-space-evenly">
-                <?php
-                foreach ($categories as $key => $value):
-                    $sentenceValue = ucwords(kebabToSentenceCase($value));
-                ?>
-                    <div class="category-card">
-                        <a href="<?= REDIRECT_PATH . 'search?category=' . $value ?>" class="flex-col flex-child-center-v">
-                            <img src="<?= ICON_PATH . $key ?>" alt="<?= $sentenceValue ?>" title="<?= $sentenceValue ?>" height="57">
-                            <h3 class="center-text black-text"><?= $sentenceValue ?></h3>
-                        </a>
-                    </div>
-                <?php endforeach; ?>
+            <section class="category-section">
+                <ul class=" flex-row flex-space-evenly">
+                    <?php
+                    foreach ($categories as $key => $value):
+                        $sentenceValue = ucwords(kebabToSentenceCase($value));
+                    ?>
+                        <li>
 
+                            <div class="category-card">
+                                <a href="<?= REDIRECT_PATH . 'search?category=' . $value ?>" class="flex-col flex-child-center-v">
+                                    <img src="<?= ICON_PATH . $key ?>" alt="<?= $sentenceValue ?>" title="<?= $sentenceValue ?>" height="57">
+                                    <h3 class="center-text black-text"><?= $sentenceValue ?></h3>
+                                </a>
+                            </div>
+                        </li>
+                    <?php endforeach; ?>
+                </ul>
             </section>
         </section>
 
@@ -89,14 +93,14 @@
 
             <section class="carousel-wrapper">
                 <section class="carousel">
-                    <?php for ($i = 0, $n = 8; $i < $n; $i++): ?>
+                    <?php foreach ($stores as $store): ?>
                         <a href="">
                             <div class="store-card center-child white-bg">
                                 <!-- TODO -->
-                                <img src="<?= htmlspecialchars(IMAGE_PATH . 'brand logo/hp.png') ?>" alt="Store logo image" title="Store logo image">
+                                <img src="<?= htmlspecialchars($store->getLogo()) ?>" alt="<?= htmlspecialchars($store->getName())?>" title="<?= htmlspecialchars($store->getName())?>">
                             </div>
                         </a>
-                    <?php endfor; ?>
+                    <?php endforeach; ?>
                 </section>
 
                 <button type="button" class="tracker left unset-button">
