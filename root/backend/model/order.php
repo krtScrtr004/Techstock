@@ -10,22 +10,15 @@ class Order implements Model
     private DateTime $actualArrival;
     private DateTime $createdAt;
 
-    public function __construct(
-        $id,
-        User $buyer,
-        array $orders,
-        string $status = 'pending',
-        DateTime $expectedArrival = new DateTime(),
-        DateTime $actualArrival = new DateTime(),
-        DateTime $createdAt = new DateTime()
-    ) {
-        $this->id = $id;
-        $this->buyer = $buyer;
-        $this->orders = $orders;
-        $this->status = $status;
-        $this->expectedArrival = $expectedArrival;
-        $this->actualArrival = $actualArrival;
-        $this->createdAt = $createdAt;
+    public function __construct(array $data = [])
+    {
+        $this->id = $data['id'] ?? null;
+        $this->buyer = $data['buyer'] ?? null;
+        $this->orders = $data['orders'] ?? [];
+        $this->status = $data['status'] ?? 'pending';
+        $this->expectedArrival = $data['expectedArrival'] ?? new DateTime();
+        $this->actualArrival = $data['actualArrival'] ?? new DateTime();
+        $this->createdAt = $data['createdAt'] ?? new DateTime();
     }
 
     // Getters

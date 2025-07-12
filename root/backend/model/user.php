@@ -9,7 +9,7 @@ class User implements Model
     private string $email;
     private ?string $contact;
     private ?Address $address;
-    private bool $isVerified;
+    private string $isVerified;
     private DateTime $createdAt;
 
     public function __construct(array $data = []) 
@@ -60,7 +60,7 @@ class User implements Model
         return $this->address;
     }
 
-    public function isVerified(): bool
+    public function isVerified(): string
     {
         return $this->isVerified;
     }
@@ -106,7 +106,7 @@ class User implements Model
         $this->address = $address;
     }
 
-    public function setIsVerified(bool $isVerified): void
+    public function setIsVerified(string $isVerified): void
     {
         $this->isVerified = $isVerified;
     }

@@ -6,16 +6,12 @@ class OrderItem {
     private int $quantity;
     private float $price;
 
-    public function __construct(
-        $id,
-        Product $product, 
-        float $price, 
-        int $quantity = 1) 
+    public function __construct(array $data)
     {
-        $this->id = $id;
-        $this->product = $product;
-        $this->quantity = $quantity;
-        $this->price = $price;
+        $this->id = $data['id'] ?? null;
+        $this->product = $data['product'];
+        $this->price = $data['price'];
+        $this->quantity = $data['quantity'] ?? 1;
     }
 
     // Getters
