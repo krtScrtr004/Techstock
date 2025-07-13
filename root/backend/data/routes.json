@@ -15,6 +15,8 @@
 		"Techstock/search\\?(?:[\\w%+-]+=[\\w%+-]*&?)+": "SearchController",
 		"Techstock/search\\?(?=.*page={page:[\\d+]})(?:[\\w%+-]+=[\\w%+-]*&?)+": "SearchController",
 
-		"Techstock/product/{slug:[\\w\\s\\.+-]+}-i\\.{store_id:[\\w+_-]+}\\.{product_id:[\\w+_-]+}": ["ProductController", "info"]
+		"Techstock/product/{slug:[\\w\\s\\.+-]+}-i\\.{store_id:[\\w+_-]+}\\.{product_id:[\\w+_-]+}": ["ProductController", "info"],
+
+		"Techstock/checkout/{id:[\\w+_-]+}": "CheckoutController"
 	}
 }
