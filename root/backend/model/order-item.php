@@ -4,14 +4,16 @@ class OrderItem {
     private $id;
     private Product $product;
     private int $quantity;
-    private float $price;
+    private ?array $option;
+    private float $price;   
 
     public function __construct(array $data)
     {
         $this->id = $data['id'] ?? null;
         $this->product = $data['product'];
-        $this->price = $data['price'];
         $this->quantity = $data['quantity'] ?? 1;
+        $this->option = $data['option'] ?? null;
+        $this->price = $data['price'];
     }
 
     // Getters
@@ -27,6 +29,11 @@ class OrderItem {
     public function getQuantity(): int
     {
         return $this->quantity;
+    }
+
+    public function getOption(): ?array
+    {
+        return $this->option;
     }
 
     public function getPrice(): float
@@ -50,8 +57,26 @@ class OrderItem {
         $this->quantity = $quantity;
     }
 
+    public function setOption(array $option): void {
+        $this->option = $option;
+    }
+
     public function setPrice(float $price): void
     {
         $this->price = $price;
+    }
+
+    // Utilities
+
+    public function addOption(string|int $key, string|int $value): bool 
+    {
+        $this->option[$key] = $value;
+        return true;
+    }
+
+    public function deleteOption(string|int $key): bool
+    {
+        unset($this->option[$key]);
+        return true;
     }
 }
