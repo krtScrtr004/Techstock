@@ -202,6 +202,10 @@
 	box-shadow: 0 0 1px 1px var(--light-black);
 }
 
+.modal-wrapper .close-button:hover p {
+	color: var(--red);
+}
+
 /* DIALOG ------------ */
 .modal-wrapper > section.dialog {
 	flex-direction: column;
@@ -335,6 +339,7 @@
 .text-w-icon,
 .text-w-icon > * {
 	display: flex;
+	align-items: center;
 }
 
 .text-w-icon > * {

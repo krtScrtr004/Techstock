@@ -80,6 +80,10 @@
 	flex-direction: column;
 }
 
+.flex-inline {
+	display: inline-flex;
+}
+
 .flex-child-start-v {
 	display: flex;
 	justify-content: start;	
@@ -153,6 +157,14 @@
 }
 
 /* --------TEXT STYLE-------- */
+
+.bold-text {
+	font-weight: 800;
+}
+
+.start-text {
+	text-align: start;
+}
 
 .center-text {
 	text-align: center;

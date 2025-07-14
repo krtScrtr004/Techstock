@@ -12,12 +12,17 @@ class ProductOption
         $this->container = $assocArray;
     }
 
+    public function getKeys(): array
+    {
+        return array_keys($this->container);
+    }
+
     public function keyExists(string|int $key): bool
     {
         return array_key_exists($key, $this->container);
     }
 
-    public function get(string|int $key): mixed
+    public function getValues(string|int $key): array
     {
         return $this->container[$key];
     }

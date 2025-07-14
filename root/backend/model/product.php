@@ -380,9 +380,13 @@ class Product implements Model
             'models' => ['2022', '2023', '2024'],
         ]);
 
+        $stores = Store::all();
         $products = [];
 
+
         for ($i = 1; $i <= 20; $i++) {
+            $randStore = array_rand($stores);
+
             $product = new Product([
                 'id' => uniqid(),
 
@@ -413,28 +417,7 @@ class Product implements Model
 
                 'price' => round(mt_rand(1000000000, 20000000000) / 100000, 2), // 10.00 to 200.00
 
-                'store' => new Store(
-                    [
-                        'id' => rand(1, 9999),
-                        'name' => "Store Madrigal $i",
-                        'description' => 'Lorem ipsum nam usblk block iahsn. Johel mlan ilak olsb qwicrr loue.',
-                        'logo' => IMAGE_PATH . 'brand logo/acer.png',
-                        'email' => 'store-email@gmail.com',
-                        'contact' => '+639150082561',
-                        'location' => new Address(
-                            [
-                                'street' => 'Santol St.',
-                                'city' => 'Mandaluyong City',
-                                'region' => 'NCR',
-                                'postal_code' => 1551,
-                                'country' => 'Philippines'
-                            ]
-                        ),
-                        'product_count' => rand(1, 99999),
-                        'follower_count' => rand(1, 99999),
-                        'is_verified' => 'pending'
-                    ]
-                ),
+                'store' => $stores[$randStore],
 
                 'rating' => [
                     'average' => round(mt_rand(10, 50) / 10, 1),

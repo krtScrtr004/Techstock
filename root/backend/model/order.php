@@ -17,7 +17,7 @@ class Order implements Model
     {
         $this->id = $data['id'];
         $this->buyer = $data['buyer'];
-        $this->buyer = $data['store'];
+        $this->store = $data['store'];
         $this->orders = $data['orders'];
         $this->message = $data['message'] ?? null;
         $this->status = $data['status'] ?? 'pending';

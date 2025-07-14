@@ -22,11 +22,6 @@
 	font-size: 1.5rem;
 }
 
-.report-reason-modal .close-button:hover > p,
-.report-description-modal .close-button:hover > p {
-	color: var(--red);
-}
-
 .reasons {
     height: 20rem;
     overflow: hidden auto;

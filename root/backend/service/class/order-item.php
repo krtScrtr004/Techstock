@@ -4,7 +4,7 @@ class OrderItem {
     private $id;
     private Product $product;
     private int $quantity;
-    private ?array $option;
+    private ?ProductOption $option;
     private float $price;   
 
     public function __construct(array $data)
@@ -31,7 +31,7 @@ class OrderItem {
         return $this->quantity;
     }
 
-    public function getOption(): ?array
+    public function getOption(): ?ProductOption
     {
         return $this->option;
     }
@@ -57,7 +57,7 @@ class OrderItem {
         $this->quantity = $quantity;
     }
 
-    public function setOption(array $option): void {
+    public function setOption(ProductOption $option): void {
         $this->option = $option;
     }
 

@@ -1,0 +1,79 @@
+.checkout > main {
+	padding-top: var(--space);
+	padding-bottom: var(--space);
+	gap: var(--space);
+}
+
+.checkout > main > .heading {
+	padding-bottom: 10px;
+	border-bottom: 1px solid var(--black);
+}
+
+.checkout > main > .heading > h3 {
+	font-size: 1.5rem;
+}
+
+.section .title {
+	font-size: 1.3rem;
+	font-weight: 500;
+}
+
+.delivery-address > .info {
+	gap: 1rem;
+}
+
+.delivery-address > .info > * {
+	font-size: 1rem;
+}
+
+.delivery-address > .info > :first-child,
+.delivery-address > .info > :nth-child(2) {
+	font-weight: 600;
+}
+
+.products-ordered > .title {
+	margin-bottom: 0.5rem;
+}
+
+.delivery-address .text-w-icon {
+	margin-bottom: 10px;
+}
+
+.delivery-address .text-w-icon > img {
+	margin-right: 5px;
+}
+
+.orders-table {
+	width: 100%;
+	border-spacing: 10px;
+	border-collapse: separate;
+}
+
+.orders-table > thead th {
+	font-weight: 400;
+}
+
+.orders-table > thead th:first-child {
+	gap: 0.5rem;
+}
+
+.orders-table .store-id {
+	opacity: 0.8;
+}
+
+.orders-table > thead th:not(:first-child),
+.orders-table > tbody td:not(:first-child) {
+	width: 20ch;
+}
+
+.orders-table > thead th:not(:first-child) {
+	font-weight: 600;
+}
+
+.orders-table > tbody td:not(:first-child) {
+	font-weight: 200;
+}
+
+.orders-table .product-info {
+	gap: 10px;
+}
