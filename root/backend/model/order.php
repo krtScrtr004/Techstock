@@ -4,21 +4,27 @@ class Order implements Model
 {
     private $id;
     private User $buyer;
+    private Store $store;
     private array $orders;
+    private ?string $message;
     private string $status;
+    private ?CheckoutSession $checkoutSession;
     private DateTime $expectedArrival;
     private DateTime $actualArrival;
     private DateTime $createdAt;
 
     public function __construct(array $data = [])
     {
-        $this->id = $data['id'] ?? null;
-        $this->buyer = $data['buyer'] ?? null;
-        $this->orders = $data['orders'] ?? [];
+        $this->id = $data['id'];
+        $this->buyer = $data['buyer'];
+        $this->buyer = $data['store'];
+        $this->orders = $data['orders'];
+        $this->message = $data['message'] ?? null;
         $this->status = $data['status'] ?? 'pending';
-        $this->expectedArrival = $data['expectedArrival'] ?? new DateTime();
-        $this->actualArrival = $data['actualArrival'] ?? new DateTime();
-        $this->createdAt = $data['createdAt'] ?? new DateTime();
+        $this->checkoutSession = $data['checkout_session'] ?? null;
+        $this->expectedArrival = $data['expected_arrival'] ?? new DateTime();
+        $this->actualArrival = $data['actual_arrival'] ?? new DateTime();
+        $this->createdAt = $data['created_at'] ?? new DateTime();
     }
 
     // Getters
@@ -32,7 +38,12 @@ class Order implements Model
         return $this->buyer;
     }
 
-    public function getOrderItem($orderItemId): Product
+    public function getStore(): Store
+    {
+        return $this->store;
+    }
+
+    public function getOrderItem($orderItemId): OrderItem
     {
         return $this->orders[$orderItemId];
     }
@@ -42,9 +53,19 @@ class Order implements Model
         return $this->orders;
     }
 
+    public function getMessage(): ?string
+    {
+        return $this->message;
+    }
+
     public function getStatus(): string
     {
         return $this->status;
+    }
+
+    public function getCheckoutSession(): ?CheckoutSession
+    {
+        return $this->checkoutSession;
     }
 
     public function getExpectedArrival(): DateTime
@@ -73,6 +94,11 @@ class Order implements Model
         $this->buyer = $buyer;
     }
 
+    public function setStore(Store $store): void
+    {
+        $this->store = $store;
+    }
+
     public function setOrderItem(OrderItem $orderItem): void
     {
         $this->orders[$orderItem->getId()] = $orderItem;
@@ -83,9 +109,19 @@ class Order implements Model
         $this->orders = $orders;
     }
 
+    public function setMessage(string $message): void
+    {
+        $this->message = $message;
+    }
+
     public function setStatus(string $status): void
     {
         $this->status = $status;
+    }
+
+    public function setCheckoutSession(CheckoutSession $checkoutSession): void
+    {
+        $this->checkoutSession = $checkoutSession;
     }
 
     public function setExpectedArrival(DateTime $expectedArrival): void
