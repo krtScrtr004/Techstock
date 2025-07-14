@@ -1,13 +1,13 @@
 <?php
 
-function renderCategoryChain($category, $name): void
+function renderCategoryChain(ProductCategory $category, $name): void
 {
     $name = htmlspecialchars($name);
 
     echo '<ul class="category-chain flex-row">';
     
-    $category->rewind();
-    while ($category->valid()) {
+    $category->first();
+    while (true) {
         $current = htmlspecialchars($category->current());
         echo '<li>
                 <a class="blue-text" href="' . REDIRECT_PATH . 'search?category=' . urlencode(strtolower($current)) . '&page=1">' 
@@ -17,6 +17,9 @@ function renderCategoryChain($category, $name): void
 
         echo '<li class="black-text">&nbsp; &gt; &nbsp;</li>';
 
+        if (!$category->hasNext()) 
+            break;
+        
         $category->next();
     }
     echo '<li class="single-line-ellipsis black-text" title="'. $name .'">' . $name . '</li>';

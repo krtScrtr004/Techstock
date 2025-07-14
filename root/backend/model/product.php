@@ -11,7 +11,7 @@ class Product implements Model
     private string $currency;
     private array $rating;
     private ?array $images;
-    private ?SplDoublyLinkedList $category;
+    private ?ProductCategory $category;
     private ?array $specification;
     private ?ProductOption $options;
     private int $soldCount;
@@ -140,7 +140,7 @@ class Product implements Model
         return $this->images;
     }
 
-    public function getCategory(): ?SplDoublyLinkedList
+    public function getCategory(): ?ProductCategory
     {
         return $this->category;
     }
@@ -242,7 +242,7 @@ class Product implements Model
         $this->images = $images;
     }
 
-    public function setCategory(SplDoublyLinkedList $category): void
+    public function setCategory(ProductCategory $category): void
     {
         $this->category = $category;
     }
@@ -281,7 +281,7 @@ class Product implements Model
             'handheld-1.jpg',
             'laptop-1.jpg',
             'laptop-2.jpg',
-            'mouse-1.jpg',
+            'mouse-1.jpg'
         ];
 
         $categories = [
@@ -354,6 +354,25 @@ class Product implements Model
                 'Online Course Subscriptions',
             ],
         ];
+        
+        $idNum = 1;
+        $categoryRecords = [];
+        foreach ($categories as $parentName => $subcategories) {
+            $parentId = $idNum++;
+            $categoryRecords[] = [
+                'id' => $parentId,
+                'parent_id' => null,
+                'name' => $parentName,
+            ];
+
+            foreach ($subcategories as $childName) {
+                $categoryRecords[] = [
+                    'id' => $idNum++,
+                    'parent_id' => $parentId,
+                    'name' => $childName,
+                ];
+            }
+        }
 
         $options = new ProductOption([
             'colors' => ['Red', 'Blue', 'Green', 'Black', 'White'],
@@ -439,7 +458,7 @@ class Product implements Model
                 ],
 
 
-                'category' => getCategory($categories),
+                'category' => new ProductCategory(getRandomCategoryPath($categoryRecords)),
 
                 'specification' => [
                     'brand' => 'Snamsung',
@@ -469,7 +488,6 @@ class Product implements Model
 
     public function delete(): bool
     {
-        // TODO:
         return true;
     }
 
@@ -479,19 +497,33 @@ class Product implements Model
     }
 }
 
-function getSubCategory($arr, $key, &$list)
+function getRandomCategoryPath(array $categories): array
 {
-    if (!isAssociative($arr)) {
-        $list->add(0, $arr[array_rand($arr)]);
-        return;
+    // Map of categories by id for quick lookup
+    $byId = [];
+    foreach ($categories as $cat) {
+        $byId[$cat['id']] = $cat;
     }
-    getSubCategory($arr[$key], $key, $list);
-    $list->add(0, $key);
-}
 
-function getCategory($arr): SplDoublyLinkedList
-{
-    $list = new SplDoublyLinkedList();
-    getSubCategory($arr, array_rand($arr), $list);
-    return $list;
+    // Get only child categories (categories with a parent_id)
+    $childCategories = array_filter($categories, fn($cat) => $cat['parent_id'] !== null);
+
+    // Pick a random child
+    $randomChild = $childCategories[array_rand($childCategories)];
+
+    // Traverse upward to collect parent chain
+    $path = [$randomChild['name']];
+    $current = $randomChild;
+
+    while ($current['parent_id'] !== null) {
+        $parentIdHex = $current['parent_id'];
+        if (!isset($byId[$parentIdHex])) {
+            break; // orphan, shouldn't happen
+        }
+        $parent = $byId[$parentIdHex];
+        array_unshift($path, $parent['name']);
+        $current = $parent;
+    }
+
+    return $path;
 }

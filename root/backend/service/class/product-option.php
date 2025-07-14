@@ -6,6 +6,9 @@ class ProductOption
 
     public function __construct(array $assocArray)
     {
+        if (!isAssociative($assocArray)) {
+            throw new BadMethodCallException('ProductOption constructor only accepts associative array.');
+        }
         $this->container = $assocArray;
     }
 

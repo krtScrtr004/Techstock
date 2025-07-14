@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="<?= STYLE_PATH . 'component.css' ?>">
     <link rel="stylesheet" href="<?= STYLE_PATH . 'header.css' ?>">
     <link rel="stylesheet" href="<?= STYLE_PATH . 'footer.css' ?>">
+    <link rel="stylesheet" href="<?= STYLE_PATH . 'confirm-order.css' ?>">
     <link rel="stylesheet" href="<?= STYLE_PATH . 'report-modal.css' ?>">
 
     <link rel="stylesheet" href="<?= STYLE_PATH . 'product-info.css' ?>">

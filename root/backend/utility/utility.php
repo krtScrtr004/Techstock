@@ -1,5 +1,11 @@
 <?php
 
+function isAssociative($array): bool
+{
+    if (!is_array($array)) return false;
+    return array_keys($array) !== range(0, count($array) - 1);
+}
+
 function createSlug(string $name): string 
 {
     return str_replace(' ', '-', $name);
