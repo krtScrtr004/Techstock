@@ -9,6 +9,7 @@ class HomeController implements Controller
         global $session;
         if (!isset($session)) $session = Session::create();
 
+        require_once ENUM_PATH . 'category.php';
         $categories = [
             'phone_b.svg'      => Category::sna->value,
             'pc_b.svg'         => Category::cnl->value,

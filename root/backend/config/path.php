@@ -20,6 +20,9 @@ define('CONTROLLER_PATH', BACKEND_PATH . 'controller' . DS);
 define('DATA_PATH', BACKEND_PATH . 'data' . DS);
 define('ROUTER_PATH', BACKEND_PATH . 'router' . DS);
 define('MODEL_PATH', BACKEND_PATH . 'model' . DS);
+define('SERVICE_PATH', BACKEND_PATH . 'service' . DS);
+
+define('ENUM_PATH', SERVICE_PATH . 'enum' . DS);
 
 define('BE_UTILITY_PATH', BACKEND_PATH . 'utility' . DS);
 define('FE_UTILITY_PATH', FRONTEND_PATH . 'utility' . DS);
