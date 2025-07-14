@@ -13,7 +13,7 @@ class Product implements Model
     private ?array $images;
     private ?SplDoublyLinkedList $category;
     private ?array $specification;
-    private ?array $options;
+    private ?ProductOption $options;
     private int $soldCount;
 
     public function __construct(array $data = [])
@@ -155,7 +155,7 @@ class Product implements Model
         return $this->specification;
     }
 
-    public function getOptions(): ?array
+    public function getOptions(): ?ProductOption
     {
         return $this->options;
     }
@@ -252,7 +252,7 @@ class Product implements Model
         $this->specification = $specification;
     }
 
-    public function setOptions(array $options): void
+    public function setOptions(ProductOption $options): void
     {
         $this->options = $options;
     }
@@ -355,6 +355,12 @@ class Product implements Model
             ],
         ];
 
+        $options = new ProductOption([
+            'colors' => ['Red', 'Blue', 'Green', 'Black', 'White'],
+            'variants' => ['Standard', 'Pro', 'Lite'],
+            'models' => ['2022', '2023', '2024'],
+        ]);
+
         $products = [];
 
         for ($i = 1; $i <= 20; $i++) {
@@ -439,11 +445,7 @@ class Product implements Model
                     'brand' => 'Snamsung',
                 ],
 
-                'option' => [
-                    'colors' => ['Red', 'Blue', 'Green', 'Black', 'White'],
-                    'variants' => ['Standard', 'Pro', 'Lite'],
-                    'models' => ['2022', '2023', '2024'],
-                ],
+                'option' => $options,
 
                 'sold_count' => rand(0, 500),
             ]);
@@ -475,12 +477,6 @@ class Product implements Model
     {
         self::__construct($data);
     }
-}
-
-function isAssociative($array): bool
-{
-    if (!is_array($array)) return false;
-    return array_keys($array) !== range(0, count($array) - 1);
 }
 
 function getSubCategory($arr, $key, &$list)
