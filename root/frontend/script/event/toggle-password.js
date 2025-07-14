@@ -28,10 +28,10 @@ inputs.forEach((input) => {
         e.stopPropagation();
         if (input.type === 'password') {
             input.type = 'text';
-            icon.src = `${path}hide.svg`;
+            icon.src = `${path}show.svg`;
         } else {
             input.type = 'password';
-            icon.src = `${path}show.svg`;
+            icon.src = `${path}hide.svg`;
         }
     };
 });
