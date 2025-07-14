@@ -2,32 +2,38 @@
 
 class ProductOption
 {
-    private string|int $key;
-    private mixed $value;
+    private array $container;
 
-    public function __construct(string|int $key, mixed $value)
+    public function __construct(array $assocArray)
     {
-        $this->key = $key;
-        $this->value = $value;
+        $this->container = $assocArray;
     }
 
-    public function getKey(): string|int
+    public function keyExists(string|int $key): bool
     {
-        return $this->key;
+        return array_key_exists($key, $this->container);
     }
 
-    public function getValue(): mixed
+    public function get(string|int $key): mixed
     {
-        return $this->value;
+        return $this->container[$key];
     }
 
-    public function setKey(string|int $key): void
+    public function add(string|int $key, mixed $value): bool
     {
-        $this->key = $key;
+        if (!isset($this->container[$key]) || !is_array($this->container[$key])) 
+            $this->container[$key] = [];
+
+        if (isset($value))
+            array_push($this->container[$key], $value);
+
+        return true;
     }
 
-    public function setValue(mixed $value): void
+    public function delete(string|int $key): bool 
     {
-        $this->value = $value;
+        unset($this->container[$key]);
+
+        return true;
     }
 }
