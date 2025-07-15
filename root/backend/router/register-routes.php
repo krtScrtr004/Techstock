@@ -1,6 +1,6 @@
 <?php
 
-$fileNames = ['routes.json', 'form-submission-routes.json'];
+$fileNames = ['page-routes.json', 'form-submission-routes.json'];
 
 foreach ($fileNames as $fileName) {
     $routesFile = DATA_PATH . $fileName;
