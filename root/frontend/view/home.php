@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="<?= STYLE_PATH . 'root.css' ?>">
 
     <link rel="stylesheet" href="<?= STYLE_PATH . 'home.css' ?>">
+    <link rel="stylesheet" href="<?= STYLE_PATH . 'location-permission-modal.css' ?>">
 </head>
 
 <body class="home flex-col">
@@ -97,7 +98,7 @@
                         <a href="">
                             <div class="store-card center-child white-bg">
                                 <!-- TODO -->
-                                <img src="<?= htmlspecialchars($store->getLogo()) ?>" alt="<?= htmlspecialchars($store->getName())?>" title="<?= htmlspecialchars($store->getName())?>">
+                                <img src="<?= htmlspecialchars($store->getLogo()) ?>" alt="<?= htmlspecialchars($store->getName()) ?>" title="<?= htmlspecialchars($store->getName()) ?>">
                             </div>
                         </a>
                     <?php endforeach; ?>
@@ -191,9 +192,11 @@
     require_once COMPONENT_PATH . 'footer.php';
 
     // Hidden Modals
+    locationPermissionModal();
     errorOccurredDialog();
     ?>
 
+    <script src="<?= htmlspecialchars(EVENT_PATH . 'location-permission.js'); ?>" type="module" defer></script>
     <script src="<?= htmlspecialchars(EVENT_PATH . 'slideshow.js'); ?>" defer></script>
     <script src="<?= htmlspecialchars(EVENT_PATH . 'break-text-fallback.js'); ?>" defer></script>
     <script src="<?= htmlspecialchars(EVENT_PATH . 'carousel-tracker.js'); ?>" defer></script>

@@ -33,6 +33,9 @@ foreach (glob(FE_UTILITY_PATH . '*.php') as $fileName) {
 }
 
 $session = Session::create();
-$router = Router::getRouter();
+if (!$session->has('ip')) {
+    // TODO: Change this
+    $session->set('ip', file_get_contents('https://api.ipify.org') ?? $_SERVER['REMOTE_ADDR']);
+}
 
-require_once __DIR__ . DS . 'location.php';
+$router = Router::getRouter();

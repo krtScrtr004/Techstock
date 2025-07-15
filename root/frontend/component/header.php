@@ -1,4 +1,5 @@
-<?php if (!$session->isSet() || !$session->has('userToken')): ?>
+<!-- TODO -->
+<?php if (!$session->isSet()): ?>
     <!-- Header for non-logged in pages -->
     <header class="outside-header flex-row flex-child-end-h">
         <a href="<?= REDIRECT_PATH . 'login'; ?> ">

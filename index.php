@@ -2,10 +2,17 @@
 require_once 'root/backend/config/config.php';
 require_once ENUM_PATH . 'currency.php';
 
-$defaultCurrency = Currency::fromCountry($session->get('countryCode')) ?? Currency::Philippines;
-define('DEFAULT_CURRENCY', $defaultCurrency);
-define('DEFAULT_CURRENCY_SYMBOL', $defaultCurrency->symbol());
+$clientCountry = null;
+if ($session->isSet() && $session->get('country'))
+    $clientCountry = Currency::fromCountry($session->get('country'));
+else
+    $clientCountry = Currency::Philippines;
 
-require_once ROUTER_PATH . 'pages.php';
+define('DEFAULT_CURRENCY', $clientCountry);
+define('DEFAULT_CURRENCY_SYMBOL', $clientCountry->symbol());
+
+require_once ROUTER_PATH . 'register-routes.php';
 // Remove this
 include_once DUMP_PATH . 'dumps.php';
+
+$router->dispatch();

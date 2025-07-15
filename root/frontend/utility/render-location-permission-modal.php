@@ -3,7 +3,7 @@
 function locationPermissionModal(): void
 {
 ?>
-    <section class="modal-wrapper" style="display: flex;">
+    <section class="location-permission-modal-wrapper modal-wrapper">
         <section class="location-permission-modal dialog white-bg">
             <img src="<?= ICON_PATH . 'locate_bl.svg' ?>" alt="Location consent" title="Location consent" height="69" width="69">
 
@@ -18,11 +18,11 @@ function locationPermissionModal(): void
                 </ul>
             </div>
 
-            <form class="buttons flex-row" action="" method="POST">
+            <div class="buttons flex-row">
                 <button class="reject-button red-bg white-text" name="reject_button" type="submit">REJECT</button>
                 
                 <button class="allow-button blue-bg white-text" name="allow_button" type="submit">ALLOW</button>
-            </form>
+            </div>
         </section>
     </section>
 <?php
