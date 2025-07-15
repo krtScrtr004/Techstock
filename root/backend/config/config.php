@@ -32,3 +32,5 @@ foreach (glob(FE_UTILITY_PATH . '*.php') as $fileName) {
 
 $session = null;
 $router = Router::getRouter();
+
+require_once 'location.php';
