@@ -1,0 +1,5 @@
+{
+    "POST": {
+        "/Techstock/form-submit/location-permission": ["FormSubmitController", "locationPermission"]
+    }
+}
