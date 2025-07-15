@@ -6,6 +6,7 @@ class OrderItem {
     private int $quantity;
     private ?ProductOption $option;
     private float $price;   
+    private float $shippingFee;
 
     public function __construct(array $data)
     {
@@ -13,7 +14,8 @@ class OrderItem {
         $this->product = $data['product'];
         $this->quantity = $data['quantity'] ?? 1;
         $this->option = $data['option'] ?? null;
-        $this->price = $data['price'];
+        $this->price = (float) $data['price'];
+        $this->shippingFee = (float) $data['shipping_fee'] ?? 36.00;
     }
 
     // Getters
@@ -41,6 +43,11 @@ class OrderItem {
         return $this->price;
     }
 
+    public function getShippingFee(): float
+    {
+        return $this->shippingFee;
+    }
+
     // Setters
     public function setId($id): void
     {
@@ -66,17 +73,22 @@ class OrderItem {
         $this->price = $price;
     }
 
+    public function setShippingFee(float $shippingFee): void
+    {
+        $this->shippingFee = $shippingFee;
+    }
+
     // Utilities
 
     public function addOption(string|int $key, string|int $value): bool 
     {
-        $this->option[$key] = $value;
+        $this->option->add($key, $value);
         return true;
     }
 
     public function deleteOption(string|int $key): bool
     {
-        unset($this->option[$key]);
+        $this->option->delete($key);
         return true;
     }
 }
