@@ -2,9 +2,11 @@
 
 define('DS', DIRECTORY_SEPARATOR);
 
-require_once __DIR__ . '/path.php';
+require_once __DIR__ . DS . 'path.php';
 
 require_once VENDOR_PATH . 'autoload.php' ;
+
+require_once __DIR__ . DS . 'env.php';
 
 spl_autoload_register(function ($class) {
     $paths = [CLASS_PATH, CORE_PATH, DEPENDENT_PATH, DUMP_PATH, ROUTER_PATH, MODEL_PATH];
@@ -33,4 +35,4 @@ foreach (glob(FE_UTILITY_PATH . '*.php') as $fileName) {
 $session = null;
 $router = Router::getRouter();
 
-require_once 'location.php';
+require_once __DIR__ . DS . 'location.php';
