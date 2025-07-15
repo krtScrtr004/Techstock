@@ -40,13 +40,12 @@ class OrderItem {
 
     public function getPrice(): float
     {
-        // TODO: Convert currency
-        return $this->price;
+        return convertCurrency($this->product->getCurrency(), $this->price);
     }
 
     public function getShippingFee(): float
     {
-        return $this->shippingFee;
+        return convertCurrency($this->product->getCurrency(), $this->shippingFee);
     }
 
     // Setters

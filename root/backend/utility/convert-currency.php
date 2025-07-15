@@ -3,12 +3,6 @@
 function convertCurrency(Currency $baseCurrency, float $amount)
 {
     global $session;
-    if (!isset($session))
-        $session = Session::create();
-
-    if (!isset($baseCurrency)) {
-        $baseCurrency = Currency::Philippines;
-    }
 
     // Get target currency code using user country
     $targetCurrency = DEFAULT_CURRENCY;
