@@ -5,12 +5,7 @@ class CheckoutController implements Controller
     private function __construct() {}
     public static function index(): void
     {
-        // TODO: Separate order for every vendors
-
         global $session;
-        if (!isset($session)) $session = Session::create();
-
-        include_once ENUM_PATH . 'currency.php';
 
         // Dummy
         $buyer = new User([

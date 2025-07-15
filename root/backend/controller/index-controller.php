@@ -11,7 +11,8 @@ class IndexController implements Controller {
     public static function index(): void
     {
         global $session;
-        if (isset($session)) $session->destroy(); 
+        if ($session->isSet()) 
+            $session->destroy(); 
 
         // Dynamically display appropriate page (login / signup) based on URL
         $uris = explode('/', $_SERVER['REQUEST_URI']);

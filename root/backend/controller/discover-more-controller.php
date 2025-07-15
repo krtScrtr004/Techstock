@@ -7,8 +7,7 @@ class DiscoverMoreController implements Controller
     public static function index(): void
     {
         global $session;
-        if (!isset($session)) $session = Session::create();
-
+        
         $products = Product::all();
         $productModel = $products[1];
 

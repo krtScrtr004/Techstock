@@ -9,8 +9,7 @@ class ProductController implements Controller
     public static function info(): void
     {
         global $session;
-        if (!isset($session)) $session = Session::create();
-
+        
         // Dummy
         $user = new User([
             'id' => uniqid(),

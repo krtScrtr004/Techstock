@@ -25,7 +25,8 @@ class SingleFormController implements Controller
     public static function index(): void
     {
         global $session;
-        if (isset($session)) $session->destroy();
+        if (isset($session)) 
+            $session->destroy();
 
         $page = kebabToCamelCase(explode('/', $_SERVER['REQUEST_URI'])[2]) ?? 'forgetPassword';
         $component = self::$components[$page];
