@@ -14,8 +14,8 @@ class OrderItem {
         $this->product = $data['product'];
         $this->quantity = $data['quantity'] ?? 1;
         $this->option = $data['option'] ?? null;
-        $this->price = (float) $data['price'];
-        $this->shippingFee = (float) $data['shipping_fee'] ?? 36.00;
+        $this->price = $data['price'];
+        $this->shippingFee = $data['shipping_fee'] ?? 36.00;
     }
 
     // Getters
