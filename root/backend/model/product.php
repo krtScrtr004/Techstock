@@ -8,7 +8,7 @@ class Product implements Model
     private float $price;
     private int $stock;
     private Store $store;
-    private string $currency;
+    private Currency $currency;
     private array $rating;
     private ?array $images;
     private ?ProductCategory $category;
@@ -24,7 +24,7 @@ class Product implements Model
         $this->price = $data['price'] ?? 1.0;
         $this->stock = $data['stock'] ?? 0;
         $this->store = $data['store'] ?? new Store();
-        $this->currency = $data['currency'] ?? 'PHP';
+        $this->currency = $data['currency'] ?? Currency::Philippines;
         $this->rating = $data['rating'] ??
             [
                 'average' => 0.0,
@@ -75,24 +75,9 @@ class Product implements Model
         return $this->store;
     }
 
-    public function getCurrency(): string
+    public function getCurrency(): Currency
     {
-        switch ($this->currency) {
-            case 'USD':
-                return '&dollar;';
-            case 'YEN':
-                return '&yen;';
-            case 'EURO':
-                return '&euro;';
-            case 'RUBLE':
-                return '&#8381;';
-            case 'YUAN':
-                return '&#20803;';
-            case 'WON':
-                return '&#8361;';
-            default:
-                return '&#x20B1;'; // Default to Philippine Peso
-        }
+        return $this->currency;
     }
 
     public function getAverageRating(): float
