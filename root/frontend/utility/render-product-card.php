@@ -13,7 +13,7 @@ function renderProductCard(Product $product): void
 
             <span>
                 <p>
-                    <?= $product->getCurrency() . htmlspecialchars($product->getPrice()); ?>
+                    <?= DEFAULT_CURRENCY_SYMBOL . ' ' . htmlspecialchars(formatNumber($product->getPrice())); ?>
                 </p>
                 <p><?= htmlspecialchars($product->getSoldCount()) ?> Sold</p>
             </span>

@@ -24,7 +24,7 @@ class Product implements Model
         $this->price = $data['price'] ?? 1.0;
         $this->stock = $data['stock'] ?? 0;
         $this->store = $data['store'] ?? new Store();
-        $this->currency = $data['currency'] ?? Currency::Philippines;
+        $this->currency = $data['currency'] ?? DEFAULT_CURRENCY;
         $this->rating = $data['rating'] ??
             [
                 'average' => 0.0,

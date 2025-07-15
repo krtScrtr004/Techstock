@@ -115,7 +115,7 @@
 
                                     <!-- Unit Price -->
                                     <td>
-                                        <p class="end-text black-text"><?= DEFAULT_CURRENCY . ' ' . htmlspecialchars(formatNumber($price)) ?></p>
+                                        <p class="end-text black-text"><?= DEFAULT_CURRENCY_SYMBOL . ' ' . htmlspecialchars(formatNumber($price)) ?></p>
                                     </td>
 
                                     <!-- Quantity -->
@@ -125,7 +125,7 @@
 
                                     <!-- Item Subtotal -->
                                     <td>
-                                        <p class="end-text black-text"><?= DEFAULT_CURRENCY . ' ' . htmlspecialchars(formatNumber($price * $quantity)) ?></p>
+                                        <p class="end-text black-text"><?= DEFAULT_CURRENCY_SYMBOL . ' ' . htmlspecialchars(formatNumber($price * $quantity)) ?></p>
                                     </td>
                                 </tr>
                             <?php endforeach; ?>
@@ -147,12 +147,12 @@
                                     <img src="<?= ICON_PATH . 'shipping.svg' ?>" alt="Shipping fee" title="Shipping fee" height="20">
                                     <p class="black-text">Shipping Fee</p>
                                 </div>
-                                <p class="black-text"><?= DEFAULT_CURRENCY . ' ' . formatNumber($shippingFeeTotal) ?></p>
+                                <p class="black-text"><?= DEFAULT_CURRENCY_SYMBOL . ' ' . formatNumber($shippingFeeTotal) ?></p>
                             </div>
 
                             <div class="flex-row">
                                 <p class="black-text">Order Total (<?= $orderCount ?> Items)</p>
-                                <p class="blue-text"><?= DEFAULT_CURRENCY . ' ' . formatNumber($orderPriceTotal) ?></p>
+                                <p class="blue-text"><?= DEFAULT_CURRENCY_SYMBOL . ' ' . formatNumber($orderPriceTotal) ?></p>
                             </div>
                         </section>
                     </section>
@@ -170,19 +170,19 @@
                 <!-- Merchandise Subtotal -->
                 <div class="flex-row flex-space-between">
                     <p class="black-text">Merchandise Subtotal</p>
-                    <p class="black-text"><?= DEFAULT_CURRENCY . ' ' . formatNumber($subTotals['merchandise']) ?></p>
+                    <p class="black-text"><?= DEFAULT_CURRENCY_SYMBOL . ' ' . formatNumber($subTotals['merchandise']) ?></p>
                 </div>
 
                 <!-- Shipping Subtotal -->
                 <div class="flex-row flex-space-between">
                     <p class="black-text">Shipping Subtotal</p>
-                    <p class="black-text"><?= DEFAULT_CURRENCY . ' ' . formatNumber($subTotals['shipping']) ?></p>
+                    <p class="black-text"><?= DEFAULT_CURRENCY_SYMBOL . ' ' . formatNumber($subTotals['shipping']) ?></p>
                 </div>
 
                 <!-- Total Payment -->
                 <div class="total-payment flex-row flex-space-between">
                     <p class="black-text">Total Payment</p>
-                    <p class="blue-text"><?= DEFAULT_CURRENCY . ' ' . formatNumber($totalPayment) ?></p>
+                    <p class="blue-text"><?= DEFAULT_CURRENCY_SYMBOL . ' ' . formatNumber($totalPayment) ?></p>
                 </div>
             </section>
         </section>

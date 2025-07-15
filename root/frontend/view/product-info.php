@@ -106,7 +106,7 @@
                 <!-- Price Section -->
                 <section class="product-price dark-white-bg">
                     <h3 class="black-text">
-                        <?= $product->getCurrency() . htmlspecialchars(formatNumber($product->getPrice())) ?>
+                        <?= DEFAULT_CURRENCY_SYMBOL . ' ' . htmlspecialchars(formatNumber($product->getPrice())) ?>
                     </h3>
                 </section>
 
