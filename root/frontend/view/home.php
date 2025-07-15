@@ -74,7 +74,7 @@
                 <section class="carousel">
                     <?php
                     foreach ($products as $product) {
-                        renderProductCard($product);
+                        productCard($product);
                     } ?>
                 </section>
 

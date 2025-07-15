@@ -29,7 +29,7 @@
         copyLinkNotification(true);
         copyLinkNotification(false);
 
-        renderCategoryChain($product->getCategory(), $product->getName());
+        categoryChain($product->getCategory(), $product->getName());
         ?>
 
         <!-- Product Purchase Info Section -->
@@ -88,7 +88,7 @@
                             $averageRating = $product->getAverageRating();
 
                             echo number_format($averageRating, 1);
-                            renderRatingStars($averageRating);
+                            ratingStars($averageRating);
                             ?>
                         </a>
 
@@ -246,7 +246,7 @@
                 <section class="content flex-col">
                     <div class="specification flex-row">
                         <p class="black-text">Category</p>
-                        <?= renderCategoryChain($product->getCategory(), $product->getName()) ?>
+                        <?= categoryChain($product->getCategory(), $product->getName()) ?>
                     </div>
 
                     <?php foreach ($product->getSpecifications() as $key => $value): ?>
@@ -280,7 +280,7 @@
                 <section class="rating-overview flex-col flex-child-center-v">
                     <h1 class="average-rating black-text"><?= $product->getAverageRating() ?><span class="out-of-rating"> out of 5</span></h1>
 
-                    <?= renderRatingStars($product->getAverageRating(), 20) ?>
+                    <?= ratingStars($product->getAverageRating(), 20) ?>
                 </section>
 
                 <!-- Star Filter Buttons -->
@@ -344,7 +344,7 @@
                 <section class="rating-list flex-col">
                     <section class="list flex-col">
                         <?php foreach ($ratings as $rating) {
-                            echo renderRatingCard($rating);
+                            echo ratingCard($rating);
                         } ?>
                     </section>
 

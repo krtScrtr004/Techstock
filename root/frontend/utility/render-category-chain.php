@@ -1,6 +1,6 @@
 <?php
 
-function renderCategoryChain(ProductCategory $category, $name): void
+function categoryChain(ProductCategory $category, $name): void
 {
     $name = htmlspecialchars($name);
 

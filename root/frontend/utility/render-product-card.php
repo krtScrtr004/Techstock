@@ -1,5 +1,5 @@
 <?php
-function renderProductCard(Product $product): void
+function productCard(Product $product): void
 {
     $redirect = REDIRECT_PATH . 'product' . DS . htmlspecialchars(createSlug($product->getName())) . '-i.' . htmlspecialchars($product->getId()) . '.' . htmlspecialchars($product->getStore()->getId());
 ?>

@@ -1,6 +1,6 @@
 <?php
 
-function renderRatingStars(float $rating, int $size = 16): void {
+function ratingStars(float $rating, int $size = 16): void {
     if ($rating < 0 || $rating > 5) 
         $rating = abs($rating % 5);
 

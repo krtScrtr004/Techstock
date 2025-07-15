@@ -1,6 +1,6 @@
 <?php
 
-function renderRatingCard(Rating $rating)
+function ratingCard(Rating $rating)
 {
     ob_start();
 
@@ -22,7 +22,7 @@ function renderRatingCard(Rating $rating)
             <!-- Rating Info -->
             <section class="rating-info flex-col">
                 <h3><?= htmlspecialchars($rater->getFirstName() . ' ' . $rater->getLastName()) ?></h3>
-                <?= renderRatingStars($rating->getRating(), size: 11) ?>
+                <?= ratingStars($rating->getRating(), size: 11) ?>
                 <p class="date"><?= formatDateTime($rating->getCreatedAt()) ?></p>
             </section>
 
