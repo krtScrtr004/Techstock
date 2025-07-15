@@ -1,4 +1,5 @@
-<?php $hasSession = (session_status() === PHP_SESSION_ACTIVE) ?>
+<!-- TODO -->
+<?php $hasSession = $session->isSet() ?>
 
 <footer class="footer black-bg <?= ((!$hasSession) ? 'flex-row' : '') ?>">
     <section class="footer-links flex-row flex-space-between">
@@ -10,7 +11,7 @@
                 <li><a href="">My Orders</a></li>
                 <li><a href="">My Cart</a></li>
                 <li><a href="">My Profile</a></li>
-                <li><a href="">Brcome a Seller</a></li>
+                <li><a href="">Become a Seller</a></li>
                 <li><a href="">About Us</a></li>
             </ul>
         </section>

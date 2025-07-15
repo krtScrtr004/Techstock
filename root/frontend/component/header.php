@@ -1,14 +1,14 @@
-<?php if (!isset($session)): ?>
+<?php if (!$session->isSet() || !$session->has('userToken')): ?>
     <!-- Header for non-logged in pages -->
     <header class="outside-header flex-row flex-child-end-h">
-        <a href="<?= REDIRECT_PATH . 'login/'; ?> ">
+        <a href="<?= REDIRECT_PATH . 'login'; ?> ">
             <img src="<?= LOGO_PATH . 'logo_complete_ver.svg'; ?>" alt="Techstock logo" title="Techstock logo" height="45" />
         </a>
 
         <h3><?= ($page === 'signup') ? "Sign Up" : "Log In"; ?></h3>
     </header>
 
-<?php elseif ($session && $session->isSet()): ?>
+<?php else: ?>
     <!-- Header for logged in pages -->
     <header class="inside-header flex-col black-bg">
 
