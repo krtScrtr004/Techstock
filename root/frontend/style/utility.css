@@ -29,6 +29,10 @@
 
 /* --------BG COLOR-------- */
 
+.transparent-bg {
+	background-color: transparent;
+}
+
 .black-bg {
 	background-color: var(--black);
 }

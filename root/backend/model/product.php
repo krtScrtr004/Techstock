@@ -62,6 +62,7 @@ class Product implements Model
 
     public function getPrice(): float
     {
+        // TODO: Convert currency
         return $this->price;
     }
 

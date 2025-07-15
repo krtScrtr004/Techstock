@@ -32,7 +32,7 @@ foreach (glob(FE_UTILITY_PATH . '*.php') as $fileName) {
     include_once $fileName;
 }
 
-$session = null;
+$session = Session::create();
 $router = Router::getRouter();
 
 require_once __DIR__ . DS . 'location.php';

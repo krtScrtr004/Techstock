@@ -59,14 +59,4 @@ enum Currency: string
             default => self::Philippines,
         };
     }
-
-    public static function tryFromName(string $name): ?self
-    {
-        foreach (self::cases() as $case) {
-            if ($case->name === $name) {
-                return $case;
-            }
-        }
-        return null;
-    }
 }

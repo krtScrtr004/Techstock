@@ -10,6 +10,8 @@ class CheckoutController implements Controller
         global $session;
         if (!isset($session)) $session = Session::create();
 
+        include_once ENUM_PATH . 'currency.php';
+
         // Dummy
         $buyer = new User([
             'id' => uniqid(),
@@ -110,12 +112,13 @@ class CheckoutController implements Controller
                 $orderItem = new OrderItem([
                     'id' => uniqid(),
                     'product' => $product,
-                    'price' => 19999.00,
+                    'price' => $product->getPrice(),
                     'option' => new ProductOption([
                         'color' => ['red'],
                         'year' => ['2023'],
                         'model' => ['Ultra Pro Max']
-                    ])
+                    ]),
+                    'quantity' => rand(1, 3)
                 ]);
                 array_push($orderItems, $orderItem);
             }
@@ -141,6 +144,13 @@ class CheckoutController implements Controller
          * 
          */
 
+        $subTotals = ['merchandise' => 0, 'shipping' => 0];
+        foreach ($orders as $order) {
+            $subTotals['merchandise'] += $order->calculateOrderPriceTotal();
+            $subTotals['shipping'] += $order->calculateShippingFeeTotal();
+        }
+        $totalPayment = $subTotals['merchandise'] + $subTotals['shipping'];
+        
         require_once VIEW_PATH . 'checkout.php';
     }
 }

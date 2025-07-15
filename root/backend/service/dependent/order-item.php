@@ -40,6 +40,7 @@ class OrderItem {
 
     public function getPrice(): float
     {
+        // TODO: Convert currency
         return $this->price;
     }
 

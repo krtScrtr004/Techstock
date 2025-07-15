@@ -154,6 +154,27 @@ class Order implements Model
         return true;
     }
 
+    // Utilities
+
+    public function calculateOrderPriceTotal(): float
+    {
+        $sum = 0;
+        $orderItems = $this->getOrders();
+        foreach ($orderItems as $item) {
+            $sum += $item->getPrice();
+        }
+        return $sum;
+    }
+
+    public function calculateShippingFeeTotal(): float
+    {
+        $sum = 0;
+        $orderItems = $this->getOrders();
+        foreach ($orderItems as $item) {
+            $sum += $item->getShippingFee();
+        }
+        return $sum;
+    }
 
     // Implemented Methods
     public static function all(): array
