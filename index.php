@@ -3,7 +3,7 @@ require_once 'root/backend/config/config.php';
 require_once ENUM_PATH . 'currency.php';
 
 $clientCountry = null;
-if ($session->isSet() && $session->get('country'))
+if ($session->isSet() && $session->has('country'))
     $clientCountry = Currency::fromCountry($session->get('country'));
 else
     $clientCountry = Currency::Philippines;

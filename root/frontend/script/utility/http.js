@@ -9,7 +9,11 @@ const Http = () => {
                     throw new Error(`HTTP error! Status: ${request.status} ${request.statusText}`);
                 }
 
-                const contentType = request.headers.get('content-type')
+                if (request.status === 204) {
+                    return;
+                }
+
+                const contentType = request.headers.get('Content-Type')
                 if (!contentType || !contentType.includes('application/json')) {
                     throw new Error('Expected JSON, but got non-JSON response')
                 }
@@ -24,7 +28,7 @@ const Http = () => {
             try {
                 const request = await fetch(`${apiUrl}${endpoint}`, {
                     method: 'POST',
-                    header: {
+                    headers: {
                         'Content-Type': 'application/json'
                     },
                     body: JSON.stringify(body)
@@ -34,7 +38,11 @@ const Http = () => {
                     throw new Error(`HTTP error! Status: ${request.status} ${request.statusText}`)
                 }
 
-                const contentType = request.headers.get('content-type')
+                if (request.status === 204) {
+                    return;
+                }
+
+                const contentType = request.headers.get('Content-Type')
                 if (!contentType || !contentType.includes('application/json')) {
                     throw new Error('Expected JSON, but got non-JSON response')
                 }
