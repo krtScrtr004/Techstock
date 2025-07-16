@@ -4,21 +4,18 @@ if (!document.cookie.includes('locationPermission')) {
     const locationPermissionModalWrapper = document.querySelector('.location-permission-modal-wrapper')
     locationPermissionModalWrapper.style.display = 'flex'
 
-    const rejectButton = locationPermissionModalWrapper.querySelector('.location-permission-modal .reject-button')
-    rejectButton.addEventListener('click', async e => {
+    async function executeRequest(e, permission) {
         e.preventDefault()
 
-        await http.POST('form-submit/location-permission', { permission: false })
         locationPermissionModalWrapper.style.display = 'none'
-    })
+        await http.POST('form-submit/location-permission', { permission: permission })
+    }
+
+    const rejectButton = locationPermissionModalWrapper.querySelector('.location-permission-modal .reject-button')
+    rejectButton.addEventListener('click', e => executeRequest(e, false))
 
 
     const allowButton = locationPermissionModalWrapper.querySelector('.location-permission-modal .allow-button')
-    allowButton.addEventListener('click', async e => {
-        e.preventDefault()
-
-        await http.POST('form-submit/location-permission', { permission: true })
-        locationPermissionModalWrapper.style.display = 'none'
-    })
+    allowButton.addEventListener('click', e => executeRequest(e, true))
 }
 
