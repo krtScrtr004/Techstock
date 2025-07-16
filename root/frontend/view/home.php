@@ -192,7 +192,7 @@
     require_once COMPONENT_PATH . 'footer.php';
 
     // Hidden Modals
-    locationPermissionModal();
+    // locationPermissionModal();
     errorOccurredDialog();
     ?>
 

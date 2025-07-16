@@ -13,10 +13,13 @@
 
 	--border-radius: 3px;
 
-	--content-side-padding: 5rem;
+	--content-side-padding: 10rem;
 
 	--min-height: 600px;
 	--min-width: 1024px;
+
+	--card-width: 230px;
+	--card-height: 300px;
 }
 
 * {
