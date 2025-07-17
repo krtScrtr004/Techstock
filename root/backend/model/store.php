@@ -10,6 +10,7 @@ class Store implements Model
 	private string $email;
 	private string $contact;
 	private Address $location;
+	private ?StoreCollection $collection;
 	private int $productCount;
 	private int $followerCount;
 	private string $is_verified;
@@ -25,6 +26,7 @@ class Store implements Model
 		$this->email = $data['email'] ?? '';
 		$this->contact = $data['contact'] ?? null;
 		$this->location = $data['location'] ?? new Address();
+		$this->collection = $data['collection'] ?? null;
 		$this->productCount = $data['product_count'] ?? 0;
 		$this->followerCount = $data['follower_count'] ?? 0;
 		$this->is_verified = $data['is_verified'] ?? '0';
@@ -72,6 +74,11 @@ class Store implements Model
 	public function getAddress(): Address
 	{
 		return $this->location;
+	}
+
+	public function getCollection(): StoreCollection
+	{
+		return $this->collection;
 	}
 
 	public function getProductCount(): int
@@ -133,6 +140,11 @@ class Store implements Model
 	public function setLocation(Address $location): void
 	{
 		$this->location = $location;
+	}
+
+	public function setCollection(StoreCollection $collection): void
+	{
+		$this->collection = $collection;
 	}
 
 	public function setProductCount(int $productCount): void
