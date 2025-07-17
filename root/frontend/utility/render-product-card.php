@@ -1,6 +1,7 @@
 <?php
-function productCard(Product $product): void
+function productCard(Product $product): mixed
 {
+    ob_start();
     $redirect = REDIRECT_PATH . 'product' . DS . htmlspecialchars(createSlug($product->getName())) . '-i.' . htmlspecialchars($product->getId()) . '.' . htmlspecialchars($product->getStore()->getId());
 ?>
     <a href="<?= $redirect ?>">
@@ -19,4 +20,6 @@ function productCard(Product $product): void
             </span>
         </div>
     </a>
-<?php } ?>
+<?php 
+    return ob_get_clean();
+} ?>

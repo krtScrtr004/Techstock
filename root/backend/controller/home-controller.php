@@ -33,7 +33,7 @@ class HomeController implements Controller
     public function topProductCallback($products)
     {
         foreach ($products as $product) {
-            productCard($product);
+            echo productCard($product);
         }
     }
 

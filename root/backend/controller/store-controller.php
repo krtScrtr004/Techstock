@@ -192,7 +192,7 @@ class StoreController implements Controller
     public function featuredProductsCallback($products): void
     {
         foreach ($products as $product) {
-            productCard($product);
+            echo productCard($product);
         }
     }
 }
