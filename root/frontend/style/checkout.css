@@ -4,7 +4,7 @@
 }
 
 .checkout > main {
-	padding: var(--space) calc(10 * var(--space));
+	padding: var(--space) calc(1.5 * var(--content-side-padding));
 	gap: var(--space);
 }
 

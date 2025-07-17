@@ -17,6 +17,8 @@
 
 		"Techstock/product/{slug:[\\w\\s\\.+-]+}-i\\.{store_id:[\\w+_-]+}\\.{product_id:[\\w+_-]+}": ["ProductController", "info"],
 
-		"Techstock/checkout/{id:[\\w+_-]+}": "CheckoutController"
+		"Techstock/checkout/{id:[\\w+_-]+}": "CheckoutController",
+
+		"Techstock/store/{slug:[\\w\\s\\.+-]+}": "StoreController"
 	}
 }
