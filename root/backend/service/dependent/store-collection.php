@@ -40,7 +40,7 @@ class StoreCollection
         return array_search($value, $this->container);
     }
 
-    public function getAll(): array
+    public function toArray(): array
     {
         return $this->container;
     }

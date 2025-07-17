@@ -27,7 +27,7 @@ $storeAddress = htmlspecialchars($store->getAddress());
     <link rel="stylesheet" href="<?= STYLE_PATH . 'store.css' ?>">
 </head>
 
-<body class="store">
+<body class="store relative">
     <?php require_once COMPONENT_PATH . 'header.php' ?>
 
     <main>
@@ -98,18 +98,62 @@ $storeAddress = htmlspecialchars($store->getAddress());
             <?php
 
             // Recommended Products
-            featuredItem([$controllerInstance, 'featuredProductsCallback'], $products, 'Recommended For You');
+            featuredItem(
+                [$controllerInstance, 'featuredProductsCallback'], 
+                $products, 
+                'Recommended For You');
 
             // Top Sellers
-            featuredItem([$controllerInstance, 'featuredProductsCallback'], $products, 'Top Sellers');
+            featuredItem(
+                [$controllerInstance, 'featuredProductsCallback'], 
+                $products, 
+                'Top Sellers');
 
             // New Arrival
-            featuredItem([$controllerInstance, 'featuredProductsCallback'], $products, 'New Arrival');
+            featuredItem(
+                [$controllerInstance, 'featuredProductsCallback'], 
+                $products, 
+                'New Arrival');
             ?>
+
+            <section class="infinite-list flex-row">
+                <!-- Collections Filter -->
+                <aside class="sticky white-bg">
+                    <div class="text-w-icon flex-child-start-v">
+                        <img src="<?= ICON_PATH . 'filter.svg' ?>" alt="Search filter" title="Search filter" height="24" width="24">
+                        <h1 class="black-text">
+                            Collections Filter
+                        </h1>
+                    </div>
+
+                    <form class="collection-form flex-col" action="" method="POST">
+                        <button class="collection-button active unset-button">
+                            All Products
+                        </button>
+
+                        <?php
+                        $collections = $store->getCollection()->toArray();
+                        foreach ($collections as $collection):
+                            $collection = htmlspecialchars($collection);
+                        ?>
+                            <button class="collection-button unset-button">
+                                <?= $collection ?>
+                            </button>
+                        <?php endforeach; ?>
+                    </form>
+                </aside>
+
+                <section class="result-grid">
+                    <?php include_once COMPONENT_PATH . 'product-list.php' ?>
+                </section>
+            </section>
+
         </section>
     </main>
 
     <?php
+    include_once COMPONENT_PATH . 'back-to-top.php';
+
     require_once COMPONENT_PATH . 'footer.php';
 
     // Hidden Modals

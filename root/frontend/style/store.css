@@ -83,4 +83,36 @@
 	gap: var(--space);
 }
 
+.infinite-list {
+	gap: var(--space);
+}
+
+.infinite-list > aside {
+	min-width: 200px;
+	width: fit-content;
+	height: fit-content;
+	padding: var(--space);
+	top: 10px;
+}
+
+.infinite-list > aside > .text-w-icon {
+	margin-bottom: 1rem;
+}
+
+.collection-form {
+	gap: 1rem;
+}
+
+.collection-form > button {
+	color: var(--black);
+}
+
+.collection-form > button.active {
+	border-bottom: 2px solid var(--blue);
+}
+
+.infinite-list > .result-grid
+{
+	width: 100%;
+}
 

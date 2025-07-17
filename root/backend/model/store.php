@@ -194,6 +194,7 @@ class Store implements Model
 					'postal_code' => 1000 + $i,
 					'country' => 'Philippines'
 				]),
+				'collection' => new StoreCollection(['Back To School', 'Windows Essentials', 'PC Parts']),
 				'product_count' => rand(10, 100),
 				'follower_count' => rand(100, 10000),
 				'is_verified' => (string)rand(0, 1),

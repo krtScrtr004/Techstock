@@ -160,6 +160,10 @@
 	position: sticky;
 }
 
+.fixed {
+	position: fixed;
+}
+
 /* --------TEXT STYLE-------- */
 
 .bold-text {
