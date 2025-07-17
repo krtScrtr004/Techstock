@@ -8,6 +8,8 @@ class HomeController implements Controller
     {
         global $session;
 
+        $controllerInstance = new self();
+
         require_once ENUM_PATH . 'category.php';
         $categories = [
             'phone_b.svg'      => Category::sna->value,
@@ -26,5 +28,26 @@ class HomeController implements Controller
         $stores = Store::all();
 
         require_once VIEW_PATH . 'home.php';
+    }
+
+    public function topProductCallback($products)
+    {
+        foreach ($products as $product) {
+            productCard($product);
+        }
+    }
+
+    public function topStoreCallback($stores): void
+    {
+        foreach ($stores as $store) {
+            $name = htmlspecialchars($store->getName());
+            $logo = htmlspecialchars($store->getLogo());
+
+            echo '<a href="">';
+            echo '<div class="store-card center-child white-bg">';
+            echo '<img src="' . $logo . '" alt="' . $name . '" title="' . $name . '">';
+            echo '</div>';
+            echo '</a>';
+        }
     }
 }

@@ -213,6 +213,26 @@
 	padding: 2rem;
 }
 
+/* -------------------- FEATURED ITEMS -------------------- */
+
+.featured-item {
+	display: flex;
+	flex-direction: column;
+	gap: var(--space);
+}
+
+.featured-item * {
+	color: var(--black);
+}
+
+.featured-item > h3 {
+	background-color: var(--white);
+	padding: 10px 1rem;
+	border-bottom: 3px solid var(--black);
+	top: 0;
+	z-index: 10;
+}
+
 /* -------------------- ICON WITH  BADGE -------------------- */
 
 .icon-w-badge {

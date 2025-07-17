@@ -98,28 +98,14 @@
 	font-weight: 500;
 }
 
-.home-section-heading {
+.discover-more-section > h3 {
 	background-color: var(--white);
 	padding: 10px 1rem;
 	border-bottom: 3px solid var(--black);
 	top: 0;
 	z-index: 10;
-}
-
-.discover-more-section > .home-section-heading {
 	margin-bottom: var(--space);
 }
-
-.featured-item {
-	display: flex;
-	flex-direction: column;
-	gap: var(--space);
-}
-
-.featured-item * {
-	color: var(--black);
-}
-
 
 .carousel > .product-card,
 .carousel > .store-card {
