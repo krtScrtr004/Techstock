@@ -19,11 +19,11 @@ class Store implements Model
 	{
 		$this->id = $data['id'] ?? null;
 		$this->name = $data['name'] ?? '';
-		$this->description = $data['description'] ?? '';
+		$this->description = $data['description'] ?? null;
 		$this->logo = $data['logo'] ?? null;
 		$this->site_link = $data['site_link'] ?? null;
 		$this->email = $data['email'] ?? '';
-		$this->contact = $data['contact'] ?? '';
+		$this->contact = $data['contact'] ?? null;
 		$this->location = $data['location'] ?? new Address();
 		$this->productCount = $data['product_count'] ?? 0;
 		$this->followerCount = $data['follower_count'] ?? 0;
@@ -69,7 +69,7 @@ class Store implements Model
 		return $this->contact;
 	}
 
-	public function getLocation(): Address
+	public function getAddress(): Address
 	{
 		return $this->location;
 	}
