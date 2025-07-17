@@ -5,6 +5,9 @@ class StoreController implements Controller
     public static function index(): void
     {
         global $session;
+
+        $controllerInstance = new self();
+
         $images = [
             'console-1.jpg',
             'controller-1.jpg',
@@ -114,10 +117,11 @@ class StoreController implements Controller
         $stores = Store::all();
         $store = $stores[0];
 
+        $products = [];
         for ($i = 1; $i <= 20; $i++) {
             $randStore = array_rand($stores);
 
-            $product = new Product([
+            array_push($products, new Product([
                 'id' => uniqid(),
 
                 'name' => "Product name number $i.",
@@ -180,8 +184,15 @@ class StoreController implements Controller
                 'option' => $options,
 
                 'sold_count' => rand(0, 500),
-            ]);
+            ]));
         }
         require_once VIEW_PATH . 'store.php';
+    }
+
+    public function featuredProductsCallback($products): void
+    {
+        foreach ($products as $product) {
+            productCard($product);
+        }
     }
 }

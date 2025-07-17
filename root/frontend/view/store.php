@@ -1,11 +1,11 @@
 <?php
-    $storeName = htmlspecialchars($store->getName());
-    $storeLogo = htmlspecialchars($store->getLogo());
-    $storeFollowerCount = htmlspecialchars(formatNumber($store->getFollowerCount()));
-    $storeProductCount = htmlspecialchars(formatNumber($store->getProductCount()));
-    $storeContact = htmlspecialchars($store->getContact()) ?? 'No contact detail';
-    $storeEmail = htmlspecialchars($store->getEmail()) ?? 'No email address';
-    $storeAddress = htmlspecialchars($store->getAddress());
+$storeName = htmlspecialchars($store->getName());
+$storeLogo = htmlspecialchars($store->getLogo());
+$storeFollowerCount = htmlspecialchars(formatNumber($store->getFollowerCount()));
+$storeProductCount = htmlspecialchars(formatNumber($store->getProductCount()));
+$storeContact = htmlspecialchars($store->getContact()) ?? 'No contact detail';
+$storeEmail = htmlspecialchars($store->getEmail()) ?? 'No email address';
+$storeAddress = htmlspecialchars($store->getAddress());
 ?>
 
 <!DOCTYPE html>
@@ -94,8 +94,18 @@
             </section>
         </section>
 
-        <section class="content dark-white-bg">
+        <section class="content flex-col dark-white-bg">
+            <?php
 
+            // Recommended Products
+            featuredItem([$controllerInstance, 'featuredProductsCallback'], $products, 'Recommended For You');
+
+            // Top Sellers
+            featuredItem([$controllerInstance, 'featuredProductsCallback'], $products, 'Top Sellers');
+
+            // New Arrival
+            featuredItem([$controllerInstance, 'featuredProductsCallback'], $products, 'New Arrival');
+            ?>
         </section>
     </main>
 
@@ -105,6 +115,9 @@
     // Hidden Modals
     errorOccurredDialog();
     ?>
+
+    <script src="<?= htmlspecialchars(EVENT_PATH . 'carousel-tracker.js'); ?>" defer></script>
+
 </body>
 
 </html>

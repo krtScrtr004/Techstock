@@ -66,57 +66,19 @@
             </section>
         </section>
 
-        <!-- Top Products -->
-        <section class="top-product-section featured-item">
-            <h1 class="home-section-heading sticky">Top Products</h1>
+        <?php
+        // Top Products
+        featuredItem([$controllerInstance, 'topProductCallback'], $products, 'Top Products');
 
-            <section class="carousel-wrapper">
-                <section class="carousel">
-                    <?php
-                    foreach ($products as $product) {
-                        productCard($product);
-                    } ?>
-                </section>
-
-                <button type="button" class="tracker left unset-button">
-                    <img src="<?= ICON_PATH . 'next.svg' ?>" alt="Previous" title="Previous" height="20">
-                </button>
-
-                <button type="button" class="tracker right unset-button">
-                    <img src="<?= ICON_PATH . 'next.svg' ?>" alt="Next" title="Next" height="20">
-                </button>
-            </section>
-        </section>
+        // Top stores
+        featuredItem([$controllerInstance, 'topStoreCallback'], $stores, 'Top Stores');
+        ?>
 
         <!-- Top Stores -->
-        <section class="top-store-section featured-item">
-            <h1 class="home-section-heading sticky">Top Stores</h1>
-
-            <section class="carousel-wrapper">
-                <section class="carousel">
-                    <?php foreach ($stores as $store): ?>
-                        <a href="">
-                            <div class="store-card center-child white-bg">
-                                <!-- TODO -->
-                                <img src="<?= htmlspecialchars($store->getLogo()) ?>" alt="<?= htmlspecialchars($store->getName()) ?>" title="<?= htmlspecialchars($store->getName()) ?>">
-                            </div>
-                        </a>
-                    <?php endforeach; ?>
-                </section>
-
-                <button type="button" class="tracker left unset-button">
-                    <img src="<?= ICON_PATH . 'next.svg' ?>" alt="Previous" title="Previous" height="20">
-                </button>
-
-                <button type="button" class="tracker right unset-button">
-                    <img src="<?= ICON_PATH . 'next.svg' ?>" alt="Next" title="Next" height="20">
-                </button>
-            </section>
-        </section>
-
+    
         <!-- Discover More -->
         <section id="discover-more" class="discover-more-section">
-            <h3 class="home-section-heading sticky center-text">Discover More</h3>
+            <h3 class="sticky black-text center-text">Discover More</h3>
 
             <?php
             include_once COMPONENT_PATH . 'product-list.php';

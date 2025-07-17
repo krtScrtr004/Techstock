@@ -79,4 +79,8 @@
     grid-template-columns: 10ch auto;
 }
 
+.store > main > .content {
+	gap: var(--space);
+}
+
 
