@@ -99,21 +99,24 @@ $storeAddress = htmlspecialchars($store->getAddress());
 
             // Recommended Products
             featuredItem(
-                [$controllerInstance, 'featuredProductsCallback'], 
-                $products, 
-                'Recommended For You');
+                [$controllerInstance, 'featuredProductsCallback'],
+                $products,
+                'Recommended For You'
+            );
 
             // Top Sellers
             featuredItem(
-                [$controllerInstance, 'featuredProductsCallback'], 
-                $products, 
-                'Top Sellers');
+                [$controllerInstance, 'featuredProductsCallback'],
+                $products,
+                'Top Sellers'
+            );
 
             // New Arrival
             featuredItem(
-                [$controllerInstance, 'featuredProductsCallback'], 
-                $products, 
-                'New Arrival');
+                [$controllerInstance, 'featuredProductsCallback'],
+                $products,
+                'New Arrival'
+            );
             ?>
 
             <section class="infinite-list flex-row">
@@ -145,9 +148,14 @@ $storeAddress = htmlspecialchars($store->getAddress());
 
                 <section class="result-grid">
                     <?php include_once COMPONENT_PATH . 'product-list.php' ?>
+
+                    <div class="sentinel"></div>
+
+                    <span class="no-more-products">
+                        <p class="black-text center-text">No more products to load <span class=green-text>&check;</span></p>
+                    </span>
                 </section>
             </section>
-
         </section>
     </main>
 
@@ -162,6 +170,7 @@ $storeAddress = htmlspecialchars($store->getAddress());
 
     <script src="<?= htmlspecialchars(EVENT_PATH . 'carousel-tracker.js'); ?>" defer></script>
 
+    <script type="module" src="<?= htmlspecialchars(EVENT_PATH . 'store-infinite-scroll.js'); ?>" defer></script>
 </body>
 
 </html>

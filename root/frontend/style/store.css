@@ -116,3 +116,12 @@
 	width: 100%;
 }
 
+.infinite-list > .result-grid > .sentinel {
+	height: 1px;
+}
+
+.infinite-list .result-grid > .no-more-products {
+	display: none;
+	margin-top: 1rem;
+	font-weight: 200;
+}
