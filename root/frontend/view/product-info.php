@@ -230,7 +230,7 @@
 
                 <section class="first-col flex-row flex-space-between">
                     <p class="">Location</p>
-                    <h3 class="end-text"><?= htmlspecialchars($store->getLocation()) ?></h3>
+                    <h3 class="end-text"><?= htmlspecialchars($store->getAddress()) ?></h3>
                 </section>
             </section>
         </section>

@@ -86,6 +86,13 @@ button {
 	font-size: 1rem;
 }
 
+input::placeholder,
+textarea::placeholder {
+	color: var(--black);
+	font-style: italic;
+	opacity: 0.9;
+}
+
 button {
 	font-weight: 800;
 }

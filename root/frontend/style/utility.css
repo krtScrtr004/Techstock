@@ -90,12 +90,12 @@
 
 .flex-child-start-v {
 	display: flex;
-	justify-content: start;	
+	justify-content: start;
 }
 
 .flex-child-start-h {
 	display: flex;
-	justify-content: start;	
+	justify-content: start;
 }
 
 .flex-child-center-v {
@@ -178,6 +178,12 @@
 	text-align: end;
 }
 
+.wrap-text {
+	white-space: normal; 
+	word-break: normal; 
+	overflow-wrap: break-word;
+}
+
 .single-line-ellipsis {
 	white-space: nowrap; /* Keep text on one line */
 	overflow: hidden; /* Hide overflowing text */
@@ -204,4 +210,13 @@
 .circle {
 	border-radius: 50%;
 	aspect-ratio: 1/1;
+}
+
+/*  */
+.fit-cover {
+	object-fit: cover;
+}
+
+.fit-contain {
+	object-fit: contain;
 }
