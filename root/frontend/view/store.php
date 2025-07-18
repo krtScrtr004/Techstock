@@ -130,6 +130,11 @@ $address       =   htmlspecialchars($store->getAddress());
                     </div>
 
                     <form class="collection-form flex-col" action="" method="POST">
+                        <input 
+                            type="hidden" 
+                            id="collection_name"
+                            name="collection_name" />
+
                         <button class="collection-button active unset-button">
                             All Products
                         </button>
@@ -171,7 +176,7 @@ $address       =   htmlspecialchars($store->getAddress());
     <script src="<?= htmlspecialchars(EVENT_PATH . 'carousel-tracker.js'); ?>" defer></script>
     <script src="<?= htmlspecialchars(EVENT_PATH . 'back-to-top.js'); ?>" defer></script>
 
-    <script type="module" src="<?= htmlspecialchars(EVENT_PATH . 'store-infinite-scroll.js'); ?>" defer></script>
+    <script type="module" src="<?= htmlspecialchars(EVENT_PATH . 'load-store-products.js'); ?>" defer></script>
 </body>
 
 </html>

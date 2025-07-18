@@ -42,8 +42,9 @@ class HomeController implements Controller
         foreach ($stores as $store) {
             $name = htmlspecialchars($store->getName());
             $logo = htmlspecialchars($store->getLogo());
+            $slug = createSlug($name);
 
-            echo '<a href="">';
+            echo '<a href="' . REDIRECT_PATH . 'store' . DS . $slug . '">';
             echo '<div class="store-card center-child white-bg">';
             echo '<img src="' . $logo . '" alt="' . $name . '" title="' . $name . '">';
             echo '</div>';

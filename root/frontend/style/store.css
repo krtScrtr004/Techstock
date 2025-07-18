@@ -105,6 +105,7 @@
 
 .collection-form > button {
 	color: var(--black);
+	border-bottom: 2px solid transparent;
 }
 
 .collection-form > button.active {
@@ -113,6 +114,7 @@
 
 .infinite-list > .result-grid
 {
+	min-height: 600px;
 	width: 100%;
 }
 
