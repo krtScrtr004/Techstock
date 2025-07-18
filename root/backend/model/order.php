@@ -161,7 +161,7 @@ class Order implements Model
         $sum = 0;
         $orderItems = $this->getOrders();
         foreach ($orderItems as $item) {
-            $sum += $item->getPrice();
+            $sum += $item->getPrice() * $item->getQuantity();
         }
         return $sum;
     }
