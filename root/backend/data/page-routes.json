@@ -10,10 +10,9 @@
 
 		"Techstock/home": "HomeController",
 
-		"Techstock/discover-more\\?page={page:[\\d]+}": "DiscoverMoreController",
+		"Techstock/discover-more(?:[\\w=\\?:&%_-]+)?": "DiscoverMoreController",
 
-		"Techstock/search\\?(?:[\\w%+-]+=[\\w%+-]*&?)+": "SearchController",
-		"Techstock/search\\?(?=.*page={page:[\\d+]})(?:[\\w%+-]+=[\\w%+-]*&?)+": "SearchController",
+		"Techstock/search(?:[\\w=\\?:&%_-]+)?": "SearchController",
 
 		"Techstock/product/{slug:[\\w\\s\\.+-]+}-i\\.{store_id:[\\w+_-]+}\\.{product_id:[\\w+_-]+}": ["ProductController", "info"],
 
