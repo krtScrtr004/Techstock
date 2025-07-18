@@ -59,6 +59,10 @@
 
 /* --------DISPLAY-------- */
 
+.no-display {
+	display: none;
+}
+
 .inline {
 	display: inline;
 }

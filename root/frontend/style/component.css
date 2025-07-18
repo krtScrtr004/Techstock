@@ -483,8 +483,12 @@
 /* --------------------- BACK TO TOP --------------------- */
 
 .back-to-top {
+	display: none;
+	background-color: var(--white);
 	position: fixed;
-	right: 3rem;
+	right: 3rem;	
 	bottom: 5rem;
-	z-index: 100;
+	border: 2px solid var(--light-black);
+	border-radius: 50%;
+	place-items: center;
 }

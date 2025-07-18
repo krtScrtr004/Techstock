@@ -1,11 +1,11 @@
 <?php
-$storeName = htmlspecialchars($store->getName());
-$storeLogo = htmlspecialchars($store->getLogo());
-$storeFollowerCount = htmlspecialchars(formatNumber($store->getFollowerCount()));
-$storeProductCount = htmlspecialchars(formatNumber($store->getProductCount()));
-$storeContact = htmlspecialchars($store->getContact()) ?? 'No contact detail';
-$storeEmail = htmlspecialchars($store->getEmail()) ?? 'No email address';
-$storeAddress = htmlspecialchars($store->getAddress());
+$name          =   htmlspecialchars($store->getName());
+$logo          =   htmlspecialchars($store->getLogo());
+$followerCount =   htmlspecialchars(formatNumber($store->getFollowerCount()));
+$productCount  =   htmlspecialchars(formatNumber($store->getProductCount()));
+$contact       =   htmlspecialchars($store->getContact()) ?? 'No contact detail';
+$email         =   htmlspecialchars($store->getEmail()) ?? 'No email address';
+$address       =   htmlspecialchars($store->getAddress());
 ?>
 
 <!DOCTYPE html>
@@ -15,7 +15,7 @@ $storeAddress = htmlspecialchars($store->getAddress());
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Techstock | <?= $storeName ?></title>
+    <title>Techstock | <?= $name ?></title>
 
     <base href="/Techstock/root/frontend/">
     <link rel="stylesheet" href="<?= STYLE_PATH . 'utility.css' ?>">
@@ -34,13 +34,13 @@ $storeAddress = htmlspecialchars($store->getAddress());
         <section class="heading flex-row white-bg">
             <section class="store-info flex-row flex-child-center-h">
                 <!-- Store Logo -->
-                <img class="circle fit-contain" src="<?= $storeLogo ?>" alt="<?= $storeName ?>" title="<?= $storeName ?>" height="150">
+                <img class="circle fit-contain" src="<?= $logo ?>" alt="<?= $name ?>" title="<?= $name ?>" height="150">
 
                 <!--  -->
                 <div class="flex-col">
-                    <h1 class="store-name black-text bold-text wrap-text"><?= $storeName ?></h1>
+                    <h1 class="store-name black-text bold-text wrap-text"><?= $name ?></h1>
                     <span class="misc-info block">
-                        <p class="inline black-text"><?= $storeFollowerCount ?> Followers</p>
+                        <p class="inline black-text"><?= $followerCount ?> Followers</p>
                         <!-- <p class="inline black-text">99% Positive Ratings</p> -->
                     </span>
                     <div class="buttons flex-row">
@@ -66,7 +66,7 @@ $storeAddress = htmlspecialchars($store->getAddress());
             <section class="additional-info flex-col">
                 <form class="search-store-form" action="" method="GET">
                     <div class="transparent-bg relative">
-                        <input type="text" name="search_store" id="search_store" placeholder="Search in <?= $storeName ?>" min="1" max="255" autocomplete="on" required>
+                        <input type="text" name="search_store" id="search_store" placeholder="Search in <?= $name ?>" min="1" max="255" autocomplete="on" required>
 
                         <button class="search-store-button unset-button">
                             <img src="<?= ICON_PATH . 'search_b.svg' ?>" alt="Search in store" title="Search in store" height="24">
@@ -77,19 +77,19 @@ $storeAddress = htmlspecialchars($store->getAddress());
                 <div class="info-grid grid">
                     <!-- Product Count -->
                     <p class="key black-text">Products</p>
-                    <h3 class="value black-text bold-text"><?= $storeProductCount ?></h3>
+                    <h3 class="value black-text bold-text"><?= $productCount ?></h3>
 
                     <!-- Contact -->
                     <p class="key black-text">Contact</p>
-                    <h3 class="value black-text bold-text"><?= $storeContact ?></h3>
+                    <h3 class="value black-text bold-text"><?= $contact ?></h3>
 
                     <!-- Email -->
                     <p class="key black-text">Email</p>
-                    <h3 class="value black-text bold-text"><?= $storeEmail ?></h3>
+                    <h3 class="value black-text bold-text"><?= $email ?></h3>
 
                     <!-- Address -->
                     <p class="key black-text">Address</p>
-                    <h3 class="value black-text bold-text"><?= $storeAddress ?></h3>
+                    <h3 class="value black-text bold-text"><?= $address ?></h3>
                 </div>
             </section>
         </section>
@@ -169,6 +169,7 @@ $storeAddress = htmlspecialchars($store->getAddress());
     ?>
 
     <script src="<?= htmlspecialchars(EVENT_PATH . 'carousel-tracker.js'); ?>" defer></script>
+    <script src="<?= htmlspecialchars(EVENT_PATH . 'back-to-top.js'); ?>" defer></script>
 
     <script type="module" src="<?= htmlspecialchars(EVENT_PATH . 'store-infinite-scroll.js'); ?>" defer></script>
 </body>
