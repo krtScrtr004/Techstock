@@ -19,11 +19,19 @@ function featuredItem(callable|array $callback, mixed $args, string $title = 'Fe
             </section>
 
             <button type="button" class="tracker left unset-button">
-                <img src="<?= ICON_PATH . 'next.svg' ?>" alt="Previous" title="Previous" height="20">
+                <img 
+                    src="<?= ICON_PATH . 'next.svg' ?>" 
+                    alt="Previous" 
+                    title="Previous" 
+                    height="20" />
             </button>
 
             <button type="button" class="tracker right unset-button">
-                <img src="<?= ICON_PATH . 'next.svg' ?>" alt="Next" title="Next" height="20">
+                <img 
+                    src="<?= ICON_PATH . 'next.svg' ?>" 
+                    alt="Next" 
+                    title="Next" 
+                    height="20" />
             </button>
         </section>
     </section>

@@ -8,9 +8,10 @@ function categoryChain(ProductCategory $category, $name): void
     
     $category->first();
     while (true) {
-        $current = htmlspecialchars($category->current());
+        $current        =   htmlspecialchars($category->current());
+        $categoryUrl    =   urlencode(strtolower($current));
         echo '<li>
-                <a class="blue-text" href="' . REDIRECT_PATH . 'search?category=' . urlencode(strtolower($current)) . '&page=1">' 
+                <a class="blue-text" href="' . REDIRECT_PATH . 'search?category=' . $categoryUrl . '&page=1">' 
                     . $current . 
                 '</a>
             </li>';

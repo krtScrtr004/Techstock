@@ -1,3 +1,15 @@
+<?php
+// Buyer Info
+$buyerName      =       htmlspecialchars($buyer->getFirstName() . ' ' . $buyer->getLastName());
+$buyerContact   =       htmlspecialchars($buyer->getContact()) ?? 'No Contact';
+$buyerAddress   =       htmlspecialchars($buyer->getAddress());
+
+// Payment Summary Info
+$merchandiseSubtotal    =   DEFAULT_CURRENCY_SYMBOL . ' ' . htmlspecialchars(formatNumber($subTotals['merchandise']));
+$shippingSubtotal       =   DEFAULT_CURRENCY_SYMBOL . ' ' . htmlspecialchars(formatNumber($subTotals['shipping']));
+$totalPayment           =   DEFAULT_CURRENCY_SYMBOL . ' ' . htmlspecialchars(formatNumber($totalPayment));
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -35,15 +47,15 @@
 
             <section class="info flex-row">
                 <p class="black-text">
-                    <?= htmlspecialchars($buyer->getFirstName() . ' ' . $buyer->getLastName()) ?>
+                    <?= $buyerName ?>
                 </p>
 
                 <p class="black-text">
-                    <?= htmlspecialchars($buyer->getContact() ?? 'No Contact') ?>
+                    <?= $buyerContact ?>
                 </p>
 
                 <p class="black-text">
-                    <?= htmlspecialchars($buyer->getAddress()) ?>
+                    <?= $buyerAddress ?>
                 </p>
 
                 <a href="" class="blue-text">Change</a>
@@ -56,13 +68,15 @@
 
             <?php
             foreach ($orders as $order):
-                $store = $order->getStore();
-                $storeName = htmlspecialchars($store->getName());
-                $storeId = htmlspecialchars($store->getId());
+                // Store Info
+                $store              =   $order->getStore();
+                $storeName          =   htmlspecialchars($store->getName());
+                $storeId            =   htmlspecialchars($store->getId());
 
-                $orderCount = count($order->getOrders());
-                $shippingFeeTotal = $order->calculateShippingFeeTotal();
-                $orderPriceTotal = $order->calculateOrderPriceTotal();
+                // Order Info
+                $orderCount         =   count($order->getOrders());
+                $shippingFeeTotal   =   DEFAULT_CURRENCY_SYMBOL . ' ' . formatNumber($order->calculateShippingFeeTotal());
+                $orderPriceTotal    =   DEFAULT_CURRENCY_SYMBOL . ' ' . formatNumber($order->calculateOrderPriceTotal());
             ?>
                 <section class="order flex-col">
                     <!-- Table -->
@@ -87,18 +101,27 @@
                         <tbody>
                             <?php
                             foreach ($order->getOrders() as $item):
-                                $product = $item->getProduct();
-                                $option = $item->getOption();
-                                $price = $item->getPrice();
-                                $quantity = $item->getQuantity();
+                                // Product Info
+                                $product        =   $item->getProduct();
+                                $productName    =   htmlspecialchars($product->getName());
+                                $productImage   =   htmlspecialchars($product->getImage(0));
+
+                                // Order Item Info
+                                $option         =   $item->getOption();
+                                $price          =   htmlspecialchars($item->getPrice());
+                                $quantity       =   htmlspecialchars($item->getQuantity());
+
+                                // Order Summary Info
+                                $unitPrice      =   DEFAULT_CURRENCY_SYMBOL . ' ' . htmlspecialchars(formatNumber($price));
+                                $subtotal       =   DEFAULT_CURRENCY_SYMBOL . ' ' . htmlspecialchars(formatNumber($price * $quantity));
                             ?>
                                 <tr>
                                     <!-- Product Image and Name -->
                                     <td>
                                         <div class="product-info flex-row flex-child-center-h">
-                                            <img src="<?= htmlspecialchars($product->getImage(0)) ?>" alt="<?= htmlspecialchars($product->getName()) ?>" title="<?= htmlspecialchars($product->getName()) ?>" width="150">
+                                            <img src="<?= $productImage ?>" alt="<?= $productName ?>" title="<?= $productName ?>" width="150">
 
-                                            <p class="black-text"><?= htmlspecialchars($product->getName()) ?></p>
+                                            <p class="black-text"><?= $productName ?></p>
                                         </div>
                                     </td>
 
@@ -106,8 +129,11 @@
                                     <td>
                                         <ul>
                                             <?php foreach ($option->getKeys() as $key): ?>
-                                                <?php foreach ($option->getValues($key) as $value): ?>
-                                                    <li class="start-text"><?= htmlspecialchars(ucwords($key . ': ' . $value)) ?></li>
+                                                <?php
+                                                foreach ($option->getValues($key) as $value):
+                                                    $variationPair = htmlspecialchars(ucwords($key . ': ' . $value));
+                                                ?>
+                                                    <li class="start-text"><?= $variationPair ?></li>
                                                 <?php endforeach; ?>
                                             <?php endforeach; ?>
                                         </ul>
@@ -115,17 +141,17 @@
 
                                     <!-- Unit Price -->
                                     <td>
-                                        <p class="end-text black-text"><?= DEFAULT_CURRENCY_SYMBOL . ' ' . htmlspecialchars(formatNumber($price)) ?></p>
+                                        <p class="end-text black-text"><?= $unitPrice ?></p>
                                     </td>
 
                                     <!-- Quantity -->
                                     <td>
-                                        <p class="end-text black-text"><?= htmlspecialchars($quantity) ?></p>
+                                        <p class="end-text black-text"><?= $quantity ?></p>
                                     </td>
 
                                     <!-- Item Subtotal -->
                                     <td>
-                                        <p class="end-text black-text"><?= DEFAULT_CURRENCY_SYMBOL . ' ' . htmlspecialchars(formatNumber($price * $quantity)) ?></p>
+                                        <p class="end-text black-text"><?= $subtotal ?></p>
                                     </td>
                                 </tr>
                             <?php endforeach; ?>
@@ -147,12 +173,12 @@
                                     <img src="<?= ICON_PATH . 'shipping.svg' ?>" alt="Shipping fee" title="Shipping fee" height="20">
                                     <p class="black-text">Shipping Fee</p>
                                 </div>
-                                <p class="black-text"><?= DEFAULT_CURRENCY_SYMBOL . ' ' . formatNumber($shippingFeeTotal) ?></p>
+                                <p class="black-text"><?= $shippingFeeTotal ?></p>
                             </div>
 
                             <div class="flex-row">
                                 <p class="black-text">Order Total (<?= $orderCount ?> Items)</p>
-                                <p class="blue-text"><?= DEFAULT_CURRENCY_SYMBOL . ' ' . formatNumber($orderPriceTotal) ?></p>
+                                <p class="blue-text"><?= $orderPriceTotal ?></p>
                             </div>
                         </section>
                     </section>
@@ -170,19 +196,19 @@
                 <!-- Merchandise Subtotal -->
                 <div class="flex-row flex-space-between">
                     <p class="black-text">Merchandise Subtotal</p>
-                    <p class="black-text"><?= DEFAULT_CURRENCY_SYMBOL . ' ' . formatNumber($subTotals['merchandise']) ?></p>
+                    <p class="black-text"><?= $merchandiseSubtotal ?></p>
                 </div>
 
                 <!-- Shipping Subtotal -->
                 <div class="flex-row flex-space-between">
                     <p class="black-text">Shipping Subtotal</p>
-                    <p class="black-text"><?= DEFAULT_CURRENCY_SYMBOL . ' ' . formatNumber($subTotals['shipping']) ?></p>
+                    <p class="black-text"><?= $shippingSubtotal ?></p>
                 </div>
 
                 <!-- Total Payment -->
                 <div class="total-payment flex-row flex-space-between">
                     <p class="black-text">Total Payment</p>
-                    <p class="blue-text"><?= DEFAULT_CURRENCY_SYMBOL . ' ' . formatNumber($totalPayment) ?></p>
+                    <p class="blue-text"><?= $totalPayment ?></p>
                 </div>
             </section>
         </section>

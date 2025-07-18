@@ -1,8 +1,9 @@
 <?php
 
 function renderNotification(bool $status, string $message, int $duration = 5000): void {
+    $statusStyle = ($status) ? 'success' : 'fail';
 ?>
-    <section class="notification-wrapper center-child absolute <?= ($status) ? 'success' : 'fail' ?>">
+    <section class="notification-wrapper center-child absolute <?= $statusStyle ?>">
         <div class="sticky blue-bg" data-duration="<?= $duration ?>">
             <p class="white-text"><?= $message ?></p>
         </div>

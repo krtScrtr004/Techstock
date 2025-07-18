@@ -50,7 +50,7 @@
                 <ul class=" flex-row flex-space-evenly">
                     <?php
                     foreach ($categories as $key => $value):
-                        $sentenceValue = ucwords(kebabToSentenceCase($value));
+                        $sentenceValue = htmlspecialchars(ucwords(kebabToSentenceCase($value)));
                     ?>
                         <li>
 
@@ -73,8 +73,6 @@
         // Top stores
         featuredItem([$controllerInstance, 'topStoreCallback'], $stores, 'Top Stores');
         ?>
-
-        <!-- Top Stores -->
     
         <!-- Discover More -->
         <section id="discover-more" class="discover-more-section">
@@ -154,7 +152,6 @@
     require_once COMPONENT_PATH . 'footer.php';
 
     // Hidden Modals
-    // locationPermissionModal();
     errorOccurredDialog();
     ?>
 

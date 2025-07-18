@@ -32,9 +32,17 @@ function reportReasonModal()
             <section class="reasons">
                 <form action="" method="POST">
                     <ul>
-                        <?php foreach (ReportReason::cases() as $reason): ?>
+                        <?php 
+                        foreach (ReportReason::cases() as $reason): 
+                            $value = $reason->value;
+                        ?>
                             <li>
-                                <button class="reason-button unset-button" type="button" value="<?= $reason->value ?>"><?= $reason->value ?></button>
+                                <button 
+                                    class="reason-button unset-button" 
+                                    type="button" 
+                                    value="<?= $value ?>">
+                                    <?= $value ?>
+                                </button>
                             </li>
                         <?php endforeach; ?>
                     </ul>

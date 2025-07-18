@@ -7,7 +7,7 @@
         <section>
             <h3>Navigate Our Site</h3>
             <ul>
-                <li><a href="<?= htmlspecialchars(REDIRECT_PATH . 'home'); ?>">Home</a></li>
+                <li><a href="<?= REDIRECT_PATH . 'home' ?>">Home</a></li>
                 <li><a href="">My Orders</a></li>
                 <li><a href="">My Cart</a></li>
                 <li><a href="">My Profile</a></li>
@@ -39,7 +39,11 @@
     </section>
 
     <section class="footer-static flex-col center-child">
-        <img src="<?= LOGO_PATH . 'logo_complete_ver.svg' ?>" alt="Techstock logo" title="Techstock logo" height="69">
+        <img 
+            src="<?= LOGO_PATH . 'logo_complete_ver.svg' ?>" 
+            alt="Techstock logo" 
+            title="Techstock logo" 
+            height="69" />
 
         <p>&copy; Techstock Philippines. All rights reserved.</p>
     </section>
