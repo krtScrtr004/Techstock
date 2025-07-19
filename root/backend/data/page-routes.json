@@ -12,7 +12,7 @@
 
 		"Techstock/discover-more(?:[\\w=\\?:&%_-]+)?": "DiscoverMoreController",
 
-		"Techstock/search(?:[\\w=\\?:&%_-]+)?": "SearchController",
+		"Techstock/search(?:\\?[\\w=\\?:&%\\s_+-]+)?": "SearchController",
 
 		"Techstock/product/{slug:[\\w\\s\\.+-]+}-i\\.{store_id:[\\w+_-]+}\\.{product_id:[\\w+_-]+}": "ProductController",
 
