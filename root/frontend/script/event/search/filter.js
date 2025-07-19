@@ -1,4 +1,4 @@
-import { redirect } from '../utility/redirect.js'
+import { redirect } from '../../utility/redirect.js'
 
 const searchFilterWrapper = document.querySelector('.search aside')
 

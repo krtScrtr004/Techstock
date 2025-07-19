@@ -186,7 +186,7 @@
         </aside>
 
         <section class="result-grid flex-col">
-            <!-- TODO: Add relavant store result here -->
+            <!-- TODO: Add relevant store result here -->
 
             <?php include_once COMPONENT_PATH . 'product-list.php' ?>
 
@@ -201,7 +201,8 @@
     ?>
 
     <script src="<?= htmlspecialchars(EVENT_PATH . 'page-tab.js'); ?>" type="module" defer></script>
-    <script src="<?= htmlspecialchars(EVENT_PATH . 'search-filter.js'); ?>" type="module" defer></script>
+
+    <script src="<?= htmlspecialchars(EVENT_PATH . 'search' . DS . 'filter.js'); ?>" type="module" defer></script>
 
 </body>
 

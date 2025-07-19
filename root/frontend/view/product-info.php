@@ -478,13 +478,13 @@ $productTotalRatingCount    =   htmlspecialchars($product->getTotalRatingCount()
     <script src="<?= htmlspecialchars(EVENT_PATH . 'hide-modal.js'); ?>" defer></script>
     <script src="<?= htmlspecialchars(EVENT_PATH . 'break-text-fallback.js'); ?>" defer></script>
 
-    <script src="<?= htmlspecialchars(EVENT_PATH . 'product/show-click-image.js'); ?>" defer></script>
-    <script src="<?= htmlspecialchars(EVENT_PATH . 'product/favorite.js'); ?>" defer></script>
-    <script src="<?= htmlspecialchars(EVENT_PATH . 'product/select-option.js'); ?>" defer></script>
-    <script src="<?= htmlspecialchars(EVENT_PATH . 'product/report.js'); ?>" defer></script>
+    <script src="<?= htmlspecialchars(EVENT_PATH . 'product' . DS . 'show-click-image.js'); ?>" defer></script>
+    <script src="<?= htmlspecialchars(EVENT_PATH . 'product' . DS . 'favorite.js'); ?>" defer></script>
+    <script src="<?= htmlspecialchars(EVENT_PATH . 'product' . DS . 'select-option.js'); ?>" defer></script>
+    <script src="<?= htmlspecialchars(EVENT_PATH . 'product' . DS . 'report.js'); ?>" defer></script>
 
-    <script src="<?= htmlspecialchars(EVENT_PATH . 'product/filter-ratings.js'); ?>" type="module" defer></script>
-    <script src="<?= htmlspecialchars(EVENT_PATH . 'product/filter-page-tab.js'); ?>" type="module" defer></script>
+    <script src="<?= htmlspecialchars(EVENT_PATH . 'product' . DS . 'filter-ratings.js'); ?>" type="module" defer></script>
+    <script src="<?= htmlspecialchars(EVENT_PATH . 'product' . DS . 'filter-page-tab.js'); ?>" type="module" defer></script>
 
 </body>
 

@@ -73,7 +73,7 @@
         // Top stores
         featuredItem([$controllerInstance, 'topStoreCallback'], $stores, 'Top Stores');
         ?>
-    
+
         <!-- Discover More -->
         <section id="discover-more" class="discover-more-section">
             <h3 class="sticky black-text center-text">Discover More</h3>
@@ -155,12 +155,14 @@
     errorOccurredDialog();
     ?>
 
-    <script src="<?= htmlspecialchars(EVENT_PATH . 'location-permission.js'); ?>" type="module" defer></script>
-    <script src="<?= htmlspecialchars(EVENT_PATH . 'slideshow.js'); ?>" defer></script>
     <script src="<?= htmlspecialchars(EVENT_PATH . 'break-text-fallback.js'); ?>" defer></script>
     <script src="<?= htmlspecialchars(EVENT_PATH . 'carousel-tracker.js'); ?>" defer></script>
     <script src="<?= htmlspecialchars(EVENT_PATH . 'hide-modal.js'); ?>" defer></script>
+    
+    <script src="<?= htmlspecialchars(EVENT_PATH . 'location-permission.js'); ?>" type="module" defer></script>
     <script src="<?= htmlspecialchars(EVENT_PATH . 'page-tab.js'); ?>" type="module" defer></script>
+
+    <script src="<?= htmlspecialchars(EVENT_PATH . 'home' . DS . 'slideshow.js'); ?>" defer></script>
 </body>
 
 </html>
