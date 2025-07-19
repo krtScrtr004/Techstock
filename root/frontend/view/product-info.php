@@ -465,6 +465,8 @@ $productTotalRatingCount    =   htmlspecialchars($product->getTotalRatingCount()
     </main>
 
     <?php
+    include_once COMPONENT_PATH . 'back-to-top.php';
+
     require_once COMPONENT_PATH . 'footer.php';
 
     // Hidden Modals
@@ -477,6 +479,7 @@ $productTotalRatingCount    =   htmlspecialchars($product->getTotalRatingCount()
     <script src="<?= htmlspecialchars(EVENT_PATH . 'copy-link.js'); ?>" defer></script>
     <script src="<?= htmlspecialchars(EVENT_PATH . 'hide-modal.js'); ?>" defer></script>
     <script src="<?= htmlspecialchars(EVENT_PATH . 'break-text-fallback.js'); ?>" defer></script>
+    <script src="<?= htmlspecialchars(EVENT_PATH . 'back-to-top.js'); ?>" defer></script>
 
     <script src="<?= htmlspecialchars(EVENT_PATH . 'product' . DS . 'show-click-image.js'); ?>" defer></script>
     <script src="<?= htmlspecialchars(EVENT_PATH . 'product' . DS . 'favorite.js'); ?>" defer></script>

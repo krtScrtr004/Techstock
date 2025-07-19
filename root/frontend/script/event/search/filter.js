@@ -80,8 +80,10 @@ function applySearchFilter() {
         filters.max_price = maxPrice;
     }
 
+    const param = new URLSearchParams(filters)
+    param.append('page', null)
     // Redirect with corresponding search filter query
-    redirect.redirectToSearch(new URLSearchParams(filters))
+    redirect.redirectToSearch(param, 1)
 }
 
 setFilterFromUrl() // Check filters on URL, then set them on search filter section
