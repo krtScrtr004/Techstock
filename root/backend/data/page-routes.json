@@ -14,7 +14,7 @@
 
 		"Techstock/search(?:[\\w=\\?:&%_-]+)?": "SearchController",
 
-		"Techstock/product/{slug:[\\w\\s\\.+-]+}-i\\.{store_id:[\\w+_-]+}\\.{product_id:[\\w+_-]+}": ["ProductController", "info"],
+		"Techstock/product/{slug:[\\w\\s\\.+-]+}-i\\.{store_id:[\\w+_-]+}\\.{product_id:[\\w+_-]+}": "ProductController",
 
 		"Techstock/checkout/{id:[\\w+_-]+}": "CheckoutController",
 

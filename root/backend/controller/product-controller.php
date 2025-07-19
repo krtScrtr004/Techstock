@@ -4,9 +4,7 @@ class ProductController implements Controller
 {
     private function __construct() {}
 
-    public static function index(): void {}
-
-    public static function info(): void
+    public static function index(): void
     {
         global $session;
         
@@ -79,6 +77,6 @@ class ProductController implements Controller
             ])
         ];
 
-        require_once VIEW_PATH . 'product-info.php';
+        require_once VIEW_PATH . 'product.php';
     }
 }
