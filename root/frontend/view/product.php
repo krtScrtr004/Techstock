@@ -36,7 +36,7 @@ $productTotalRatingCount    =   htmlspecialchars($product->getTotalRatingCount()
     <link rel="stylesheet" href="<?= STYLE_PATH . 'confirm-order.css' ?>">
     <link rel="stylesheet" href="<?= STYLE_PATH . 'report-modal.css' ?>">
 
-    <link rel="stylesheet" href="<?= STYLE_PATH . 'product-info.css' ?>">
+    <link rel="stylesheet" href="<?= STYLE_PATH . 'product.css' ?>">
 </head>
 
 <body class="page-info">
@@ -262,6 +262,7 @@ $productTotalRatingCount    =   htmlspecialchars($product->getTotalRatingCount()
             $storeProductCount  =   htmlspecialchars(formatNumber($store->getProductCount()));
             $storeFollowerCount =   htmlspecialchars(formatNumber($store->getFollowerCount()));
             $storeAddress       =   htmlspecialchars($store->getAddress());
+            $storeLink          =   REDIRECT_PATH . 'store' . DS . createSlug($storeName);
             ?>
             <!-- Store Logo Section -->
             <section class="store-logo center-child">
@@ -290,9 +291,18 @@ $productTotalRatingCount    =   htmlspecialchars($product->getTotalRatingCount()
                         </div>
                     </button>
 
-                    <button type="button" class="white-bg thin-button">
-                        View Store
-                    </button>
+                    <a href="<?= $storeLink ?>" class="white-bg center-child thin-button black-text">
+                        <div class="text-w-icon center-child">
+                            <img
+                                src="<?= ICON_PATH . 'store_b.svg' ?>"
+                                alt="Chat now"
+                                title="Chat now"
+                                height="20"
+                                width="20" />
+
+                            <p class="black-text">View Store</p>
+                        </div>
+                    </a>
                 </div>
             </section>
 

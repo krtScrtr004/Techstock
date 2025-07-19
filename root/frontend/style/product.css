@@ -249,9 +249,13 @@
 	gap: 10px;
 }
 
-.chains > .buttons > button {
+.chains > .buttons > button,
+.chains > .buttons > a {
 	width: 15ch;
 	padding: 5px;
+}
+
+.chains > .buttons > a {
 }
 
 .store-details {
