@@ -1,6 +1,6 @@
-import { likeRating } from '../utility/like-rating.js'
-import { debounce } from '../utility/debounce.js'
-import { http } from '../utility/http.js'
+import { likeRating } from '../../utility/like-rating.js'
+import { debounce } from '../../utility/debounce.js'
+import { http } from '../../utility/http.js'
 
 const ratingListWrapper = document.querySelector('.rating-list-wrapper')
 const hiddenWrappers = ratingListWrapper.querySelectorAll('.star-filter-buttons > form > .hidden-wrapper')

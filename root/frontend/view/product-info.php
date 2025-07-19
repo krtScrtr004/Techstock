@@ -474,15 +474,17 @@ $productTotalRatingCount    =   htmlspecialchars($product->getTotalRatingCount()
     ?>
 
     <script src="<?= htmlspecialchars(EVENT_PATH . 'carousel-tracker.js'); ?>" defer></script>
-    <script src="<?= htmlspecialchars(EVENT_PATH . 'show-click-image.js'); ?>" defer></script>
     <script src="<?= htmlspecialchars(EVENT_PATH . 'copy-link.js'); ?>" defer></script>
-    <script src="<?= htmlspecialchars(EVENT_PATH . 'favorite.js'); ?>" defer></script>
     <script src="<?= htmlspecialchars(EVENT_PATH . 'hide-modal.js'); ?>" defer></script>
-    <script src="<?= htmlspecialchars(EVENT_PATH . 'report-product.js'); ?>" defer></script>
-    <script src="<?= htmlspecialchars(EVENT_PATH . 'select-product-option.js'); ?>" defer></script>
     <script src="<?= htmlspecialchars(EVENT_PATH . 'break-text-fallback.js'); ?>" defer></script>
-    <script src="<?= htmlspecialchars(EVENT_PATH . 'filter-ratings.js'); ?>" type="module" defer></script>
-    <script src="<?= htmlspecialchars(EVENT_PATH . 'filter-page-tab.js'); ?>" type="module" defer></script>
+
+    <script src="<?= htmlspecialchars(EVENT_PATH . 'product/show-click-image.js'); ?>" defer></script>
+    <script src="<?= htmlspecialchars(EVENT_PATH . 'product/favorite.js'); ?>" defer></script>
+    <script src="<?= htmlspecialchars(EVENT_PATH . 'product/select-option.js'); ?>" defer></script>
+    <script src="<?= htmlspecialchars(EVENT_PATH . 'product/report.js'); ?>" defer></script>
+
+    <script src="<?= htmlspecialchars(EVENT_PATH . 'product/filter-ratings.js'); ?>" type="module" defer></script>
+    <script src="<?= htmlspecialchars(EVENT_PATH . 'product/filter-page-tab.js'); ?>" type="module" defer></script>
 
 </body>
 

@@ -1,6 +1,6 @@
-import { displayPagination } from '../utility/display-pagination.js'
-import { likeRating } from '../utility/like-rating.js'
-import { http } from '../utility/http.js'
+import { displayPagination } from '../../utility/display-pagination.js'
+import { likeRating } from '../../utility/like-rating.js'
+import { http } from '../../utility/http.js'
 
 const maxPage = 10
 let pageNumber = 1
