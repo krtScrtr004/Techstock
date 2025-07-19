@@ -17,21 +17,18 @@ if (collectionButtons && collectionButtons.length > 0) {
 
             await exports.getResponse((response) => {
                 if (response.count && response.count > 0) {
-                    // Reset Stats
-                    exports.productList.innerHTML = ''
-                    exports.noMoreProducts.style.display = 'none'
+                    exports.resetList()
 
                     exports.insertProductCards(response.productCards)
-
-                    const resultGrid = exports.infiniteList.querySelector('.result-grid')
-                    resultGrid.scrollIntoView({
-                        behavior: 'instant',
-                        block: 'start'
-                    })
                     exports.collectionName = button.innerText
                 }
             })
 
+            const resultGrid = exports.infiniteList.querySelector('.result-grid')
+            resultGrid.scrollIntoView({
+                behavior: 'instant',
+                block: 'start'
+            })
             exports.observer.observe(exports.infiniteListSentinel)
         })
     })

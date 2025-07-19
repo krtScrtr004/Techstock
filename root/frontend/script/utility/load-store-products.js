@@ -15,13 +15,18 @@ const Exports = () => {
 
         observer: null,
 
-        getResponse: async function (callback) {
+        getResponse: async function (callback, search = null) {
             if (this.isLoading) {
                 return
             }
             this.isLoading = true
 
-            const response = await http.GET(`dump/api/store-product?page=${this.page++}&collection=${this.collectionName}`) // TODO
+            let endpoint = `dump/api/store-product?page=${this.page++}&collection=${this.collectionName}`
+            if (search) {
+                endpoint = `${endpoint}&q=${search}`
+            }
+
+            const response = await http.GET(endpoint) // TODO
             if (response) {
                 callback(response)
             }
@@ -32,6 +37,12 @@ const Exports = () => {
             cards.forEach(card => {
                 this.productList.insertAdjacentHTML('beforeend', card)
             })
+        },
+
+        resetList: function () {
+            this.page = 1
+            this.productList.innerHTML = ''
+            this.noMoreProducts.style.display = 'none'
         }
     }
 }
