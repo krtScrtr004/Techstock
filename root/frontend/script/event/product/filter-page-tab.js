@@ -2,6 +2,8 @@ import { displayPagination } from '../../utility/display-pagination.js'
 import { likeRating } from '../../utility/like-rating.js'
 import { http } from '../../utility/http.js'
 
+import { loader } from '../../render/loader.js'
+
 const maxPage = 10
 let pageNumber = 1
 
@@ -25,6 +27,7 @@ async function redirectHandler(page) {
     // const endpoint = `dump/api/rating-card${createSearchParam()}`
 
     ratingList.innerHTML = '' // Remove all contents
+    loader.full(ratingList)
     
     const response = await http.GET('dump/api/rating-card') // TODO
     if (response) {
@@ -42,6 +45,8 @@ async function redirectHandler(page) {
 
     pageNumber = page
     displayPagination(pageNumber, maxPage, redirectHandler)
+
+    loader.delete()
 }
 
 displayPagination(pageNumber, maxPage, redirectHandler)

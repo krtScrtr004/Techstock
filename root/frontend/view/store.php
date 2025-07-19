@@ -18,6 +18,7 @@ $address       =   htmlspecialchars($store->getAddress());
     <title>Techstock | <?= $name ?></title>
 
     <base href="/Techstock/root/frontend/">
+    <link rel="stylesheet" href="<?= STYLE_PATH . 'loader.css' ?>">
     <link rel="stylesheet" href="<?= STYLE_PATH . 'utility.css' ?>">
     <link rel="stylesheet" href="<?= STYLE_PATH . 'component.css' ?>">
     <link rel="stylesheet" href="<?= STYLE_PATH . 'header.css' ?>">

@@ -19,8 +19,12 @@ if (collectionButtons && collectionButtons.length > 0) {
                 if (response.count && response.count > 0) {
                     exports.resetList()
 
+                    exports.loader.full(exports.productList)
+
                     exports.insertProductCards(response.productCards)
                     exports.collectionName = button.innerText
+
+                    exports.loader.delete()
                 }
             })
 

@@ -11,11 +11,14 @@ if (form) {
         const inputSearch = form.querySelector('#search_store').value
         await exports.getResponse((response) => {
             exports.resetList()
+            exports.loader.full(exports.productList)
 
             exports.insertProductCards(response.productCards)
             exports.collectionName = ''
+            
+            exports.loader.delete()
         }, inputSearch)
-        
+
         const resultGrid = exports.infiniteList.querySelector('.result-grid')
         resultGrid.scrollIntoView({
             behavior: 'smooth',

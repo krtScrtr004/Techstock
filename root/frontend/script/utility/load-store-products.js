@@ -1,10 +1,13 @@
 import { http } from './http.js'
 
+import { loader } from '../render/loader.js'
+
 const Exports = () => {
     return {
         page: 1,
         isLoading: false,
         http: http,
+        loader: loader,
 
         infiniteList: document.querySelector('.infinite-list'),
         productList: document.querySelector('.product-list'),

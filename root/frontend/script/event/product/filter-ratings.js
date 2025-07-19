@@ -2,6 +2,8 @@ import { likeRating } from '../../utility/like-rating.js'
 import { debounce } from '../../utility/debounce.js'
 import { http } from '../../utility/http.js'
 
+import { loader } from '../../render/loader.js'
+
 const ratingListWrapper = document.querySelector('.rating-list-wrapper')
 const hiddenWrappers = ratingListWrapper.querySelectorAll('.star-filter-buttons > form > .hidden-wrapper')
 
@@ -17,6 +19,8 @@ async function updateRatingList(/*ratingLevels*/) {
     const ratingList = ratingListWrapper.querySelector('.rating-list > .list')
     ratingList.innerHTML = '' // Remove all contents
 
+    loader.full(ratingList)
+
     // const searchQuery = new URLSearchParams({
     //     'rating-level': ratingLevels
     // })
@@ -29,6 +33,8 @@ async function updateRatingList(/*ratingLevels*/) {
         })
         likeRating() // Add like rating event
     }
+
+    loader.delete()
 }
 
 const firstHiddenWrapper = ratingListWrapper.querySelector('.hidden-wrapper:first-child')

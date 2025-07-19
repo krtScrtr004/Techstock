@@ -1,5 +1,5 @@
 .store > main {
-    padding: 0;
+	padding: 0;
 }
 
 .store > main > section {
@@ -16,7 +16,7 @@
 }
 
 .store-name {
-    max-width: 20ch;
+	max-width: 20ch;
 	line-height: 1;
 	font-size: 1.8rem;
 }
@@ -40,13 +40,13 @@
 
 .additional-info {
 	flex: 1;
-    margin-left: 3rem;
-    gap: 1rem;
+	margin-left: 3rem;
+	gap: 1rem;
 }
 
 .search-store-form {
 	width: 100%;
-    height: fit-content;
+	height: fit-content;
 }
 
 .search-store-form input {
@@ -59,24 +59,24 @@
 	top: 50%;
 	right: 10px;
 	transform: translate(0, -50%);
-    opacity: 0.8;
+	opacity: 0.8;
 }
 
 .search-store-button > img {
-    padding: 3px;
+	padding: 3px;
 }
 
 .additional-info > .info-grid {
-    grid-template-columns: auto auto;
-    gap: 5px 10px;
+	grid-template-columns: auto auto;
+	gap: 5px 10px;
 }
 
 .additional-info > .info-grid > .key {
-    max-width: 10ch;
+	max-width: 10ch;
 }
 
 .additional-info > .info-grid {
-    grid-template-columns: 10ch auto;
+	grid-template-columns: 10ch auto;
 }
 
 .store > main > .content {
@@ -112,9 +112,12 @@
 	border-bottom: 2px solid var(--blue);
 }
 
-.infinite-list > .result-grid
-{
-	min-height: 600px;
+.infinite-list > .result-grid,
+.infinite-list > .result-grid > .product-list {
+	min-height: 100px;
+}
+
+.infinite-list > .result-grid {
 	width: 100%;
 }
 
