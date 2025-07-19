@@ -1,0 +1,38 @@
+import { exports } from '../../utility/load-store-products.js'
+
+// Filter Handler
+const collectionButtons = exports.infiniteList.querySelectorAll('.collection-button')
+if (collectionButtons && collectionButtons.length > 0) {
+    let lastActiveButton = collectionButtons[0]
+    collectionButtons.forEach(button => {
+        button.addEventListener('click', async e => {
+            e.preventDefault()
+
+            lastActiveButton.classList.remove('active')
+            button.classList.add('active')
+            lastActiveButton = button
+
+            exports.page = 1
+            exports.observer.unobserve(exports.infiniteListSentinel)
+
+            await exports.getResponse((response) => {
+                if (response.count && response.count > 0) {
+                    // Reset Stats
+                    exports.productList.innerHTML = ''
+                    exports.noMoreProducts.style.display = 'none'
+
+                    exports.insertProductCards(response.productCards)
+
+                    const resultGrid = exports.infiniteList.querySelector('.result-grid')
+                    resultGrid.scrollIntoView({
+                        behavior: 'instant',
+                        block: 'start'
+                    })
+                    exports.collectionName = button.innerText
+                }
+            })
+
+            exports.observer.observe(exports.infiniteListSentinel)
+        })
+    })
+}
