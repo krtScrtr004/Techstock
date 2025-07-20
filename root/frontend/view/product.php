@@ -396,7 +396,6 @@ $productTotalRatingCount    =   htmlspecialchars($product->getTotalRatingCount()
                     $totalThreeRating   =   htmlspecialchars($product->getThreeRatingCount());
                     $totalTwoRating     =   htmlspecialchars($product->getTwoRatingCount());
                     $totalOnwRating     =   htmlspecialchars($product->getOneRatingCount());
-
                 ?>
                     <section class="star-filter-buttons">
                         <form class="flex-row flex-child-start-h flex-wrap" action="" method="POST">
@@ -453,7 +452,8 @@ $productTotalRatingCount    =   htmlspecialchars($product->getTotalRatingCount()
                 <?php endif; ?>
             </section>
 
-            <?php if ($productTotalRatingCount > 0): ?>
+            <?php
+            if ($productTotalRatingCount > 0) { ?>
                 <section class="rating-list flex-col">
                     <section class="list flex-col">
                         <?php foreach ($ratings as $rating) {
@@ -463,7 +463,10 @@ $productTotalRatingCount    =   htmlspecialchars($product->getTotalRatingCount()
 
                     <div class="page-tab center-child"></div>
                 </section>
-            <?php endif; ?>
+            <?php
+            } else {
+                emptyRating();
+            } ?>
 
         </section>
 

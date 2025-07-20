@@ -1,18 +1,22 @@
 <?php
 
-function emptyResult(string $iconName, string $title, ?string $subTitle): void
+function emptyResult(
+    string $iconName, 
+    string $title, 
+    string $subTitle = '',
+    string $size = 'big'): void
 {
 ?>
-    <div class="empty-result flex-col center-child transparent-bg full-body-content">
+    <div class="empty-result <?= $size ?> flex-col center-child transparent-bg full-body-content">
         <img
             src="<?= ICON_PATH . $iconName ?>"
             alt="<?= $title ?>"
             title="<?= $title ?>"
             height="45" />
 
-        <h3 class="black-text"><?= $title ?></h3>
+        <h3 class="center-text black-text"><?= $title ?></h3>
         <?php if ($subTitle): ?>
-            <p class="light-black-text"><?= $subTitle ?></p>
+            <p class="center-text light-black-text"><?= $subTitle ?></p>
         <?php endif; ?>
     </div>
 <?php
@@ -31,7 +35,16 @@ function emptyFeaturedItem(): void
 {
     emptyResult(
         'empty-list_b.svg',
-        'No Featured Items!',
-        null
+        'No Featured Items!'
+    );
+}
+
+function emptyRating(): void
+{
+    emptyResult(
+        'star_y.svg',
+        'No Rating For This Product Yet!',
+        '',
+        'small'
     );
 }
