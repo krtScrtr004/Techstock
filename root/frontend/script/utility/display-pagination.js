@@ -35,6 +35,13 @@ function getPagination(pageNumber, maxPage) {
 
 export function displayPagination(pageNumber, maxPage, redirectHandler) {
     const pageTabWrapper = document.querySelector('.page-tab')
+
+    if (maxPage <= 0) {
+        pageTabWrapper.classList.remove('center-child')
+        pageTabWrapper.classList.add('no-display')
+        return
+    }
+
     pageTabWrapper.innerHTML = ''
 
     // Create previous button
