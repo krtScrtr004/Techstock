@@ -4,7 +4,7 @@ define('DS', DIRECTORY_SEPARATOR);
 
 require_once __DIR__ . DS . 'path.php';
 
-require_once VENDOR_PATH . 'autoload.php' ;
+require_once VENDOR_PATH . 'autoload.php';
 
 require_once __DIR__ . DS . 'env.php';
 
@@ -20,16 +20,16 @@ spl_autoload_register(function ($class) {
     }
 });
 
-foreach (glob(BE_UTILITY_PATH . '*.php') as $fileName) {
-    require_once $fileName;
-}
-
-foreach (glob(CONTROLLER_PATH . '*.php') as $fileName) {
-    require_once $fileName;
-}
-
-foreach (glob(FE_UTILITY_PATH . '*.php') as $fileName) {
-    include_once $fileName;
+$paths = [
+    FE_UTILITY_PATH, 
+    BE_UTILITY_PATH, 
+    CONTROLLER_PATH, 
+    FUNCTION_COMPONENT_PATH
+];
+foreach ($paths as $path) {
+    foreach (glob($path . '*.php') as $fileName) {
+        require_once $fileName;
+    }
 }
 
 $session = Session::create();

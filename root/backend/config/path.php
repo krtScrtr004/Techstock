@@ -15,6 +15,7 @@ define('VIEW_PATH', FRONTEND_PATH . 'view' . DS);
 define('COMPONENT_PATH', FRONTEND_PATH . 'component' . DS);
 
 define('DIALOG_PATH', COMPONENT_PATH . 'dialog' . DS);
+define('FUNCTION_COMPONENT_PATH', COMPONENT_PATH . 'function' . DS);
 
 define('CORE_PATH', BACKEND_PATH . 'core' . DS);
 define('CONTROLLER_PATH', BACKEND_PATH . 'controller' . DS);
