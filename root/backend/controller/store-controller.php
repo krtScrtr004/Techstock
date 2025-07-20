@@ -191,6 +191,12 @@ class StoreController implements Controller
 
     public function featuredProductsCallback($products): void
     {
+        $products = [];
+        if (count($products) <= 0) {
+            emptyFeaturedItem();
+            return;
+        }
+
         foreach ($products as $product) {
             echo productCard($product);
         }

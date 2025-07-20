@@ -32,6 +32,11 @@ class HomeController implements Controller
 
     public function topProductCallback($products)
     {
+        if (count($products) <= 0) {
+            emptyFeaturedItem();
+            return;
+        }
+
         foreach ($products as $product) {
             echo productCard($product);
         }
@@ -39,6 +44,11 @@ class HomeController implements Controller
 
     public function topStoreCallback($stores): void
     {
+        if (count($stores) <= 0) {
+            emptyFeaturedItem();
+            return;
+        }
+
         foreach ($stores as $store) {
             $name = htmlspecialchars($store->getName());
             $logo = htmlspecialchars($store->getLogo());
