@@ -474,7 +474,7 @@ $productTotalRatingCount    =   htmlspecialchars($product->getTotalRatingCount()
         <section class="recommended-products">
             <h1 class="black-text">Recommended Products</h1>
 
-            <?php include_once COMPONENT_PATH . 'product-list.php' ?>
+            <?php productGrid($products) ?>
         </section>
     </main>
 

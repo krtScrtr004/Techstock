@@ -27,7 +27,7 @@ function emptyGridResult(): void
     emptyResult(
         'empty-list_b.svg',
         'No Items Found!',
-        'Try different or more generic keywords'
+        'Try searching for different or more generic keywords'
     );
 }
 

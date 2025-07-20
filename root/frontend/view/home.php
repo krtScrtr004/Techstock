@@ -78,9 +78,7 @@
         <section id="discover-more" class="discover-more-section">
             <h3 class="sticky black-text center-text">Discover More</h3>
 
-            <?php
-            include_once COMPONENT_PATH . 'product-list.php';
-            ?>
+            <?php productGrid($products) ?>
 
             <div class="page-tab center-child"></div>
         </section>

@@ -188,7 +188,7 @@
         <section class="result-grid flex-col">
             <!-- TODO: Add relevant store result here -->
 
-            <?php include_once COMPONENT_PATH . 'product-list.php' ?>
+            <?php productGrid($products) ?>
 
             <div class="page-tab center-child"></div>
         </section>

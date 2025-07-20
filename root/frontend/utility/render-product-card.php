@@ -29,4 +29,19 @@ function productCard(Product $product): mixed
     </a>
 <?php
     return ob_get_clean();
-} ?>
+}
+
+function productGrid($products): void
+{
+    echo '<section class="product-list">';
+    if (count($products) > 0) {
+        foreach ($products as $product) {
+            echo productCard($product);
+        }
+    } else {
+        emptyGridResult();
+    }
+    echo '</section>';
+}
+
+?>

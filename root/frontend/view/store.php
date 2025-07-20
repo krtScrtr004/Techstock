@@ -153,7 +153,7 @@ $address       =   htmlspecialchars($store->getAddress());
                 </aside>
 
                 <section class="result-grid">
-                    <?php include_once COMPONENT_PATH . 'product-list.php' ?>
+                    <?php productGrid($products) ?>
 
                     <div class="sentinel"></div>
 

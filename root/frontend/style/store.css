@@ -119,6 +119,7 @@
 
 .infinite-list > .result-grid {
 	width: 100%;
+	height: fit-content;
 }
 
 .infinite-list > .result-grid > .sentinel {
