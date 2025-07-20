@@ -1,6 +1,11 @@
 <section class="product-list">
     <?php
-    foreach ($products as $product) {
-        echo productCard($product);
-    } ?>
+    if (count($products) > 0) {
+        foreach ($products as $product) {
+            echo productCard($product);
+        }
+    } else {
+        emptyGridResult();
+    }
+    ?>
 </section>

@@ -255,6 +255,7 @@
 /* ----------------- PRODUCT CARD & PRODUCT LIST ----------------- */
 
 .product-list {
+	height: 100%;
 	display: grid;
 	grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
 	justify-content: stretch;
@@ -491,4 +492,22 @@
 	border: 2px solid var(--light-black);
 	border-radius: 50%;
 	place-items: center;
+}
+
+/* --------------------- EMPTY RESULT --------------------- */
+
+.empty-result {
+	padding: var(--space);
+}
+
+.empty-result > img {
+	height: 8rem;
+}
+
+.empty-result > h3 {
+	font-size: 1.5rem;
+}
+
+.empty-result > p {
+	font-size: 1.3rem;
 }
