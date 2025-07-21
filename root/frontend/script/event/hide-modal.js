@@ -1,4 +1,6 @@
-(() => {
+import { dialog } from '../render/dialog.js'
+
+try {
     const modalWrappers = document.querySelectorAll('.modal-wrapper')
     modalWrappers.forEach(modalWrapper => {
         const buttons = modalWrapper.querySelectorAll('button.close-button, button.okay-button')
@@ -11,4 +13,6 @@
             })
         })
     })
-})()
+} catch (error) {
+    dialog.errorOccurred(error.message)
+}

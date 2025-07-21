@@ -169,14 +169,10 @@ $address       =   htmlspecialchars($store->getAddress());
     include_once COMPONENT_PATH . 'back-to-top.php';
 
     require_once COMPONENT_PATH . 'footer.php';
-
-    // Hidden Modals
-    errorOccurredDialog();
     ?>
 
-    <script src="<?= htmlspecialchars(EVENT_PATH . 'carousel-tracker.js'); ?>" defer></script>
-    <script src="<?= htmlspecialchars(EVENT_PATH . 'back-to-top.js'); ?>" defer></script>
-
+    <script type="module" src="<?= htmlspecialchars(EVENT_PATH . 'carousel-tracker.js'); ?>" defer></script>
+    <script type="module" src="<?= htmlspecialchars(EVENT_PATH . 'back-to-top.js'); ?>" defer></script>
     <script type="module" src="<?= htmlspecialchars(EVENT_PATH . 'store/filter-product.js'); ?>" defer></script>
     <script type="module" src="<?= htmlspecialchars(EVENT_PATH . 'store/scroll-product.js'); ?>" defer></script>
     <script type="module" src="<?= htmlspecialchars(EVENT_PATH . 'store/search.js'); ?>" defer></script>

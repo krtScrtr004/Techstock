@@ -486,22 +486,20 @@ $productTotalRatingCount    =   htmlspecialchars($product->getTotalRatingCount()
     // Hidden Modals
     reportReasonModal();
     reportDescriptionModal();
-    errorOccurredDialog();
     ?>
 
-    <script src="<?= htmlspecialchars(EVENT_PATH . 'carousel-tracker.js'); ?>" defer></script>
-    <script src="<?= htmlspecialchars(EVENT_PATH . 'copy-link.js'); ?>" defer></script>
-    <script src="<?= htmlspecialchars(EVENT_PATH . 'hide-modal.js'); ?>" defer></script>
-    <script src="<?= htmlspecialchars(EVENT_PATH . 'break-text-fallback.js'); ?>" defer></script>
-    <script src="<?= htmlspecialchars(EVENT_PATH . 'back-to-top.js'); ?>" defer></script>
+    <script type="module" src="<?= htmlspecialchars(EVENT_PATH . 'carousel-tracker.js'); ?>" defer></script>
+    <script type="module" src="<?= htmlspecialchars(EVENT_PATH . 'copy-link.js'); ?>" defer></script>
+    <script type="module" src="<?= htmlspecialchars(EVENT_PATH . 'hide-modal.js'); ?>" defer></script>
+    <script type="module" src="<?= htmlspecialchars(EVENT_PATH . 'break-text-fallback.js'); ?>" defer></script>
+    <script type="module" src="<?= htmlspecialchars(EVENT_PATH . 'back-to-top.js'); ?>" defer></script>
 
-    <script src="<?= htmlspecialchars(EVENT_PATH . 'product' . DS . 'show-click-image.js'); ?>" defer></script>
-    <script src="<?= htmlspecialchars(EVENT_PATH . 'product' . DS . 'favorite.js'); ?>" defer></script>
-    <script src="<?= htmlspecialchars(EVENT_PATH . 'product' . DS . 'select-option.js'); ?>" defer></script>
-    <script src="<?= htmlspecialchars(EVENT_PATH . 'product' . DS . 'report.js'); ?>" defer></script>
-
-    <script src="<?= htmlspecialchars(EVENT_PATH . 'product' . DS . 'filter-ratings.js'); ?>" type="module" defer></script>
-    <script src="<?= htmlspecialchars(EVENT_PATH . 'product' . DS . 'filter-page-tab.js'); ?>" type="module" defer></script>
+    <script type="module" src="<?= htmlspecialchars(EVENT_PATH . 'product' . DS . 'show-click-image.js'); ?>" defer></script>
+    <script type="module" src="<?= htmlspecialchars(EVENT_PATH . 'product' . DS . 'favorite.js'); ?>" defer></script>
+    <script type="module" src="<?= htmlspecialchars(EVENT_PATH . 'product' . DS . 'select-option.js'); ?>" defer></script>
+    <script type="module" src="<?= htmlspecialchars(EVENT_PATH . 'product' . DS . 'report.js'); ?>" defer></script>
+    <script type="module" src="<?= htmlspecialchars(EVENT_PATH . 'product' . DS . 'filter-ratings.js'); ?>" defer></script>
+    <script type="module" src="<?= htmlspecialchars(EVENT_PATH . 'product' . DS . 'filter-page-tab.js'); ?>" defer></script>
 
 </body>
 

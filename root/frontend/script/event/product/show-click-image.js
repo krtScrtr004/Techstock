@@ -1,12 +1,19 @@
-const imagesSection = document.querySelector('.images-section')
+import { dialog } from '../../render/dialog.js'
 
-const featuredImage = imagesSection.querySelector('.featured-image')
-const imageCollection = imagesSection.querySelectorAll('.image-collection > .carousel > img')
+try {
+    const imagesSection = document.querySelector('.images-section')
 
-imageCollection.forEach(image => {
-    image.addEventListener('click', e => {
-        e.stopPropagation()
+    const featuredImage = imagesSection.querySelector('.featured-image')
+    const imageCollection = imagesSection.querySelectorAll('.image-collection > .carousel > img')
 
-        featuredImage.src = image.src
-    })
-})
+    imageCollection.forEach(image => {
+        image.addEventListener('click', e => {
+            e.stopPropagation()
+
+            featuredImage.src = image.src
+        })
+    })    
+} catch (error) {
+    dialog.errorOccurred(error.message)
+}
+

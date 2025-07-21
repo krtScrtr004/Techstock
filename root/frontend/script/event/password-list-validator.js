@@ -1,8 +1,7 @@
-(() => {
+import { dialog } from "../render/dialog.js";
+
+try {
     const passwordElement = document.querySelector('#s_password');
-    if (!passwordElement) {
-        return
-    }
 
     const [green, red] = ['rgb(0, 208, 38)', 'rgb(255, 47, 47)']
     const patterns = [/[a-z]/, /[A-Z]/, /[^a-zA-Z0-9_!@'.-]/]
@@ -27,4 +26,6 @@
             }
         })
     })
-})()
+} catch (error) {
+    dialog.errorOccurred(error.message)
+}

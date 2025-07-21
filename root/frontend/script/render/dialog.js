@@ -12,8 +12,8 @@ const Dialog = () => {
         const statusIcon = status ? icons[0] : icons[1]
 
         const html = `
-        <section id="${id}-wrapper" class="modal-wrapper">
-            <section class="dialog white-bg">
+        <section id="${id}-wrapper" class="modal-wrapper flex-col">
+            <section class="dialog white-bg flex-col">
                 <img 
                     src="${ICON_PATH + statusIcon}" 
                     alt="Result icon" 
@@ -21,8 +21,10 @@ const Dialog = () => {
                     height="69" 
                     width="69" />
 
-                <h1 class="center-text">${title}</h1>
-                <p class="center-text">${message}</p>
+                    <div>
+                        <h1 class="center-text">${title}</h1>
+                        <p class="center-text">${message}</p>
+                    </div>
 
                 <button class="okay-button ${status ? 'blue-bg' : 'red-bg'} white-text">OKAY</button>
             </section>

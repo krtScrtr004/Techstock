@@ -40,17 +40,11 @@
 		</section>
 	</main>
 
-	<?php
-	require_once COMPONENT_PATH . 'footer.php';
+	<?php require_once COMPONENT_PATH . 'footer.php' ?>
 
-	// Hidden Modals
-	tooManyAttemptDialog();
-	errorOccurredDialog();
-	?>
-
-	<script src="<?= htmlspecialchars(EVENT_PATH . 'toggle-password.js'); ?>" defer></script>
-	<script src="<?= htmlspecialchars(EVENT_PATH . 'lazy-background.js'); ?>" defer></script>
-	<script src="<?= htmlspecialchars(EVENT_PATH . 'hide-modal.js'); ?>" defer></script>
+	<script type="module" src="<?= htmlspecialchars(EVENT_PATH . 'lazy-background.js'); ?>" defer></script>
+	<script type="module" src="<?= htmlspecialchars(EVENT_PATH . 'hide-modal.js'); ?>" defer></script>
+	<script type="module" src="<?= htmlspecialchars(EVENT_PATH . 'toggle-password.js'); ?>" defer></script>
 </body>
 
 </html>

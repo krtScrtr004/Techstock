@@ -1,36 +1,43 @@
-const reportReasonModalWrapper = document.querySelector('.report-reason-modal-wrapper')
-const reportDescriptionModalWrapper = document.querySelector('.report-description-modal-wrapper')
+import { dialog } from '../../render/dialog.js'
 
-function toggleModalWrapper(modalWrapper, status) {
-    modalWrapper.style.display = (status) ? 'flex' : 'none'
-}
+try {
+    const reportReasonModalWrapper = document.querySelector('.report-reason-modal-wrapper')
+    const reportDescriptionModalWrapper = document.querySelector('.report-description-modal-wrapper')
 
-const reportButton = document.querySelector('.report-button')
-reportButton.addEventListener('click', e => {
-    e.preventDefault()
-    toggleModalWrapper(reportReasonModalWrapper, true)
-})
+    function toggleModalWrapper(modalWrapper, status) {
+        modalWrapper.style.display = (status) ? 'flex' : 'none'
+    }
 
-const reasonButtons = reportReasonModalWrapper.querySelectorAll('.reason-button')
-reasonButtons.forEach(button => {
-    button.addEventListener('click', e => {
+    const reportButton = document.querySelector('.report-button')
+    reportButton.addEventListener('click', e => {
         e.preventDefault()
+        toggleModalWrapper(reportReasonModalWrapper, true)
+    })
 
-        const reportReason = button.value
-        if (!reportReason) {
-            return
-        }
-        toggleModalWrapper(reportReasonModalWrapper, false)
+    const reasonButtons = reportReasonModalWrapper.querySelectorAll('.reason-button')
+    reasonButtons.forEach(button => {
+        button.addEventListener('click', e => {
+            e.preventDefault()
 
-        toggleModalWrapper(reportDescriptionModalWrapper, true)
-        const reasonName = reportDescriptionModalWrapper.querySelector('.reason-name')
-        reasonName.textContent = reportReason
+            const reportReason = button.value
+            if (!reportReason) {
+                return
+            }
+            toggleModalWrapper(reportReasonModalWrapper, false)
 
-        const backButton = reportDescriptionModalWrapper.querySelector('.back-button')
-        backButton.addEventListener('click', ev => {
-            ev.preventDefault()
-            toggleModalWrapper(reportDescriptionModalWrapper, false)
-            toggleModalWrapper(reportReasonModalWrapper, true)
+            toggleModalWrapper(reportDescriptionModalWrapper, true)
+            const reasonName = reportDescriptionModalWrapper.querySelector('.reason-name')
+            reasonName.textContent = reportReason
+
+            const backButton = reportDescriptionModalWrapper.querySelector('.back-button')
+            backButton.addEventListener('click', ev => {
+                ev.preventDefault()
+                toggleModalWrapper(reportDescriptionModalWrapper, false)
+                toggleModalWrapper(reportReasonModalWrapper, true)
+            })
         })
     })
-})
+} catch (error) {
+    dialog.errorOccurred(error.message)
+}   
+

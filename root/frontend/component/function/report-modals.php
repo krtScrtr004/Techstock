@@ -17,7 +17,7 @@ function reportReasonModal()
 ?>
     <!-- Report Reason Modal -->
     <!-- Modal Wrapper -->
-    <section class="report-reason-modal-wrapper modal-wrapper">
+    <section class="report-reason-modal-wrapper modal-wrapper no-display">
         <!-- Modal -->
         <section class="report-reason-modal modal white-bg">
             <!-- Heading -->
@@ -58,7 +58,7 @@ function reportDescriptionModal(): void
 ?>
     <!-- Report Description -->
     <!-- Modal Wrapper -->
-    <section class="report-description-modal-wrapper modal-wrapper">
+    <section class="report-description-modal-wrapper modal-wrapper no-display">
         <!-- Modal -->
         <section class="report-description-modal modal white-bg">
             <!-- Heading -->

@@ -172,11 +172,10 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	gap: var(--space);
+	gap: 1rem;
 }
 
 .modal-wrapper {
-	display: none;
 	background-color: transparent;
 }
 
