@@ -43,7 +43,6 @@
 	<?php require_once COMPONENT_PATH . 'footer.php' ?>
 
 	<script type="module" src="<?= htmlspecialchars(EVENT_PATH . 'lazy-background.js'); ?>" defer></script>
-	<script type="module" src="<?= htmlspecialchars(EVENT_PATH . 'hide-modal.js'); ?>" defer></script>
 	<script type="module" src="<?= htmlspecialchars(EVENT_PATH . 'toggle-password.js'); ?>" defer></script>
 </body>
 

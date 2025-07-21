@@ -490,7 +490,6 @@ $productTotalRatingCount    =   htmlspecialchars($product->getTotalRatingCount()
 
     <script type="module" src="<?= htmlspecialchars(EVENT_PATH . 'carousel-tracker.js'); ?>" defer></script>
     <script type="module" src="<?= htmlspecialchars(EVENT_PATH . 'copy-link.js'); ?>" defer></script>
-    <script type="module" src="<?= htmlspecialchars(EVENT_PATH . 'hide-modal.js'); ?>" defer></script>
     <script type="module" src="<?= htmlspecialchars(EVENT_PATH . 'break-text-fallback.js'); ?>" defer></script>
     <script type="module" src="<?= htmlspecialchars(EVENT_PATH . 'back-to-top.js'); ?>" defer></script>
 

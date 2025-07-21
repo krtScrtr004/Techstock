@@ -1,3 +1,5 @@
+import { hideModal } from '../../utility/hide-modal.js'
+
 import { dialog } from '../../render/dialog.js'
 
 try {
@@ -37,6 +39,9 @@ try {
             })
         })
     })
+
+    hideModal(reportDescriptionModalWrapper)
+    hideModal(reportReasonModalWrapper)
 } catch (error) {
     dialog.errorOccurred(error.message)
 }   

@@ -1,3 +1,5 @@
+import { hideModal } from '../utility/hide-modal.js'
+
 const Dialog = () => {
     const ICON_PATH = 'asset/image/icon/'
 
@@ -32,6 +34,9 @@ const Dialog = () => {
         `
 
         parent.insertAdjacentHTML('afterbegin', html)
+
+        const modalWrapper = document.querySelector(`#${id}-wrapper`)
+        hideModal(modalWrapper)
     }
 
     return {

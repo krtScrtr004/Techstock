@@ -173,9 +173,10 @@ $address       =   htmlspecialchars($store->getAddress());
 
     <script type="module" src="<?= htmlspecialchars(EVENT_PATH . 'carousel-tracker.js'); ?>" defer></script>
     <script type="module" src="<?= htmlspecialchars(EVENT_PATH . 'back-to-top.js'); ?>" defer></script>
-    <script type="module" src="<?= htmlspecialchars(EVENT_PATH . 'store/filter-product.js'); ?>" defer></script>
-    <script type="module" src="<?= htmlspecialchars(EVENT_PATH . 'store/scroll-product.js'); ?>" defer></script>
-    <script type="module" src="<?= htmlspecialchars(EVENT_PATH . 'store/search.js'); ?>" defer></script>
+    
+    <script type="module" src="<?= htmlspecialchars(EVENT_PATH . 'store' . DS . 'filter-product.js'); ?>" defer></script>
+    <script type="module" src="<?= htmlspecialchars(EVENT_PATH . 'store' . DS . 'scroll-product.js'); ?>" defer></script>
+    <script type="module" src="<?= htmlspecialchars(EVENT_PATH . 'store' . DS . 'search.js'); ?>" defer></script>
 </body>
 
 </html>

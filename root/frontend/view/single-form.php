@@ -34,7 +34,6 @@
 
     <script type="module" src="<?= htmlspecialchars(EVENT_PATH . 'back-button.js'); ?>" defer></script>
     <script type="module" src="<?= htmlspecialchars(EVENT_PATH . 'password-list-validator.js'); ?>" defer></script>
-    <script type="module" src="<?= htmlspecialchars(EVENT_PATH . 'hide-modal.js'); ?>" defer></script>
 </body>
 
 </html>

@@ -150,7 +150,6 @@
 
     <script type="module" src="<?= htmlspecialchars(EVENT_PATH . 'break-text-fallback.js'); ?>" defer></script>
     <script type="module" src="<?= htmlspecialchars(EVENT_PATH . 'carousel-tracker.js'); ?>" defer></script>
-    <script type="module" src="<?= htmlspecialchars(EVENT_PATH . 'hide-modal.js'); ?>" defer></script>
     <script type="module" src="<?= htmlspecialchars(EVENT_PATH . 'location-permission.js'); ?>" defer></script>
     <script type="module" src="<?= htmlspecialchars(EVENT_PATH . 'page-tab.js'); ?>" defer></script>
 
