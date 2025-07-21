@@ -443,19 +443,20 @@
 	animation: slide-up 0.3s ease-in;
 }
 
+.notification-wrapper,
+.notification-wrapper > * {
+	z-index: 15;
+}
+
 .notification-wrapper {
-	display: none;
 	width: 100%;
-	top: 0;
 	left: 50%;
 	transform: translate(-50%, 0);
 	padding: 0;
 	overflow: hidden;
-	z-index: 5;
 }
 
 .notification-wrapper > div {
-	top: 0;
 	width: 100%;
 	padding: 0.8rem var(--space);
 	font-weight: 500;

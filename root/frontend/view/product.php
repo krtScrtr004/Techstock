@@ -44,13 +44,8 @@ $productTotalRatingCount    =   htmlspecialchars($product->getTotalRatingCount()
     <?php require_once COMPONENT_PATH . 'header.php' ?>
 
     <main class="dark-white-bg flex-col">
-        <?=
-        copyLinkNotification(true);
-        copyLinkNotification(false);
-
-        categoryChain($product->getCategory(), $product->getName());
-        ?>
-
+        <?= categoryChain($product->getCategory(), $product->getName()) ?>
+        
         <!-- Product Purchase Info Section -->
         <section class="purchase-info major-section flex-row white-bg">
             <!-- Images Section -->
