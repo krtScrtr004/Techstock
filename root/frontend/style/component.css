@@ -535,3 +535,19 @@
 .empty-result.small > p {
 	font-size: 0.8rem;
 }
+
+.view-image-wrapper {
+	width: 100vw;
+	height: 100vh;
+	background-color: rgba(118, 121, 122, 0.619);
+	border-radius: var(--border-radius);
+	overflow: hidden;
+	z-index: 150;
+}
+
+.view-image-wrapper > img {
+	min-height: 300px;
+	min-width: 350px;
+	width: 800px;
+	height: 600px;
+}

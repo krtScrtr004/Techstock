@@ -51,7 +51,7 @@ $productTotalRatingCount    =   htmlspecialchars($product->getTotalRatingCount()
             <!-- Images Section -->
             <section class="images-section flex-col">
                 <img
-                    class="featured-image"
+                    class="featured-image viewable-image"
                     src="<?= $productDefaultImage ?>"
                     alt="<?= $productName ?>"
                     title="<?= $productName ?>"
@@ -487,6 +487,7 @@ $productTotalRatingCount    =   htmlspecialchars($product->getTotalRatingCount()
     <script type="module" src="<?= htmlspecialchars(EVENT_PATH . 'copy-link.js'); ?>" defer></script>
     <script type="module" src="<?= htmlspecialchars(EVENT_PATH . 'break-text-fallback.js'); ?>" defer></script>
     <script type="module" src="<?= htmlspecialchars(EVENT_PATH . 'back-to-top.js'); ?>" defer></script>
+    <script type="module" src="<?= htmlspecialchars(EVENT_PATH . 'view-image.js'); ?>" defer></script>
 
     <script type="module" src="<?= htmlspecialchars(EVENT_PATH . 'product' . DS . 'show-click-image.js'); ?>" defer></script>
     <script type="module" src="<?= htmlspecialchars(EVENT_PATH . 'product' . DS . 'favorite.js'); ?>" defer></script>

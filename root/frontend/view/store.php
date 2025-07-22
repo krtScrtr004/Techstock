@@ -35,7 +35,12 @@ $address       =   htmlspecialchars($store->getAddress());
         <section class="heading flex-row white-bg">
             <section class="store-info flex-row flex-child-center-h">
                 <!-- Store Logo -->
-                <img class="circle fit-contain" src="<?= $logo ?>" alt="<?= $name ?>" title="<?= $name ?>" height="150">
+                <img 
+                    class="viewable-image circle fit-contain" 
+                    src="<?= $logo ?>" 
+                    alt="<?= $name ?>" 
+                    title="<?= $name ?>" 
+                    height="150" />
 
                 <!--  -->
                 <div class="flex-col">
@@ -173,6 +178,7 @@ $address       =   htmlspecialchars($store->getAddress());
 
     <script type="module" src="<?= htmlspecialchars(EVENT_PATH . 'carousel-tracker.js'); ?>" defer></script>
     <script type="module" src="<?= htmlspecialchars(EVENT_PATH . 'back-to-top.js'); ?>" defer></script>
+    <script type="module" src="<?= htmlspecialchars(EVENT_PATH . 'view-image.js'); ?>" defer></script>
     
     <script type="module" src="<?= htmlspecialchars(EVENT_PATH . 'store' . DS . 'filter-product.js'); ?>" defer></script>
     <script type="module" src="<?= htmlspecialchars(EVENT_PATH . 'store' . DS . 'scroll-product.js'); ?>" defer></script>

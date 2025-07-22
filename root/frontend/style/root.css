@@ -49,6 +49,11 @@ footer {
 	padding: 0 var(--content-side-padding);
 }
 
+body,
+header {
+	position: relative;
+}
+
 header {
 	padding-top: 0.5rem;
 	padding-bottom: 0.5rem;
