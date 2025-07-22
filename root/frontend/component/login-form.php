@@ -19,8 +19,7 @@
             src="<?= ICON_PATH . 'show.svg'; ?>" 
             alt="Show password" 
             title="Show password" 
-            width="
-            18" height="18" />
+            width="18" height="18" />
 
         <input 
             type="password" 
