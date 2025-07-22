@@ -488,9 +488,14 @@
 	position: fixed;
 	right: 3rem;
 	bottom: 5rem;
-	border: 2px solid var(--light-black);
+	box-shadow: 0 0 3px var(--light-black);
 	border-radius: 50%;
 	place-items: center;
+	transition: opacity 100ms ease;
+}
+
+.back-to-top:hover {
+	opacity: 0.5; 
 }
 
 /* --------------------- EMPTY RESULT --------------------- */
@@ -534,6 +539,12 @@
 
 .empty-result.small > p {
 	font-size: 0.8rem;
+}
+
+/* --------------------- VIEW IMAGE --------------------- */
+/* Clickable Image */
+.viewable-image {
+	cursor: pointer;
 }
 
 .view-image-wrapper {

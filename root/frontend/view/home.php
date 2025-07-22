@@ -56,7 +56,11 @@
 
                             <div class="category-card">
                                 <a href="<?= REDIRECT_PATH . 'search?category=' . $value ?>" class="flex-col flex-child-center-v">
-                                    <img src="<?= ICON_PATH . $key ?>" alt="<?= $sentenceValue ?>" title="<?= $sentenceValue ?>" height="57">
+                                    <img 
+                                        src="<?= ICON_PATH . $key ?>" 
+                                        alt="<?= $sentenceValue ?>" 
+                                        title="<?= $sentenceValue ?>" 
+                                        height="57">
                                     <h3 class="center-text black-text"><?= $sentenceValue ?></h3>
                                 </a>
                             </div>
