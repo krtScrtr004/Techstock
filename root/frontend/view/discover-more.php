@@ -8,13 +8,13 @@
     <title>Techstock | Discover More</title>
 
     <base href="/Techstock/root/frontend/">
-    <link rel="stylesheet" href="<?php echo STYLE_PATH . 'root.css' ?>">
-    <link rel="stylesheet" href="<?php echo STYLE_PATH . 'utility.css' ?>">
-    <link rel="stylesheet" href="<?php echo STYLE_PATH . 'component.css' ?>">
-    <link rel="stylesheet" href="<?php echo STYLE_PATH . 'header.css' ?>">
-    <link rel="stylesheet" href="<?php echo STYLE_PATH . 'footer.css' ?>">
+    <link rel="stylesheet" href="<?= STYLE_PATH . 'root.css' ?>">
+    <link rel="stylesheet" href="<?= STYLE_PATH . 'utility.css' ?>">
+    <link rel="stylesheet" href="<?= STYLE_PATH . 'component.css' ?>">
+    <link rel="stylesheet" href="<?= STYLE_PATH . 'header.css' ?>">
+    <link rel="stylesheet" href="<?= STYLE_PATH . 'footer.css' ?>">
 
-    <link rel="stylesheet" href="<?php echo STYLE_PATH . 'discover-more.css' ?>">
+    <link rel="stylesheet" href="<?= STYLE_PATH . 'discover-more.css' ?>">
 
 </head>
 
@@ -32,13 +32,15 @@
         </section>
 
         <section class="product-grid-wrapper flex-col">
-            <?php include_once COMPONENT_PATH . 'product-list.php'; ?>
+            <?php productGrid($products) ?>
+
+            <div class="page-tab center-child"></div>
         </section>
     </main>
 
-    <?php require_once COMPONENT_PATH . 'footer.php'; ?>
+    <?php require_once COMPONENT_PATH . 'footer.php' ?>
 
-    <script src="<?php echo htmlspecialchars(EVENT_PATH . 'page-tab.js'); ?>" type="module" defer></script>
+    <script type="module" src="<?= htmlspecialchars(EVENT_PATH . 'page-tab.js'); ?>" defer></script>
 </body>
 
 </html>

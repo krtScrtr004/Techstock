@@ -1,0 +1,160 @@
+.checkout,
+.checkout > main {
+	min-width: fit-content;
+}
+
+.checkout > main {
+	padding: var(--space) calc(1.5 * var(--content-side-padding));
+	gap: var(--space);
+}
+
+.checkout > main > .heading {
+	padding-bottom: 10px;
+	border-bottom: 1px solid var(--black);
+}
+
+.checkout > main > .heading > h3 {
+	font-size: 1.5rem;
+}
+
+.section .title {
+	margin-bottom: 10px;
+	font-size: 1.3rem;
+	font-weight: 500;
+}
+
+.delivery-address > .info {
+	gap: 1rem;
+}
+
+.delivery-address > .info > * {
+	font-size: 1rem;
+}
+
+.delivery-address > .info > :first-child,
+.delivery-address > .info > :nth-child(2) {
+	font-weight: 600;
+}
+
+.delivery-address .text-w-icon {
+	margin-bottom: 10px;
+}
+
+.delivery-address .text-w-icon > img {
+	margin-right: 5px;
+}
+
+.delivery-address .text-w-icon > .title {
+	margin-bottom: 0;
+}
+
+/* Products Ordered */
+
+.order {
+	gap: 10px;
+}
+
+.order:not(:last-child) {
+	margin-bottom: 0.8rem;
+}
+
+.orders-table {
+	min-width: var(--min-width);
+	width: 100%;
+	border-spacing: 0;
+}
+
+.orders-table > thead th {
+	font-weight: 400;
+}
+
+.orders-table > thead th:first-child {
+	gap: 0.5rem;
+}
+
+.orders-table .store-id {
+	opacity: 0.8;
+}
+
+.orders-table > thead th:not(:first-child),
+.orders-table > tbody td:not(:first-child) {
+	width: 20ch;
+}
+
+.orders-table > thead > tr > th,
+.orders-table > tbody > tr > td {
+	padding: 10px;
+}
+
+.orders-table > thead > tr,
+.orders-table > tbody > tr:nth-child(even) {
+	background-color: rgb(241, 241, 241);
+}
+
+.orders-table > thead > tr > th {
+	border-bottom: 1px solid var(--black);
+}
+
+.orders-table > thead th:not(:first-child) {
+	font-weight: 600;
+}
+
+.orders-table > tbody td:not(:first-child) {
+	line-height: 1.6rem;
+	font-weight: 200;
+}
+
+.orders-table .product-info {
+	gap: 10px;
+}
+
+.products-ordered > .misc,
+.products-ordered > .misc * {
+	z-index: 10;
+}
+
+.products-ordered > .misc {
+	gap: var(--space);
+	padding: 10px;
+}
+
+.pin-message {
+	width: 60%;
+}
+
+.pin-message-form > label {
+	margin-bottom: 5px;
+}
+
+.pin-message-form > textarea {
+	width: 100%;
+	height: 5rem;
+	padding: 5px;
+	resize: none;
+	font-size: 1rem;
+}
+
+.order > .misc > .summary {
+	flex: 1;
+	gap: 10px;
+}
+
+.order > .misc > .summary > div {
+	gap: 10px;
+}
+
+.payment-summary {
+	width: 40%;
+}
+
+.payments-total * {
+	line-height: 1.8rem;
+}
+
+.total-payment > p {
+	font-size: 1.2rem;
+}
+
+.proceed-button {
+	width: 30ch;
+}

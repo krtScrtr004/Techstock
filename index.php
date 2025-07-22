@@ -1,15 +1,18 @@
 <?php
 require_once 'root/backend/config/config.php';
+require_once ENUM_PATH . 'currency.php';
 
-$router = Router::getRouter();
+$clientCountry = null;
+if ($session->isSet() && $session->has('country'))
+    $clientCountry = Currency::fromCountry($session->get('country'));
+else
+    $clientCountry = Currency::Philippines;
 
-$routesFile = DATA_PATH . 'routes.json';
-$routes = decodeData($routesFile);
-foreach ($routes as $method => $route) {
-    foreach ($route as $path => $action) {
-        if ($path[strlen($path) - 1] === '/')
-            $path = substr($path, 0, strlen($path) - 1);
-        $router->register($path, $method, [$action, 'index']);
-    }
-}
+define('DEFAULT_CURRENCY', $clientCountry);
+define('DEFAULT_CURRENCY_SYMBOL', $clientCountry->symbol());
+
+require_once ROUTER_PATH . 'register-routes.php';
+// Remove this
+include_once DUMP_PATH . 'dumps.php';
+
 $router->dispatch();

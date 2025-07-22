@@ -8,13 +8,14 @@
     <title>Techstock | Home</title>
 
     <base href="/Techstock/root/frontend/">
-    <link rel="stylesheet" href="<?php echo STYLE_PATH . 'root.css' ?>">
-    <link rel="stylesheet" href="<?php echo STYLE_PATH . 'utility.css' ?>">
-    <link rel="stylesheet" href="<?php echo STYLE_PATH . 'component.css' ?>">
-    <link rel="stylesheet" href="<?php echo STYLE_PATH . 'header.css' ?>">
-    <link rel="stylesheet" href="<?php echo STYLE_PATH . 'footer.css' ?>">
+    <link rel="stylesheet" href="<?= STYLE_PATH . 'utility.css' ?>">
+    <link rel="stylesheet" href="<?= STYLE_PATH . 'component.css' ?>">
+    <link rel="stylesheet" href="<?= STYLE_PATH . 'header.css' ?>">
+    <link rel="stylesheet" href="<?= STYLE_PATH . 'footer.css' ?>">
+    <link rel="stylesheet" href="<?= STYLE_PATH . 'root.css' ?>">
 
-    <link rel="stylesheet" href="<?php echo STYLE_PATH . 'home.css' ?>">
+    <link rel="stylesheet" href="<?= STYLE_PATH . 'home.css' ?>">
+    <link rel="stylesheet" href="<?= STYLE_PATH . 'location-permission-modal.css' ?>">
 </head>
 
 <body class="home flex-col">
@@ -25,15 +26,15 @@
         <section class="banner-section white-bg">
             <!-- Slideshow -->
             <section class="slide-show-wrapper relative">
-                <img class="slide-show fade" src="<?php echo htmlspecialchars(IMAGE_PATH . 'console-1.jpg'); ?>" alt="Slideshow" title="Slideshow" height="300" loading="lazy">
+                <img class="slide-show fade" src="<?= IMAGE_PATH . 'console-1.jpg'; ?>" alt="Slideshow" title="Slideshow" height="300" loading="lazy">
 
-                <div class="change-button previous center-child absolute white-bg">
-                    <img src="<?php echo htmlspecialchars(ICON_PATH . 'next.svg'); ?>" alt="Previous button" title="Previous button" height="20" width="20">
-                </div>
+                <button type="button" class="change-button previous unset-button">
+                    <img src="<?= ICON_PATH . 'next.svg'; ?>" alt="Previous " title="Previous " height="20" width="20">
+                </button>
 
-                <div class="change-button next center-child absolute white-bg">
-                    <img src="<?php echo htmlspecialchars(ICON_PATH . 'next.svg'); ?>" alt="Next button" title="Next button" height="20" width="20">
-                </div>
+                <button type="button" class="change-button next unset-button">
+                    <img src="<?= ICON_PATH . 'next.svg'; ?>" alt="Next" title="Next" height="20" width="20">
+                </button>
 
                 <span class="absolute flex-row">
                     <div class="dot-tab active circle white-bg"></div>
@@ -45,134 +46,45 @@
             </section>
 
             <!-- Category Selection -->
-            <section class="category-section flex-row flex-space-evenly">
-                <a href="">
-                    <div class="category-card flex-col flex-child-center-v">
-                        <img src="<?php echo htmlspecialchars(ICON_PATH . 'phone_b.svg') ?>" alt="Smartphone & Accessories category" title="Smartphone & Accessories category" height="57">
-                        <h3 class="center-text black-text">Smartphone & Accessories</h3>
-                    </div>
-                </a>
-
-                <a href="">
-                    <div class="category-card flex-col flex-child-center-v">
-                        <img src="<?php echo htmlspecialchars(ICON_PATH . 'pc_b.svg') ?>" alt="Computers & Laptops category" title="Computers & Laptops category" height="57">
-                        <h3 class="center-text black-text">Computers & Laptops</h3>
-                    </div>
-                </a>
-
-                <a href="">
-                    <div class="category-card flex-col flex-child-center-v">
-                        <img src="<?php echo htmlspecialchars(ICON_PATH . 'pc-parts_b.svg') ?>" alt="Components & PC Parts category" title="Components & PC Parts category" height="57">
-                        <h3 class="center-text black-text">Components & PC Parts</h3>
-                    </div>
-                </a>
-
-                <a href="">
-                    <div class="category-card flex-col flex-child-center-v">
-                        <img src="<?php echo htmlspecialchars(ICON_PATH . 'console_b.svg') ?>" alt="Gaming category" title="Gaming category" height="57">
-                        <h3 class="center-text black-text">Gaming</h3>
-                    </div>
-                </a>
-
-                <a href="">
-                    <div class="category-card flex-col flex-child-center-v">
-                        <img src="<?php echo htmlspecialchars(ICON_PATH . 'router_b.svg') ?>" alt="Network & Smarthome category" title="Network & Smarthome category" height="57">
-                        <h3 class="center-text black-text">Network & Smarthome</h3>
-                    </div>
-                </a>
-
-                <a href="">
-                    <div class="category-card flex-col flex-child-center-v">
-                        <img src="<?php echo htmlspecialchars(ICON_PATH . 'headphone_b.svg') ?>" alt="Audio & Music category" title="Audio & Music category" height="57">
-                        <h3 class="center-text black-text">Audio & Music</h3>
-                    </div>
-                </a>
-
-                <a href="">
-                    <div class="category-card flex-col flex-child-center-v">
-                        <img src="<?php echo htmlspecialchars(ICON_PATH . 'smartwatch_b.svg') ?>" alt="Wearables & Health  Tech category" title="Wearables & Health  Tech category" height="57">
-                        <h3 class="center-text black-text">Wearables & Health Tech</h3>
-                    </div>
-                </a>
-
-                <a href="">
-                    <div class="category-card flex-col flex-child-center-v">
-                        <img src="<?php echo htmlspecialchars(ICON_PATH . 'printer_b.svg') ?>" alt="Office & Productivity category" title="Office & Productivity category" height="57">
-                        <h3 class="center-text black-text">Office & Productivity</h3>
-                    </div>
-                </a>
-
-                <a href="">
-                    <div class="category-card flex-col flex-child-center-v">
-                        <img src="<?php echo htmlspecialchars(ICON_PATH . 'camera_b.svg') ?>" alt="Drone & Cameras category" title="Drone & Cameras category" height="57">
-                        <h3 class="center-text black-text">Drone & Cameras</h3>
-                    </div>
-                </a>
-
-                <a href="">
-                    <div class="category-card flex-col flex-child-center-v">
-                        <img src="<?php echo htmlspecialchars(ICON_PATH . 'arduino_b.svg') ?>" alt="Tech For Education category" title="Tech For Education category" height="57">
-                        <h3 class="center-text black-text">Tech For Education</h3>
-                    </div>
-                </a>
-
-            </section>
-        </section>
-
-        <!-- Top Products -->
-        <section class="top-product-section featured-item">
-            <section class="carousel-wrapper">
-                <h1 class="home-section-heading sticky">Top Products</h1>
-
-                <section class="carousel">
+            <section class="category-section">
+                <ul class=" flex-row flex-space-evenly">
                     <?php
-                    foreach ($products as $product) {
-                        renderProductCard($product);
-                    } ?>
-                </section>
-
-                <div class="tracker left">
-                    <img src="<?php echo htmlspecialchars(ICON_PATH . 'next.svg') ?>" alt="Next button" title="Next button" height="20">
-                </div>
-
-                <div class="tracker right">
-                    <img src="<?php echo htmlspecialchars(ICON_PATH . 'next.svg') ?>" alt="Next button" title="Next button" height="20">
-                </div>
-            </section>
-        </section>
-
-        <!-- Top Stores -->
-        <section class="top-store-section featured-item">
-            <section class="carousel-wrapper">
-                <h1 class="home-section-heading sticky">Top Stores</h1>
-
-                <section class="carousel">
-                    <?php
-                    for ($i = 0, $n = 8; $i < $n; $i++) {
+                    foreach ($categories as $key => $value):
+                        $sentenceValue = htmlspecialchars(ucwords(kebabToSentenceCase($value)));
                     ?>
-                        <a href="">
-                            <div class="store-card center-child white-bg">
-                                <img src="<?php echo htmlspecialchars(IMAGE_PATH . 'brand logo/hp.png') ?>" alt="Store logo image" title="Store logo image">
+                        <li>
+
+                            <div class="category-card">
+                                <a href="<?= REDIRECT_PATH . 'search?category=' . $value ?>" class="flex-col flex-child-center-v">
+                                    <img 
+                                        src="<?= ICON_PATH . $key ?>" 
+                                        alt="<?= $sentenceValue ?>" 
+                                        title="<?= $sentenceValue ?>" 
+                                        height="57">
+                                    <h3 class="center-text black-text"><?= $sentenceValue ?></h3>
+                                </a>
                             </div>
-                        </a>
-                    <?php } ?>
-                </section>
-
-                <div class="tracker left">
-                    <img src="<?php echo htmlspecialchars(ICON_PATH . 'next.svg') ?>" alt="Next button" title="Next button" height="20">
-                </div>
-
-                <div class="tracker right">
-                    <img src="<?php echo htmlspecialchars(ICON_PATH . 'next.svg') ?>" alt="Next button" title="Next button" height="20">
-                </div>
+                        </li>
+                    <?php endforeach; ?>
+                </ul>
             </section>
         </section>
+
+        <?php
+        // Top Products
+        featuredItem([$controllerInstance, 'topProductCallback'], $products, 'Top Products');
+
+        // Top stores
+        featuredItem([$controllerInstance, 'topStoreCallback'], $stores, 'Top Stores');
+        ?>
 
         <!-- Discover More -->
-        <section class="discover-more-section">
-            <h3 class="home-section-heading sticky center-text">Discover More</h3>
+        <section id="discover-more" class="discover-more-section">
+            <h3 class="sticky black-text center-text">Discover More</h3>
 
-            <?php include_once COMPONENT_PATH . 'product-list.php' ?>
+            <?php productGrid($products) ?>
+
+            <div class="page-tab center-child"></div>
         </section>
 
         <section class="article-list flex-col white-bg">
@@ -238,13 +150,14 @@
         </section>
     </main>
 
-    <?php require_once COMPONENT_PATH . 'footer.php'; ?>
+    <?php require_once COMPONENT_PATH . 'footer.php' ?>
 
-    <script src="<?php echo htmlspecialchars(EVENT_PATH . 'slideshow.js'); ?>" defer></script>
-    <script src="<?php echo htmlspecialchars(EVENT_PATH . 'break-text-fallback.js'); ?>" defer></script>
-    <script src="<?php echo htmlspecialchars(EVENT_PATH . 'carousel-tracker.js'); ?>" defer></script>
-    <script src="<?php echo htmlspecialchars(EVENT_PATH . 'hide-modal.js'); ?>" defer></script>
-    <script src="<?php echo htmlspecialchars(EVENT_PATH . 'page-tab.js'); ?>" type="module" defer></script>
+    <script type="module" src="<?= htmlspecialchars(EVENT_PATH . 'break-text-fallback.js'); ?>" defer></script>
+    <script type="module" src="<?= htmlspecialchars(EVENT_PATH . 'carousel-tracker.js'); ?>" defer></script>
+    <script type="module" src="<?= htmlspecialchars(EVENT_PATH . 'location-permission.js'); ?>" defer></script>
+    <script type="module" src="<?= htmlspecialchars(EVENT_PATH . 'page-tab.js'); ?>" defer></script>
+
+    <script type="module" src="<?= htmlspecialchars(EVENT_PATH . 'home' . DS . 'slideshow.js'); ?>" defer></script>
 </body>
 
 </html>

@@ -3,6 +3,10 @@
 # Node.js dependencies
 node_modules/
 
+vendor/
+
+dump/
+
 # Logs
 logs/
 *.log

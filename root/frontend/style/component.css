@@ -1,3 +1,19 @@
+/* ----------------- UNSET BUTTON STYLE-- ----------------- */
+.unset-button {
+	all: unset; /* removes all default styles */
+	font: inherit;
+	color: inherit;
+	padding: 0;
+	margin: 0;
+	background-color: transparent;
+	border: none;
+	outline: none;
+}
+
+.unset-button:focus-visible {
+	outline: 2px solid black;
+}
+
 /* --------------- LAZY BACKGROUND IMAGE ----------------- */
 .lazy-bg {
 	background-repeat: no-repeat;
@@ -90,7 +106,7 @@
 
 /* --------------- OAUTH PROVIDER LINK BOX --------------- */
 .oath-provider-link,
-.oath-provider-link > div {
+.oath-provider-link > button {
 	display: flex;
 }
 
@@ -98,7 +114,7 @@
 	gap: var(--space);
 }
 
-.oath-provider-link > div {
+.oath-provider-link > button {
 	flex: 1 1 0;
 	justify-content: center;
 	align-items: center;
@@ -107,17 +123,17 @@
 	border-radius: var(--border-radius);
 }
 
-.oath-provider-link > div > img {
+.oath-provider-link > button > img {
 	height: 32px;
 	width: 32px;
 	margin-right: 5px;
 }
 
-.oath-provider-link > div > h3 {
+.oath-provider-link > button > h3 {
 	color: var(--black);
 }
 
-/* --------------- HEADER WITH BACK NUTTON --------------- */
+/* --------------- HEADER WITH BACK BUTTON --------------- */
 .header-w-back {
 	position: relative;
 }
@@ -127,7 +143,7 @@
 	text-align: center;
 }
 
-.header-w-back > img {
+.header-w-back > button {
 	position: absolute;
 	top: 50%;
 	left: -25px;
@@ -152,15 +168,13 @@
 }
 
 .modal-wrapper,
-.modal-wrapper > div.dialog {
-	display: flex;
+.modal-wrapper > section.dialog {
 	justify-content: center;
 	align-items: center;
-	gap: var(--space);
+	gap: 1rem;
 }
 
 .modal-wrapper {
-	display: none;
 	background-color: transparent;
 }
 
@@ -180,18 +194,41 @@
 	font-weight: 300;
 }
 
-.modal-wrapper > div {
+.modal-wrapper > section {
 	box-sizing: content-box;
-	background-color: var(--white);
 	padding: var(--space);
 	box-shadow: 0 0 1px 1px var(--light-black);
 }
 
+.modal-wrapper .close-button:hover p {
+	color: var(--red);
+}
+
 /* DIALOG ------------ */
-.modal-wrapper > div.dialog {
+.modal-wrapper > section.dialog {
 	flex-direction: column;
 	width: 350px;
 	padding: 2rem;
+}
+
+/* -------------------- FEATURED ITEMS -------------------- */
+
+.featured-item {
+	display: flex;
+	flex-direction: column;
+	gap: var(--space);
+}
+
+.featured-item * {
+	color: var(--black);
+}
+
+.featured-item > h3 {
+	background-color: var(--white);
+	padding: 10px 1rem;
+	border-bottom: 3px solid var(--black);
+	top: 0;
+	z-index: 10;
 }
 
 /* -------------------- ICON WITH  BADGE -------------------- */
@@ -216,12 +253,12 @@
 /* ----------------- PRODUCT CARD & PRODUCT LIST ----------------- */
 
 .product-list {
-	overflow: hidden;
+	height: 100%;
 	display: grid;
-	grid-template-columns: repeat(auto-fit, 250px);
+	grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
 	justify-content: stretch;
 	place-items: center;
-	gap: 25px;
+	gap: 10px;
 }
 
 .product-list .product-card {
@@ -235,8 +272,8 @@
 }
 
 .product-card {
-	width: 250px;
-	height: 350px;
+	min-width: var(--card-width);
+	min-height: var(--card-height);
 	background-color: var(--white);
 	flex-direction: column;
 	gap: 5px;
@@ -254,6 +291,7 @@
 
 .product-card > img {
 	width: 100%;
+	max-height: 50%;
 	object-fit: cover;
 }
 
@@ -320,6 +358,7 @@
 .text-w-icon,
 .text-w-icon > * {
 	display: flex;
+	align-items: center;
 }
 
 .text-w-icon > * {
@@ -329,4 +368,197 @@
 
 .text-w-icon > img {
 	margin-right: 10px;
+}
+
+/* ------------------------- CAROUSEL ------------------------- */
+
+.carousel-wrapper {
+	position: relative;
+}
+
+.carousel {
+	display: flex;
+	flex-wrap: nowrap;
+	gap: 5px;
+	overflow-x: auto;
+	scroll-behavior: smooth;
+	scrollbar-width: none;
+	-ms-overflow-style: none;
+}
+
+.carousel::-webkit-scrollbar {
+	display: none;
+}
+
+.carousel-wrapper .tracker {
+	width: fit-content;
+	height: fit-content;
+	background-color: var(--white);
+	position: absolute;
+	top: 50%;
+	transform: translate(0, -50%);
+	padding: 5px;
+	opacity: 0.5;
+	cursor: pointer;
+	z-index: 2;
+}
+
+.carousel-wrapper .tracker:hover {
+	opacity: 1;
+}
+
+.carousel-wrapper .tracker.left {
+	transform: translate(0, -50%) scaleX(-1);
+}
+
+.carousel-wrapper .tracker.right {
+	right: 0;
+}
+
+/* --------------------- NOTIFICATION --------------------- */
+
+@keyframes slide-down {
+	0% {
+		margin-top: -50px;
+	}
+
+	100% {
+		margin-top: 0;
+	}
+}
+.slide-down {
+	animation: slide-down 0.3s ease-in;
+}
+
+@keyframes slide-up {
+	0% {
+		margin-top: 0;
+	}
+
+	100% {
+		margin-top: -10%;
+	}
+}
+.slide-up {
+	animation: slide-up 0.3s ease-in;
+}
+
+.notification-wrapper,
+.notification-wrapper > * {
+	z-index: 15;
+}
+
+.notification-wrapper {
+	width: 100%;
+	left: 50%;
+	transform: translate(-50%, 0);
+	padding: 0;
+	overflow: hidden;
+}
+
+.notification-wrapper > div {
+	width: 100%;
+	padding: 0.8rem var(--space);
+	font-weight: 500;
+}
+
+.notification-wrapper.fail > div {
+	background-color: var(--red);
+}
+
+/* --------------------- CATEGORY CHAIN --------------------- */
+
+.category-chain {
+	width: 100%;
+}
+
+.category-chain * {
+	font-size: 1rem;
+}
+
+.category-chain > :last-child {
+	flex: 1;
+}
+
+/* --------------------- BACK TO TOP --------------------- */
+
+.back-to-top {
+	display: none;
+	background-color: var(--white);
+	position: fixed;
+	right: 3rem;
+	bottom: 5rem;
+	box-shadow: 0 0 3px var(--light-black);
+	border-radius: 50%;
+	place-items: center;
+	transition: opacity 100ms ease;
+}
+
+.back-to-top:hover {
+	opacity: 0.5; 
+}
+
+/* --------------------- EMPTY RESULT --------------------- */
+
+.empty-result h3,
+.empty-result p {
+	max-width: 25ch;
+}
+
+/* -- Big */
+.empty-result.big {
+	padding: var(--space);
+}
+
+.empty-result.big > img {
+	margin-bottom: 5px;
+	height: 8rem;
+}
+
+.empty-result.big > h3 {
+	font-size: 1.5rem;
+}
+
+.empty-result.big > p {
+	font-size: 1.3rem;
+}
+
+/* -- Small */
+.empty-result.small {
+	padding: calc(3 * var(--space));
+}
+
+.empty-result.small > img {
+	margin-bottom: 1rem;
+	height: 4rem;
+}
+
+.empty-result.small > h3 {
+	font-size: 1rem;
+}
+
+.empty-result.small > p {
+	font-size: 0.8rem;
+}
+
+/* --------------------- VIEW IMAGE --------------------- */
+/* Clickable Image */
+.viewable-image {
+	cursor: pointer;
+}
+
+.view-image-wrapper {
+	width: 100vw;
+	height: 100vh;
+	background-color: rgba(118, 121, 122, 0.619);
+	border-radius: var(--border-radius);
+	overflow: hidden;
+	z-index: 150;
+}
+
+.view-image-wrapper > img {
+	min-height: 300px;
+	min-width: 350px;
+	width: 800px;
+	height: 600px;
 }

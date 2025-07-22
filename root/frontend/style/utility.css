@@ -23,7 +23,19 @@
 	color: var(--yellow);
 }
 
+.red-text {
+	color: var(--red);
+}
+
+.green-text {
+	color: var(--green);
+}
+
 /* --------BG COLOR-------- */
+
+.transparent-bg {
+	background-color: transparent;
+}
 
 .black-bg {
 	background-color: var(--black);
@@ -47,12 +59,20 @@
 
 /* --------DISPLAY-------- */
 
+.no-display {
+	display: none;
+}
+
 .inline {
 	display: inline;
 }
 
 .block {
 	display: block;
+}
+
+.grid {
+	display: grid;
 }
 
 /* --------FLEX DISPLAY-------- */
@@ -72,19 +92,23 @@
 	flex-direction: column;
 }
 
+.flex-inline {
+	display: inline-flex;
+}
+
 .flex-child-start-v {
 	display: flex;
-	justify-content: start;	
+	justify-content: start;
 }
 
 .flex-child-start-h {
 	display: flex;
-	justify-content: start;	
+	justify-content: start;
 }
 
 .flex-child-center-v {
 	display: flex;
-	align-items: start;
+	justify-content: center;
 }
 
 .flex-child-center-h {
@@ -110,12 +134,24 @@
 	justify-content: space-evenly;
 }
 
+.flex-wrap {
+	flex-wrap: wrap;
+}
+
 /* --------POSITION ELEMENT-------- */
 
 .center-child {
 	display: flex;
 	justify-content: center;
 	align-items: center;
+}
+
+.float-left {
+	float: left;
+}
+
+.float-right {
+	float: right;
 }
 
 /* --------ELEMENT POSITION-------- */
@@ -132,10 +168,32 @@
 	position: sticky;
 }
 
+.fixed {
+	position: fixed;
+}
+
 /* --------TEXT STYLE-------- */
+
+.bold-text {
+	font-weight: 800;
+}
+
+.start-text {
+	text-align: start;
+}
 
 .center-text {
 	text-align: center;
+}
+
+.end-text {
+	text-align: end;
+}
+
+.wrap-text {
+	white-space: normal; 
+	word-break: normal; 
+	overflow-wrap: break-word;
 }
 
 .single-line-ellipsis {
@@ -164,4 +222,13 @@
 .circle {
 	border-radius: 50%;
 	aspect-ratio: 1/1;
+}
+
+/*  */
+.fit-cover {
+	object-fit: cover;
+}
+
+.fit-contain {
+	object-fit: contain;
 }

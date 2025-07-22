@@ -8,33 +8,32 @@
     <title>Set Password</title>
 
     <base href="/Techstock/root/frontend/">
-    <link rel="stylesheet" href="<?php echo STYLE_PATH . 'root.css' ?>">
-    <link rel="stylesheet" href="<?php echo STYLE_PATH . 'utility.css' ?>">
-    <link rel="stylesheet" href="<?php echo STYLE_PATH . 'component.css' ?>">
-    <link rel="stylesheet" href="<?php echo STYLE_PATH . 'header.css' ?>">
+    <link rel="stylesheet" href="<?= STYLE_PATH . 'root.css' ?>">
+    <link rel="stylesheet" href="<?= STYLE_PATH . 'utility.css' ?>">
+    <link rel="stylesheet" href="<?= STYLE_PATH . 'component.css' ?>">
+    <link rel="stylesheet" href="<?= STYLE_PATH . 'header.css' ?>">
 
-    <link rel="stylesheet" href="<?php echo STYLE_PATH . 'single-form.css' ?>">
+    <link rel="stylesheet" href="<?= STYLE_PATH . 'single-form.css' ?>">
 </head>
 
 <body>
-    <?php if (!isset($page)) $page = 'forgetPassword' ?>
-
     <main class="full-body-content center-child">
         <div class="single-form form-wrapper flex-col">
             <div class="header-w-back">
-                <h3><?php echo $component['title']; ?></h3>
+                <h3><?= $component['title']; ?></h3>
 
-                <img class="back-button" src="<?php echo htmlspecialchars(ICON_PATH . 'back.svg') ?>" alt="Back button" title="Back button" height="24" width="24">
+                <button type="button" class="back-button unset-button">
+                    <img src="<?= ICON_PATH . 'back.svg' ?>" alt="Back" title="Back" height="24" width="24">
+                </button>
             </div>
 
-            <?php include_once COMPONENT_PATH . $component['form']; ?>    
-        
+            <?php include_once COMPONENT_PATH . $component['form']; ?>
+
         </div>
     </main>
 
-    <script src="<?php echo htmlspecialchars(EVENT_PATH . 'back-button.js'); ?>" defer></script>
-    <script src="<?php echo htmlspecialchars(EVENT_PATH . 'password-list-validator.js'); ?>" defer></script>
-    <script src="<?php echo htmlspecialchars(EVENT_PATH . 'hide-modal.js'); ?>" defer></script>
+    <script type="module" src="<?= htmlspecialchars(EVENT_PATH . 'back-button.js'); ?>" defer></script>
+    <script type="module" src="<?= htmlspecialchars(EVENT_PATH . 'password-list-validator.js'); ?>" defer></script>
 </body>
 
 </html>

@@ -1,5 +1,16 @@
 <?php
 
+function isAssociative($array): bool
+{
+    if (!is_array($array)) return false;
+    return array_keys($array) !== range(0, count($array) - 1);
+}
+
+function createSlug(string $name): string 
+{
+    return str_replace(' ', '-', $name);
+}
+
 function decodeData(String $rawData): array
 {
     if (!$rawData)
@@ -18,6 +29,10 @@ function kebabToCamelCase(string $string): string {
     return lcfirst(str_replace(' ', '', ucwords(str_replace('-', ' ', $string))));
 }
 
+function kebabToSentenceCase(string $string): string {
+    return str_replace('-', ' ', $string);
+}
+
 function camelToSentenceCase(string $string): string {
     // Converts camelCase to sentence case
     return ucfirst(trim(preg_replace('/([a-z])([A-Z])/', '$1 $2', $string)));
@@ -25,4 +40,9 @@ function camelToSentenceCase(string $string): string {
 
 function camelToKebabCase(string $string): string {
     return strtolower(preg_replace('/([a-z])([A-Z])/', '$1-$2', $string));
+}
+
+function sentenceToKebabCase(string $string): string {
+    // Converts sentence case to kebab-case
+    return strtolower(str_replace(' ', '-', trim($string)));
 }
