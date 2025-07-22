@@ -3,8 +3,7 @@
 </article>
 
 <form action="" method="POST">
-    <input t
-        ype="email" 
+    <input type="email" 
         name="s_email" 
         id="s_email" 
         placeholder="Please enter your email here" 
