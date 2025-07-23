@@ -187,7 +187,7 @@ $productTotalRatingCount    =   htmlspecialchars($product->getTotalRatingCount()
 
                 <!-- Options / Variants Section -->
                 <?php
-                foreach ($productOptions as $key => $value):
+                foreach ($productOptions->toArray() as $key => $value):
                     $optionName         =   htmlspecialchars(ucwords($key));
                     $optionValueCount   =   count($value);
                 ?>
@@ -200,11 +200,16 @@ $productTotalRatingCount    =   htmlspecialchars($product->getTotalRatingCount()
                                 <?php for ($i = 0, $n = $optionValueCount; $i < $n; ++$i):
                                     $currentValue   =   htmlspecialchars($value[$i]);
                                 ?>
-
                                     <div class="hidden-wrapper">
-                                        <input type="checkbox" name="<?= $currentValue ?>" id="<?= $currentValue ?>" value="<?= $currentValue ?>">
+                                        <input 
+                                            type="radio" 
+                                            name="<?= $optionName ?>" 
+                                            id="<?= $currentValue ?>" 
+                                            value="<?= $currentValue ?>" />
 
-                                        <button type="button" class="unset-button"><?= $currentValue ?></button>
+                                        <button type="button" class="unset-button">
+                                            <?= $currentValue ?>
+                                        </button>
                                     </div>
                                 <?php endfor; ?>
                             </form>
@@ -395,9 +400,9 @@ $productTotalRatingCount    =   htmlspecialchars($product->getTotalRatingCount()
                                 </button>
                             </div>
 
-                            <?php 
+                            <?php
                             $index = count($totalRatings);
-                            foreach ($totalRatings as $key => $value): 
+                            foreach ($totalRatings as $key => $value):
                             ?>
                                 <div class="hidden-wrapper center-child">
                                     <input type="checkbox" name="<?= $key ?>" id="<?= $key ?>" value="<?= $index ?>">

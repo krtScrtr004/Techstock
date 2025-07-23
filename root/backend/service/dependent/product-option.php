@@ -44,4 +44,9 @@ class ProductOption
 
         return true;
     }
+
+    public function toArray(): array 
+    {
+        return $this->container;
+    }
 }
