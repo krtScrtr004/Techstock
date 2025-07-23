@@ -250,9 +250,9 @@
 	font-size: 0.8rem;
 }
 
-/* ----------------- PRODUCT CARD & PRODUCT LIST ----------------- */
+/* ----------------- PRODUCT CARD & PRODUCT GRID ----------------- */
 
-.product-list {
+.product-grid {
 	height: 100%;
 	display: grid;
 	grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -261,7 +261,7 @@
 	gap: 10px;
 }
 
-.product-list .product-card {
+.product-grid .product-card {
 	place-self: stretch;
 	justify-self: stretch;
 }

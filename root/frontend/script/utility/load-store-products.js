@@ -10,7 +10,7 @@ const Exports = () => {
         loader: loader,
 
         infiniteList: document.querySelector('.infinite-list'),
-        productList: document.querySelector('.product-list'),
+        productList: document.querySelector('.product-grid'),
         infiniteListSentinel: document.querySelector('.sentinel'),
         noMoreProducts: document.querySelector('.no-more-products'),
 

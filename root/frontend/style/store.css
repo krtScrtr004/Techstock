@@ -113,7 +113,7 @@
 }
 
 .infinite-list > .result-grid,
-.infinite-list > .result-grid > .product-list {
+.infinite-list > .result-grid > .product-grid {
 	min-height: 100px;
 }
 
