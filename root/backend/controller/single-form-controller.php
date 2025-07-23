@@ -6,17 +6,17 @@ class SingleFormController implements Controller
         'setSignupPassword' => [
             'title' => 'Set Signup Password',
             'description' => 'Set your password to complete your signup.',
-            'form' => 'change-password-form.php'
+            'form' => 'changePasswordForm'
         ],
         'changePassword' => [
             'title' => 'Set Your Password',
             'description' => 'Create a new password.',
-            'form' => 'change-password-form.php'
+            'form' => 'changePasswordForm'
         ],
         'forgetPassword' => [
             'title' => 'Reset Password',
             'description' => '',
-            'form' => 'forget-password-form.php'
+            'form' => 'forgetPasswordForm'
         ]
     ];
 

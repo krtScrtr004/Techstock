@@ -27,7 +27,7 @@
                 </button>
             </div>
 
-            <?php include_once COMPONENT_PATH . $component['form']; ?>
+            <?php call_user_func($component['form'], $component) ?>
 
         </div>
     </main>
