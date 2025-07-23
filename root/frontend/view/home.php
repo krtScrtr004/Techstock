@@ -56,10 +56,10 @@
 
                             <div class="category-card">
                                 <a href="<?= REDIRECT_PATH . 'search?category=' . $value ?>" class="flex-col flex-child-center-v">
-                                    <img 
-                                        src="<?= ICON_PATH . $key ?>" 
-                                        alt="<?= $sentenceValue ?>" 
-                                        title="<?= $sentenceValue ?>" 
+                                    <img
+                                        src="<?= ICON_PATH . $key ?>"
+                                        alt="<?= $sentenceValue ?>"
+                                        title="<?= $sentenceValue ?>"
                                         height="57">
                                     <h3 class="center-text black-text"><?= $sentenceValue ?></h3>
                                 </a>
@@ -150,7 +150,10 @@
         </section>
     </main>
 
-    <?php require_once COMPONENT_PATH . 'footer.php' ?>
+    <?php
+
+    require_once COMPONENT_PATH . 'footer.php';
+    ?>
 
     <script type="module" src="<?= htmlspecialchars(EVENT_PATH . 'break-text-fallback.js'); ?>" defer></script>
     <script type="module" src="<?= htmlspecialchars(EVENT_PATH . 'carousel-tracker.js'); ?>" defer></script>

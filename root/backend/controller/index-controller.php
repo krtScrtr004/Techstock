@@ -2,8 +2,8 @@
 
 class IndexController implements Controller {
     private static array $components = [
-        'login' => ['title' => 'Log In', 'form'  => 'login-form.php'],
-        'signup' => ['title' => 'Sign Up', 'form'  => 'signup-form.php'],
+        'login' => ['title' => 'Log In', 'form'  => 'loginForm'],
+        'signup' => ['title' => 'Sign Up', 'form'  => 'signupForm'],
     ];
 
     private function __construct() {}
