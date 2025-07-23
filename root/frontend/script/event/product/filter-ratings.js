@@ -1,5 +1,6 @@
 import { likeRating } from '../../utility/like-rating.js'
 import { debounce } from '../../utility/debounce.js'
+import { viewImage } from '../../utility/view-image.js'
 import { http } from '../../utility/http.js'
 
 import { dialog } from '../../render/dialog.js'
@@ -38,6 +39,11 @@ try {
             }
 
             loader.delete()
+
+            const ratingImages = ratings.querySelectorAll('.rating-image')
+            if (ratingImages) {
+                ratingImages.forEach(image => viewImage(image) )
+            }
         }
 
         const firstHiddenWrapper = ratings.querySelector('.hidden-wrapper:first-child')

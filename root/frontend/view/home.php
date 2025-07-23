@@ -26,7 +26,7 @@
         <section class="banner-section white-bg">
             <!-- Slideshow -->
             <section class="slide-show-wrapper relative">
-                <img class="slide-show fade" src="<?= IMAGE_PATH . 'console-1.jpg'; ?>" alt="Slideshow" title="Slideshow" height="300" loading="lazy">
+                <img class="slide-show viewable-image fade" src="<?= IMAGE_PATH . 'console-1.jpg'; ?>" alt="Slideshow" title="Slideshow" height="300" loading="lazy">
 
                 <button type="button" class="change-button previous unset-button">
                     <img src="<?= ICON_PATH . 'next.svg'; ?>" alt="Previous " title="Previous " height="20" width="20">
@@ -150,10 +150,7 @@
         </section>
     </main>
 
-    <?php
-
-    require_once COMPONENT_PATH . 'footer.php';
-    ?>
+    <?php require_once COMPONENT_PATH . 'footer.php' ?>
 
     <script type="module" src="<?= htmlspecialchars(EVENT_PATH . 'break-text-fallback.js'); ?>" defer></script>
     <script type="module" src="<?= htmlspecialchars(EVENT_PATH . 'carousel-tracker.js'); ?>" defer></script>

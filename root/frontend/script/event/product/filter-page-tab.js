@@ -1,5 +1,6 @@
 import { displayPagination } from '../../utility/display-pagination.js'
 import { likeRating } from '../../utility/like-rating.js'
+import { viewImage } from '../../utility/view-image.js'
 import { http } from '../../utility/http.js'
 
 import { dialog } from '../../render/dialog.js'
@@ -14,6 +15,14 @@ try {
         const ratingList = ratings.querySelector('.rating-list > .list')
 
         document.addEventListener('DOMContentLoaded', likeRating())// Add like rating event
+
+        function viewRatingImage() {
+            const ratingImages = ratings.querySelectorAll('.rating-image')
+            if (ratingImages) {
+                ratingImages.forEach(image => viewImage(image))
+            }
+
+        }
 
         // function createSearchParam() {
         //     const checkedCheckboxes = ratings.querySelectorAll('input[type="checkbox"]:checked')
@@ -50,8 +59,11 @@ try {
             displayPagination(pageNumber, maxPage, redirectHandler)
 
             loader.delete()
+
+            viewRatingImage()
         }
 
+        viewRatingImage() // For initial ratings listed
         displayPagination(pageNumber, maxPage, redirectHandler)
     }
 } catch (error) {

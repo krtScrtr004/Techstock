@@ -45,7 +45,7 @@ $productTotalRatingCount    =   htmlspecialchars($product->getTotalRatingCount()
 
     <main class="dark-white-bg flex-col">
         <?= categoryChain($product->getCategory(), $product->getName()) ?>
-        
+
         <!-- Product Purchase Info Section -->
         <section class="purchase-info major-section flex-row white-bg">
             <!-- Images Section -->
@@ -386,11 +386,13 @@ $productTotalRatingCount    =   htmlspecialchars($product->getTotalRatingCount()
                 <!-- Star Filter Buttons -->
                 <?php
                 if ($productTotalRatingCount > 0):
-                    $totalFiveRating    =   htmlspecialchars($product->getFiveRatingCount());
-                    $totalFourRating    =   htmlspecialchars($product->getFourRatingCount());
-                    $totalThreeRating   =   htmlspecialchars($product->getThreeRatingCount());
-                    $totalTwoRating     =   htmlspecialchars($product->getTwoRatingCount());
-                    $totalOnwRating     =   htmlspecialchars($product->getOneRatingCount());
+                    $totalRatings = [
+                        'five_star'  => htmlspecialchars($product->getFiveRatingCount()),
+                        'four_star'  => htmlspecialchars($product->getFourRatingCount()),
+                        'three_star' => htmlspecialchars($product->getThreeRatingCount()),
+                        'two_star'   => htmlspecialchars($product->getTwoRatingCount()),
+                        'one_star'   => htmlspecialchars($product->getOneRatingCount())
+                    ];
                 ?>
                     <section class="star-filter-buttons">
                         <form class="flex-row flex-child-start-h flex-wrap" action="" method="POST">
@@ -402,45 +404,18 @@ $productTotalRatingCount    =   htmlspecialchars($product->getTotalRatingCount()
                                 </button>
                             </div>
 
-                            <div class="hidden-wrapper center-child">
-                                <input type="checkbox" name="five_star" id="five_star" value="5">
+                            <?php 
+                            $index = count($totalRatings);
+                            foreach ($totalRatings as $key => $value): 
+                            ?>
+                                <div class="hidden-wrapper center-child">
+                                    <input type="checkbox" name="<?= $key ?>" id="<?= $key ?>" value="<?= $index ?>">
 
-                                <button class="unset-button">
-                                    5 Stars (<?= $totalFiveRating ?>)
-                                </button>
-                            </div>
-
-                            <div class="hidden-wrapper center-child">
-                                <input type="checkbox" name="four_star" id="four_star" value="4">
-
-                                <button class="unset-button">
-                                    4 Stars (<?= $totalFourRating ?>)
-                                </button>
-                            </div>
-
-                            <div class="hidden-wrapper center-child">
-                                <input type="checkbox" name="three_star" id="three_star" value="3">
-
-                                <button class="unset-button">
-                                    3 Stars (<?= $totalThreeRating ?>)
-                                </button>
-                            </div>
-
-                            <div class="hidden-wrapper center-child">
-                                <input type="checkbox" name="two_star" id="two_star" value="2">
-
-                                <button class="unset-button">
-                                    2 Stars (<?= $totalTwoRating ?>)
-                                </button>
-                            </div>
-
-                            <div class="hidden-wrapper center-child">
-                                <input type="checkbox" name="one_star" id="one_star" value="1">
-
-                                <button class="unset-button">
-                                    1 Stars (<?= $totalOnwRating ?>)
-                                </button>
-                            </div>
+                                    <button class="unset-button">
+                                        <?= $index-- ?> Stars (<?= $value ?>)
+                                    </button>
+                                </div>
+                            <?php endforeach; ?>
 
                         </form>
                     </section>
@@ -487,7 +462,6 @@ $productTotalRatingCount    =   htmlspecialchars($product->getTotalRatingCount()
     <script type="module" src="<?= htmlspecialchars(EVENT_PATH . 'copy-link.js'); ?>" defer></script>
     <script type="module" src="<?= htmlspecialchars(EVENT_PATH . 'break-text-fallback.js'); ?>" defer></script>
     <script type="module" src="<?= htmlspecialchars(EVENT_PATH . 'back-to-top.js'); ?>" defer></script>
-    <script type="module" src="<?= htmlspecialchars(EVENT_PATH . 'view-image.js'); ?>" defer></script>
 
     <script type="module" src="<?= htmlspecialchars(EVENT_PATH . 'product' . DS . 'show-click-image.js'); ?>" defer></script>
     <script type="module" src="<?= htmlspecialchars(EVENT_PATH . 'product' . DS . 'favorite.js'); ?>" defer></script>

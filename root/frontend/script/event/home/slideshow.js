@@ -1,4 +1,6 @@
-import { dialog } from "../../render/dialog.js";
+import { viewImage } from '../../utility/view-image.js';
+
+import { dialog } from '../../render/dialog.js';
 
 try {        
     const path = 'asset/image/'
@@ -70,6 +72,8 @@ try {
             slideshowImage.src = `${path}${images[index]}`
         })
     })
+
+    viewImage(slideshowImage)    
 } catch (error) {
     dialog.errorOccurred(error.message)
 }

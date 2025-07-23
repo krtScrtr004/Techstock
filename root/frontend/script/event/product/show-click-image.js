@@ -1,3 +1,5 @@
+import { viewImage } from '../../utility/view-image.js'
+
 import { dialog } from '../../render/dialog.js'
 
 try {
@@ -13,6 +15,7 @@ try {
                 featuredImage.src = image.src
             })
         })    
+        viewImage(featuredImage)
     }
 } catch (error) {
     dialog.errorOccurred(error.message)
