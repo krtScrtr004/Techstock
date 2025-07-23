@@ -105,21 +105,21 @@ $address       =   htmlspecialchars($store->getAddress());
 
             // Recommended Products
             featuredItem(
-                [$controllerInstance, 'featuredProductsCallback'],
+                'featuredProductsCallback',
                 $products,
                 'Recommended For You'
             );
 
             // Top Sellers
             featuredItem(
-                [$controllerInstance, 'featuredProductsCallback'],
+                'featuredProductsCallback',
                 $products,
                 'Top Sellers'
             );
 
             // New Arrival
             featuredItem(
-                [$controllerInstance, 'featuredProductsCallback'],
+                'featuredProductsCallback',
                 $products,
                 'New Arrival'
             );

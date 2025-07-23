@@ -26,7 +26,13 @@
         <section class="banner-section white-bg">
             <!-- Slideshow -->
             <section class="slide-show-wrapper relative">
-                <img class="slide-show viewable-image fade" src="<?= IMAGE_PATH . 'console-1.jpg'; ?>" alt="Slideshow" title="Slideshow" height="300" loading="lazy">
+                <img
+                    class="slide-show viewable-image fade"
+                    src="<?= IMAGE_PATH . 'console-1.jpg'; ?>"
+                    alt="Slideshow"
+                    title="Slideshow"
+                    height="300"
+                    loading="lazy" />
 
                 <button type="button" class="change-button previous unset-button">
                     <img src="<?= ICON_PATH . 'next.svg'; ?>" alt="Previous " title="Previous " height="20" width="20">
@@ -49,6 +55,18 @@
             <section class="category-section">
                 <ul class=" flex-row flex-space-evenly">
                     <?php
+                    $categories = [
+                        'phone_b.svg'      => Category::sna->value,
+                        'pc_b.svg'         => Category::cnl->value,
+                        'pc-parts_b.svg'   => Category::cnpp->value,
+                        'console_b.svg'    => Category::gm->value,
+                        'router_b.svg'     => Category::nnsh->value,
+                        'headphone_b.svg'  => Category::anm->value,
+                        'smartwatch_b.svg' => Category::wnht->value,
+                        'printer_b.svg'    => Category::onp->value,
+                        'camera_b.svg'     => Category::dnc->value,
+                        'arduino_b.svg'    => Category::tfe->value,
+                    ];
                     foreach ($categories as $key => $value):
                         $sentenceValue = htmlspecialchars(ucwords(kebabToSentenceCase($value)));
                     ?>
@@ -60,7 +78,7 @@
                                         src="<?= ICON_PATH . $key ?>"
                                         alt="<?= $sentenceValue ?>"
                                         title="<?= $sentenceValue ?>"
-                                        height="57">
+                                        height="57" />
                                     <h3 class="center-text black-text"><?= $sentenceValue ?></h3>
                                 </a>
                             </div>
@@ -72,10 +90,16 @@
 
         <?php
         // Top Products
-        featuredItem([$controllerInstance, 'topProductCallback'], $products, 'Top Products');
+        featuredItem(
+            'featuredProductsCallback', 
+            $products, 
+            'Top Products');
 
         // Top stores
-        featuredItem([$controllerInstance, 'topStoreCallback'], $stores, 'Top Stores');
+        featuredItem(
+            'featuredStoresCallback', 
+            $stores,
+            'Top Stores');
         ?>
 
         <!-- Discover More -->
