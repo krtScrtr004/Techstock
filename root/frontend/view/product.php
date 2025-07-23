@@ -304,30 +304,21 @@ $productTotalRatingCount    =   htmlspecialchars($product->getTotalRatingCount()
 
             <!-- Store Detail Section -->
             <section class="store-details grid">
-                <section class="first-col flex-row flex-space-between">
-                    <p class="">Contact</p>
-                    <h3 class="end-text"><?= $storeContact ?></h3>
-                </section>
+                <?php
+                $storeDetails = [
+                    'Contact'   => $storeContact,
+                    'Email'     => $storeEmail,
+                    'Products'  => $storeProductCount,
+                    'Followers' => $storeFollowerCount,
+                    'Address'   => $storeAddress
+                ];
 
-                <section class="first-col flex-row flex-space-between">
-                    <p class="">Email</p>
-                    <h3 class="end-text"><?= $storeEmail ?></h3>
-                </section>
-
-                <section class="second-col flex-row flex-space-between">
-                    <p class="">Products</p>
-                    <h3 class="end-text"><?= $storeProductCount ?></h3>
-                </section>
-
-                <section class="second-col flex-row flex-space-between">
-                    <p class="">Followers</p>
-                    <h3 class="end-text"><?= $storeFollowerCount ?></h3>
-                </section>
-
-                <section class="first-col flex-row flex-space-between">
-                    <p class="">Address</p>
-                    <h3 class="end-text"><?= $storeAddress ?></h3>
-                </section>
+                foreach ($storeDetails as $key => $value): ?>
+                    <section class="flex-row flex-space-between">
+                        <p class=""><?= htmlspecialchars($key) ?></p>
+                        <h3 class="end-text"><?= htmlspecialchars($value) ?></h3>
+                    </section>
+                <?php endforeach; ?>
             </section>
         </section>
 
