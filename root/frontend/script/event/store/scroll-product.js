@@ -27,4 +27,5 @@ try {
     }
 } catch (error) {
     dialog.errorOccurred(error.message)
+    console.error(error)
 }

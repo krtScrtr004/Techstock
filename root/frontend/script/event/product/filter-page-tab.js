@@ -10,49 +10,52 @@ try {
     let pageNumber = 1
 
     const ratings = document.querySelector('#ratings')
-    const ratingList = ratings.querySelector('.rating-list > .list')
+    if (ratings) {
+        const ratingList = ratings.querySelector('.rating-list > .list')
 
-    document.addEventListener('DOMContentLoaded', likeRating())// Add like rating event
+        document.addEventListener('DOMContentLoaded', likeRating())// Add like rating event
 
-    // function createSearchParam() {
-    //     const checkedCheckboxes = ratings.querySelectorAll('input[type="checkbox"]:checked')
+        // function createSearchParam() {
+        //     const checkedCheckboxes = ratings.querySelectorAll('input[type="checkbox"]:checked')
 
-    //     const checkedFilters = Array.from(checkedCheckboxes).map(ch => ch.value)
+        //     const checkedFilters = Array.from(checkedCheckboxes).map(ch => ch.value)
 
-    //     const searchParam = new URLSearchParams({
-    //         'rating-level': checkedFilters
-    //     })
-    //     return searchParam.toString()
-    // }
+        //     const searchParam = new URLSearchParams({
+        //         'rating-level': checkedFilters
+        //     })
+        //     return searchParam.toString()
+        // }
 
-    async function redirectHandler(page) {
-    // const endpoint = `dump/api/rating-card${createSearchParam()}`
+        async function redirectHandler(page) {
+            // const endpoint = `dump/api/rating-card${createSearchParam()}`
 
-        ratingList.innerHTML = '' // Remove all contents
-        loader.full(ratingList)
-    
-        const response = await http.GET('dump/api/rating-card') // TODO
-        if (response) {
-            response.ratingCards.forEach(html => {
-                ratingList.insertAdjacentHTML('beforeend', html);
-            })
-            likeRating() // Add like rating event
+            ratingList.innerHTML = '' // Remove all contents
+            loader.full(ratingList)
+
+            const response = await http.GET('dump/api/rating-card') // TODO
+            if (response) {
+                response.ratingCards.forEach(html => {
+                    ratingList.insertAdjacentHTML('beforeend', html);
+                })
+                likeRating() // Add like rating event
+            }
+
+            ratings.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start',
+                inline: 'nearest'
+            });
+
+            pageNumber = page
+            displayPagination(pageNumber, maxPage, redirectHandler)
+
+            loader.delete()
         }
 
-        ratings.scrollIntoView({
-            behavior: 'smooth',
-            block: 'start',
-            inline: 'nearest'
-        });
-
-        pageNumber = page
         displayPagination(pageNumber, maxPage, redirectHandler)
-
-        loader.delete()
     }
-
-    displayPagination(pageNumber, maxPage, redirectHandler)    
 } catch (error) {
     dialog.errorOccurred(error.message)
+    console.error(error)
 }
 
