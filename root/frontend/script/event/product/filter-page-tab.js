@@ -1,6 +1,7 @@
 import { displayPagination } from '../../utility/display-pagination.js'
 import { likeRating } from '../../utility/like-rating.js'
 import { viewImage } from '../../utility/view-image.js'
+import { insertFragment } from '../../utility/insert-fragment.js'
 import { http } from '../../utility/http.js'
 
 import { dialog } from '../../render/dialog.js'
@@ -43,9 +44,7 @@ try {
 
             const response = await http.GET('dump/api/rating-card') // TODO
             if (response) {
-                response.ratingCards.forEach(html => {
-                    ratingList.insertAdjacentHTML('beforeend', html);
-                })
+                insertFragment(response.ratingCards, ratingList)
                 likeRating() // Add like rating event
             }
 

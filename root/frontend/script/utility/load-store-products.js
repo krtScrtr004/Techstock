@@ -1,3 +1,4 @@
+import { displayProductBatch } from './insert-product-batch.js'
 import { http } from './http.js'
 
 import { loader } from '../render/loader.js'
@@ -37,9 +38,11 @@ const Exports = () => {
         },
 
         insertProductCards: function (cards) {
+            const callback = displayProductBatch(this.productList)
             cards.forEach(card => {
-                this.productList.insertAdjacentHTML('beforeend', card)
+                callback.flushCard(card)
             })
+            callback.flushRemaining()
         },
 
         resetList: function () {
