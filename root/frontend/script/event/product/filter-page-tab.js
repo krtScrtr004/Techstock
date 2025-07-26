@@ -22,7 +22,6 @@ try {
             if (ratingImages) {
                 ratingImages.forEach(image => viewImage(image))
             }
-
         }
 
         // function createSearchParam() {
