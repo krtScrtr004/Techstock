@@ -44,7 +44,7 @@ class CheckoutController implements Controller
         $orderItems = [];
         foreach ($allStores as $store) {
             for ($i = 0; $i < 2; $i++) {
-                $product = new Product([
+                $orderItem = new OrderItem([
                     'id' => uniqid(),
 
                     'name' => "Product name number $i.",
@@ -97,23 +97,11 @@ class CheckoutController implements Controller
                         IMAGE_PATH . $images[array_rand($images)]
                     ],
 
-                    'option' => new ProductOption([
-                        'colors' => ['Red', 'Blue', 'Green', 'Black', 'White'],
-                        'variants' => ['Standard', 'Pro', 'Lite'],
-                        'models' => ['2022', '2023', '2024'],
+                    'options' => new ProductOption([
+                        'colors' => ['Red'],
+                        'variants' => ['Standard'],
+                        'models' => ['2022'],
                     ]),
-                ]);
-
-                $orderItem = new OrderItem([
-                    'id' => uniqid(),
-                    'product' => $product,
-                    'price' => $product->getPrice(),
-                    'option' => new ProductOption([
-                        'color' => ['red'],
-                        'year' => ['2023'],
-                        'model' => ['Ultra Pro Max']
-                    ]),
-                    'quantity' => rand(1, 3)
                 ]);
                 array_push($orderItems, $orderItem);
             }
@@ -133,9 +121,6 @@ class CheckoutController implements Controller
          * 
          * - Order:
          *  - Order Item:
-         *   - Product
-         *    - Store
-         *   - Product Option
          * 
          */
 

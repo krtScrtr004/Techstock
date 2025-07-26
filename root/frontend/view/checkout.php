@@ -101,13 +101,10 @@ $totalPayment           =   DEFAULT_CURRENCY_SYMBOL . ' ' . htmlspecialchars(for
                         <tbody>
                             <?php
                             foreach ($order->getOrders() as $item):
-                                // Product Info
-                                $product        =   $item->getProduct();
-                                $productName    =   htmlspecialchars($product->getName());
-                                $productImage   =   htmlspecialchars($product->getImage(0));
-
                                 // Order Item Info
-                                $option         =   $item->getOption();
+                                $name           =   htmlspecialchars($item->getName());
+                                $image          =   htmlspecialchars($item->getImage(0));
+                                $option         =   $item->getOptions();
                                 $price          =   htmlspecialchars($item->getPrice());
                                 $quantity       =   htmlspecialchars($item->getQuantity());
 
@@ -119,9 +116,13 @@ $totalPayment           =   DEFAULT_CURRENCY_SYMBOL . ' ' . htmlspecialchars(for
                                     <!-- Product Image and Name -->
                                     <td>
                                         <div class="product-info flex-row flex-child-center-h">
-                                            <img src="<?= $productImage ?>" alt="<?= $productName ?>" title="<?= $productName ?>" width="150">
+                                            <img 
+                                                src="<?= $image ?>" 
+                                                alt="<?= $name ?>" 
+                                                title="<?= $name ?>" 
+                                                width="150" />
 
-                                            <p class="black-text"><?= $productName ?></p>
+                                            <p class="black-text"><?= $name ?></p>
                                         </div>
                                     </td>
 

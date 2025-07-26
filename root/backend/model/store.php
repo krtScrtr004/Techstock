@@ -4,11 +4,11 @@ class Store implements Model
 {
 	private $id;
 	private string $name;
-	private string $description;
+	private ?string $description;
 	private ?string $logo;
 	private ?string $site_link;
 	private string $email;
-	private string $contact;
+	private ?string $contact;
 	private Address $location;
 	private ?StoreCollection $collection;
 	private int $productCount;

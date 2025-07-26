@@ -40,7 +40,7 @@ class Product implements Model
         $this->images = $data['images'] ?? null;
         $this->category = $data['category'] ?? null;
         $this->specification = $data['specification'] ?? null;
-        $this->options = $data['option'] ?? null;
+        $this->options = $data['options'] ?? null;
         $this->soldCount = $data['sold_count'] ?? 0;
     }
 
