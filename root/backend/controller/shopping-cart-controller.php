@@ -6,6 +6,6 @@ class ShoppingCartController implements Controller
     {
         global $session;
 
-        // require_once VIEW_PATH . 'shopping-cart.php';
+        require_once VIEW_PATH . 'shopping-cart.php';
     }
 }
