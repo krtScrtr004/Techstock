@@ -1,7 +1,7 @@
 <!-- TODO -->
 <?php if (!$session->isSet()): ?>
     <!-- Header for non-logged in pages -->
-    <header class="outside-header flex-row flex-child-end-h relative">
+    <header class="simple-header flex-row flex-child-end-h relative">
         <a href="<?= REDIRECT_PATH . 'login'; ?> ">
             <img 
                 src="<?= LOGO_PATH . 'logo_complete_ver.svg'; ?>" 
@@ -10,12 +10,12 @@
                 height="45" />
         </a>
 
-        <h3><?= ($page === 'signup') ? "Sign Up" : "Log In"; ?></h3>
+        <h3 class="black-text"><?= ($page === 'signup') ? "Sign Up" : "Log In"; ?></h3>
     </header>
 
 <?php else: ?>
     <!-- Header for logged in pages -->
-    <header class="inside-header flex-col black-bg relative">
+    <header class="main-header flex-col black-bg relative">
 
         <!-- Top Links -->
         <section class="top-link-section flex-row white-text">

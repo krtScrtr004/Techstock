@@ -1,0 +1,8 @@
+.shopping-cart .header-w-back > div {
+    margin-left: 1rem;
+}
+
+.shopping-cart .header-w-back > div > h3 {
+    font-weight: 400;
+}
+
