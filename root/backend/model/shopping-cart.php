@@ -8,10 +8,10 @@ class ShoppingCart implements IteratorAggregate
 
     // Getters
 
-    public function get($productId, $storeId = null): ?Product
+    public function get($productId, $storeSlug = null): ?Product
     {
-        if ($storeId) {
-            return $this->cart[$storeId][$productId];
+        if ($storeSlug) {
+            return $this->cart[$storeSlug][$productId];
         } else {
             foreach ($this->cart as $store => $products) {
                 foreach ($products as $id => $product) {
@@ -37,24 +37,24 @@ class ShoppingCart implements IteratorAggregate
 
     public function add(ShoppingCartItem $item): bool
     {
-        $storeId    =   $item->getStore()->getId();
+        $storeSlug  =   createSlug($item->getStore()->getName());
         $productId  =   $item->getId();
 
-        if (!isset($this->cart[$storeId]) || !is_array($this->cart[$storeId])) {
-            $this->cart[$storeId] = [];
+        if (!isset($this->cart[$storeSlug]) || !is_array($this->cart[$storeSlug])) {
+            $this->cart[$storeSlug] = [];
         }
-        $this->cart[$storeId][$productId] = $item; // TODO: Cast the id to string in key
+        $this->cart[$storeSlug][$productId] = $item; // TODO: Cast the id to string in key
 
         return true;
     }
 
-    public function delete($productId, $storeId = null): bool
+    public function delete($productId, $storeSlug = null): bool
     {
-        if (isset($storeId)) {
-            $item = $this->cart[$storeId][$productId];
+        if (isset($storeSlug)) {
+            $item = $this->cart[$storeSlug][$productId];
             if (isset($item)) {
                 $item->delete();
-                unset($this->cart[$storeId][$productId]);
+                unset($this->cart[$storeSlug][$productId]);
             }
         } else {
             foreach ($this->cart as $sid => $list) {
