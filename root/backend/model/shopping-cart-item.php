@@ -30,4 +30,9 @@ class ShoppingCartItem extends Product
     {
         return true;
     }
+
+    public static function deleteAll($id = null): bool
+    {
+        return true;
+    }
 }

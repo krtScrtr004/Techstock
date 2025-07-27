@@ -117,6 +117,7 @@ class CheckoutController implements Controller
         }
 
         /**
+         * README: Orders are based / grouped by store
          * Create a method that would process the query result like this:
          * 
          * - Order:

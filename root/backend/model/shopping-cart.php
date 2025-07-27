@@ -1,74 +1,90 @@
 <?php
 
-class ShoppingCart
+class ShoppingCart implements IteratorAggregate
 {
     private array $cart;
 
-    public function __construct($data)
-    {
-        if ($data instanceof ShoppingCartItem) {
-            foreach ($data as $item) {
-                $id = $item->getId();
-                $this->cart[$id] = $item;
-            }
-        } else if (is_array($data) && isAssociative($data)) {
-            $this->cart = $data;
-        } else {
-            throw new BadMethodCallException(
-                'ShoppingCart Class constructor can only take an associative array or an instance of ShoppingCartItem'
-            );
-        }
-    }
+    public function __construct() {}
 
     // Getters
 
-    public function get($id): ?Product
+    public function get($productId, $storeId = null): ?Product
     {
-        return $this->cart[$id];
+        if ($storeId) {
+            return $this->cart[$storeId][$productId];
+        } else {
+            foreach ($this->cart as $store => $products) {
+                foreach ($products as $id => $product) {
+                    if ($productId === $id) return $product;
+                }
+            }
+        }
+        return null;
     }
 
     public function getAll(): array
     {
-        return $this->cart;
-    }
-
-    public function getAllFlat(): array
-    {
-        return array_values($this->cart);
-    }
-
-    // Setters
-
-    public function setCart($cart): void
-    {
-        $this->cart = $cart;
+        $flattened = [];
+        foreach ($this->cart as $store) {
+            foreach ($store as $item) {
+                array_push($flattened, $item);
+            }
+        }
+        return $flattened;
     }
 
     // Utilities
 
     public function add(ShoppingCartItem $item): bool
     {
-        $id = $item->getId();
-        $this->cart[$id] = $item; // TODO: Cast the id to string in key
+        $storeId    =   $item->getStore()->getId();
+        $productId  =   $item->getId();
 
-        return true;
-    }
-
-    public function delete($id): bool
-    {
-        $item = $this->cart[$id];
-        if ($item && $item instanceof ShoppingCartItem) {
-            unset($this->cart[$id]);
-            $item->delete();
+        if (!isset($this->cart[$storeId]) || !is_array($this->cart[$storeId])) {
+            $this->cart[$storeId] = [];
         }
+        $this->cart[$storeId][$productId] = $item; // TODO: Cast the id to string in key
+
         return true;
     }
 
-    public function deleteAll(): bool
+    public function delete($productId, $storeId = null): bool
     {
-        $ids = array_keys($this->cart);
+        if (isset($storeId)) {
+            $item = $this->cart[$storeId][$productId];
+            if (isset($item)) {
+                $item->delete();
+                unset($this->cart[$storeId][$productId]);
+            }
+        } else {
+            foreach ($this->cart as $sid => $list) {
+                foreach ($list as $pid => $item) {
+                    if ($productId === $pid) {
+                        $item->delete();
+                        unset($this->cart[$sid][$pid]);
+                    }
+                }
+            }
+        }
+
+        return true;
+    }
+
+    public function deleteMultiple(): bool
+    {
+        $ids = [];
+        foreach ($this->cart as $store) {
+            foreach ($store as $item) {
+                array_push($ids, $item->getId());
+            }
+        }
         $this->cart = [];
 
         return ShoppingCartItem::deleteMultiple($ids);
+    }
+
+    public function getIterator(): Traversable
+    {
+        return new ArrayIterator($this->cart);
     }
 }
