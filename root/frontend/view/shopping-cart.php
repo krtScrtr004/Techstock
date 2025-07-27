@@ -41,25 +41,25 @@
     <main class="dark-white-bg">
         <!--  -->
         <form class="shopping-cart-form" action="" method="POST">
+            <section class="table-header table-row unconnected-row grid white-bg">
+                <div class="flex-row flex-child-center-h">
+                    <input
+                        type="checkbox"
+                        name="select_all"
+                        id="select_all"
+                        value="select_all" />
+                    <label for="select_all" class="black-text">
+                        <h3>Products</h3>
+                    </label>
+                </div>
+
+                <h3 class="center-text black-text">Unit Price</h3>
+                <h3 class="center-text black-text">Quantity</h3>
+                <h3 class="center-text black-text">Total Price</h3>
+                <h3 class="center-text black-text">Actions</h3>
+            </section>
+
             <section>
-                <section class="table-header table-row unconnected-row grid white-bg">
-                    <div class="flex-row flex-child-center-h">
-                        <input
-                            type="checkbox"
-                            name="select_all"
-                            id="select_all"
-                            value="select_all" />
-                        <label for="select_all" class="black-text">
-                            <h3>Products</h3>
-                        </label>
-                    </div>
-
-                    <h3 class="center-text black-text">Unit Price</h3>
-                    <h3 class="center-text black-text">Quantity</h3>
-                    <h3 class="center-text black-text">Total Price</h3>
-                    <h3 class="center-text black-text">Actions</h3>
-                </section>
-
                 <?php
                 foreach ($cart as $store => $items):
                     $storeName  =   htmlspecialchars(kebabToSentenceCase($store));
@@ -185,6 +185,21 @@
                     </section>
 
                 <?php endforeach; ?>
+            </section>
+
+            <section class="proceed-checkout table-row flex-row sticky white-bg">
+                <section class="flex-row flex-child-center-h">
+                    <button class="unset-button" type="button">
+                        <p class="black-text">Remove From My Cart</p>
+                    </button>
+                </section>
+
+                <section class="flex-row flex-child-end-v flex-child-center-h">
+                    <p class="payment-summary">Total Orders (1): <span class="bold-text blue-text">P 100,000.00</span></p>
+                    <button class="checkout-cart-button black-bg white-text">
+                        CHECKOUT
+                    </button>
+                </section>
             </section>
         </form>
     </main>
