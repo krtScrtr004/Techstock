@@ -19,8 +19,6 @@ function formatNumber(number) {
 }
 
 export function calculateTotalPrice() {
-
-
     let [totalPrice, itemCount] = [0, 0]
 
     const items = getCheckedItems()
