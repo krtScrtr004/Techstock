@@ -24,6 +24,7 @@ define('ROUTER_PATH', BACKEND_PATH . 'router' . DS);
 define('MODEL_PATH', BACKEND_PATH . 'model' . DS);
 define('SERVICE_PATH', BACKEND_PATH . 'service' . DS);
 
+define('CONTAINER_PATH', MODEL_PATH . 'container' . DS);
 define('DEPENDENT_PATH', MODEL_PATH . 'dependent' . DS);
 
 define('CLASS_PATH', SERVICE_PATH . 'class' . DS);
