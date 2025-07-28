@@ -62,9 +62,9 @@
 
             <section class="table-content">
                 <?php
-                foreach ($cart as $store => $items):
-                    $storeName  =   htmlspecialchars(kebabToSentenceCase($store));
-                    $slug       =   htmlspecialchars($store);
+                foreach ($cart as $storeSlug => $items):
+                    $storeName  =   htmlspecialchars(kebabToSentenceCase($storeSlug));
+                    $slug       =   htmlspecialchars($storeSlug);
                 ?>
                     <fieldset name="<?= $slug ?>">
                         <section class="item-grouped-list unconnected-row flex-col">
