@@ -432,7 +432,7 @@ class Product implements Model
                     'brand' => 'Snamsung',
                 ],
 
-                'option' => $options,
+                'options' => $options,
 
                 'sold_count' => rand(0, 500),
             ]);
