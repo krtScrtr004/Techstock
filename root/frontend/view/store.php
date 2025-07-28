@@ -146,7 +146,7 @@ $address       =   htmlspecialchars($store->getAddress());
                         </button>
 
                         <?php
-                        $collections = $store->getCollection()->toArray();
+                        $collections = $store->getCollection();
                         foreach ($collections as $collection):
                             $collection = htmlspecialchars($collection);
                         ?>
