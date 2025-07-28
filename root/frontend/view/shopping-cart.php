@@ -128,7 +128,7 @@
                                                         <p class="light-black-text">Options:</p>
 
                                                         <?php
-                                                        foreach ($options->getKeys() as $key):
+                                                        foreach ($options as $key => $values):
                                                             $optionName = htmlspecialchars(ucwords($key));
                                                         ?>
                                                             <div class="option-selection-container">
@@ -136,7 +136,7 @@
                                                                     <?= $optionName ?>
                                                                 </label>
                                                                 <select name="options" id="<?= $key ?>">
-                                                                    <?php foreach ($options->getValues($key) as $value) {
+                                                                    <?php foreach ($values as $value) {
                                                                         $selectedValues = $selectedOptions->getValues($key);
 
                                                                         $isSelected = '';

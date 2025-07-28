@@ -129,9 +129,9 @@ $totalPayment           =   DEFAULT_CURRENCY_SYMBOL . ' ' . htmlspecialchars(for
                                     <!-- Variation -->
                                     <td>
                                         <ul>
-                                            <?php foreach ($option->getKeys() as $key): ?>
+                                            <?php foreach ($option as $key => $values): ?>
                                                 <?php
-                                                foreach ($option->getValues($key) as $value):
+                                                foreach ($values as $value):
                                                     $variationPair = htmlspecialchars(ucwords($key . ': ' . $value));
                                                 ?>
                                                     <li class="start-text"><?= $variationPair ?></li>

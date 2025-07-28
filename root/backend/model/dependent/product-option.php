@@ -1,6 +1,6 @@
 <?php
 
-class ProductOption
+class ProductOption implements IteratorAggregate
 {
     private array $container;
 
@@ -29,7 +29,7 @@ class ProductOption
 
     public function add(string|int $key, mixed $value): bool
     {
-        if (!isset($this->container[$key]) || !is_array($this->container[$key])) 
+        if (!isset($this->container[$key]) || !is_array($this->container[$key]))
             $this->container[$key] = [];
 
         if (isset($value))
@@ -38,15 +38,20 @@ class ProductOption
         return true;
     }
 
-    public function delete(string|int $key): bool 
+    public function delete(string|int $key): bool
     {
         unset($this->container[$key]);
 
         return true;
     }
 
-    public function toArray(): array 
+    public function toArray(): array
     {
         return $this->container;
+    }
+
+    public function getIterator(): Traversable
+    {
+        return new ArrayIterator($this->container);
     }
 }

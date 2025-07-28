@@ -187,7 +187,7 @@ $productTotalRatingCount    =   htmlspecialchars($product->getTotalRatingCount()
 
                 <!-- Options / Variants Section -->
                 <?php
-                foreach ($productOptions->getKeys() as $key):
+                foreach ($productOptions as $key => $values):
                     $optionName         =   htmlspecialchars(ucwords($key));
                 ?>
                     <section class="option-section grid">
@@ -196,7 +196,7 @@ $productTotalRatingCount    =   htmlspecialchars($product->getTotalRatingCount()
                         <!-- Options / Variants Selection Buttons -->
                         <div class="buttons flex-row flex-wrap">
                             <form class="option-form flex-row" action="" method="POST">
-                                <?php foreach ($productOptions->getValues($key) as $value):
+                                <?php foreach ($values as $value):
                                     $currentValue   =   htmlspecialchars($value);
                                 ?>
                                     <div class="hidden-wrapper">
