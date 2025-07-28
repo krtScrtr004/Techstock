@@ -22,6 +22,7 @@
 }
 
 .shopping-cart-form > section,
+.shopping-cart-form > section > fieldset,
 .shopping-cart-form .unconnected-row:not(:last-child) {
 	margin-bottom: var(--space);
 }
@@ -41,8 +42,12 @@
 	grid-template-columns: 500px repeat(4, calc((100% - 500px) / 4));
 }
 
+.shopping-cart-form > section > fieldset {
+	border: 0;
+}
+
 .item-grouped-list > section:not(:last-child) {
-	border-bottom: 1px solid var(--dark-white);
+	border-bottom: 3px solid var(--dark-white);
 }
 
 .product-image {
@@ -78,6 +83,7 @@
 
 .payment-summary {
     margin-right: var(--space);
+	font-size: 1.2rem;
 }
 
 .checkout-cart-button {
