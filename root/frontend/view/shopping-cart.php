@@ -69,7 +69,7 @@
                     <fieldset name="<?= $slug ?>">
                         <section class="item-grouped-list unconnected-row flex-col">
                             <!-- Store Info -->
-                            <section class="table-row flex-row flex-child-center-h white-bg">
+                            <section class="store-info table-row flex-row flex-child-center-h white-bg">
                                 <input
                                     type="checkbox"
                                     name="<?= $slug ?>"
@@ -172,7 +172,7 @@
 
                                     <!-- Total Price -->
                                     <section class="center-child">
-                                        <p class="black-text"><?= $totalPrice ?></p>
+                                        <p class="total-price black-text"><?= $totalPrice ?></p>
                                     </section>
 
                                     <!-- Actions -->
@@ -197,7 +197,7 @@
                 </section>
 
                 <section class="flex-row flex-child-end-v flex-child-center-h">
-                    <p class="payment-summary">Total Orders (1): <span class="bold-text blue-text">P 100,000.00</span></p>
+                    <p class="payment-summary">Total Orders (0): <span class="bold-text blue-text"><?= DEFAULT_CURRENCY_SYMBOL ?> 0</span></p>
                     <button class="checkout-cart-button black-bg white-text">
                         CHECKOUT
                     </button>

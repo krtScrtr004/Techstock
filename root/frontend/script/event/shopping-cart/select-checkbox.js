@@ -1,3 +1,5 @@
+import { calculateTotalPrice } from '../../utility/calculate-total-price.js'
+
 import { dialog } from '../../render/dialog.js'
 
 try {
@@ -27,6 +29,8 @@ try {
 
             // Update select all if any fieldset checkbox is unchecked
             updateSelectAllState()
+            calculateTotalPrice()
+
         })
 
         // When any item is manually changed
@@ -36,6 +40,7 @@ try {
                 fieldCheckbox.checked = allItemsChecked
 
                 updateSelectAllState()
+                calculateTotalPrice()
             })
         })
     })
@@ -51,6 +56,7 @@ try {
                 cb.checked = selectAll.checked
             })
         })
+        calculateTotalPrice()
     })
 } catch (error) {
     dialog.errorOccurred(error.message)
