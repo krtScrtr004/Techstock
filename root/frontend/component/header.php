@@ -125,7 +125,7 @@
                 <div class="icon-w-badge">
                     <p class="cart-count">3</p>
 
-                    <a href="#">
+                    <a href="<?= REDIRECT_PATH . 'shopping-cart' ?>">
                         <img 
                         src="<?= ICON_PATH . 'cart.svg'; ?>" 
                         alt="Shoppingcart" 

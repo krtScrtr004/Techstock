@@ -178,7 +178,7 @@
                                     <!-- Actions -->
                                     <section class="center-child">
                                         <button class="delete-item-button unset-button" type="button">
-                                            <p class="red-text">Delete</p>
+                                            <p class="red-text" title="Delete this item">Delete</p>
                                         </button>
                                     </section>
                                 </section>
@@ -191,7 +191,7 @@
 
             <section class="proceed-checkout table-row flex-row sticky white-bg">
                 <section class="flex-row flex-child-center-h">
-                    <button class="remove-checked-button unset-button" type="button">
+                    <button class="remove-checked-button unset-button" type="button" title="Remove from my cart">
                         <p class="black-text">Remove From My Cart</p>
                     </button>
                 </section>
