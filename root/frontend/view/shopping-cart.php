@@ -48,6 +48,7 @@
                         name="select_all"
                         id="select_all"
                         value="select_all" />
+
                     <label for="select_all" class="black-text">
                         <h3>Products</h3>
                     </label>
@@ -59,7 +60,7 @@
                 <h3 class="center-text black-text">Actions</h3>
             </section>
 
-            <section>
+            <section class="table-content">
                 <?php
                 foreach ($cart as $store => $items):
                     $storeName  =   htmlspecialchars(kebabToSentenceCase($store));
@@ -208,6 +209,8 @@
     <?php require_once COMPONENT_PATH . 'footer.php' ?>
 
     <script type="module" src="<?= htmlspecialchars(EVENT_PATH . 'back-button.js'); ?>" defer></script>
+
+    <script type="module" src="<?= htmlspecialchars(EVENT_PATH . 'shopping-cart' . DS . 'select-checkbox.js'); ?>" defer></script>
 </body>
 
 </html>
