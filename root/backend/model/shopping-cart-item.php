@@ -44,8 +44,9 @@ class ShoppingCartItem extends Product
         return true;
     }
 
-    public static function deleteAll($id = null): bool
+    public static function deleteAll(): bool
     {
+        // Logic to delete all items goes here
         return true;
     }
 }
