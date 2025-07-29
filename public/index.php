@@ -1,5 +1,5 @@
 <?php
-require_once 'root/backend/config/config.php';
+require_once '../root/backend/config/config.php';
 require_once ENUM_PATH . 'currency.php';
 
 $clientCountry = null;
