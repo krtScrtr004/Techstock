@@ -7,7 +7,7 @@
 
     <title>Techstock | Home</title>
 
-    <base href="/Techstock/root/frontend/">
+    <base href="/Techstock/source/frontend/">
     <link rel="stylesheet" href="<?= STYLE_PATH . 'utility.css' ?>">
     <link rel="stylesheet" href="<?= STYLE_PATH . 'component.css' ?>">
     <link rel="stylesheet" href="<?= STYLE_PATH . 'header.css' ?>">

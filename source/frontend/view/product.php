@@ -27,7 +27,7 @@ $productTotalRatingCount    =   htmlspecialchars($product->getTotalRatingCount()
         Techstock | <?= htmlspecialchars($product->getName()) ?>
     </title>
 
-    <base href="/Techstock/root/frontend/">
+    <base href="/Techstock/source/frontend/">
     <link rel="stylesheet" href="<?= STYLE_PATH . 'root.css' ?>">
     <link rel="stylesheet" href="<?= STYLE_PATH . 'utility.css' ?>">
     <link rel="stylesheet" href="<?= STYLE_PATH . 'component.css' ?>">
