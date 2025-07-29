@@ -45,7 +45,7 @@ $productTotalRatingCount    =   htmlspecialchars($product->getTotalRatingCount()
 
     <main class="dark-white-bg flex-col">
         <?= categoryChain($product->getCategory(), $product->getName()) ?>
-        
+
         <!-- Product Purchase Info Section -->
         <section class="purchase-info major-section flex-row white-bg">
             <!-- Images Section -->
@@ -187,9 +187,8 @@ $productTotalRatingCount    =   htmlspecialchars($product->getTotalRatingCount()
 
                 <!-- Options / Variants Section -->
                 <?php
-                foreach ($productOptions as $key => $value):
+                foreach ($productOptions as $key => $values):
                     $optionName         =   htmlspecialchars(ucwords($key));
-                    $optionValueCount   =   count($value);
                 ?>
                     <section class="option-section grid">
                         <p class="title"> <?= $optionName ?> </p>
@@ -197,16 +196,21 @@ $productTotalRatingCount    =   htmlspecialchars($product->getTotalRatingCount()
                         <!-- Options / Variants Selection Buttons -->
                         <div class="buttons flex-row flex-wrap">
                             <form class="option-form flex-row" action="" method="POST">
-                                <?php for ($i = 0, $n = $optionValueCount; $i < $n; ++$i):
-                                    $currentValue   =   htmlspecialchars($value[$i]);
+                                <?php foreach ($values as $value):
+                                    $currentValue   =   htmlspecialchars($value);
                                 ?>
-
                                     <div class="hidden-wrapper">
-                                        <input type="checkbox" name="<?= $currentValue ?>" id="<?= $currentValue ?>" value="<?= $currentValue ?>">
+                                        <input 
+                                            type="radio" 
+                                            name="<?= $optionName ?>" 
+                                            id="<?= $currentValue ?>" 
+                                            value="<?= $currentValue ?>" />
 
-                                        <button type="button" class="unset-button"><?= $currentValue ?></button>
+                                        <button type="button" class="unset-button">
+                                            <?= $currentValue ?>
+                                        </button>
                                     </div>
-                                <?php endfor; ?>
+                                <?php endforeach; ?>
                             </form>
                         </div>
                     </section>
@@ -304,30 +308,21 @@ $productTotalRatingCount    =   htmlspecialchars($product->getTotalRatingCount()
 
             <!-- Store Detail Section -->
             <section class="store-details grid">
-                <section class="first-col flex-row flex-space-between">
-                    <p class="">Contact</p>
-                    <h3 class="end-text"><?= $storeContact ?></h3>
-                </section>
+                <?php
+                $storeDetails = [
+                    'Contact'   => $storeContact,
+                    'Email'     => $storeEmail,
+                    'Products'  => $storeProductCount,
+                    'Followers' => $storeFollowerCount,
+                    'Address'   => $storeAddress
+                ];
 
-                <section class="first-col flex-row flex-space-between">
-                    <p class="">Email</p>
-                    <h3 class="end-text"><?= $storeEmail ?></h3>
-                </section>
-
-                <section class="second-col flex-row flex-space-between">
-                    <p class="">Products</p>
-                    <h3 class="end-text"><?= $storeProductCount ?></h3>
-                </section>
-
-                <section class="second-col flex-row flex-space-between">
-                    <p class="">Followers</p>
-                    <h3 class="end-text"><?= $storeFollowerCount ?></h3>
-                </section>
-
-                <section class="first-col flex-row flex-space-between">
-                    <p class="">Address</p>
-                    <h3 class="end-text"><?= $storeAddress ?></h3>
-                </section>
+                foreach ($storeDetails as $key => $value): ?>
+                    <section class="flex-row flex-space-between">
+                        <p class=""><?= htmlspecialchars($key) ?></p>
+                        <h3 class="end-text"><?= htmlspecialchars($value) ?></h3>
+                    </section>
+                <?php endforeach; ?>
             </section>
         </section>
 
@@ -386,11 +381,13 @@ $productTotalRatingCount    =   htmlspecialchars($product->getTotalRatingCount()
                 <!-- Star Filter Buttons -->
                 <?php
                 if ($productTotalRatingCount > 0):
-                    $totalFiveRating    =   htmlspecialchars($product->getFiveRatingCount());
-                    $totalFourRating    =   htmlspecialchars($product->getFourRatingCount());
-                    $totalThreeRating   =   htmlspecialchars($product->getThreeRatingCount());
-                    $totalTwoRating     =   htmlspecialchars($product->getTwoRatingCount());
-                    $totalOnwRating     =   htmlspecialchars($product->getOneRatingCount());
+                    $totalRatings = [
+                        'five_star'  => htmlspecialchars($product->getFiveRatingCount()),
+                        'four_star'  => htmlspecialchars($product->getFourRatingCount()),
+                        'three_star' => htmlspecialchars($product->getThreeRatingCount()),
+                        'two_star'   => htmlspecialchars($product->getTwoRatingCount()),
+                        'one_star'   => htmlspecialchars($product->getOneRatingCount())
+                    ];
                 ?>
                     <section class="star-filter-buttons">
                         <form class="flex-row flex-child-start-h flex-wrap" action="" method="POST">
@@ -402,45 +399,18 @@ $productTotalRatingCount    =   htmlspecialchars($product->getTotalRatingCount()
                                 </button>
                             </div>
 
-                            <div class="hidden-wrapper center-child">
-                                <input type="checkbox" name="five_star" id="five_star" value="5">
+                            <?php
+                            $index = count($totalRatings);
+                            foreach ($totalRatings as $key => $value):
+                            ?>
+                                <div class="hidden-wrapper center-child">
+                                    <input type="checkbox" name="<?= $key ?>" id="<?= $key ?>" value="<?= $index ?>">
 
-                                <button class="unset-button">
-                                    5 Stars (<?= $totalFiveRating ?>)
-                                </button>
-                            </div>
-
-                            <div class="hidden-wrapper center-child">
-                                <input type="checkbox" name="four_star" id="four_star" value="4">
-
-                                <button class="unset-button">
-                                    4 Stars (<?= $totalFourRating ?>)
-                                </button>
-                            </div>
-
-                            <div class="hidden-wrapper center-child">
-                                <input type="checkbox" name="three_star" id="three_star" value="3">
-
-                                <button class="unset-button">
-                                    3 Stars (<?= $totalThreeRating ?>)
-                                </button>
-                            </div>
-
-                            <div class="hidden-wrapper center-child">
-                                <input type="checkbox" name="two_star" id="two_star" value="2">
-
-                                <button class="unset-button">
-                                    2 Stars (<?= $totalTwoRating ?>)
-                                </button>
-                            </div>
-
-                            <div class="hidden-wrapper center-child">
-                                <input type="checkbox" name="one_star" id="one_star" value="1">
-
-                                <button class="unset-button">
-                                    1 Stars (<?= $totalOnwRating ?>)
-                                </button>
-                            </div>
+                                    <button class="unset-button">
+                                        <?= $index-- ?> Stars (<?= $value ?>)
+                                    </button>
+                                </div>
+                            <?php endforeach; ?>
 
                         </form>
                     </section>
@@ -487,7 +457,6 @@ $productTotalRatingCount    =   htmlspecialchars($product->getTotalRatingCount()
     <script type="module" src="<?= htmlspecialchars(EVENT_PATH . 'copy-link.js'); ?>" defer></script>
     <script type="module" src="<?= htmlspecialchars(EVENT_PATH . 'break-text-fallback.js'); ?>" defer></script>
     <script type="module" src="<?= htmlspecialchars(EVENT_PATH . 'back-to-top.js'); ?>" defer></script>
-    <script type="module" src="<?= htmlspecialchars(EVENT_PATH . 'view-image.js'); ?>" defer></script>
 
     <script type="module" src="<?= htmlspecialchars(EVENT_PATH . 'product' . DS . 'show-click-image.js'); ?>" defer></script>
     <script type="module" src="<?= htmlspecialchars(EVENT_PATH . 'product' . DS . 'favorite.js'); ?>" defer></script>

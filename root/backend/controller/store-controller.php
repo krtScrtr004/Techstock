@@ -6,8 +6,6 @@ class StoreController implements Controller
     {
         global $session;
 
-        $controllerInstance = new self();
-
         $images = [
             'console-1.jpg',
             'controller-1.jpg',
@@ -187,17 +185,5 @@ class StoreController implements Controller
             ]));
         }
         require_once VIEW_PATH . 'store.php';
-    }
-
-    public function featuredProductsCallback($products): void
-    {
-        if (count($products) <= 0) {
-            emptyFeaturedItem();
-            return;
-        }
-
-        foreach ($products as $product) {
-            echo productCard($product);
-        }
     }
 }

@@ -1,3 +1,4 @@
+import { displayProductBatch } from './insert-product-batch.js'
 import { http } from './http.js'
 
 import { loader } from '../render/loader.js'
@@ -10,7 +11,7 @@ const Exports = () => {
         loader: loader,
 
         infiniteList: document.querySelector('.infinite-list'),
-        productList: document.querySelector('.product-list'),
+        productList: document.querySelector('.product-grid'),
         infiniteListSentinel: document.querySelector('.sentinel'),
         noMoreProducts: document.querySelector('.no-more-products'),
 
@@ -37,9 +38,11 @@ const Exports = () => {
         },
 
         insertProductCards: function (cards) {
+            const callback = displayProductBatch(this.productList)
             cards.forEach(card => {
-                this.productList.insertAdjacentHTML('beforeend', card)
+                callback.flushCard(card)
             })
+            callback.flushRemaining()
         },
 
         resetList: function () {

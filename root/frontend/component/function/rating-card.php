@@ -57,7 +57,7 @@ function ratingCard(Rating $rating)
                         ?>
                             <img
                                 src="<?= $imageLink ?>"
-                                class="viewable-image"
+                                class="rating-image viewable-image"
                                 alt="Rating image"
                                 title="Rating image"
                                 height="75"

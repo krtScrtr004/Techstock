@@ -13,31 +13,30 @@ try {
 
     optionForms.forEach(form => {
         const hiddenWrappers = form.querySelectorAll('.hidden-wrapper')
-        let [lastCheckedOption, lastCheckedButton] = [null]
+        let lastCheckedButton = null
         hiddenWrappers.forEach(wrapper => {
-            const checkbox = wrapper.querySelector('input[type="checkbox"]')
+            const radio = wrapper.querySelector('input[type="radio"]')
             const button = wrapper.querySelector('button')
 
             button.addEventListener('click', e => {
                 e.preventDefault()
 
-                // Remove style on the last checked checkbox / button 
-                if (lastCheckedOption && lastCheckedOption !== checkbox) {
-                    lastCheckedOption.checked = false
+                // Remove style on the last checked radio / button 
+                if (lastCheckedButton && lastCheckedButton !== button) {
                     updateButtonStyle(false, lastCheckedButton)
-                } 
+                }
 
-                // Check / Uncheck checkbox on button click
-                checkbox.checked = (checkbox.checked) ? false : true
+                // Check / Uncheck radio on button click
+                radio.checked = (radio.checked) ? false : true
                 // Update style on check
-                updateButtonStyle(checkbox.checked, button)
+                updateButtonStyle(radio.checked, button)
 
-                lastCheckedOption = checkbox
                 lastCheckedButton = button
             })
         })
-    })    
+    })
 } catch (error) {
     dialog.errorOccurred(error.message)
+    console.error(error)
 }
 

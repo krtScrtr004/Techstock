@@ -1,6 +1,6 @@
 <?php
 
-class StoreCollection 
+class StoreCollection implements IteratorAggregate
 {
     private array $container;
 
@@ -43,5 +43,10 @@ class StoreCollection
     public function toArray(): array
     {
         return $this->container;
+    }
+
+    public function getIterator(): Traversable
+    {
+        return new ArrayIterator($this->container);
     }
 }

@@ -36,7 +36,7 @@ $address       =   htmlspecialchars($store->getAddress());
             <section class="store-info flex-row flex-child-center-h">
                 <!-- Store Logo -->
                 <img 
-                    class="viewable-image circle fit-contain" 
+                    class="store-logo viewable-image circle fit-contain" 
                     src="<?= $logo ?>" 
                     alt="<?= $name ?>" 
                     title="<?= $name ?>" 
@@ -105,21 +105,21 @@ $address       =   htmlspecialchars($store->getAddress());
 
             // Recommended Products
             featuredItem(
-                [$controllerInstance, 'featuredProductsCallback'],
+                'featuredProductsCallback',
                 $products,
                 'Recommended For You'
             );
 
             // Top Sellers
             featuredItem(
-                [$controllerInstance, 'featuredProductsCallback'],
+                'featuredProductsCallback',
                 $products,
                 'Top Sellers'
             );
 
             // New Arrival
             featuredItem(
-                [$controllerInstance, 'featuredProductsCallback'],
+                'featuredProductsCallback',
                 $products,
                 'New Arrival'
             );
@@ -146,7 +146,7 @@ $address       =   htmlspecialchars($store->getAddress());
                         </button>
 
                         <?php
-                        $collections = $store->getCollection()->toArray();
+                        $collections = $store->getCollection();
                         foreach ($collections as $collection):
                             $collection = htmlspecialchars($collection);
                         ?>
@@ -178,8 +178,8 @@ $address       =   htmlspecialchars($store->getAddress());
 
     <script type="module" src="<?= htmlspecialchars(EVENT_PATH . 'carousel-tracker.js'); ?>" defer></script>
     <script type="module" src="<?= htmlspecialchars(EVENT_PATH . 'back-to-top.js'); ?>" defer></script>
-    <script type="module" src="<?= htmlspecialchars(EVENT_PATH . 'view-image.js'); ?>" defer></script>
     
+    <script type="module" src="<?= htmlspecialchars(EVENT_PATH . 'store' . DS . 'view-logo.js'); ?>" defer></script>
     <script type="module" src="<?= htmlspecialchars(EVENT_PATH . 'store' . DS . 'filter-product.js'); ?>" defer></script>
     <script type="module" src="<?= htmlspecialchars(EVENT_PATH . 'store' . DS . 'scroll-product.js'); ?>" defer></script>
     <script type="module" src="<?= htmlspecialchars(EVENT_PATH . 'store' . DS . 'search.js'); ?>" defer></script>

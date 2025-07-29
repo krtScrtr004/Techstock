@@ -91,6 +91,10 @@
 	margin-top: 2.5rem;
 }
 
+.category-section > ul > li {
+	width: calc(100% / 10);
+}
+
 .category-card > a > h3 {
 	margin-top: 20px;
 	max-width: 15ch;

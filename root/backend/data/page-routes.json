@@ -18,6 +18,8 @@
 
 		"Techstock/checkout/{id:[\\w+_-]+}": "CheckoutController",
 
-		"Techstock/store/{slug:[\\w\\s\\.+-]+}": "StoreController"
+		"Techstock/store/{slug:[\\w\\s\\.+-]+}": "StoreController",
+
+		"Techstock/shopping-cart": "ShoppingCartController"
 	}
 }

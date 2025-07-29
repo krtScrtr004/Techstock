@@ -1,13 +1,13 @@
-.outside-header > h3 {
+.simple-header h3 {
 	font-size: 2rem;
 }
 
-.outside-header img {
+.simple-header img {
 	height: 3rem;
 	margin-right: 5px;
 }
 
-.inside-header {
+.main-header {
 	gap: 1rem;
 }
 

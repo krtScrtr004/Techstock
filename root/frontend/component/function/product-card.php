@@ -33,7 +33,7 @@ function productCard(Product $product): mixed
 
 function productGrid($products): void
 {
-    echo '<section class="product-list">';
+    echo '<section class="product-grid">';
     if (count($products) > 0) {
         foreach ($products as $product) {
             echo productCard($product);

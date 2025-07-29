@@ -33,7 +33,7 @@
 				<div class="form-wrapper flex-col white-bg">
 					<h3 class="black-text"><?= $component['title']; ?></h3>
 
-					<?php include_once COMPONENT_PATH . $component['form']; ?>
+					<?php call_user_func($component['form']) ?>
 				</div>
 			</section>
 

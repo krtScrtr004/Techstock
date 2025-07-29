@@ -3,7 +3,6 @@ import { exports } from '../../utility/load-store-products.js'
 import { dialog } from '../../render/dialog.js'
 
 try {
-// Filter Handler
     const collectionButtons = exports.infiniteList.querySelectorAll('.collection-button')
     if (collectionButtons && collectionButtons.length > 0) {
         let lastActiveButton = collectionButtons[0]
@@ -43,4 +42,5 @@ try {
     
 } catch (error) {
     dialog.errorOccurred(error.message)
+    console.error(error)
 }

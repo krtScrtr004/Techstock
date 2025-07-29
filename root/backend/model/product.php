@@ -2,19 +2,19 @@
 
 class Product implements Model
 {
-    private $id;
-    private string $name;
-    private ?string $description;
-    private float $price;
-    private int $stock;
-    private Store $store;
-    private Currency $currency;
-    private array $rating;
-    private ?array $images;
-    private ?ProductCategory $category;
-    private ?array $specification;
-    private ?ProductOption $options;
-    private int $soldCount;
+    protected $id;
+    protected string $name;
+    protected ?string $description;
+    protected float $price;
+    protected int $stock;
+    protected Store $store;
+    protected Currency $currency;
+    protected array $rating;
+    protected ?array $images;
+    protected ?ProductCategory $category;
+    protected ?array $specification;
+    protected ?ProductOption $options;
+    protected int $soldCount;
 
     public function __construct(array $data = [])
     {
@@ -40,7 +40,7 @@ class Product implements Model
         $this->images = $data['images'] ?? null;
         $this->category = $data['category'] ?? null;
         $this->specification = $data['specification'] ?? null;
-        $this->options = $data['option'] ?? null;
+        $this->options = $data['options'] ?? null;
         $this->soldCount = $data['sold_count'] ?? 0;
     }
 
@@ -432,7 +432,7 @@ class Product implements Model
                     'brand' => 'Snamsung',
                 ],
 
-                'option' => $options,
+                'options' => $options,
 
                 'sold_count' => rand(0, 500),
             ]);
