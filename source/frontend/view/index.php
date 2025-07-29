@@ -7,7 +7,7 @@
 
 	<title>Techstock</title>
 
-	<base href="/Techstock/source/frontend/">
+	<base href="<?= PUBLIC_PATH ?>">
 	<link rel="stylesheet" href="<?= STYLE_PATH . 'root.css' ?>">
 	<link rel="stylesheet" href="<?= STYLE_PATH . 'utility.css' ?>">
 	<link rel="stylesheet" href="<?= STYLE_PATH . 'component.css' ?>">

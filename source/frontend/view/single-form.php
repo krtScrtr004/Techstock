@@ -7,7 +7,7 @@
 
     <title>Set Password</title>
 
-    <base href="/Techstock/source/frontend/">
+    <base href="<?= PUBLIC_PATH ?>">
     <link rel="stylesheet" href="<?= STYLE_PATH . 'root.css' ?>">
     <link rel="stylesheet" href="<?= STYLE_PATH . 'utility.css' ?>">
     <link rel="stylesheet" href="<?= STYLE_PATH . 'component.css' ?>">
@@ -27,13 +27,13 @@
                 </button>
             </div>
 
-            <?php 
-                $callable = new ReflectionFunction($component['form']);
-                if ($callable->getNumberOfRequiredParameters() > 0) {
-                    call_user_func($component['form'], $component);
-                } else {
-                    call_user_func($component['form']);
-                }
+            <?php
+            $callable = new ReflectionFunction($component['form']);
+            if ($callable->getNumberOfRequiredParameters() > 0) {
+                call_user_func($component['form'], $component);
+            } else {
+                call_user_func($component['form']);
+            }
             ?>
 
         </div>

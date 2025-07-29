@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Techstock | Shopping Cart</title>
 
-    <base href="/Techstock/source/frontend/">
+    <base href="<?= PUBLIC_PATH ?>">
     <link rel="stylesheet" href="<?= STYLE_PATH . 'root.css' ?>">
     <link rel="stylesheet" href="<?= STYLE_PATH . 'utility.css' ?>">
     <link rel="stylesheet" href="<?= STYLE_PATH . 'component.css' ?>">

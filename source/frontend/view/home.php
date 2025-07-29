@@ -7,7 +7,7 @@
 
     <title>Techstock | Home</title>
 
-    <base href="/Techstock/source/frontend/">
+    <base href="<?= PUBLIC_PATH ?>">
     <link rel="stylesheet" href="<?= STYLE_PATH . 'utility.css' ?>">
     <link rel="stylesheet" href="<?= STYLE_PATH . 'component.css' ?>">
     <link rel="stylesheet" href="<?= STYLE_PATH . 'header.css' ?>">
@@ -91,15 +91,17 @@
         <?php
         // Top Products
         featuredItem(
-            'featuredProductsCallback', 
-            $products, 
-            'Top Products');
+            'featuredProductsCallback',
+            $products,
+            'Top Products'
+        );
 
         // Top stores
         featuredItem(
-            'featuredStoresCallback', 
+            'featuredStoresCallback',
             $stores,
-            'Top Stores');
+            'Top Stores'
+        );
         ?>
 
         <!-- Discover More -->

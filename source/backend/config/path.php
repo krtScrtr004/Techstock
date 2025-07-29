@@ -1,7 +1,6 @@
 <?php
 
 define('ABS_PATH', dirname(__DIR__, 2) . '/');
-define('REL_PATH', '');
 define('REDIRECT_PATH', 'http://localhost/Techstock/');
 
 // Absolute paths
@@ -34,14 +33,14 @@ define('BE_UTILITY_PATH', BACKEND_PATH . 'utility' . DS);
 define('FE_UTILITY_PATH', FRONTEND_PATH . 'utility' . DS);
 
 // Relative paths
+define('PUBLIC_PATH', DS . 'Techstock' . DS . 'public' . DS);
 
-define('SCRIPT_PATH', REL_PATH . 'script' . DS);
-define('STYLE_PATH', REL_PATH . 'style' . DS);
+define('ASSET_PATH', 'asset' . DS);
+define('SCRIPT_PATH', 'script' . DS);
+define('STYLE_PATH', 'style' . DS);
 
 define('EVENT_PATH', SCRIPT_PATH . 'event' . DS);
-define('SCRIPT_UTILITY_PATH', SCRIPT_PATH . 'utility' . DS);
 
-define('ASSET_PATH', REL_PATH . 'asset' . DS);
 define('IMAGE_PATH', ASSET_PATH . 'image' . DS);
 define('LOGO_PATH', IMAGE_PATH . 'logo' . DS);
 define('ICON_PATH', IMAGE_PATH . 'icon' . DS);

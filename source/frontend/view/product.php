@@ -27,7 +27,7 @@ $productTotalRatingCount    =   htmlspecialchars($product->getTotalRatingCount()
         Techstock | <?= htmlspecialchars($product->getName()) ?>
     </title>
 
-    <base href="/Techstock/source/frontend/">
+    <base href="<?= PUBLIC_PATH ?>">
     <link rel="stylesheet" href="<?= STYLE_PATH . 'root.css' ?>">
     <link rel="stylesheet" href="<?= STYLE_PATH . 'utility.css' ?>">
     <link rel="stylesheet" href="<?= STYLE_PATH . 'component.css' ?>">
@@ -200,10 +200,10 @@ $productTotalRatingCount    =   htmlspecialchars($product->getTotalRatingCount()
                                     $currentValue   =   htmlspecialchars($value);
                                 ?>
                                     <div class="hidden-wrapper">
-                                        <input 
-                                            type="radio" 
-                                            name="<?= $optionName ?>" 
-                                            id="<?= $currentValue ?>" 
+                                        <input
+                                            type="radio"
+                                            name="<?= $optionName ?>"
+                                            id="<?= $currentValue ?>"
                                             value="<?= $currentValue ?>" />
 
                                         <button type="button" class="unset-button">

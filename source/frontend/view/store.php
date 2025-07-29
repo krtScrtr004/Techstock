@@ -17,7 +17,7 @@ $address       =   htmlspecialchars($store->getAddress());
 
     <title>Techstock | <?= $name ?></title>
 
-    <base href="/Techstock/source/frontend/">
+    <base href="<?= PUBLIC_PATH ?>">
     <link rel="stylesheet" href="<?= STYLE_PATH . 'loader.css' ?>">
     <link rel="stylesheet" href="<?= STYLE_PATH . 'utility.css' ?>">
     <link rel="stylesheet" href="<?= STYLE_PATH . 'component.css' ?>">
@@ -35,11 +35,11 @@ $address       =   htmlspecialchars($store->getAddress());
         <section class="heading flex-row white-bg">
             <section class="store-info flex-row flex-child-center-h">
                 <!-- Store Logo -->
-                <img 
-                    class="store-logo viewable-image circle fit-contain" 
-                    src="<?= $logo ?>" 
-                    alt="<?= $name ?>" 
-                    title="<?= $name ?>" 
+                <img
+                    class="store-logo viewable-image circle fit-contain"
+                    src="<?= $logo ?>"
+                    alt="<?= $name ?>"
+                    title="<?= $name ?>"
                     height="150" />
 
                 <!--  -->
@@ -136,8 +136,8 @@ $address       =   htmlspecialchars($store->getAddress());
                     </div>
 
                     <form class="collection-form flex-col" action="" method="POST">
-                        <input 
-                            type="hidden" 
+                        <input
+                            type="hidden"
                             id="collection_name"
                             name="collection_name" />
 
@@ -178,7 +178,7 @@ $address       =   htmlspecialchars($store->getAddress());
 
     <script type="module" src="<?= htmlspecialchars(EVENT_PATH . 'carousel-tracker.js'); ?>" defer></script>
     <script type="module" src="<?= htmlspecialchars(EVENT_PATH . 'back-to-top.js'); ?>" defer></script>
-    
+
     <script type="module" src="<?= htmlspecialchars(EVENT_PATH . 'store' . DS . 'view-logo.js'); ?>" defer></script>
     <script type="module" src="<?= htmlspecialchars(EVENT_PATH . 'store' . DS . 'filter-product.js'); ?>" defer></script>
     <script type="module" src="<?= htmlspecialchars(EVENT_PATH . 'store' . DS . 'scroll-product.js'); ?>" defer></script>
