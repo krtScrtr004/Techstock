@@ -27,7 +27,14 @@
                 </button>
             </div>
 
-            <?php call_user_func($component['form'], $component) ?>
+            <?php 
+                $callable = new ReflectionFunction($component['form']);
+                if ($callable->getNumberOfRequiredParameters() > 0) {
+                    call_user_func($component['form'], $component);
+                } else {
+                    call_user_func($component['form']);
+                }
+            ?>
 
         </div>
     </main>
