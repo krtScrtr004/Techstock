@@ -1,0 +1,29 @@
+.chat-wrapper {
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	z-index: 500;
+}
+
+.chat-wrapper > section {
+	width: 50%;
+	height: 100%;
+}
+
+.chat-wrapper aside {
+	width: 15rem;
+	padding: 1rem;
+}
+
+.search-chat-form > div {
+	border: 1px solid var(--light-black);
+    padding: 0.5px 10px;
+    border-radius: var(--border-radius);
+}
+
+.search-chat-input {
+	outline: none;
+    font-size: 0.8rem;
+    font-weight: 300;
+}

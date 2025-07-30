@@ -15,13 +15,16 @@
     <link rel="stylesheet" href="<?= STYLE_PATH . 'root.css' ?>">
 
     <link rel="stylesheet" href="<?= STYLE_PATH . 'home.css' ?>">
+    <link rel="stylesheet" href="<?= STYLE_PATH . 'chat.css' ?>">
     <link rel="stylesheet" href="<?= STYLE_PATH . 'location-permission-modal.css' ?>">
 </head>
 
 <body class="home flex-col">
-    <?php include_once COMPONENT_PATH . 'header.php'; ?>
-
-    <main class="dark-white-bg">
+    <?php 
+    include_once COMPONENT_PATH . 'header.php';
+    include_once COMPONENT_PATH . 'chat.php'; 
+    ?>
+    <main class="dark-white-bg relative">
         <!-- Banner Section -->
         <section class="banner-section white-bg">
             <!-- Slideshow -->
