@@ -1,11 +1,19 @@
 <?php
 
-class StoreController implements Controller
+class ProductModel implements Model
 {
-    public static function index(): void
-    {
-        global $session;
+    // Implemented methods
 
+    public static function find($id): ?self
+    {
+        // TODO:
+        return null;
+    }
+
+    public static function all(): array
+    {
+        // TODO:
+        // Dummy
         $images = [
             'console-1.jpg',
             'controller-1.jpg',
@@ -113,13 +121,13 @@ class StoreController implements Controller
         ]);
 
         $stores = StoreModel::all();
-        $store = $stores[0];
-
         $products = [];
+
+
         for ($i = 1; $i <= 20; $i++) {
             $randStore = array_rand($stores);
 
-            array_push($products, new Product([
+            $product = new Product([
                 'id' => uniqid(),
 
                 'name' => "Product name number $i.",
@@ -149,7 +157,7 @@ class StoreController implements Controller
 
                 'price' => round(mt_rand(1000000000, 20000000000) / 100000, 2), // 10.00 to 200.00
 
-                'store' => $store,
+                'store' => $stores[$randStore],
 
                 'rating' => [
                     'average' => round(mt_rand(10, 50) / 10, 1),
@@ -179,11 +187,32 @@ class StoreController implements Controller
                     'brand' => 'Snamsung',
                 ],
 
-                'option' => $options,
+                'options' => $options,
 
                 'sold_count' => rand(0, 500),
-            ]));
+            ]);
+
+            $products[] = $product;
         }
-        require_once VIEW_PATH . 'store.php';
+
+        return $products;
     }
+
+    public static function create(array $data): Product
+    {
+        return new Product($data);
+    }
+
+    public function save(): bool
+    {
+        // TODO:
+        return true;
+    }
+
+    public function delete(): bool
+    {
+        return true;
+    }
+
+    public function fill(array $data): void {}
 }

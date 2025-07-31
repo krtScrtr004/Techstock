@@ -10,8 +10,8 @@ class HomeController implements Controller
 
         require_once ENUM_PATH . 'category.php';
 
-        $products = Product::all();
-        $stores = Store::all();
+        $products = ProductModel::all();
+        $stores = StoreModel::all();
 
         require_once VIEW_PATH . 'home.php';
     }

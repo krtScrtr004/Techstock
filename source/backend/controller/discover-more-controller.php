@@ -8,7 +8,7 @@ class DiscoverMoreController implements Controller
     {
         global $session;
         
-        $products = Product::all();
+        $products = ProductModel::all();
         $productModel = $products[1];
 
         require_once VIEW_PATH . 'discover-more.php';

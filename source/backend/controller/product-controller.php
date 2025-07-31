@@ -23,7 +23,7 @@ class ProductController implements Controller
             ])
         ]);
 
-        $products = Product::all();
+        $products = ProductModel::all();
 
         $product = $products[0];
         $store = $product->getStore();

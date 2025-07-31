@@ -10,7 +10,7 @@ class SearchController implements Controller
 
         require_once ENUM_PATH . 'category.php';
 
-        $products = Product::all();
+        $products = ProductModel::all();
 
         require_once VIEW_PATH . 'search.php';
     }

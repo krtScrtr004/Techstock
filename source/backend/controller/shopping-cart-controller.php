@@ -21,7 +21,7 @@ class ShoppingCartController implements Controller
             ])
         ]);
 
-        $allStores = Store::all();
+        $allStores = StoreModel::all();
         array_splice($allStores, 2);
 
         $images = [

@@ -27,7 +27,7 @@ class CheckoutController implements Controller
             'payment_link' => 'https://www.payment-gateway101.com.ph/pay/'
         ]);
 
-        $allStores = Store::all();
+        $allStores = StoreModel::all();
         array_splice($allStores, 2);
 
         $images = [

@@ -46,3 +46,39 @@ function sentenceToKebabCase(string $string): string {
     // Converts sentence case to kebab-case
     return strtolower(str_replace(' ', '-', trim($string)));
 }
+
+
+
+
+// TODO: Remove this
+function getRandomCategoryPath(array $categories): array
+{
+    // Map of categories by id for quick lookup
+    $byId = [];
+    foreach ($categories as $cat) {
+        $byId[$cat['id']] = $cat;
+    }
+
+    // Get only child categories (categories with a parent_id)
+    $childCategories = array_filter($categories, fn($cat) => $cat['parent_id'] !== null);
+
+    // Pick a random child
+    $randomChild = $childCategories[array_rand($childCategories)];
+
+    // Traverse upward to collect parent chain
+    $path = [$randomChild['name']];
+    $current = $randomChild;
+
+    while ($current['parent_id'] !== null) {
+        $parentIdHex = $current['parent_id'];
+        if (!isset($byId[$parentIdHex])) {
+            break; // orphan, shouldn't happen
+        }
+        $parent = $byId[$parentIdHex];
+        array_unshift($path, $parent['name']);
+        $current = $parent;
+    }
+
+    return $path;
+}
+

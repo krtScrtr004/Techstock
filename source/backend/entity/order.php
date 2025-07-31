@@ -1,6 +1,6 @@
 <?php
 
-class Order implements Model
+class Order
 {
     private $id;
     private User $buyer;
@@ -174,41 +174,5 @@ class Order implements Model
             $sum += $item->getShippingFee();
         }
         return $sum;
-    }
-
-    // Implemented Methods
-    public static function all(): array
-    {
-        // TODO: Implement method logic
-        return [];
-    }
-
-    public static function find($id): ?Model
-    {
-        // TODO: Implement method logic
-        return null;
-    }
-
-    public static function create(array $data): Model
-    {
-        // TODO: Implement method logic
-        return new self();
-    }
-
-    public function save(): bool
-    {
-        // TODO: Implement method logic
-        return true;
-    }
-
-    public function delete(): bool
-    {
-        // TODO: Implement method logic
-        return true;
-    }
-
-    public function fill(array $data): void
-    {
-        // TODO: Implement method logic
     }
 }
