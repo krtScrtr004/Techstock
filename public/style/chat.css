@@ -12,7 +12,7 @@
 }
 
 .chat-wrapper aside {
-	width: 15rem;
+	width: fit-content;
 	padding: 1rem;
 }
 
@@ -27,3 +27,6 @@
     font-size: 0.8rem;
     font-weight: 300;
 }
+
+
+

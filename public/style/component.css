@@ -562,3 +562,34 @@
 	width: 800px;
 	height: 600px;
 }
+
+/* --------------------- CHAT LIST CARD --------------------- */
+
+.chat-list-card {
+	padding: 10px;
+    overflow: hidden;
+}
+
+.chat-list-card:hover {
+	background-color: var(--dark-white);
+	cursor: pointer;
+}
+
+.chat-list-card > img {
+    margin-right: 10px;
+}
+
+.last-message-preview,
+.last-chat-date {
+    font-weight: 200;
+}
+
+.last-message-preview {
+	width: 20ch;
+	margin-right: 10px;
+}
+
+.last-chat-date {
+	flex: 1;
+    font-size: 0.8rem;
+}

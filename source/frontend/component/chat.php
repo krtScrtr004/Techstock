@@ -1,6 +1,6 @@
 <section class="chat-wrapper fixed">
     <section class="white-bg">
-        <!-- Chat List -->
+        <!-- Chat Aside -->
         <aside>
             <section class="search-chat">
                 <form class="search-chat-form" action="" method="POST">
@@ -22,7 +22,29 @@
                     </div>
                 </form>
             </section>
+
+            <!-- Chat List -->
+            <section class="chat-list flex-col">
+                <div class="chat-list-card flex-row flex-child-center-h">
+                    <img 
+                        class="circle fit-contain white-bg"
+                        src="<?= IMAGE_PATH . 'brand logo/acer.png' ?>" 
+                        alt=""
+                        title=""
+                        height="40"
+                        width="40" />
+
+                    <section class="chat-info">
+                        <h3 class="black-text">Store Name</h3>
+                        <div class="flex-row flex-space-between flex-child-end-h">
+                            <p class="last-message-preview single-line-ellipsis">The is the last message of the store or the user</p>
+                            <p class="last-chat-date end-text"><?= simplifyDate(new DateTime()) ?></p>
+                        </div>
+                    </section>
+                </div>
+            </section>
         </aside>
+
 
     </section>
 </section>

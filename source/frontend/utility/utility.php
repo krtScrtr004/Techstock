@@ -1,5 +1,18 @@
 <?php
 
+function simplifyDate(DateTime $date): string
+{
+    $dateTime = new DateTime(); 
+
+    $paramDate = $date->format('o-m-d');
+    $currentDateTime = $dateTime->format('o-m-d');
+    if ($paramDate !== $currentDateTime) {
+        return $paramDate;
+    } else {
+        return $date->format('h:i A');
+    }
+}
+
 function formatDateTime(DateTime $dateTime): string {
     return $dateTime->format('o-m-d H:i:s');
 }
