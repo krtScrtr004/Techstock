@@ -17,14 +17,15 @@ define('DIALOG_PATH', COMPONENT_PATH . 'dialog' . DS);
 define('FUNCTION_COMPONENT_PATH', COMPONENT_PATH . 'function' . DS);
 
 define('CORE_PATH', BACKEND_PATH . 'core' . DS);
+define('CONTAINER_PATH', BACKEND_PATH . 'container' . DS);
 define('CONTROLLER_PATH', BACKEND_PATH . 'controller' . DS);
 define('DATA_PATH', BACKEND_PATH . 'data' . DS);
-define('ROUTER_PATH', BACKEND_PATH . 'router' . DS);
+define('ENTITY_PATH', BACKEND_PATH . 'entity' . DS);
 define('MODEL_PATH', BACKEND_PATH . 'model' . DS);
+define('ROUTER_PATH', BACKEND_PATH . 'router' . DS);
 define('SERVICE_PATH', BACKEND_PATH . 'service' . DS);
 
-define('CONTAINER_PATH', MODEL_PATH . 'container' . DS);
-define('DEPENDENT_PATH', MODEL_PATH . 'dependent' . DS);
+define('DEPENDENT_PATH', ENTITY_PATH . 'dependent' . DS);
 
 define('CLASS_PATH', SERVICE_PATH . 'class' . DS);
 define('ENUM_PATH', SERVICE_PATH . 'enum' . DS);

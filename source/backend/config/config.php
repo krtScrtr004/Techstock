@@ -15,6 +15,7 @@ spl_autoload_register(function ($class) {
         CORE_PATH, 
         DEPENDENT_PATH, 
         DUMP_PATH, 
+        ENTITY_PATH,
         ROUTER_PATH, 
         MODEL_PATH
     ];
