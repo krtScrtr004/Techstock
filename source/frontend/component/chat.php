@@ -64,7 +64,7 @@
                 </div>
 
                 <div class="more-options flex-row-reverse flex-child-center-h relative">
-                    <button class="unset-button">
+                    <button class="unset-button" type="button">
                         <img
                             class="circle"
                             src="<?= ICON_PATH . 'more_b.svg' ?>"
@@ -75,22 +75,22 @@
 
                     <!-- Dropdown -->
                     <section class="dropdown white-bg absolute no-display">
-                        <button class="unset-button">
+                        <button class="unset-button" type="button">
                             <a href="" class="black-text">View Store</a>
                         </button>
 
                         <hr>
 
-                        <button class="unset-button">
+                        <button class="unset-button" type="button">
                             <p class="black-text">Mute</p>
                         </button>
-                        <button class="unset-button">
+                        <button class="unset-button" type="button">
                             <p class="black-text">Block Store</p>
                         </button>
 
                         <hr>
 
-                        <button class="unset-button">
+                        <button class="unset-button" type="button">
                             <p class="black-text">Report</p>
                         </button>
                     </section>
@@ -120,9 +120,10 @@
                                     <input
                                         class="no-display"
                                         type="file"
-                                        name="image_upload"
+                                        name="image_upload[]"
                                         id="image_upload"
-                                        accept="image/*" />
+                                        accept="image/*" 
+                                        multiple/>
                                     <button class="open-file-picker-button unset-button" type="button">
                                         <img
                                             src="<?= ICON_PATH . 'image_b.svg' ?>"
@@ -137,9 +138,10 @@
                                     <input
                                         class="no-display"
                                         type="file"
-                                        name="video_upload"
+                                        name="video_upload[]"
                                         id="video_upload"
-                                        accept="video/*" />
+                                        accept="video/*" 
+                                        multiple/>
                                     <button class="open-file-picker-button unset-button" type="button">
                                         <img
                                             src="<?= ICON_PATH . 'video_b.svg' ?>"

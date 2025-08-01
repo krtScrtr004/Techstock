@@ -186,6 +186,8 @@
     <script type="module" src="<?= htmlspecialchars(EVENT_PATH . 'location-permission.js'); ?>" defer></script>
     <script type="module" src="<?= htmlspecialchars(EVENT_PATH . 'page-tab.js'); ?>" defer></script>
 
+    <script type="module" src="<?= htmlspecialchars(EVENT_PATH . 'chat' . DS . 'pick-media.js'); ?>" defer></script>
+
     <script type="module" src="<?= htmlspecialchars(EVENT_PATH . 'home' . DS . 'slideshow.js'); ?>" defer></script>
 </body>
 
