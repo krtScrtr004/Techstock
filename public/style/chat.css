@@ -75,6 +75,11 @@
 	cursor: pointer;
 }
 
+.chat-content-heading > .more-options > button {
+	display: grid;
+	place-items: center;
+}
+
 .chat-content-heading > .more-options > .dropdown {
 	width: 20ch;
 	padding: 0 5px;
@@ -96,4 +101,34 @@
 .chat-content-main {
 	flex: 1 1 0;
 	height: 100%;
+}
+
+.write-message-area {
+	padding: 10px 1rem;
+}
+
+.written-message-content {
+	border-radius: unset;
+}
+
+.written-message-content:focus,
+.written-message-content:focus-visible {
+	outline: none;
+	border-bottom: 1px solid var(--black);
+}
+
+.media-picker {
+	gap: 10px;
+	margin-top: 10px;
+}
+
+.open-file-picker-button,
+.send-message-button {
+	display: grid;
+	place-items: center;
+}
+
+.open-file-picker-button:hover,
+.send-message-button:hover {
+	opacity: 0.5;
 }
