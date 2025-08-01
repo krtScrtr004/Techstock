@@ -3,14 +3,14 @@
 class ChatSession
 {
     private $id;
-    private array $participants; 
+    private User|Store $otherParty; 
     private DateTime $createdAt;
     private array $messages;
 
     public function __construct(array $data)
     {
         $this->id = $data['id'];
-        $this->participants = $data['participants'];
+        $this->otherParty = $data['other_party'];
         $this->createdAt = $data['created_at'] ?? new DateTime();
         $this->messages = $data['messages'];
     }
@@ -22,9 +22,9 @@ class ChatSession
         return $this->id;
     }
 
-    public function getParticipants(): array
+    public function getOtherParty(): User|Store
     {
-        return $this->participants;
+        return $this->otherParty;
     }
 
     public function getCreatedAt(): DateTime
@@ -39,9 +39,9 @@ class ChatSession
         $this->id = $id;
     }
 
-    public function setReceiver(array $participants): void
+    public function setOtherParty(User|Store $otherParty): void
     {
-        $this->participants = $participants;
+        $this->otherParty = $otherParty;
     }
 
     public function setCreatedAt(DateTime $createdAt): void
@@ -50,17 +50,6 @@ class ChatSession
     }
 
     // Utilities
-
-    public function addParticipant(User|Store $participant): bool 
-    {
-        $this->participants[$participant->getId()] = $participant;
-        return true;
-    }
-
-    public function deleteParticipant($id): bool {
-        unset($this->participants[$id]);
-        return true;
-    }
 
     public function addMessage(ChatMessage $message): bool
     {

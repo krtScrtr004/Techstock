@@ -7,26 +7,93 @@
 }
 
 .chat-wrapper > section {
-	width: 50%;
+	width: 60%;
 	height: 100%;
+	box-shadow: 1px 0 3px 2px var(--light-black);
 }
 
 .chat-wrapper aside {
 	width: fit-content;
+	height: 100%;
 	padding: 1rem;
 }
 
 .search-chat-form > div {
 	border: 1px solid var(--light-black);
-    padding: 0.5px 10px;
-    border-radius: var(--border-radius);
+	padding: 0.5px 10px;
+	border-radius: var(--border-radius);
 }
 
 .search-chat-input {
 	outline: none;
-    font-size: 0.8rem;
-    font-weight: 300;
+	font-size: 0.8rem;
+	font-weight: 300;
 }
 
+.chat-list {
+	padding: 10px 0;
+	box-sizing: border-box;
+	overflow: hidden auto;
+}
 
+.chat-list::-webkit-scrollbar {
+	width: 5px;
+}
 
+.chat-list::-webkit-scrollbar-thumb {
+	background-color: var(--light-black);
+}
+
+.chat-list::-webkit-scrollbar-track {
+	margin: 10px 0;
+}
+
+.chat-content {
+	width: 100%;
+}
+
+.chat-content-heading {
+	height: fit-content;
+	padding: 10px 1rem;
+}
+
+.chat-content-heading > .store-logo {
+	box-shadow: 0 2px 6px 3px var(--dark-white);
+	margin-right: var(--space);
+}
+
+.chat-content-heading > .store-info > * {
+	max-width: 40ch;
+}
+
+.chat-content-heading > .store-info > p {
+	font-weight: 200;
+}
+
+.chat-content-heading > .more-options {
+	width: 100%;
+	cursor: pointer;
+}
+
+.chat-content-heading > .more-options > .dropdown {
+	width: 20ch;
+	padding: 0 5px;
+	bottom: -150px;
+	box-shadow: 0 2px 2px var(--light-black);
+}
+
+.chat-content-heading > .more-options > .dropdown > button {
+	width: 100%;
+	display: block;
+	padding: 8px 1rem;
+	box-sizing: border-box;
+}
+
+.chat-content-heading > .more-options > .dropdown > button:hover {
+	background-color: var(--dark-white);
+}
+
+.chat-content-main {
+	flex: 1 1 0;
+	height: 100%;
+}
