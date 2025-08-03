@@ -598,12 +598,30 @@
 
 /*  */
 
+.message-row {
+	width: 100%;
+	height: fit-content;
+	padding: 1rem;
+}
+
 .message-box {
-	padding: var(--space);
+	max-width: 70%;
+	padding: 1rem var(--space);
 	border-radius: var(--border-radius);
-	box-shadow: 0 2px 2px 2px var(--light-black);
 }
 
 .message-box > p {
 	line-height: 1.6rem;
+}
+
+.message-box > span {
+	width: 100%;
+	font-size: 0.8rem;
+	font-weight: 300;
+}
+
+.message-row > div:nth-child(2) {
+	display: grid;
+	place-items: center;
+	margin: 0 10px;
 }

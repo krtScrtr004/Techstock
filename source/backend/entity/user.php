@@ -14,6 +14,7 @@ class User
 
     public function __construct(array $data = []) 
     {
+        $this->id = $data['id'];
         $this->firstName = $data['first_name'];
         $this->lastName = $data['last_name'];
         $this->profileImage = $data['profile_image_link'] ?? ICON_PATH . 'user-profile_b.svg';

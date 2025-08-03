@@ -1,4 +1,4 @@
-export function insertFragment(htmlArray, parentElem) {
+export function insertFragment(htmlArray, parentElem, prepend = false) {
     if (!htmlArray) {
         throw new Error('No html array defined')
     }
@@ -12,5 +12,10 @@ export function insertFragment(htmlArray, parentElem) {
         const node = document.createRange().createContextualFragment(html)
         fragment.appendChild(node)
     })
-    parentElem.appendChild(fragment)
+    
+    if (prepend) {
+        parentElem.insertBefore(fragment, parentElem.firstChild)
+    } else {
+        parentElem.appendChild(fragment)
+    }
 }

@@ -4,14 +4,15 @@ class BackendController implements Controller
 {
     public static function index(): void {}
 
-    public static function getMessages($id): void
+    public static function getMessages($params): void
     {
+        // TODO
         header('Content-Type: application/json');
-        if (ob_get_length())  {
-            ob_clean();
-        }
 
-        if (!isset($id)) {
+        if (!isset($params['id'])) {
+            if (ob_get_length()) {
+                ob_clean();
+            }
             http_response_code(500);
             echo json_encode([
                 'count' => 0,
@@ -21,6 +22,37 @@ class BackendController implements Controller
         }
 
         $offset = $_GET['offset'] ?? 0;
+        $limit = 5;
+        $userChatOutSessions = ChatSessionModel::all();
+
+        $requestedSession = $userChatOutSessions[$params['id']];
+        if (!isset($requestedSession)) {
+            if (ob_get_length()) {
+                ob_clean();
+            }
+            http_response_code(200);
+            echo json_encode([
+                'count' => 0,
+                'result' => 'Chat session not found'
+            ]);
+            exit();
+        }
+        $sessionMessages = $requestedSession->getMessages();
+        $response = array_slice($sessionMessages, $offset, $limit, true);
+
+        $data = [];
+        foreach ($response as $toHtml) {
+            array_push($data, messageBox($toHtml));
+        }
+
+        if (ob_get_length()) {
+            ob_clean();
+        }
+        echo json_encode([
+            'count' => count($response),
+            'data' => $data
+        ]);
+        exit();
     }
 
     public static function locationPermission(): void

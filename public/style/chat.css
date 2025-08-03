@@ -112,6 +112,12 @@
 	height: 100%;
 }
 
+.messages-area,
+.messages-container {
+	height: 100%;
+	overflow: hidden auto;
+}
+
 .messages-area {
 	flex: 1 1 0;
 }

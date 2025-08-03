@@ -1,6 +1,6 @@
 import { insertFragment } from './insert-fragment.js'
 
-export function displayProductBatch(parentElem) {
+export function displayBatch(parentElem, prepend = false) {
     if (!parentElem) {
         throw new Error('No parent element defined')
     }
@@ -8,7 +8,7 @@ export function displayProductBatch(parentElem) {
     let queue = []
 
     function insertBatch() {
-        insertFragment(queue, parentElem)
+        insertFragment(queue, parentElem, prepend)
         queue = []
     }
 

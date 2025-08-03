@@ -1,11 +1,12 @@
 import { exports } from './utility.js'
 
+import { loader } from '../../render/loader.js'
+
 try {
-    const chatContentHeading = exports.chatContent.querySelector('.chat-content-heading')
 
     function toggleMoreOptions() {
-        const moreOptionsButton = chatContentHeading.querySelector('.more-options > button')
-        const dropdown = chatContentHeading.querySelector('.more-options .dropdown')
+        const moreOptionsButton = exports.chatContentHeading.querySelector('.more-options > button')
+        const dropdown = exports.chatContentHeading.querySelector('.more-options .dropdown')
 
         if (moreOptionsButton && dropdown) {
             moreOptionsButton.addEventListener('click', e => {
@@ -28,9 +29,9 @@ try {
         const otherPartyImage = card.querySelector('.other-party-image').src
 
         // Change content of the chat content heading
-        const id = chatContentHeading.querySelector('.other-party-id')
-        const name = chatContentHeading.querySelector('.other-party-name')
-        const image = chatContentHeading.querySelector('.other-party-image')
+        const id = exports.chatContentHeading.querySelector('.other-party-id')
+        const name = exports.chatContentHeading.querySelector('.other-party-name')
+        const image = exports.chatContentHeading.querySelector('.other-party-image')
         id.innerText = otherPartyId
         name.innerText = otherPartyName
         image.src = otherPartyImage
@@ -38,8 +39,11 @@ try {
 
     const chatListCards = exports.wrapper.querySelectorAll('.chat-list-card')
     chatListCards.forEach(card => {
-        card.addEventListener('click', e => {
+
+        card.addEventListener('click', exports.debounce(async e => {
             e.preventDefault()
+
+            exports.messagesContainer.innerHTML = ''
 
             const selectChatWall = exports.chatContent.querySelector('.select-chat-wall')
             if (selectChatWall && !selectChatWall.classList.contains('no-display')) {
@@ -47,7 +51,20 @@ try {
             }
 
             updateHeading(card)
-        })
+
+            const chatSessionId = card.getAttribute('data-id')
+
+            // Load initial messages
+            loader.full(exports.messagesContainer)
+            await exports.loadMessages(chatSessionId)
+            loader.delete()
+
+            requestAnimationFrame(() => {
+                exports.messagesContainer.scrollTop = exports.messagesContainer.scrollHeight
+            })
+
+            // TODO: Load previous messages
+        }, 300))
     })
 
     toggleMoreOptions()

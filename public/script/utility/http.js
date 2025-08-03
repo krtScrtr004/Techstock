@@ -10,7 +10,7 @@ const Http = () => {
                 }
 
                 if (request.status === 204) {
-                    return;
+                    return
                 }
 
                 const contentType = request.headers.get('Content-Type')

@@ -25,33 +25,45 @@
 
             <!-- Chat List -->
             <section class="chat-list flex-col">
-                <?php 
-                foreach ($chatSessions as $chatSession): 
+                <?php
+                $myId = $session->has('userId')
+                    ? $session->get('userId')
+                    : throw new ErrorException('No user ID in session');
+
+                foreach ($chatSessions as $chatSession):
+                    $chatSessionId = $chatSession->getId();
+
                     $otherParty = $chatSession->getOtherParty();
-                    
+
                     $otherPartyId = $otherParty->getId();
                     $otherPartyImage = htmlspecialchars(
-                        ($otherParty instanceof User) 
-                        ? $otherParty->getProfileImage() 
-                        : $otherParty->getLogo()
+                        ($otherParty instanceof User)
+                            ? $otherParty->getProfileImage()
+                            : $otherParty->getLogo()
                     );
                     $otherPartyName = htmlspecialchars(
                         ($otherParty instanceof User)
-                        ? $otherParty->getFirstName() . ' ' . $otherParty->getLastName()
-                        : $otherParty->getName()
+                            ? $otherParty->getFirstName() . ' ' . $otherParty->getLastName()
+                            : $otherParty->getName()
                     );
-                    
+
                     $messages = $chatSession->getMessages();
-                    $lastMessage = (count($messages) > 0) ? $messages[0] : null;
+                    $lastMessage = (count($messages) > 0)
+                        ? end($messages)
+                        : null;
+                    $lastMessageSender = $lastMessage->getSender();
+                    $lastMessageType = $lastMessage->getType();
                     $lastMessageContent = htmlspecialchars(
                         ($lastMessage)
-                        ? $lastMessage->getContent()
-                        : ''
+                            ? $lastMessage->getContent()
+                            : ''
                     );
                     $lastMessageDate = ($lastMessage) ? $lastMessage->getCreatedAt() : new DateTime();
+
+                    $amILastSender = $lastMessageSender->getId() === $myId;
                 ?>
-                    <button class="chat-list-card unset-button" type="button">
-                        <input 
+                    <button class="chat-list-card unset-button" type="button" data-id="<?= $chatSessionId ?>">
+                        <input
                             type="hidden"
                             name="other_party_id"
                             id="other_party_id"
@@ -68,7 +80,11 @@
                         <section class="chat-info">
                             <h3 class="other-party-name black-text" id="other_party_name"><?= $otherPartyName ?></h3>
                             <div class="flex-row flex-space-between flex-child-end-h">
-                                <p class="last-message-preview single-line-ellipsis"><?= $lastMessageContent ?></p>
+                                <p class="last-message-preview single-line-ellipsis">
+                                    <?= $lastMessageType === ChatContentType::Text
+                                        ? $lastMessageContent
+                                        : ($amILastSender ? 'You' : $otherPartyName) . ' sent a ' . strtolower($lastMessageType === ChatContentType::Image ? 'image' : 'video') . '.' ?>
+                                </p>
                                 <p class="last-chat-date end-text"><?= simplifyDate($lastMessageDate) ?></p>
                             </div>
                         </section>
@@ -97,7 +113,7 @@
                     height="45" />
 
                 <div class="other-party-info">
-                    <h3 class="other-party-name single-line-ellipsis black-text"> <!-- Other Party Name--> </h3> 
+                    <h3 class="other-party-name single-line-ellipsis black-text"> <!-- Other Party Name--> </h3>
                     <p class="other-party-id black-text"> <!-- Other Party Id--> </p>
                 </div>
 
@@ -139,7 +155,11 @@
             <section class="chat-content-main flex-col dark-white-bg">
                 <!-- Messages Area -->
                 <section class="messages-area dark-white-bg">
-                    
+                    <div class="sentinel"></div>
+
+                    <section class="messages-container flex-col">
+                        <!--  -->
+                    </section>
                 </section>
 
                 <!-- Input Area -->

@@ -8,6 +8,7 @@
     <title>Techstock | Home</title>
 
     <base href="<?= PUBLIC_PATH ?>">
+    <link rel="stylesheet" href="<?= STYLE_PATH . 'loader.css' ?>">
     <link rel="stylesheet" href="<?= STYLE_PATH . 'utility.css' ?>">
     <link rel="stylesheet" href="<?= STYLE_PATH . 'component.css' ?>">
     <link rel="stylesheet" href="<?= STYLE_PATH . 'header.css' ?>">

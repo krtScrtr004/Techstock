@@ -33,7 +33,7 @@ class ChatMessage
     public function getSender(): User|Store
     {
         return $this->sender;
-    } 
+    }
 
     public function getType(): ChatContentType
     {

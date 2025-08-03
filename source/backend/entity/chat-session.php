@@ -12,7 +12,11 @@ class ChatSession
         $this->id = $data['id'];
         $this->otherParty = $data['other_party'];
         $this->createdAt = $data['created_at'] ?? new DateTime();
-        $this->messages = $data['messages'];
+        if (isset($data['messages'])) {
+            foreach ($data['messages'] as $message) {
+                $this->addMessage($message);
+            }
+        }
     }
 
     // Getters 

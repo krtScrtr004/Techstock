@@ -11,12 +11,12 @@ require_once __DIR__ . DS . 'env.php';
 spl_autoload_register(function ($class) {
     $paths = [
         CLASS_PATH,
-        CONTAINER_PATH, 
-        CORE_PATH, 
-        DEPENDENT_PATH, 
-        DUMP_PATH, 
+        CONTAINER_PATH,
+        CORE_PATH,
+        DEPENDENT_PATH,
+        DUMP_PATH,
         ENTITY_PATH,
-        ROUTER_PATH, 
+        ROUTER_PATH,
         MODEL_PATH
     ];
     foreach ($paths as $path) {
@@ -30,9 +30,9 @@ spl_autoload_register(function ($class) {
 });
 
 $paths = [
-    FE_UTILITY_PATH, 
-    BE_UTILITY_PATH, 
-    CONTROLLER_PATH, 
+    FE_UTILITY_PATH,
+    BE_UTILITY_PATH,
+    CONTROLLER_PATH,
     FUNCTION_COMPONENT_PATH
 ];
 foreach ($paths as $path) {
@@ -45,6 +45,16 @@ $session = Session::create();
 if (!$session->has('ip')) {
     // TODO: Change this
     $session->set('ip', file_get_contents('https://api.ipify.org') ?? $_SERVER['REMOTE_ADDR']);
+}
+
+$me = new User([
+    'id' => 1,
+    'first_name' => 'Kurt',
+    'last_name' => 'Secretario',
+    'email' => 'shwarawt123@gmail.com'
+]);
+if (!$session->has('userId')) {
+    $session->set('userId', $me->getId());
 }
 
 $router = Router::getRouter();
