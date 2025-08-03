@@ -1,8 +1,27 @@
 <?php
 
-class FormSubmitController implements Controller
+class BackendController implements Controller
 {
     public static function index(): void {}
+
+    public static function getMessages($id): void
+    {
+        header('Content-Type: application/json');
+        if (ob_get_length())  {
+            ob_clean();
+        }
+
+        if (!isset($id)) {
+            http_response_code(500);
+            echo json_encode([
+                'count' => 0,
+                'error' => 'No chat session ID provided'
+            ]);
+            exit();
+        }
+
+        $offset = $_GET['offset'] ?? 0;
+    }
 
     public static function locationPermission(): void
     {

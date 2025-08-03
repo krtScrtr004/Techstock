@@ -1,0 +1,9 @@
+{
+    "GET": {
+        "/Techstock/backend/get-messages/{id:[\\w+_-]+}": ["BackendController", "getMessages"]
+    },
+
+    "POST": {
+        "/Techstock/backend/location-permission": ["BackendController", "locationPermission"]
+    }
+}
