@@ -1,9 +1,7 @@
 import { exports } from './utility.js'
 
-import { dialog } from '../../render/dialog.js'
-
 try {
-    if (exports.form) {
+    if (exports.writeMessageForm) {
         exports.filePickerButtons.forEach(picker => {
             picker.addEventListener('click', e => {
                 e.preventDefault()
@@ -14,6 +12,6 @@ try {
         })
     }
 } catch (error) {
-    dialog.errorOccurred(error.message)
+    exports.dialog.errorOccurred(error.message)
     console.error(error)
 }

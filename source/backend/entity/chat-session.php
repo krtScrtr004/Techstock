@@ -32,6 +32,11 @@ class ChatSession
         return $this->createdAt;
     }
 
+    public function getMessages(): array
+    {
+        return $this->messages;
+    }
+
     // Setters 
 
     public function setId($id): void

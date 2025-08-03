@@ -7,6 +7,7 @@
 }
 
 .chat-wrapper > section {
+	min-width: 800px;
 	width: 60%;
 	height: 100%;
 	box-shadow: 1px 0 3px 2px var(--light-black);
@@ -52,21 +53,29 @@
 	width: 100%;
 }
 
+.select-chat-wall {
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	z-index: 100;
+}
+
 .chat-content-heading {
 	height: fit-content;
 	padding: 10px 1rem;
 }
 
-.chat-content-heading > .store-logo {
+.chat-content-heading > .other-party-image {
 	box-shadow: 0 2px 6px 3px var(--dark-white);
 	margin-right: var(--space);
 }
 
-.chat-content-heading > .store-info > * {
+.chat-content-heading > .other-party-info > * {
 	max-width: 40ch;
 }
 
-.chat-content-heading > .store-info > p {
+.chat-content-heading > .other-party-info > p {
 	font-weight: 200;
 }
 
@@ -101,6 +110,10 @@
 .chat-content-main {
 	flex: 1 1 0;
 	height: 100%;
+}
+
+.messages-area {
+	flex: 1 1 0;
 }
 
 .write-message-area {
