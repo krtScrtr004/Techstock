@@ -7,8 +7,7 @@
 }
 
 .chat-wrapper > section {
-	min-width: 800px;
-	width: 60%;
+	width: fit-content;
 	height: 100%;
 	box-shadow: 1px 0 3px 2px var(--light-black);
 }
@@ -50,7 +49,7 @@
 }
 
 .chat-content {
-	width: 100%;
+	width: 700px;
 }
 
 .select-chat-wall {
@@ -128,6 +127,34 @@
 
 .write-message-area {
 	padding: 10px 1rem;
+}
+
+.media-preview {
+	height: 5rem;
+	width: 100%;
+	padding: 5px 10px;
+	gap: 1rem;
+	flex-wrap: nowrap;
+	overflow-x: auto;
+	z-index: 510;
+}
+
+.media-preview-container > img {
+	height: 100%;
+	width: auto;
+	aspect-ratio: 1.5/1;
+	object-fit: cover;
+}
+
+.remove-media-button {
+	position: absolute;
+	top: 0;
+	right: 0;
+}
+
+.remove-media-button > p {
+	height: 1.3rem;
+	width: 1.3rem;
 }
 
 .written-message-content {

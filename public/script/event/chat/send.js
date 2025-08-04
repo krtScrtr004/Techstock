@@ -12,6 +12,8 @@ try {
         formData.append('message', shared.message.value)
 
         // TODO: Send form to backend
+
+        
     })
 } catch (error) {
     shared.dialog.errorOccurred(error.message)

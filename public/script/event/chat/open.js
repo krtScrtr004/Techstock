@@ -43,9 +43,8 @@ try {
                         if (shared.lastActiveChat) {
                             const oldScrollHeight = shared.messagesArea.scrollHeight
 
-                            const chatSessionId = shared.lastActiveChat.getAttribute('data-id')
-
                             shared.loader.lead(shared.messagesContainer)
+                            const chatSessionId = shared.lastActiveChat.getAttribute('data-id')
                             await shared.loadMessages(chatSessionId, true)
                             shared.loader.delete()
 
@@ -83,10 +82,9 @@ try {
 
             updateHeading(card)
 
-            const chatSessionId = card.getAttribute('data-id')
-
             // Load initial messages
             shared.loader.full(shared.messagesArea)
+            const chatSessionId = card.getAttribute('data-id')
             await shared.loadMessages(chatSessionId)
             shared.loader.delete()
 

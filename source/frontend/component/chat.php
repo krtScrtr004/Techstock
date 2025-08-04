@@ -163,7 +163,11 @@
                 </section>
 
                 <!-- Input Area -->
-                <section class="write-message-area white-bg">
+                <section class="write-message-area white-bg relative">
+                    <section class="media-preview white-bg no-display">
+                        <!-- Media Preview -->
+                    </section>
+
                     <form action="">
                         <section>
                             <input

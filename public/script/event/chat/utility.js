@@ -12,6 +12,7 @@ const Shared = () => {
     let isLoading               =   false
     let offset                  =   0
     let observer                =   null
+    let selectedFiles           =   new Map
 
     const wrapper               =   document.querySelector('.chat-wrapper')
 
@@ -43,6 +44,7 @@ const Shared = () => {
         get messagesContainer()     { return messagesContainer },
         get sentinel()              { return sentinel },
 
+        get writeMessageArea()      { return writeMessageArea },
         get writeMessageForm()      { return writeMessageForm },
         get submitButton()          { return submitButton },
         
@@ -66,6 +68,9 @@ const Shared = () => {
 
         get isLoading()             { return isLoading },
         set isLoading(val)          { isLoading = val },
+
+        get selectedFiles()         { return selectedFiles },
+        set selectedFiles(val)      { selectedFiles = val},
 
         async loadMessages(id, prepend = false) {
             if (isLoading) {
