@@ -1,9 +1,7 @@
-import { exports } from '../../utility/load-store-products.js'
-
-import { dialog } from '../../render/dialog.js'
+import { shared } from './utility.js'
 
 try {
-    const collectionButtons = exports.infiniteList.querySelectorAll('.collection-button')
+    const collectionButtons = shared.infiniteList.querySelectorAll('.collection-button')
     if (collectionButtons && collectionButtons.length > 0) {
         let lastActiveButton = collectionButtons[0]
         collectionButtons.forEach(button => {
@@ -14,33 +12,31 @@ try {
                 button.classList.add('active')
                 lastActiveButton = button
 
-                exports.page = 1
-                exports.observer.unobserve(exports.infiniteListSentinel)
+                shared.page = 1
+                shared.observer.unobserve(shared.infiniteListSentinel)
 
-                await exports.getResponse((response) => {
+                shared.loader.full(shared.productList)
+                await shared.getResponse((response) => {
                     if (response.count && response.count > 0) {
-                        exports.resetList()
+                        shared.resetList()
 
-                        exports.loader.full(exports.productList)
+                        shared.insertProductCards(response.productCards)
+                        shared.collectionName = button.innerText
 
-                        exports.insertProductCards(response.productCards)
-                        exports.collectionName = button.innerText
-
-                        exports.loader.delete()
                     }
                 })
+                shared.loader.delete()
 
-                const resultGrid = exports.infiniteList.querySelector('.result-grid')
+                const resultGrid = shared.infiniteList.querySelector('.result-grid')
                 resultGrid.scrollIntoView({
                     behavior: 'instant',
                     block: 'start'
                 })
-                exports.observer.observe(exports.infiniteListSentinel)
+                shared.observer.observe(shared.infiniteListSentinel)
             })
         })
     }
-    
 } catch (error) {
-    dialog.errorOccurred(error.message)
+    shared.dialog.errorOccurred(error.message)
     console.error(error)
 }

@@ -1,6 +1,4 @@
-import { exports } from '../../utility/load-store-products.js'
-
-import { dialog } from '../../render/dialog.js'
+import { shared } from './utility.js'
 
 try {
     const form = document.querySelector('.search-store-form')
@@ -9,28 +7,28 @@ try {
         button.addEventListener('click', async e => {
             e.preventDefault()
 
-            exports.observer.unobserve(exports.infiniteListSentinel)
+            shared.observer.unobserve(shared.infiniteListSentinel)
 
             const inputSearch = form.querySelector('#search_store').value
-            await exports.getResponse((response) => {
-                exports.resetList()
-                exports.loader.full(exports.productList)
 
-                exports.insertProductCards(response.productCards)
-                exports.collectionName = ''
-            
-                exports.loader.delete()
+            shared.loader.full(shared.productList)
+            await shared.getResponse((response) => {
+                shared.resetList()
+
+                shared.insertProductCards(response.productCards)
+                shared.collectionName = ''
             }, inputSearch)
+            shared.loader.delete()
 
-            const resultGrid = exports.infiniteList.querySelector('.result-grid')
+            const resultGrid = shared.infiniteList.querySelector('.result-grid')
             resultGrid.scrollIntoView({
                 behavior: 'smooth',
                 block: 'start'
             })
-            exports.observer.observe(exports.infiniteListSentinel)
+            shared.observer.observe(shared.infiniteListSentinel)
         })
-    }   
+    }
 } catch (error) {
-    dialog.errorOccurred(error.message)
+    shared.dialog.errorOccurred(error.message)
     console.error(error)
 }

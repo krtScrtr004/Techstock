@@ -1,31 +1,29 @@
-import { exports } from '../../utility/load-store-products.js'
-
-import { dialog } from '../../render/dialog.js'
+import { shared } from './utility.js'
 
 try {
     // Infinite Scroll Handler
-    exports.observer = new IntersectionObserver(entries => {
+    shared.observer = new IntersectionObserver(entries => {
         entries.forEach(async entry => {
-            if (entry.isIntersecting && !exports.isLoading) {
+            if (entry.isIntersecting && !shared.isLoading) {
 
                 const el = entry.target
-                await exports.getResponse((response) => {
-                    exports.loader.trail(exports.productList)
+                shared.loader.trail(shared.productList)
+                await shared.getResponse((response) => {
                     if (response.count && response.count > 0) {
-                        exports.insertProductCards(response.productCards)
+                        shared.insertProductCards(response.productCards)
                     } else {
-                        exports.noMoreProducts.style.display = 'block'
-                        exports.observer.unobserve(el)
+                        shared.noMoreProducts.style.display = 'block'
+                        shared.observer.unobserve(el)
                     }
-                    exports.loader.delete()
                 })
+                shared.loader.delete()
             }
         })
     })
-    if (exports.infiniteListSentinel) {
-        exports.observer.observe(exports.infiniteListSentinel)
+    if (shared.infiniteListSentinel) {
+        shared.observer.observe(shared.infiniteListSentinel)
     }
 } catch (error) {
-    dialog.errorOccurred(error.message)
+    shared.dialog.errorOccurred(error.message)
     console.error(error)
 }
