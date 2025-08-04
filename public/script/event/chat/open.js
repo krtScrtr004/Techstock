@@ -1,12 +1,10 @@
-import { exports } from './utility.js'
-
-import { loader } from '../../render/loader.js'
+import { shared } from './utility.js'
 
 try {
 
     function toggleMoreOptions() {
-        const moreOptionsButton = exports.chatContentHeading.querySelector('.more-options > button')
-        const dropdown = exports.chatContentHeading.querySelector('.more-options .dropdown')
+        const moreOptionsButton = shared.chatContentHeading.querySelector('.more-options > button')
+        const dropdown = shared.chatContentHeading.querySelector('.more-options .dropdown')
 
         if (moreOptionsButton && dropdown) {
             moreOptionsButton.addEventListener('click', e => {
@@ -29,23 +27,23 @@ try {
         const otherPartyImage = card.querySelector('.other-party-image').src
 
         // Change content of the chat content heading
-        const id = exports.chatContentHeading.querySelector('.other-party-id')
-        const name = exports.chatContentHeading.querySelector('.other-party-name')
-        const image = exports.chatContentHeading.querySelector('.other-party-image')
+        const id = shared.chatContentHeading.querySelector('.other-party-id')
+        const name = shared.chatContentHeading.querySelector('.other-party-name')
+        const image = shared.chatContentHeading.querySelector('.other-party-image')
         id.innerText = otherPartyId
         name.innerText = otherPartyName
         image.src = otherPartyImage
     }
 
-    const chatListCards = exports.wrapper.querySelectorAll('.chat-list-card')
+    const chatListCards = shared.wrapper.querySelectorAll('.chat-list-card')
     chatListCards.forEach(card => {
 
-        card.addEventListener('click', exports.debounce(async e => {
+        card.addEventListener('click', shared.debounce(async e => {
             e.preventDefault()
 
-            exports.messagesContainer.innerHTML = ''
+            shared.messagesContainer.innerHTML = ''
 
-            const selectChatWall = exports.chatContent.querySelector('.select-chat-wall')
+            const selectChatWall = shared.chatContent.querySelector('.select-chat-wall')
             if (selectChatWall && !selectChatWall.classList.contains('no-display')) {
                 selectChatWall.classList.add('no-display')
             }
@@ -55,12 +53,12 @@ try {
             const chatSessionId = card.getAttribute('data-id')
 
             // Load initial messages
-            loader.full(exports.messagesContainer)
-            await exports.loadMessages(chatSessionId)
+            loader.full(shared.messagesContainer)
+            await shared.loadMessages(chatSessionId)
             loader.delete()
 
             requestAnimationFrame(() => {
-                exports.messagesContainer.scrollTop = exports.messagesContainer.scrollHeight
+                shared.messagesContainer.scrollTop = shared.messagesContainer.scrollHeight
             })
 
             // TODO: Load previous messages
@@ -69,6 +67,6 @@ try {
 
     toggleMoreOptions()
 } catch (error) {
-    exports.dialog.errorOccurred(error.message)
+    shared.dialog.errorOccurred(error.message)
     console.error(error)
 }

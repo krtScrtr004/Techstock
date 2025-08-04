@@ -5,7 +5,7 @@ import { debounce } from '../../utility/debounce.js'
 import { http } from '../../utility/http.js'
 import { displayBatch } from '../../utility/display-batch.js'
 
-const Exports = () => {
+const Shared = () => {
     const limit                 =   5
 
     let isLoading               =   false
@@ -47,34 +47,34 @@ const Exports = () => {
         loader:             loader,
         debounce:           debounce,
 
-        loadMessages:           async function (id, prepend = false) {
-                                    if (isLoading) {
-                                        return
+        loadMessages:       async function (id, prepend = false) {
+                                if (isLoading) {
+                                    return
+                                }
+
+                                if (!id) {
+                                    throw new Error('No chat session ID provided')
+                                }
+
+                                isLoading = true
+
+                                const endpoint = `backend/get-messages/${id}`
+                                const response = await http.GET(endpoint)
+                                if (response && response.count) {
+                                    if (response.count > 0 && response.data) {
+                                        const callback = displayBatch(messagesContainer, prepend)
+
+                                        // Start at the end
+                                        const reverseData = response.data.slice().reverse()
+                                        reverseData.forEach(html => {
+                                            callback.flushCard(html)
+                                        })
+                                        callback.flushRemaining()
+                                        offset += limit
                                     }
-
-                                    if (!id) {
-                                        throw new Error('No chat session ID provided')
-                                    }
-
-                                    isLoading = true
-
-                                    const endpoint = `backend/get-messages/${id}`
-                                    const response = await http.GET(endpoint)
-                                    if (response && response.count) {
-                                        if (response.count > 0 && response.data) {
-                                            const callback = displayBatch(messagesContainer, prepend)
-
-                                            // Start at the end
-                                            const reverseData = response.data.slice().reverse()
-                                            reverseData.forEach(html => {
-                                                callback.flushCard(html)
-                                            })
-                                            callback.flushRemaining()
-                                            offset += limit
-                                        }
-                                    }
-                                    isLoading = false
-                                },
+                                }
+                                isLoading = false
+                            },
     }
 }
-export const exports = Exports()
+export const shared = Shared()

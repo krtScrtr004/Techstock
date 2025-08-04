@@ -1,8 +1,8 @@
-import { exports } from './utility.js'
+import { shared } from './utility.js'
 
 try {
-    if (exports.writeMessageForm) {
-        exports.filePickerButtons.forEach(picker => {
+    if (shared.writeMessageForm) {
+        shared.filePickerButtons.forEach(picker => {
             picker.addEventListener('click', e => {
                 e.preventDefault()
 
@@ -12,6 +12,6 @@ try {
         })
     }
 } catch (error) {
-    exports.dialog.errorOccurred(error.message)
+    shared.dialog.errorOccurred(error.message)
     console.error(error)
 }

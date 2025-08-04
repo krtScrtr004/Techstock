@@ -1,19 +1,19 @@
-import { exports } from "./utility.js";
+import { shared } from "./utility.js";
 
 try {
-    exports.submitButton.addEventListener('click', e => {
+    shared.submitButton.addEventListener('click', e => {
         e.preventDefault()
 
         const formData = new FormData()
 
-        exports.hiddenInputs.forEach(input => {
+        shared.hiddenInputs.forEach(input => {
             formData.append(input.name, input.files)
         })
-        formData.append('message', exports.message.value)
+        formData.append('message', shared.message.value)
 
         // TODO: Send form to backend
     })
 } catch (error) {
-    exports.dialog.errorOccurred(error.message)
+    shared.dialog.errorOccurred(error.message)
     console.error(error)
 }
