@@ -22,10 +22,20 @@ const Loader = () => {
             render(parentElem, loaderElem, 'afterbegin');
         },
 
+        lead: function (parentElem) {
+            const loaderElem = `
+                <div 
+                    class="loader-wrapper center-child transparent-bg" 
+                    style="height:fit-content; top:0;">
+                        <span class="loader"></span>
+                </div>`;
+            render(parentElem, loaderElem, 'afterbegin');
+        },
+
         trail: function (parentElem) {
             const loaderElem = `
                 <div 
-                    class="loader-wrapper center-child white-bg absolute" 
+                    class="loader-wrapper center-child transparent-bg" 
                     style="height:fit-content; bottom:0;">
                         <span class="loader"></span>
                 </div>`;

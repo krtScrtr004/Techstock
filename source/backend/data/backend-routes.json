@@ -1,6 +1,6 @@
 {
     "GET": {
-        "/Techstock/backend/get-messages/{id:[\\w+_-]+}": ["BackendController", "getMessages"]
+        "/Techstock/backend/get-messages/{id:[\\w+_-]+}(?:\\?[\\w=\\?:&%\\s_+-]+)?": ["BackendController", "getMessages"]
     },
 
     "POST": {

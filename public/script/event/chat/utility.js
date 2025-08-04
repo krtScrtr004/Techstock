@@ -7,16 +7,21 @@ import { displayBatch } from '../../utility/display-batch.js'
 
 const Shared = () => {
     const limit                 =   5
-
+    
+    let lastActiveChat          =   null
     let isLoading               =   false
     let offset                  =   0
+    let observer                =   null
 
     const wrapper               =   document.querySelector('.chat-wrapper')
 
     const chatContent           =   wrapper.querySelector('.chat-content')
     const chatContentHeading    =   chatContent.querySelector('.chat-content-heading')
     const chatContentMain       =   chatContent.querySelector('.chat-content-main')
-    const messagesContainer     =   chatContentMain.querySelector('.messages-container')
+    
+    const messagesArea          =   chatContent.querySelector('.messages-area')
+    const sentinel              =   messagesArea.querySelector('.sentinel')
+    const messagesContainer     =   messagesArea.querySelector('.messages-container')
 
     const writeMessageArea      =   wrapper.querySelector('.write-message-area')
     const writeMessageForm      =   writeMessageArea.querySelector('form')
@@ -28,53 +33,70 @@ const Shared = () => {
     const filePickerButtons     =   writeMessageForm.querySelectorAll('.open-file-picker-button')
 
     return {
-        wrapper:            wrapper,
+        get wrapper()               { return wrapper },
     
-        chatContent:        chatContent,
-        chatContentHeading: chatContentHeading,
-        chatContentMain:    chatContentMain,
-        messagesContainer:  messagesContainer,
+        get chatContent()           { return chatContent },
+        get chatContentHeading()    { return chatContentHeading },
+        get chatContentMain()       { return chatContentMain },
 
-        writeMessageForm:   writeMessageForm,
-        submitButton:       submitButton,
+        get messagesArea()          { return messagesArea },
+        get messagesContainer()     { return messagesContainer },
+        get sentinel()              { return sentinel },
+
+        get writeMessageForm()      { return writeMessageForm },
+        get submitButton()          { return submitButton },
         
-        message:            message,
+        get message()               { return message },
 
-        hiddenInputs:       hiddenInputs,
-        filePickerButtons:  filePickerButtons,
+        get hiddenInputs()          { return hiddenInputs },
+        get filePickerButtons()     { return filePickerButtons },
 
-        dialog:             dialog,
-        loader:             loader,
-        debounce:           debounce,
+        get dialog()                { return dialog },
+        get loader()                { return loader },
+        get debounce()              { return debounce },
 
-        loadMessages:       async function (id, prepend = false) {
-                                if (isLoading) {
-                                    return
-                                }
+        get lastActiveChat()        { return lastActiveChat },
+        set lastActiveChat(val)     { lastActiveChat = val },
 
-                                if (!id) {
-                                    throw new Error('No chat session ID provided')
-                                }
+        get offset()                { return offset },
+        set offset(val)             { offset = val },
 
-                                isLoading = true
+        get observer()              { return observer },
+        set observer(val)           { observer = val },
 
-                                const endpoint = `backend/get-messages/${id}`
-                                const response = await http.GET(endpoint)
-                                if (response && response.count) {
-                                    if (response.count > 0 && response.data) {
-                                        const callback = displayBatch(messagesContainer, prepend)
+        get isLoading()             { return isLoading },
+        set isLoading(val)          { isLoading = val },
 
-                                        // Start at the end
-                                        const reverseData = response.data.slice().reverse()
-                                        reverseData.forEach(html => {
-                                            callback.flushCard(html)
-                                        })
-                                        callback.flushRemaining()
-                                        offset += limit
-                                    }
-                                }
-                                isLoading = false
-                            },
+        async loadMessages(id, prepend = false) {
+            if (isLoading) {
+                return
+            }
+
+            if (!id) {
+                throw new Error('No chat session ID provided')
+            }
+
+            isLoading = true
+
+            const endpoint = `backend/get-messages/${id}?offset=${offset}`
+            const response = await http.GET(endpoint)
+            if (response) {
+                if (response.count > 0 && response.data) {
+                    const callback = displayBatch(messagesContainer, prepend)
+
+                    // Start at the end
+                    const reverseData = response.data.slice().reverse()
+                    reverseData.forEach(html => {
+                        callback.flushCard(html)
+                    })
+                    callback.flushRemaining()
+                    offset += limit
+                } else {
+                    this.observer.unobserve(sentinel)
+                }
+            }
+            isLoading = false
+        }
     }
 }
 export const shared = Shared()

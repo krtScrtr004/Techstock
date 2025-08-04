@@ -1,7 +1,6 @@
 import { shared } from './utility.js'
 
 try {
-
     function toggleMoreOptions() {
         const moreOptionsButton = shared.chatContentHeading.querySelector('.more-options > button')
         const dropdown = shared.chatContentHeading.querySelector('.more-options .dropdown')
@@ -35,11 +34,45 @@ try {
         image.src = otherPartyImage
     }
 
+    function loadOldMessages() {
+        if (!shared.observer) {
+            shared.observer = new IntersectionObserver(entries => {
+                entries.forEach(async entry => {
+                    if (entry.isIntersecting && !shared.isLoading) {
+                        const el = entry.target
+                        if (shared.lastActiveChat) {
+                            const oldScrollHeight = shared.messagesArea.scrollHeight
+
+                            const chatSessionId = shared.lastActiveChat.getAttribute('data-id')
+
+                            shared.loader.lead(shared.messagesContainer)
+                            await shared.loadMessages(chatSessionId, true)
+                            shared.loader.delete()
+
+                            const newScrollHeight = shared.messagesArea.scrollHeight
+                            shared.messagesArea.scrollTop = newScrollHeight - oldScrollHeight
+                        }
+                    }
+                })
+            })
+        }
+        if (shared.sentinel) {
+            shared.observer.observe(shared.sentinel)
+        }
+    }
+
     const chatListCards = shared.wrapper.querySelectorAll('.chat-list-card')
     chatListCards.forEach(card => {
-
         card.addEventListener('click', shared.debounce(async e => {
             e.preventDefault()
+
+            shared.offset = 0
+
+            card.classList.toggle('active')
+            if (shared.lastActiveChat) {
+                shared.lastActiveChat.classList.toggle('active')
+            }
+            shared.lastActiveChat = card
 
             shared.messagesContainer.innerHTML = ''
 
@@ -53,15 +86,13 @@ try {
             const chatSessionId = card.getAttribute('data-id')
 
             // Load initial messages
-            loader.full(shared.messagesContainer)
+            shared.loader.full(shared.messagesArea)
             await shared.loadMessages(chatSessionId)
-            loader.delete()
+            shared.loader.delete()
 
-            requestAnimationFrame(() => {
-                shared.messagesContainer.scrollTop = shared.messagesContainer.scrollHeight
-            })
+            shared.messagesArea.scrollTop = shared.messagesArea.scrollHeight
 
-            // TODO: Load previous messages
+            loadOldMessages()
         }, 300))
     })
 

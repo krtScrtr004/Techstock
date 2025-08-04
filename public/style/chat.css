@@ -114,12 +114,16 @@
 
 .messages-area,
 .messages-container {
-	height: 100%;
-	overflow: hidden auto;
+	box-sizing: border-box;
 }
 
 .messages-area {
 	flex: 1 1 0;
+	overflow: hidden auto;
+}
+
+.messages-container {
+	height: fit-content;
 }
 
 .write-message-area {

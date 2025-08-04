@@ -21,7 +21,7 @@ class BackendController implements Controller
             exit();
         }
 
-        $offset = $_GET['offset'] ?? 0;
+        $offset = $_GET['offset'] ? (int) $_GET['offset'] : 0;
         $limit = 5;
         $userChatOutSessions = ChatSessionModel::all();
 
