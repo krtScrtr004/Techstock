@@ -1,23 +1,15 @@
-import { calculateTotalPrice } from '../../utility/calculate-total-price.js'
-
-import { dialog } from '../../render/dialog.js'
+import { shared } from "./utility.js"
 
 try {
-    const shoppingCartForm = document.querySelector('.shopping-cart-form')
-    const tableContent = shoppingCartForm.querySelector('.table-content')
-
-    const selectAll = shoppingCartForm.querySelector('#select_all')
-    const fieldsets = tableContent.querySelectorAll('fieldset')
-
     function updateSelectAllState() {
-        const allFieldsetsChecked = [...fieldsets].every(fieldset => {
+        const allFieldsetsChecked = [...shared.fieldsets].every(fieldset => {
             const fieldCheckbox = fieldset.querySelector(`input[type="checkbox"]#${fieldset.name}`)
             return fieldCheckbox.checked
         })
-        selectAll.checked = allFieldsetsChecked
+        shared.selectAll.checked = allFieldsetsChecked
     }
 
-    fieldsets.forEach(fieldset => {
+    shared.fieldsets.forEach(fieldset => {
         const fieldCheckbox = fieldset.querySelector(`input[type="checkbox"]#${fieldset.name}`)
         const itemCheckboxes = fieldset.querySelectorAll('.item-info input[type="checkbox"]')
 
@@ -29,7 +21,7 @@ try {
 
             // Update select all if any fieldset checkbox is unchecked
             updateSelectAllState()
-            calculateTotalPrice()
+            shared.calculateTotalPrice()
 
         })
 
@@ -40,25 +32,25 @@ try {
                 fieldCheckbox.checked = allItemsChecked
 
                 updateSelectAllState()
-                calculateTotalPrice()
+                shared.calculateTotalPrice()
             })
         })
     })
 
     // Select all toggles every fieldset and item
-    selectAll.addEventListener('change', () => {
-        fieldsets.forEach(fieldset => {
+    shared.selectAll.addEventListener('change', () => {
+        shared.fieldsets.forEach(fieldset => {
             const fieldCheckbox = fieldset.querySelector(`input[type="checkbox"]#${fieldset.name}`)
             const itemCheckboxes = fieldset.querySelectorAll('.item-info input[type="checkbox"]')
 
-            fieldCheckbox.checked = selectAll.checked
+            fieldCheckbox.checked = shared.selectAll.checked
             itemCheckboxes.forEach(cb => {
-                cb.checked = selectAll.checked
+                cb.checked = shared.selectAll.checked
             })
         })
-        calculateTotalPrice()
+        shared.calculateTotalPrice()
     })
 } catch (error) {
-    dialog.errorOccurred(error.message)
+    shared.dialog.errorOccurred(error.message)
     console.error(error)
 }
