@@ -89,7 +89,7 @@ async function loadMessages(
 
                 reactToMessage(dom)
             } else {
-                this.observer?.unobserve(sentinel)
+                state.observer?.unobserve(dom.sentinel)
             }
         } else {
             // 
