@@ -35,16 +35,16 @@ try {
     }
 
     function loadOldMessages() {
-        if (!shared.observer) {
-            shared.observer = new IntersectionObserver(entries => {
+        if (!shared.state.observer) {
+            shared.state.observer = new IntersectionObserver(entries => {
                 entries.forEach(async entry => {
-                    if (entry.isIntersecting && !shared.isLoading) {
+                    if (entry.isIntersecting && !shared.state.isLoading) {
                         const el = entry.target
-                        if (shared.lastActiveChat) {
+                        if (shared.state.lastActiveChat) {
                             const oldScrollHeight = shared.messagesArea.scrollHeight
 
                             shared.loader.lead(shared.messagesContainer)
-                            const chatSessionId = shared.lastActiveChat.getAttribute('data-id')
+                            const chatSessionId = shared.state.lastActiveChat.getAttribute('data-id')
                             await shared.loadMessages(chatSessionId, true)
                             shared.loader.delete()
 
@@ -56,7 +56,7 @@ try {
             })
         }
         if (shared.sentinel) {
-            shared.observer.observe(shared.sentinel)
+            shared.state.observer?.observe(shared.sentinel)
         }
     }
 
@@ -68,10 +68,10 @@ try {
             shared.offset = 0
 
             card.classList.toggle('active')
-            if (shared.lastActiveChat) {
-                shared.lastActiveChat.classList.toggle('active')
+            if (shared.state.lastActiveChat) {
+                shared.state.lastActiveChat.classList.toggle('active')
             }
-            shared.lastActiveChat = card
+            shared.state.lastActiveChat = card
 
             shared.messagesContainer.innerHTML = ''
 
