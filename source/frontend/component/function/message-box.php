@@ -10,6 +10,7 @@ function messageBox(ChatMessage $message): mixed
         ? $session->get('userId')
         : throw new ErrorException('No user ID in session');
 
+    $id                 =   $message->getId();
     $type               =   $message->getType();
     $content            =   $message->getContent();
     $createdAt          =   $message->getCreatedAt();
@@ -20,7 +21,7 @@ function messageBox(ChatMessage $message): mixed
     $messageAlignment   =   $isSame ? 'float-right' : 'float-left';
 ?>
 
-    <div class="message-row <?= $flexDirection ?>">
+    <div class="message-row <?= $flexDirection ?>" data-id="<?= $id ?>">
         <div class="message-box white-bg <?= $messageAlignment ?>">
             <?php if ($type === ChatContentType::Text): ?>
                 <p class="black-text"><?= $content ?></p>
@@ -36,7 +37,7 @@ function messageBox(ChatMessage $message): mixed
             <span class="block end-text"><?= simplifyDate($createdAt) ?></span>
         </div>
 
-        <div>
+        <div class="flex-col">
             <button class="react-button unset-button">
                 <img
                     src="<?= ICON_PATH . 'heart_empty.svg' ?>"
@@ -44,6 +45,7 @@ function messageBox(ChatMessage $message): mixed
                     title="Like"
                     height="24" />
             </button>
+            <p>0</p>
         </div>
     </div>
 

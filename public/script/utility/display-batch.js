@@ -1,4 +1,8 @@
-function insertFragment(htmlArray, parentElem, prepend = false) {
+function insertFragment(
+    htmlArray, 
+    parentElem, 
+    prepend = false
+) {
     if (!htmlArray) {
         throw new Error('No html array defined')
     }

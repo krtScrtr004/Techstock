@@ -80,8 +80,9 @@ try {
                 hiddenInput.click()
             })
         })
-
     }
+
+    // TODO: Add video preview
 } catch (error) {
     shared.dialog.errorOccurred(error.message)
     console.error(error)

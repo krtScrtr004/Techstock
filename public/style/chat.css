@@ -93,6 +93,7 @@
 	padding: 0 5px;
 	bottom: -150px;
 	box-shadow: 0 2px 2px var(--light-black);
+	z-index: 501;
 }
 
 .chat-content-heading > .more-options > .dropdown > button {
