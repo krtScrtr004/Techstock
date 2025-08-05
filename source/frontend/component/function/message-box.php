@@ -10,9 +10,9 @@ function messageBox(ChatMessage $message): mixed
         ? $session->get('userId')
         : throw new ErrorException('No user ID in session');
 
-    $id                 =   $message->getId();
+    $id                 =   htmlspecialchars($message->getId());
     $type               =   $message->getType();
-    $content            =   $message->getContent();
+    $content            =   htmlspecialchars($message->getContent());
     $createdAt          =   $message->getCreatedAt();
 
     $sender             =   $message->getSender();
@@ -29,7 +29,7 @@ function messageBox(ChatMessage $message): mixed
                 <img
                     src="<?= $content ?>"
                     alt=""
-                    width="300" />
+                    width="300">
             <?php elseif ($type === ChatContentType::Video): ?>
                 <!-- TODO -->
             <?php endif; ?>
@@ -37,18 +37,18 @@ function messageBox(ChatMessage $message): mixed
             <span class="block end-text"><?= simplifyDate($createdAt) ?></span>
         </div>
 
-        <div class="flex-col">
+        <div class="center-child flex-col">
             <button class="react-button unset-button">
                 <img
                     src="<?= ICON_PATH . 'heart_empty.svg' ?>"
                     alt="Like"
                     title="Like"
-                    height="24" />
+                    height="24">
             </button>
-            <p>0</p>
+            <p class="reaction-count light-black-text">0</p>
         </div>
     </div>
 
 <?php
-    return ob_get_flush();
+    return ob_get_clean();
 }

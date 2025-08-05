@@ -632,11 +632,5 @@
 }
 
 .message-row > div:nth-child(2) {
-	align-items: center;
-	justify-content: center;
 	margin: 0 10px;
-}
-
-.message-row > div:nth-child(2) > p {
-	color: var(--light-black);
 }

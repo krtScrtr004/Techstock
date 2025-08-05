@@ -10,9 +10,7 @@ class BackendController implements Controller
         header('Content-Type: application/json');
 
         if (!isset($params['id'])) {
-            if (ob_get_length()) {
-                ob_clean();
-            }
+            ob_clean();
             http_response_code(500);
             echo json_encode([
                 'count' => 0,
@@ -27,9 +25,8 @@ class BackendController implements Controller
 
         $requestedSession = $userChatOutSessions[$params['id']];
         if (!isset($requestedSession)) {
-            if (ob_get_length()) {
-                ob_clean();
-            }
+
+            ob_clean();
             http_response_code(200);
             echo json_encode([
                 'count' => 0,
@@ -45,13 +42,11 @@ class BackendController implements Controller
             array_push($data, messageBox($toHtml));
         }
 
-        if (ob_get_length()) {
-            ob_clean();
-        }
+        ob_clean();
         echo json_encode([
             'count' => count($response),
             'data' => $data
-        ]);
+        ], JSON_UNESCAPED_SLASHES);
         exit();
     }
 
