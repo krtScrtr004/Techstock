@@ -94,11 +94,20 @@
         </aside>
 
         <section class="chat-content flex-col flex-space-between flex-child-center-v relative">
-            <div class="select-chat-wall  dark-white-bg absolute">
+            <div class="select-chat-wall dark-white-bg absolute">
                 <?php
                 emptyResult(
                     'chat_b.svg',
                     'Select A Chat First'
+                )
+                ?>
+            </div>
+
+            <div class="message-error-occurred dark-white-bg absolute no-display">
+                <?php
+                emptyResult(
+                    'chat_b.svg',
+                    'There Was An Error Fetching Your Conversation!'
                 )
                 ?>
             </div>
@@ -153,6 +162,17 @@
 
             <!-- Main Content -->
             <section class="chat-content-main flex-col dark-white-bg">
+                <div class="no-messages dark-white-bg no-display full-body-content">
+                    <?php
+                    emptyResult(
+                        'chat_b.svg',
+                        'No Messages Found!',
+                        "Start A New Conversation",
+                        'small'
+                    )
+                    ?>
+                </div>
+
                 <!-- Messages Area -->
                 <section class="messages-area dark-white-bg">
                     <div class="sentinel"></div>

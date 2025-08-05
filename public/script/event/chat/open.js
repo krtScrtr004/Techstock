@@ -76,7 +76,7 @@ try {
             shared.messagesContainer.innerHTML = ''
 
             const selectChatWall = shared.chatContent.querySelector('.select-chat-wall')
-            if (selectChatWall && !selectChatWall.classList.contains('no-display')) {
+            if (!selectChatWall?.classList.contains('no-display')) {
                 selectChatWall.classList.add('no-display')
             }
 

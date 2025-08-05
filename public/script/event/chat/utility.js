@@ -76,7 +76,8 @@ async function loadMessages(
         const endpoint = `backend/get-messages/${id}?offset=${state.offset}`
         const response = await http.GET(endpoint)
         if (response) {
-            if (response.count > 0 && response.data) {
+            response.count = 0
+            if (response.count > 0) {
                 const callback = displayBatch(dom.messagesContainer, prepend)
 
                 // Start at the end
@@ -89,10 +90,27 @@ async function loadMessages(
 
                 reactToMessage(dom)
             } else {
+                if (state.offset > 0) {
+                    const p = document.createElement('p')
+                    p.classList.add('center-text', 'light-black-text')
+                    p.textContent = 'No more message to load'
+                    p.style.width = '100%'
+                    p.style.marginTop = '10px'
+
+                    dom.messagesContainer.insertBefore(p, dom.messagesContainer.firstChild)
+                } else {
+                    const noMessages = dom.chatContentMain.querySelector('.no-messages')
+                    if (noMessages?.classList.contains('no-display')) {
+                        noMessages?.classList.toggle('no-display')
+                    }
+                }
                 state.observer?.unobserve(dom.sentinel)
             }
         } else {
-            // 
+            const messageErrorOccurred = dom.chatContent.querySelector('.message-error-occurred')
+            if (messageErrorOccurred?.classList.contains('no-display')) {
+                messageErrorOccurred.classList.remove('no-display')
+            }
         }
     } catch (e) {
         dialog.errorOccurred(e.message)

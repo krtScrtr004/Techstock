@@ -1,11 +1,11 @@
 <?php
 
 function emptyResult(
-    string $iconName, 
-    string $title, 
+    string $iconName,
+    string $title,
     string $subTitle = '',
-    string $size = 'big'): void
-{
+    string $size = 'big'
+): void {
 ?>
     <div class="empty-result <?= $size ?> flex-col center-child transparent-bg full-body-content">
         <img
