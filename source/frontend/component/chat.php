@@ -174,11 +174,19 @@
                 </div>
 
                 <!-- Messages Area -->
-                <section class="messages-area dark-white-bg">
+                <section class="messages-area dark-white-bg relative">
                     <div class="sentinel"></div>
 
                     <section class="messages-container flex-col">
                         <!--  -->
+                    </section>
+
+                    <section class="new-message-button sticky no-display">
+                        <button
+                            class="blue-bg white-text center-text"
+                            type="button">
+                            New Message(s) Arrived!
+                        </button>
                     </section>
                 </section>
 

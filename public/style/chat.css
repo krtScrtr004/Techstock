@@ -127,6 +127,19 @@
 	height: fit-content;
 }
 
+.new-message-button {
+	width: 100%;
+	padding: 10px;
+	bottom: 0;
+}
+
+.new-message-button > button {
+	width: fit-content;
+	border-radius: var(--border-radius);
+	font-size: 0.8rem;
+	font-weight: 300;
+}
+
 .write-message-area {
 	padding: 10px 1rem;
 }
