@@ -2,9 +2,9 @@ import { shared } from './utility.js'
 
 try {
     const collectionButtons = shared.infiniteList.querySelectorAll('.collection-button')
-    if (collectionButtons && collectionButtons.length > 0) {
+    if (collectionButtons?.length > 0) {
         let lastActiveButton = collectionButtons[0]
-        collectionButtons.forEach(button => {
+        collectionButtons?.forEach(button => {
             button.addEventListener('click', async e => {
                 e.preventDefault()
 
@@ -12,12 +12,12 @@ try {
                 button.classList.add('active')
                 lastActiveButton = button
 
-                shared.page = 1
-                shared.observer.unobserve(shared.infiniteListSentinel)
+                shared.state.page = 1
+                shared.state.observer.unobserve(shared.sentinel)
 
                 shared.loader.full(shared.productList)
                 await shared.getResponse((response) => {
-                    if (response.count && response.count > 0) {
+                    if (response?.count > 0) {
                         shared.resetList()
 
                         shared.insertProductCards(response.productCards)
@@ -32,7 +32,7 @@ try {
                     behavior: 'instant',
                     block: 'start'
                 })
-                shared.observer.observe(shared.infiniteListSentinel)
+                shared.state.observer?.observe(shared.sentinel)
             })
         })
     }

@@ -4,10 +4,10 @@ try {
     const form = document.querySelector('.search-store-form')
     if (form) {
         const button = form.querySelector('.search-store-button')
-        button.addEventListener('click', async e => {
+        button?.addEventListener('click', async e => {
             e.preventDefault()
 
-            shared.observer.unobserve(shared.infiniteListSentinel)
+            shared.state.observer?.unobserve(shared.sentinel)
 
             const inputSearch = form.querySelector('#search_store').value
 
@@ -25,7 +25,7 @@ try {
                 behavior: 'smooth',
                 block: 'start'
             })
-            shared.observer.observe(shared.infiniteListSentinel)
+            shared.state.observer?.observe(shared.sentinel)
         })
     }
 } catch (error) {

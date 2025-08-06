@@ -5,7 +5,7 @@ node_modules/
 
 vendor/
 
-.../public/asset/video/
+/public/asset/video/
 dump/
 
 # Logs

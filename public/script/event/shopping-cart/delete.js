@@ -4,14 +4,12 @@ try {
     function removeItemDom(elem) {
         const fieldset = elem.closest('fieldset')
         const itemInfoParent = elem.closest('.item-info')
-        if (itemInfoParent) {
-            itemInfoParent.remove()
-        }
+        itemInfoParent?.remove()
 
         // Remove store info when no items listed
         const remainingItems = fieldset.querySelectorAll('.item-info input[type="checkbox"]')
-        if (remainingItems.length < 1) {
-            fieldset.remove()
+        if (remainingItems?.length < 1) {
+            fieldset?.remove()
         }
 
         shared.calculateTotalPrice()
@@ -20,7 +18,7 @@ try {
     // TODO: SEND ITEM ID BACK TO SERVER
 
     // Delete Action Button
-    if (shared.deleteItemButtons.length > 0) {
+    if (shared.deleteItemButtons?.length > 0) {
         shared.deleteItemButtons.forEach(button => {
             button.addEventListener('click', e => {
                 e.preventDefault()
@@ -30,15 +28,13 @@ try {
     }
 
     // Multiple Delete
-    if (shared.removeCheckedButton) {
-        shared.removeCheckedButton.addEventListener('click', e => {
-            e.preventDefault()
-            const checkedItems = shared.getCheckedItems()
-            if (checkedItems.length > 0) {
-                checkedItems.forEach(item => removeItemDom(item))
-            }
-        })
-    }
+    shared.removeCheckedButton?.addEventListener('click', e => {
+        e.preventDefault()
+        const checkedItems = shared.getCheckedItems()
+        if (checkedItems.length > 0) {
+            checkedItems.forEach(item => removeItemDom(item))
+        }
+    })
 } catch (error) {
     shared.dialog.errorOccurred(error.message)
     console.error(error)

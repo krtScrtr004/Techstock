@@ -9,13 +9,13 @@ try {
         shared.selectAll.checked = allFieldsetsChecked
     }
 
-    shared.fieldsets.forEach(fieldset => {
+    shared.fieldsets?.forEach(fieldset => {
         const fieldCheckbox = fieldset.querySelector(`input[type="checkbox"]#${fieldset.name}`)
         const itemCheckboxes = fieldset.querySelectorAll('.item-info input[type="checkbox"]')
 
         // When fieldset checkbox changes, update its children and check "select all"
-        fieldCheckbox.addEventListener('change', () => {
-            itemCheckboxes.forEach(cb => {
+        fieldCheckbox?.addEventListener('change', () => {
+            itemCheckboxes?.forEach(cb => {
                 cb.checked = fieldCheckbox.checked
             })
 
@@ -26,7 +26,7 @@ try {
         })
 
         // When any item is manually changed
-        itemCheckboxes.forEach(cb => {
+        itemCheckboxes?.forEach(cb => {
             cb.addEventListener('change', () => {
                 const allItemsChecked = [...itemCheckboxes].every(box => box.checked)
                 fieldCheckbox.checked = allItemsChecked
@@ -38,13 +38,13 @@ try {
     })
 
     // Select all toggles every fieldset and item
-    shared.selectAll.addEventListener('change', () => {
-        shared.fieldsets.forEach(fieldset => {
+    shared.selectAll?.addEventListener('change', () => {
+        shared.fieldsets?.forEach(fieldset => {
             const fieldCheckbox = fieldset.querySelector(`input[type="checkbox"]#${fieldset.name}`)
             const itemCheckboxes = fieldset.querySelectorAll('.item-info input[type="checkbox"]')
 
             fieldCheckbox.checked = shared.selectAll.checked
-            itemCheckboxes.forEach(cb => {
+            itemCheckboxes?.forEach(cb => {
                 cb.checked = shared.selectAll.checked
             })
         })
