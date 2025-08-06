@@ -7,18 +7,12 @@ try {
 
             const endpoint = `backend/send-message/${chatSessionId}` // TODO
             const response = await shared.http.POST(endpoint, formData, false)
-            if (response?.count > 0) {
-                const callback = shared.displayBatch(shared.messagesContainer)
-
-                response.data?.forEach(html => {
-                    callback.flushCard(html)
-                })
-                callback.flushRemaining()
-
-                shared.message.value = ''
-                shared.messagesArea.scrollTop = shared.messagesArea.scrollHeight
+            if (!response) {
+                throw new Error('Message cannot be sent')
             }
-            shared.reactToMessage()
+
+            shared.message.value = ''
+            shared.state.newestMessageDate = new Date().toISOString()
 
             return true
         } catch (error) {

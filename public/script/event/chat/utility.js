@@ -2,6 +2,7 @@ import { dialog } from '../../render/dialog.js'
 import { loader } from '../../render/loader.js'
 import { notification } from '../../render/notification.js'
 
+import { viewImage } from '../../utility/view-image.js';
 import { debounce } from '../../utility/debounce.js'
 import { http } from '../../utility/http.js'
 import { displayBatch } from '../../utility/display-batch.js'
@@ -16,6 +17,7 @@ function domMembers() {
     const messagesArea = chatContent.querySelector('.messages-area')
     const sentinel = messagesArea.querySelector('.sentinel')
     const messagesContainer = messagesArea.querySelector('.messages-container')
+    const newMessageButton = messagesArea.querySelector('.new-message-button')
 
     const writeMessageArea = wrapper.querySelector('.write-message-area')
     const writeMessageForm = writeMessageArea.querySelector('form')
@@ -26,9 +28,10 @@ function domMembers() {
     const hiddenInputs = writeMessageForm.querySelectorAll('input[type="file"]')
     const filePickerButtons = writeMessageForm.querySelectorAll('.open-file-picker-button')
 
+
     return {
         wrapper, chatContent, chatContentHeading,
-        chatContentMain, messagesArea, sentinel,
+        chatContentMain, messagesArea, sentinel, newMessageButton,
         messagesContainer, writeMessageArea, writeMessageForm,
         submitButton, message, hiddenInputs, filePickerButtons
     }
@@ -64,6 +67,7 @@ async function loadMessages(
     id,
     dom,
     state,
+    newMessages = true,
     prepend = false,
     limit = 5
 ) {
@@ -74,7 +78,14 @@ async function loadMessages(
     try {
         state.isLoading = true
 
-        const endpoint = `backend/get-messages/${id}?offset=${state.offset}`
+        const thread = newMessages ? 'new' : 'old'
+        const date = newMessages ? state.newestMessageDate : state.oldestMessageDate
+
+        const searchParams = new URLSearchParams()
+        searchParams.append('thread', thread)
+        searchParams.append('date', date)
+        const endpoint = `backend/get-messages/${id}?${searchParams}`
+
         const response = await http.GET(endpoint)
         if (response) {
             if (response.count > 0) {
@@ -86,18 +97,23 @@ async function loadMessages(
                     callback.flushCard(html)
                 })
                 callback.flushRemaining()
-                state.offset += limit
+
+                state.newestMessageDate = response.newestMessageDate?.date ?? null
+                state.oldestMessageDate = response.oldestMessageDate?.date ?? null
 
                 reactToMessage(dom)
             } else {
-                if (state.offset > 0) {
-                    const p = document.createElement('p')
-                    p.classList.add('center-text', 'light-black-text')
-                    p.textContent = 'No more message to load'
-                    p.style.width = '100%'
-                    p.style.marginTop = '10px'
-
-                    dom.messagesContainer.insertBefore(p, dom.messagesContainer.firstChild)
+                if (state.oldestMessageDate || state.newestMessageDate) {
+                    const html = `
+                        <p 
+                            class="center-text light-black-text"
+                            style="width: 100%; margin-top: 10px"
+                        >
+                            No more message to load
+                        </p>
+                    `
+                    dom.messagesContainer?.insertAdjacentHTML('afterbegin', html)
+                    dom.messagesArea.scrollTop = dom.messagesArea.scrollHeight
                 } else {
                     const noMessages = dom.chatContentMain.querySelector('.no-messages')
                     if (noMessages?.classList.contains('no-display')) {
@@ -125,7 +141,8 @@ export const shared = (() => {
     const state = {
         lastActiveChat: null,
         isLoading: false,
-        offset: 0,
+        oldestMessageDate: null, // For fetching old messages
+        newestMessageDate: null, // For fetching new messages
         observer: null,
         selectedFiles: new Map()
     }
@@ -140,6 +157,6 @@ export const shared = (() => {
         displayBatch,
         notification,
         reactToMessage: () => reactToMessage(dom),
-        loadMessages: async (id, prepend = false) => loadMessages(id, dom, state, prepend, 5)
+        loadMessages: async (id, newMessages = true, prepend = false) => loadMessages(id, dom, state, newMessages, prepend, 5)
     }
 })()

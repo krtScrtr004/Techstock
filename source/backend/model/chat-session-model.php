@@ -29,6 +29,12 @@ class ChatSessionModel implements Model
 				'type' => ChatContentType::Image,
 				'content' => IMAGE_PATH . 'controller-1.jpg'
 			]));
+			array_unshift($messages, new ChatMessage([
+				'id' => uniqid(),
+				'sender' => $me,
+				'type' => ChatContentType::Video,
+				'content' => VIDEO_PATH . 'sample.mp4'
+			]));
 
 			$csession = new ChatSession([
 				'id' => $i,

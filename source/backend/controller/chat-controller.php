@@ -11,7 +11,7 @@ class ChatController implements Controller
 
         if (!isset($params['id'])) {
             ob_clean();
-            http_response_code(500);
+            http_response_code(400);
             echo json_encode([
                 'count' => 0,
                 'error' => 'No chat session ID provided'
@@ -19,15 +19,25 @@ class ChatController implements Controller
             exit();
         }
 
-        $offset = $_GET['offset'] ? (int) $_GET['offset'] : 0;
+        $thread = $_GET['thread'] ? strtolower($_GET['thread']) : 'new';
+        if ($thread !== 'new' && $thread !== 'old') {
+            ob_clean();
+            http_response_code(400);
+            echo json_encode([
+                'count' => 0,
+                'error' => "Thread can only be 'new' or 'old'"
+            ]);
+            exit();
+        }
+
+        $dateOffset = $_GET['date'] !== 'null' ? new DateTime($_GET['date']) : null;
         $limit = 5;
         $userChatOutSessions = ChatSessionModel::all();
 
         $requestedSession = $userChatOutSessions[$params['id']];
         if (!isset($requestedSession)) {
-
             ob_clean();
-            http_response_code(200);
+            http_response_code(400);
             echo json_encode([
                 'count' => 0,
                 'result' => 'Chat session not found'
@@ -35,17 +45,50 @@ class ChatController implements Controller
             exit();
         }
         $sessionMessages = $requestedSession->getMessages();
-        $response = array_slice($sessionMessages, $offset, $limit, true);
 
         $data = [];
-        foreach ($response as $toHtml) {
-            array_push($data, messageBox($toHtml));
+        $limiterCount = 0;
+        $oldestDate = null;
+        $newestDate = null;
+
+        foreach ($sessionMessages as $toHtml) {
+            if ($limiterCount >= $limit) {
+                break;
+            }
+
+            $date = $toHtml->getCreatedAt();
+
+            $addMessage = false;
+            if (isset($dateOffset)) {
+                if ($thread === 'new' && $date >= $dateOffset) {
+                    $addMessage = true;
+                } else if ($thread === 'old' && $date <= $dateOffset) {
+                    $addMessage = true;
+                }
+            } else {
+                $addMessage = true;
+            }
+
+            if ($addMessage) {
+                array_push($data, messageBox($toHtml));
+                $limiterCount++;
+
+                // Track oldest and newest dates
+                if ($oldestDate === null || $date < $oldestDate) {
+                    $oldestDate = $date;
+                }
+                if ($newestDate === null || $date > $newestDate) {
+                    $newestDate = $date;
+                }
+            }
         }
 
         ob_clean();
         echo json_encode([
-            'count' => count($response),
-            'data' => $data
+            'count' => count($data),
+            'data' => $data,
+            'oldestMessageDate' => $oldestDate,
+            'newestMessageDate' => $newestDate
         ], JSON_UNESCAPED_SLASHES);
         exit();
     }
@@ -77,7 +120,6 @@ class ChatController implements Controller
                 'type' => ChatContentType::Text,
                 'content' => $content
             ]);
-            array_push($response, messageBox($message));
         }
 
         if ($_FILES['image_upload']) {
@@ -99,16 +141,10 @@ class ChatController implements Controller
                     'type' => ChatContentType::Image,
                     'content' => IMAGE_PATH . 'laptop-1.jpg'
                 ]);
-                array_push($response, messageBox($message));
             }
         }
 
-        http_response_code(200);
-        ob_clean();
-        echo json_encode([
-            'count' => count($response),
-            'data' => $response
-        ], JSON_UNESCAPED_SLASHES);
+        http_response_code(204);
         exit();
     }
 }

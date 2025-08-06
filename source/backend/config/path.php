@@ -46,5 +46,7 @@ define('IMAGE_PATH', ASSET_PATH . 'image' . DS);
 define('LOGO_PATH', IMAGE_PATH . 'logo' . DS);
 define('ICON_PATH', IMAGE_PATH . 'icon' . DS);
 
+define('VIDEO_PATH', ASSET_PATH . 'video' . DS);
+
 // README: Remove this
 define('DUMP_PATH', FRONTEND_PATH . 'dump' . DS);

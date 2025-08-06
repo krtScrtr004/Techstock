@@ -78,7 +78,7 @@ try {
         })
     }
 
-    // 
+    // New messages button event to scroll to the bottom of the chats
     shared.newMessageButton?.addEventListener('click', e => {
         e.preventDefault()
 

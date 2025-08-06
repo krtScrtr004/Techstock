@@ -502,7 +502,7 @@
 }
 
 .back-to-top:hover {
-	opacity: 0.5; 
+	opacity: 0.5;
 }
 
 /* --------------------- EMPTY RESULT --------------------- */
@@ -588,12 +588,12 @@
 }
 
 .chat-list-card img {
-    margin-right: 10px;
+	margin-right: 10px;
 }
 
 .last-message-preview,
 .last-chat-date {
-    font-weight: 200;
+	font-weight: 200;
 }
 
 .last-message-preview {
@@ -603,7 +603,7 @@
 
 .last-chat-date {
 	flex: 1;
-    font-size: 0.8rem;
+	font-size: 0.8rem;
 }
 
 /*  */
@@ -614,14 +614,24 @@
 	padding: 1rem;
 }
 
+.message-box,
+.message-box > img {
+	border-radius: var(--border-radius);
+}
+
 .message-box {
 	max-width: 70%;
 	padding: 1rem var(--space);
-	border-radius: var(--border-radius);
 }
 
 .message-box > p {
 	line-height: 1.6rem;
+}
+
+.message-box > img,
+.message-box > video {
+	width: 100%;
+	height: auto;
 }
 
 .message-box > span {

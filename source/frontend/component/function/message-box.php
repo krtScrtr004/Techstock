@@ -17,21 +17,29 @@ function messageBox(ChatMessage $message): mixed
 
     $sender             =   $message->getSender();
     $isSame             =   $sender->getId() === $myId;
-    $flexDirection      =   $isSame ? 'flex-row' : 'flex-row-reverse';
+    $flexDirection      =   $isSame ? 'flex-row-reverse' : 'flex-row';
     $messageAlignment   =   $isSame ? 'float-right' : 'float-left';
+
+    $boxBackground      =   $type === ChatContentType::Text ? 'white-bg' : 'transparent-bg';
 ?>
 
     <div class="message-row <?= $flexDirection ?>" data-id="<?= $id ?>">
-        <div class="message-box white-bg <?= $messageAlignment ?>">
+        <div class="message-box <?= $boxBackground . ' ' . $messageAlignment; ?>">
             <?php if ($type === ChatContentType::Text): ?>
                 <p class="black-text"><?= $content ?></p>
             <?php elseif ($type === ChatContentType::Image): ?>
                 <img
+                    class="viewable-image"
                     src="<?= $content ?>"
                     alt=""
                     width="300">
             <?php elseif ($type === ChatContentType::Video): ?>
                 <!-- TODO -->
+                <video controls>
+                    <source src="<?= $content ?>" type="video/mp4">
+                    <source src="<?= $content ?>" type="video/webm">
+                    Your browser does not support video player
+                </video>
             <?php endif; ?>
 
             <span class="block end-text"><?= simplifyDate($createdAt) ?></span>
