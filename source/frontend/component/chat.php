@@ -113,7 +113,7 @@
             </div>
 
             <!-- Heading -->
-            <section class="chat-content-heading flex-row flex-child-center-h white-bg">
+            <section class="chat-content-heading flex-row flex-child-center-h white-bg relative">
                 <img
                     class="other-party-image circle fit-contain white-bg"
                     src=""

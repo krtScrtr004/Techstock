@@ -1,7 +1,11 @@
 import { stickToTop } from '../utility/stick-to-top.js'
 
 const Notification = () => {
-    function remove(notificationWrapper, notificationContent, duration) {
+    function remove(
+        notificationWrapper, 
+        notificationContent, 
+        duration
+    ) {
         // Define the handler outside the setTimeout to prevent undefined behaviors 
         // When copy-link button is clicked multiple successively
         function onAnimationEnd(ev) {
@@ -29,13 +33,14 @@ const Notification = () => {
         status,
         message,
         duration,
-        parentElem = document.querySelector('header')
+        parentElem
     ) {
         const statusStyle = status ? 'success' : 'error'
+        const backgroundColor = status ? 'blue' : 'red'
 
         const html = `
         <section class="notification-wrapper center-child block absolute ${statusStyle}">
-            <div class="blue-bg">
+            <div class="${backgroundColor}-bg">
                 <p class="white-text">${message}</p>
             </div>
         </section>
@@ -49,25 +54,35 @@ const Notification = () => {
         stickToTop(notificationWrapper)
         remove(
             notificationWrapper,
-            notificationContent, 
+            notificationContent,
             duration
         )
     }
 
     return {
-        success: function (message, duration) {
+        success: function (
+            message, 
+            duration, 
+            parentElem = document.querySelector('header')
+        ) {
             render(
                 true,
                 message,
-                duration
+                duration,
+                parentElem
             )
         },
 
-        error: function (message, duration) {
+        error: function (
+            message, 
+            duration, 
+            parentElem = document.querySelector('header')
+        ) {
             render(
                 false,
                 message,
-                duration
+                duration,
+                parentElem
             )
         }
     }

@@ -1,9 +1,10 @@
 {
     "GET": {
-        "/Techstock/backend/get-messages/{id:[\\w+_-]+}(?:\\?[\\w=\\?:&%\\s_+-]+)?": ["BackendController", "getMessages"]
+        "/Techstock/backend/get-messages/{id:[\\w+_-]+}(?:\\?[\\w=\\?:&%\\s_+-]+)?": ["ChatController", "getMessages"]
     },
 
     "POST": {
-        "/Techstock/backend/location-permission": ["BackendController", "locationPermission"]
+        "/Techstock/backend/location-permission": ["BackendController", "locationPermission"],
+        "Techstock/backend/send-message/{id:[\\w+_-]+}": ["ChatController", "sendMessage"]
     }
 }

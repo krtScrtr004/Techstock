@@ -1,6 +1,28 @@
 import { shared } from './utility.js'
 
 try {
+    function resetMessagesContainer(card) {
+        shared.state.offset = 0
+
+        card.classList.toggle('active')
+        if (shared.state.lastActiveChat) {
+            shared.state.lastActiveChat.classList.toggle('active')
+        }
+        shared.state.lastActiveChat = card
+
+        shared.messagesContainer.innerHTML = ''
+
+        const messageErrorOccurred = shared.chatContent.querySelector('.message-error-occurred')
+        if (!messageErrorOccurred?.classList.contains('no-display')) {
+            messageErrorOccurred.classList.add('no-display')
+        }
+
+        const selectChatWall = shared.chatContent.querySelector('.select-chat-wall')
+        if (!selectChatWall?.classList.contains('no-display')) {
+            selectChatWall.classList.add('no-display')
+        }
+    }
+
     function toggleMoreOptions() {
         const moreOptionsButton = shared.chatContentHeading.querySelector('.more-options > button')
         const dropdown = shared.chatContentHeading.querySelector('.more-options .dropdown')
@@ -65,21 +87,7 @@ try {
         card.addEventListener('click', shared.debounce(async e => {
             e.preventDefault()
 
-            shared.offset = 0
-
-            card.classList.toggle('active')
-            if (shared.state.lastActiveChat) {
-                shared.state.lastActiveChat.classList.toggle('active')
-            }
-            shared.state.lastActiveChat = card
-
-            shared.messagesContainer.innerHTML = ''
-
-            const selectChatWall = shared.chatContent.querySelector('.select-chat-wall')
-            if (!selectChatWall?.classList.contains('no-display')) {
-                selectChatWall.classList.add('no-display')
-            }
-
+            resetMessagesContainer(card)
             updateHeading(card)
 
             // Load initial messages

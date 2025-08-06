@@ -1,9 +1,10 @@
 const Loader = () => {
     let parent;
+    let patchedElem = null
 
     function render(parentElem, loaderHtml, position) {
         if (!parentElem) {
-            throw new Error('No parent element');
+            return
         }
         parentElem.style.position = 'relative';
         parentElem.insertAdjacentHTML(position, loaderHtml);
@@ -42,10 +43,31 @@ const Loader = () => {
             render(parentElem, loaderElem, 'beforeend');
         },
 
+        patch: function (elementToPatch) {
+            patchedElem = {
+                elem: elementToPatch,
+                style: elementToPatch.style.display
+            }
+            const elemHeight = elementToPatch.clientHeight
+
+            const loaderElem = `
+                <div 
+                    class="loader-wrapper center-child transparent-bg" 
+                    style="height:fit-content;">
+                        <span class="loader" style="height:${elemHeight}px; width:${elemHeight}px"></span>
+                </div>`;
+
+            elementToPatch.style.display = 'none'
+            render(elementToPatch.parentElement, loaderElem, 'afterbegin');
+        },
+
         delete: function () {
             const createdLoader = parent?.querySelector('.loader-wrapper');
-            if (createdLoader) {
-                createdLoader.remove();
+            createdLoader?.remove();
+
+            if (patchedElem) {
+                patchedElem.elem.style.display = patchedElem.style
+                patchedElem = null
             }
         }
     }

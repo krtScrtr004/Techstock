@@ -105,6 +105,7 @@ try {
                         shared.state.selectedFiles.set(id, file)
 
                         if (mediaPreview.classList.contains('no-display')) {
+                            mediaPreview.classList.remove('no-display')
                             mediaPreview.classList.add('flex-row')
                         }
 

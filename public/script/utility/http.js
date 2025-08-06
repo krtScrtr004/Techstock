@@ -24,14 +24,11 @@ const Http = () => {
             }
         },
 
-        POST: async (endpoint, body = null) => {
+        POST: async (endpoint, body = null, serialize = true) => {
             try {
                 const request = await fetch(`${apiUrl}${endpoint}`, {
                     method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify(body)
+                    body: (serialize) ? JSON.stringify(body) : body
                 })
 
                 if (!request.ok) {

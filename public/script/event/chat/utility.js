@@ -1,5 +1,6 @@
 import { dialog } from '../../render/dialog.js'
 import { loader } from '../../render/loader.js'
+import { notification } from '../../render/notification.js'
 
 import { debounce } from '../../utility/debounce.js'
 import { http } from '../../utility/http.js'
@@ -76,7 +77,6 @@ async function loadMessages(
         const endpoint = `backend/get-messages/${id}?offset=${state.offset}`
         const response = await http.GET(endpoint)
         if (response) {
-            response.count = 0
             if (response.count > 0) {
                 const callback = displayBatch(dom.messagesContainer, prepend)
 
@@ -136,6 +136,10 @@ export const shared = (() => {
         dialog,
         loader,
         debounce,
+        http,
+        displayBatch,
+        notification,
+        reactToMessage: () => reactToMessage(dom),
         loadMessages: async (id, prepend = false) => loadMessages(id, dom, state, prepend, 5)
     }
 })()
