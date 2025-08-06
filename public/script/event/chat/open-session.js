@@ -2,7 +2,7 @@ import { shared } from './utility.js'
 
 try {
     function resetMessagesContainer(card) {
-        shared.state.offset = 0
+        shared.state.newestMessageDate = shared.state.oldestMessageDate = null
 
         card.classList.toggle('active')
         if (shared.state.lastActiveChat) {
@@ -21,24 +21,10 @@ try {
         if (!selectChatWall?.classList.contains('no-display')) {
             selectChatWall.classList.add('no-display')
         }
-    }
 
-    function toggleMoreOptions() {
-        const moreOptionsButton = shared.chatContentHeading.querySelector('.more-options > button')
-        const dropdown = shared.chatContentHeading.querySelector('.more-options .dropdown')
-
-        if (moreOptionsButton && dropdown) {
-            moreOptionsButton.addEventListener('click', e => {
-                e.preventDefault()
-                dropdown.classList.toggle('no-display')
-            })
-
-            document.addEventListener('click', e => {
-                // Hide dropdown if click is outside the button and dropdown
-                if (!moreOptionsButton.contains(e.target) && !dropdown.contains(e.target)) {
-                    dropdown.classList.add('no-display')
-                }
-            })
+        const noMessages = shared.chatContentMain.querySelector('.no-messages')
+        if (!noMessages?.classList.contains('no-display')) {
+            noMessages?.classList.add('no-display')
         }
     }
 
@@ -56,32 +42,6 @@ try {
         image.src = otherPartyImage
     }
 
-    function loadOldMessages() {
-        if (!shared.state.observer) {
-            shared.state.observer = new IntersectionObserver(entries => {
-                entries.forEach(async entry => {
-                    if (entry.isIntersecting && !shared.state.isLoading) {
-                        const el = entry.target
-                        if (shared.state.lastActiveChat) {
-                            const oldScrollHeight = shared.messagesArea.scrollHeight
-
-                            shared.loader.lead(shared.messagesContainer)
-                            const chatSessionId = shared.state.lastActiveChat.getAttribute('data-id')
-                            await shared.loadMessages(chatSessionId, true)
-                            shared.loader.delete()
-
-                            const newScrollHeight = shared.messagesArea.scrollHeight
-                            shared.messagesArea.scrollTop = newScrollHeight - oldScrollHeight
-                        }
-                    }
-                })
-            })
-        }
-        if (shared.sentinel) {
-            shared.state.observer?.observe(shared.sentinel)
-        }
-    }
-
     const chatListCards = shared.wrapper.querySelectorAll('.chat-list-card')
     chatListCards.forEach(card => {
         card.addEventListener('click', shared.debounce(async e => {
@@ -97,12 +57,37 @@ try {
             shared.loader.delete()
 
             shared.messagesArea.scrollTop = shared.messagesArea.scrollHeight
-
-            loadOldMessages()
         }, 300))
     })
 
-    toggleMoreOptions()
+    // Toggle More Options
+    const moreOptionsButton = shared.chatContentHeading.querySelector('.more-options > button')
+    const dropdown = shared.chatContentHeading.querySelector('.more-options .dropdown')
+
+    if (moreOptionsButton && dropdown) {
+        moreOptionsButton.addEventListener('click', e => {
+            e.preventDefault()
+            dropdown.classList.toggle('no-display')
+        })
+
+        document.addEventListener('click', e => {
+            // Hide dropdown if click is outside the button and dropdown
+            if (!moreOptionsButton.contains(e.target) && !dropdown.contains(e.target)) {
+                dropdown.classList.add('no-display')
+            }
+        })
+    }
+
+    // 
+    shared.newMessageButton?.addEventListener('click', e => {
+        e.preventDefault()
+
+        shared.messagesArea.scrollTop = shared.messagesArea.scrollHeight
+
+        if (!shared.newMessageButton.classList.toggle('center-child')) {
+            shared.newMessageButton.classList.add('no-display')
+        }
+    })
 } catch (error) {
     shared.dialog.errorOccurred(error.message)
     console.error(error)
