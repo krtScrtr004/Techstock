@@ -2,7 +2,6 @@ import { dialog } from '../../render/dialog.js'
 import { loader } from '../../render/loader.js'
 import { notification } from '../../render/notification.js'
 
-import { viewImage } from '../../utility/view-image.js';
 import { debounce } from '../../utility/debounce.js'
 import { http } from '../../utility/http.js'
 import { displayBatch } from '../../utility/display-batch.js'
@@ -34,32 +33,6 @@ function domMembers() {
         chatContentMain, messagesArea, sentinel, newMessageButton,
         messagesContainer, writeMessageArea, writeMessageForm,
         submitButton, message, hiddenInputs, filePickerButtons
-    }
-}
-
-function reactToMessage(dom) {
-    const PATH = 'asset/image/icon/'
-
-    const reactButton = dom.messagesContainer.querySelectorAll('.react-button')
-    if (reactButton && reactButton.length > 0) {
-        reactButton.forEach(button => {
-            // Only add listener if not already added
-            if (!button.dataset.listenerAdded) {
-                button.addEventListener('click', e => {
-                    e.preventDefault()
-
-                    const reactCount = button.parentElement.querySelector('p')
-                    const icon = button.querySelector('img')
-                    const isFilled = icon.src.includes('fill')
-
-                    icon.src = PATH + (isFilled ? "heart_empty.svg" : "heart_fill.svg")
-                    reactCount.textContent = parseInt(reactCount.textContent) + (isFilled ? -1 : 1)
-
-                    // TODO: Send to backend
-                })
-                button.dataset.listenerAdded = 'true'
-            }
-        })
     }
 }
 
@@ -100,8 +73,6 @@ async function loadMessages(
 
                 state.newestMessageDate = response.newestMessageDate?.date ?? null
                 state.oldestMessageDate = response.oldestMessageDate?.date ?? null
-
-                reactToMessage(dom)
             } else {
                 if (state.oldestMessageDate || state.newestMessageDate) {
                     const html = `
@@ -156,7 +127,6 @@ export const shared = (() => {
         http,
         displayBatch,
         notification,
-        reactToMessage: () => reactToMessage(dom),
         loadMessages: async (id, newMessages = true, prepend = false) => loadMessages(id, dom, state, newMessages, prepend, 5)
     }
 })()
