@@ -48,6 +48,15 @@
 	margin: 10px 0;
 }
 
+.chat-info > div:first-child {
+	gap: 5px;
+	overflow: hidden;
+}
+
+.chat-info > div:first-child > .other-party-name {
+	max-width: 20ch;
+}
+
 .chat-content {
 	width: 700px;
 }

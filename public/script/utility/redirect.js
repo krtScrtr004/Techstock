@@ -33,6 +33,11 @@ const Redirect = () => {
                 q.append('page', 2) 
             }
             redirectTo(`search?${q.toString()}`)
+        },
+
+        redirectToStore: (storeName) => {
+            const slug = storeName.replace(' ', '-')
+            redirectTo(`store/${slug}`)
         }
     }
 }

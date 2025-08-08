@@ -1,3 +1,5 @@
+// TODO: Use websocket for this
+
 import { shared } from "./utility.js";
 
 try {

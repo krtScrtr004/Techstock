@@ -5,6 +5,7 @@ import { notification } from '../../render/notification.js'
 import { debounce } from '../../utility/debounce.js'
 import { http } from '../../utility/http.js'
 import { displayBatch } from '../../utility/display-batch.js'
+import { redirect } from '../../utility/redirect.js'
 
 function domMembers() {
     const wrapper = document.querySelector('.chat-wrapper')
@@ -125,6 +126,7 @@ export const shared = (() => {
         loader,
         debounce,
         http,
+        redirect,
         displayBatch,
         notification,
         loadMessages: async (id, newMessages = true, prepend = false) => loadMessages(id, dom, state, newMessages, prepend, 5)

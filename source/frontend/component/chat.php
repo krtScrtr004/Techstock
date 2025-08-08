@@ -78,7 +78,15 @@
                             width="40" />
 
                         <section class="chat-info">
-                            <h3 class="other-party-name black-text" id="other_party_name"><?= $otherPartyName ?></h3>
+                            <div class="flex-row flex-child-center-h">
+                                <h3 class="other-party-name black-text single-line-ellipsis" id="other_party_name"><?= $otherPartyName ?></h3>
+                                <img
+                                    class="mute-icon no-display"
+                                    src="<?= ICON_PATH . 'mute_b.svg' ?>"
+                                    alt="Mute conversation"
+                                    title="Mute conversation"
+                                    height="16" />
+                            </div>
                             <div class="flex-row flex-space-between flex-child-end-h">
                                 <p class="last-message-preview single-line-ellipsis">
                                     <?= $lastMessageType === ChatContentType::Text
@@ -138,22 +146,22 @@
 
                     <!-- Dropdown -->
                     <section class="dropdown white-bg absolute no-display">
-                        <button class="unset-button" type="button">
-                            <a href="" class="black-text">View Store</a>
+                        <button class="view-store-button unset-button" type="button">
+                            <p class="black-text">View Store</p>
                         </button>
 
                         <hr>
 
-                        <button class="unset-button" type="button">
+                        <button class="mute-button unset-button" type="button">
                             <p class="black-text">Mute</p>
                         </button>
-                        <button class="unset-button" type="button">
-                            <p class="black-text">Block Store</p>
+                        <button class="block-button unset-button" type="button">
+                            <p class="black-text">Block</p>
                         </button>
 
                         <hr>
 
-                        <button class="unset-button" type="button">
+                        <button class="report-button unset-button" type="button">
                             <p class="black-text">Report</p>
                         </button>
                     </section>

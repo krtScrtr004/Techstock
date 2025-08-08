@@ -67,7 +67,39 @@ try {
     if (moreOptionsButton && dropdown) {
         moreOptionsButton.addEventListener('click', e => {
             e.preventDefault()
+
+            const muteIcon = shared.state.lastActiveChat?.querySelector('.mute-icon')
+
+            const isMuted = !muteIcon?.classList.contains('no-display')
+            const dropdownMuteButton = dropdown.querySelector('.mute-button')
+            dropdownMuteButton.innerText = (isMuted) ? 'Unmute' : 'Mute'
+
             dropdown.classList.toggle('no-display')
+
+            dropdown.addEventListener('click', e => {
+                const button = e.target.closest('button')
+                if (button) {
+                    e.preventDefault()
+                }
+
+                if (button?.classList.contains('view-store-button')) {
+                    const name = shared.chatContentHeading.querySelector('.other-party-name')
+                    shared.redirect.redirectToStore(name.innerText)
+                } else if (button?.classList.contains('mute-button')) {
+                    muteIcon?.classList.toggle('no-display')
+
+                    // TODO: Send to backend
+                } else if (button?.classList.contains('block-button')) {
+                    e.target.innerText = (e.target.innerText.toLowerCase() === 'block') ? 'Unblock' : 'Block'
+                } else if (button?.classList.contains('report-button')) {
+                    if (true) {
+                        shared.dialog.reportResult(true)
+                    } else {
+                        shared.dialog.reportResult(false)
+                    }
+                }
+                dropdown.classList.toggle('no-display')
+            }, { once: true })
         })
 
         document.addEventListener('click', e => {
