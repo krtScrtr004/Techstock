@@ -36,10 +36,50 @@ async function getResponse(callback, state, search = null) {
     state.isLoading = false
 }
 
-function insertProductCards(cards, dom) {
-    const callback = displayBatch(dom.productList)
-    cards.forEach(card => {
-        callback.flushCard(card)
+function fragmentCreatorCallback(elem) {
+    const fragment = document.createDocumentFragment()
+
+    const wrapper = document.createElement('a')
+    const nameSlug = elem.name?.replace(' ', '-')
+    const productId = elem.id
+    const storeId = elem.store?.id
+    const redirectPath = `http://localhost/Techstock/product/${elem.name}-i.${productId}.${storeId}`
+    wrapper.href = redirectPath
+
+    const card = document.createElement('div')
+    card.classList.add('product-card')
+    card.setAttribute('data-id', productId)
+    
+    const image = document.createElement('img')
+    image.src = elem.images[0]
+    image.alt = image.title = elem.name
+    image.loading = 'lazy'
+    image.height = '180'
+    card.append(image)
+
+    const name = document.createElement('h3')
+    name.classList.add('product-name', 'multi-line-ellipsis')
+    name.title = name.innerText = elem.name
+    card.append(name)
+
+    const span = document.createElement('span')
+    const price = document.createElement('p')
+    price.innerText = elem.price
+    const soldCount = document.createElement('p')
+    soldCount.innerText = elem.soldCount
+    span.append(price, soldCount)
+    card.append(span)
+
+    wrapper.append(card)
+
+    fragment.appendChild(wrapper)
+    return wrapper
+}
+
+function insertProductCards(data, dom) {
+    const callback = displayBatch(dom.productList, fragmentCreatorCallback)
+    data.forEach(datum => {
+        callback.flushCard(datum)
     })
     callback.flushRemaining()
 }

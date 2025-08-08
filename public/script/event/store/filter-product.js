@@ -20,7 +20,7 @@ try {
                     if (response?.count > 0) {
                         shared.resetList()
 
-                        shared.insertProductCards(response.productCards)
+                        shared.insertProductCards(response.data)
                         shared.collectionName = button.innerText
 
                     }

@@ -10,7 +10,7 @@ try {
                 shared.loader.trail(shared.productList.parentElement)
                 await shared.getResponse((response) => {
                     if (response.count > 0) {
-                        shared.insertProductCards(response.productCards)
+                        shared.insertProductCards(response.data)
                     } else {
                         shared.noMoreProducts.style.display = 'block'
                         shared.state.observer?.unobserve(el)

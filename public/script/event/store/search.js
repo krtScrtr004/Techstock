@@ -15,7 +15,7 @@ try {
             await shared.getResponse((response) => {
                 shared.resetList()
 
-                shared.insertProductCards(response.productCards)
+                shared.insertProductCards(response.data)
                 shared.collectionName = ''
             }, inputSearch)
             shared.loader.delete()
