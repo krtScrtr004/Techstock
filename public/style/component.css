@@ -614,6 +614,32 @@
 	padding: 1rem;
 }
 
+.message-box-menu {
+	border-radius: var(--border-radius);
+	box-shadow: 0 1px 3px 1px var(--black);
+	z-index: 501;
+}
+
+.message-box-menu > button {
+	width: 15ch;
+	padding: 5px 10px;
+	font-size: 1rem;
+	cursor: pointer;
+}
+
+.message-box-menu > button:first-child {
+	border-radius: var(--border-radius) var(--border-radius) 0 0;
+}
+
+.message-box-menu > button:last-child {
+	border-radius: 0 0 var(--border-radius) var(--border-radius);
+}
+
+.message-box-menu > button:hover {
+	background-color: var(--dark-white);
+	opacity: 0.8;
+}
+
 .message-box,
 .message-box > img {
 	border-radius: var(--border-radius);

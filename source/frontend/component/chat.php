@@ -178,7 +178,7 @@
                     <div class="sentinel"></div>
 
                     <section class="messages-container flex-col">
-                        <!--  -->
+                        <!-- Messages Here -->
                     </section>
 
                     <section class="new-message-button sticky no-display">

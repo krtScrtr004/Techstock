@@ -1,19 +1,18 @@
 import { hideModal } from '../utility/hide-modal.js'
 
-const Dialog = () => {
-    const ICON_PATH = 'asset/image/icon/'
+const ICON_PATH = 'asset/image/icon/'
 
-    function render(
-        status,
-        id,
-        title,
-        message,
-        parent = document.querySelector('body')
-    ) {
-        const icons = ['confirm.svg', 'reject.svg']
-        const statusIcon = status ? icons[0] : icons[1]
+function render(
+    status,
+    id,
+    title,
+    message,
+    parent = document.querySelector('body')
+) {
+    const icons = ['confirm.svg', 'reject.svg']
+    const statusIcon = status ? icons[0] : icons[1]
 
-        const html = `
+    const html = `
         <section id="${id}-wrapper" class="modal-wrapper flex-col">
             <section class="dialog white-bg flex-col">
                 <img 
@@ -33,12 +32,13 @@ const Dialog = () => {
         </section>
         `
 
-        parent.insertAdjacentHTML('afterbegin', html)
+    parent.insertAdjacentHTML('afterbegin', html)
 
-        const modalWrapper = document.querySelector(`#${id}-wrapper`)
-        hideModal(modalWrapper)
-    }
+    const modalWrapper = document.querySelector(`#${id}-wrapper`)
+    hideModal(modalWrapper)
+}
 
+export const dialog = (() => {
     return {
         errorOccurred: function (message) {
             render(
@@ -67,6 +67,24 @@ const Dialog = () => {
             }
         },
 
+        reportResult: function (status) {
+            if (status) {
+                render(
+                    status,
+                    'report-result',
+                    'Report Success',
+                    'Your report was submitted successfully.'
+                )
+            } else {
+                render(
+                    status,
+                    'report-result',
+                    'Report Failed',
+                    'There was a problem submitting your report. Please try again later.'
+                )
+            }
+        },
+
         tooManyAttempt: function () {
             render(
                 false,
@@ -76,5 +94,4 @@ const Dialog = () => {
             )
         }
     }
-}
-export const dialog = Dialog()
+})()

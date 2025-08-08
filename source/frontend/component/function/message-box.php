@@ -23,7 +23,19 @@ function messageBox(ChatMessage $message): mixed
     $boxBackground      =   $type === ChatContentType::Text ? 'white-bg' : 'transparent-bg';
 ?>
 
-    <div class="message-row <?= $flexDirection ?>" data-id="<?= $id ?>">
+    <div class="message-row <?= $flexDirection ?> relative" data-id="<?= $id ?>">
+        <div class="message-box-menu no-display white-bg absolute">
+            <?php if ($isSame): ?>
+                <button class="delete-button unset-button">
+                    <p class="black-text">Delete</p>
+                </button>
+            <?php endif; ?>
+
+            <button class="report-button unset-button">
+                <p class="black-text">Report</p>
+            </button>
+        </div>
+
         <div class="message-box <?= $boxBackground . ' ' . $messageAlignment; ?>">
             <?php if ($type === ChatContentType::Text): ?>
                 <p class="black-text"><?= $content ?></p>

@@ -18,11 +18,11 @@ try {
             // await shared.loadMessages(chatSessionId)
 
             // If view is scrolled, show button to go to the bottom
-            if (isViewScrolled && !shared.newMessageButton?.classList.toggle('no-display')) {
-                shared.newMessageButton.classList.add('center-child')
-            } else {
-                shared.messagesArea.scrollTop = shared.messagesArea.scrollHeight
-            }
+            // if (isViewScrolled && !shared.newMessageButton?.classList.toggle('no-display')) {
+            //     shared.newMessageButton.classList.add('center-child')
+            // } else {
+            //     shared.messagesArea.scrollTop = shared.messagesArea.scrollHeight
+            // }
         } catch (error) {
             const html = `
                 <p 
