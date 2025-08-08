@@ -1,9 +1,10 @@
 function insertFragment(
-    htmlArray, 
-    parentElem, 
+    elems, 
+    parentElem,
+    fragmentCreatorCallback,
     prepend = false
 ) {
-    if (!htmlArray) {
+    if (!elems) {
         throw new Error('No html array defined')
     }
 
@@ -12,9 +13,8 @@ function insertFragment(
     }
 
     const fragment = document.createDocumentFragment()
-    htmlArray.forEach(html => {
-        const node = document.createRange().createContextualFragment(html)
-        fragment.appendChild(node)
+    elems.forEach(elem => {
+        fragment.append(fragmentCreatorCallback(elem))
     })
     
     if (prepend) {
@@ -24,15 +24,27 @@ function insertFragment(
     }
 }
 
-export function displayBatch(parentElem, prepend = false) {
-    if (!parentElem) {
-        throw new Error('No parent element defined')
+/**
+ * 
+ * @param {Node} parentElem - Element on which fragments are to be inserted
+ * @param {function ()} fragmentCreatorCallback - A callback function that creates a fragment for the view. It takes an object / array of the element data as argument; returns a fragment
+ * @param {Boolean} prepend - Determine whether the fragments are inserted at the beginning (true) or at the end (false). Default is false.
+ * @returns fragment
+ * 
+ */
+export function displayBatch(
+    parentElem, 
+    fragmentCreatorCallback, 
+    prepend = false
+) {
+    if (!parentElem || !fragmentCreatorCallback) {
+        return
     }
 
     let queue = []
 
     function insertBatch() {
-        insertFragment(queue, parentElem, prepend)
+        insertFragment(queue, parentElem, fragmentCreatorCallback, prepend)
         queue = []
     }
 
