@@ -22,7 +22,6 @@ function messageBox(ChatMessage $message): mixed
 
     $boxBackground      =   $type === ChatContentType::Text ? 'white-bg' : 'transparent-bg';
 ?>
-
     <div class="message-row <?= $flexDirection ?> relative" data-id="<?= $id ?>">
         <div class="message-box-menu no-display white-bg absolute">
             <?php if ($isSame): ?>

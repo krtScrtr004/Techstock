@@ -6,6 +6,7 @@ class ChatMessage implements Entity
     private User|Store $sender;
     private ChatContentType $type;
     private string $content;
+    private bool $amISender; // README: Used only for frontend
     private bool $isRead;
     private bool $isReacted;
     private DateTime $createdAt;
@@ -13,6 +14,8 @@ class ChatMessage implements Entity
 
     public function __construct(array $data)
     {
+        global $me; 
+
         $this->id = $data['id'];
         $this->sender = $data['sender'];
         $this->type = $data['type'];
@@ -21,6 +24,8 @@ class ChatMessage implements Entity
         $this->isReacted = $data['isReacted'] ?? false;
         $this->createdAt = $data['createdAt'] ?? new DateTime();
         $this->updatedAt = $data['updatedAt'] ?? new DateTime();
+        
+        $this->amISender = $me->getId() === $this->getSender()->getId();
     }
 
     // Getters

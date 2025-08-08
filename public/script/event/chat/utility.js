@@ -1,7 +1,10 @@
+import { messageFragmentCallback } from './messages-fragment-callback.js'
+
 import { dialog } from '../../render/dialog.js'
 import { loader } from '../../render/loader.js'
 import { notification } from '../../render/notification.js'
 
+import { simplifyDate } from '../../utility/simplify-date.js'
 import { debounce } from '../../utility/debounce.js'
 import { http } from '../../utility/http.js'
 import { displayBatch } from '../../utility/display-batch.js'
@@ -63,12 +66,12 @@ async function loadMessages(
         const response = await http.GET(endpoint)
         if (response) {
             if (response.count > 0) {
-                const callback = displayBatch(dom.messagesContainer, prepend)
+                const callback = displayBatch(dom.messagesContainer, messageFragmentCallback, prepend)
 
                 // Start at the end
                 const reverseData = response.data.slice().reverse()
-                reverseData.forEach(html => {
-                    callback.flushCard(html)
+                reverseData.forEach(datum => {
+                    callback.flushCard(datum)
                 })
                 callback.flushRemaining()
 
@@ -129,6 +132,7 @@ export const shared = (() => {
         redirect,
         displayBatch,
         notification,
+        simplifyDate,
         loadMessages: async (id, newMessages = true, prepend = false) => loadMessages(id, dom, state, newMessages, prepend, 5)
     }
 })()

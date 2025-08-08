@@ -7,6 +7,8 @@ class ChatController implements Controller
     public static function getMessages($params): void
     {
         // TODO
+        global $me;
+
         header('Content-Type: application/json');
 
         if (!isset($params['id'])) {
@@ -51,12 +53,13 @@ class ChatController implements Controller
         $oldestDate = null;
         $newestDate = null;
 
-        foreach ($sessionMessages as $toHtml) {
+        foreach ($sessionMessages as $message) {
             if ($limiterCount >= $limit) {
                 break;
             }
 
-            $date = $toHtml->getCreatedAt();
+            $amITheSender = $me->getId() === $message->getSender()->getId();
+            $date = $message->getCreatedAt();
 
             $addMessage = false;
             if (isset($dateOffset)) {
@@ -70,7 +73,7 @@ class ChatController implements Controller
             }
 
             if ($addMessage) {
-                array_push($data, messageBox($toHtml));
+                array_push($data, $message);
                 $limiterCount++;
 
                 // Track oldest and newest dates
