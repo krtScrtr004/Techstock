@@ -1,6 +1,6 @@
 <?php
 
-class ChatMessage
+class ChatMessage implements Entity
 {
     private $id;
     private User|Store $sender;
@@ -105,5 +105,10 @@ class ChatMessage
     public function setUpdatedAt(DateTime $updatedAt): void
     {
         $this->updatedAt = $updatedAt;
+    }
+
+    public function jsonSerialize(): array 
+    {
+        return get_object_vars($this);
     }
 }

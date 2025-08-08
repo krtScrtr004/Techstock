@@ -1,6 +1,6 @@
 <?php
 
-class RatingReply
+class RatingReply implements Entity
 {
     private $id;
     private string $reply;
@@ -43,5 +43,10 @@ class RatingReply
     public function setCreatedAt(DateTime $createdAt): void
     {            
         $this->createdAt = $createdAt;
+    }
+
+    public function jsonSerialize(): array 
+    {
+        return get_object_vars($this);
     }
 }

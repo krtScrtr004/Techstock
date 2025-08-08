@@ -1,6 +1,6 @@
 <?php
 
-class Store
+class Store implements Entity
 {
 	private $id;
 	private string $name;
@@ -161,4 +161,9 @@ class Store
 	{
 		$this->is_verified = $is_verified;
 	}
+
+	public function jsonSerialize(): array 
+    {
+        return get_object_vars($this);
+    }
 }

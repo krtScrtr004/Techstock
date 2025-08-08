@@ -1,6 +1,6 @@
 <?php
 
-class CheckoutSession
+class CheckoutSession implements Entity
 {
 	private $id;
 	private string $paymentLink;
@@ -46,4 +46,9 @@ class CheckoutSession
 	{
 		$this->createdAt = $createdAt;
 	}
+
+	public function jsonSerialize(): array 
+    {
+        return get_object_vars($this);
+    }
 }

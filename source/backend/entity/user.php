@@ -1,6 +1,6 @@
 <?php
 
-class User
+class User implements Entity
 {
     private $id;
     private string $firstName;
@@ -12,7 +12,7 @@ class User
     private string $isVerified;
     private DateTime $createdAt;
 
-    public function __construct(array $data = []) 
+    public function __construct(array $data = [])
     {
         $this->id = $data['id'];
         $this->firstName = $data['first_name'];
@@ -117,5 +117,8 @@ class User
         $this->createdAt = $createdAt;
     }
 
-
+    public function jsonSerialize(): array
+    {
+        return get_object_vars($this);
+    }
 }

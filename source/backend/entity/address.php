@@ -1,6 +1,6 @@
 <?php
 
-class Address
+class Address implements Entity
 {
     private ?string $house_number;
     private string $street;
@@ -85,5 +85,10 @@ class Address
     public function setCountry(string $country): void
     {
         $this->country = $country;
+    }
+
+    public function jsonSerialize(): array 
+    {
+        return get_object_vars($this);
     }
 }

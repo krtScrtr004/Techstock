@@ -1,6 +1,6 @@
 <?php
 
-class ChatSession
+class ChatSession implements Entity
 {
     private $id;
     private User|Store $otherParty; 
@@ -71,5 +71,10 @@ class ChatSession
     {
         unset($this->messages[$id]);
         return true;
+    }
+
+    public function jsonSerialize(): array 
+    {
+        return get_object_vars($this);
     }
 }

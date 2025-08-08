@@ -1,6 +1,6 @@
 <?php
 
-class Order
+class Order implements Entity
 {
     private $id;
     private User $buyer;
@@ -174,5 +174,10 @@ class Order
             $sum += $item->getShippingFee();
         }
         return $sum;
+    }
+
+    public function jsonSerialize(): array 
+    {
+        return get_object_vars($this);
     }
 }

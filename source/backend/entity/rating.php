@@ -1,6 +1,6 @@
 <?php
 
-class Rating
+class Rating implements Entity
 {
     private $id;
     private User $rater;
@@ -115,5 +115,10 @@ class Rating
     public function setIsLike(bool $isLike): void
     {
         $this->isLike = $isLike;
+    }
+
+    public function jsonSerialize(): array 
+    {
+        return get_object_vars($this);
     }
 }

@@ -1,6 +1,6 @@
 <?php
 
-class Product 
+class Product implements Entity
 {
     protected $id;
     protected string $name;
@@ -245,6 +245,11 @@ class Product
     public function setSoldCount(int $soldCount): void
     {
         $this->soldCount = $soldCount;
+    }
+
+    public function jsonSerialize(): array 
+    {
+        return get_object_vars($this);
     }
 }
 
