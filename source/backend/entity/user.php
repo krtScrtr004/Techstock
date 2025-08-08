@@ -15,14 +15,14 @@ class User implements Entity
     public function __construct(array $data = [])
     {
         $this->id = $data['id'];
-        $this->firstName = $data['first_name'];
-        $this->lastName = $data['last_name'];
-        $this->profileImage = $data['profile_image_link'] ?? ICON_PATH . 'user-profile_b.svg';
+        $this->firstName = $data['firstName'];
+        $this->lastName = $data['lastName'];
+        $this->profileImage = $data['profileImageLink'] ?? ICON_PATH . 'user-profile_b.svg';
         $this->email = $data['email'];
         $this->contact = $data['contact'] ?? null;
         $this->address = $data['address'] ?? null;
-        $this->isVerified = $data['is_verified'] ?? 'pending';
-        $this->createdAt = $data['created_at'] ?? new DateTime();
+        $this->isVerified = $data['isVerified'] ?? 'pending';
+        $this->createdAt = $data['createdAt'] ?? new DateTime();
     }
 
     // Getters

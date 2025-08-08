@@ -49,8 +49,8 @@ if (!$session->has('ip')) {
 
 $me = new User([
     'id' => 1,
-    'first_name' => 'Kurt',
-    'last_name' => 'Secretario',
+    'firstName' => 'Kurt',
+    'lastName' => 'Secretario',
     'email' => 'shwarawt123@gmail.com'
 ]);
 if (!$session->has('userId')) {

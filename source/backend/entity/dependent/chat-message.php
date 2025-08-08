@@ -17,10 +17,10 @@ class ChatMessage implements Entity
         $this->sender = $data['sender'];
         $this->type = $data['type'];
         $this->content = $data['content'];
-        $this->isRead = $data['is_read'] ?? false;
-        $this->isReacted = $data['is_reacted'] ?? false;
-        $this->createdAt = $data['created_at'] ?? new DateTime();
-        $this->updatedAt = $data['updated_at'] ?? new DateTime();
+        $this->isRead = $data['isRead'] ?? false;
+        $this->isReacted = $data['isReacted'] ?? false;
+        $this->createdAt = $data['createdAt'] ?? new DateTime();
+        $this->updatedAt = $data['updatedAt'] ?? new DateTime();
     }
 
     // Getters
@@ -107,7 +107,7 @@ class ChatMessage implements Entity
         $this->updatedAt = $updatedAt;
     }
 
-    public function jsonSerialize(): array 
+    public function jsonSerialize(): array
     {
         return get_object_vars($this);
     }

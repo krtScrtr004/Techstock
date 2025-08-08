@@ -9,15 +9,15 @@ class ShoppingCartController implements Controller
         // Dummy
         $buyer = new User([
             'id' => uniqid(),
-            'first_name' => 'Kurt',
-            'last_name' => 'Secretario',
+            'firstName' => 'Kurt',
+            'lastName' => 'Secretario',
             'email' => 'kurtSecretario004@gmail.com',
             'address' => new Address([
-                'house_number' => '30',
+                'houseNumber' => '30',
                 'street' => 'Santol St. Panatag Rd.',
                 'city' => 'Mandaluyong City',
                 'region' => 'NCR',
-                'postal_code' => 1550
+                'postalCode' => 1550
             ])
         ]);
 
@@ -61,7 +61,7 @@ class ShoppingCartController implements Controller
                         'models' => ['2022', '2323'],
                     ]),
 
-                    'selected_options' => new ProductOption([
+                    'selectedOptions' => new ProductOption([
                         'colors' => ['green'],
                         'variants' => ['Pro'],
                         'models' => ['2323']

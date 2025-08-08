@@ -59,8 +59,8 @@ function getRandomCategoryPath(array $categories): array
         $byId[$cat['id']] = $cat;
     }
 
-    // Get only child categories (categories with a parent_id)
-    $childCategories = array_filter($categories, fn($cat) => $cat['parent_id'] !== null);
+    // Get only child categories (categories with a parentId)
+    $childCategories = array_filter($categories, fn($cat) => $cat['parentId'] !== null);
 
     // Pick a random child
     $randomChild = $childCategories[array_rand($childCategories)];
@@ -69,8 +69,8 @@ function getRandomCategoryPath(array $categories): array
     $path = [$randomChild['name']];
     $current = $randomChild;
 
-    while ($current['parent_id'] !== null) {
-        $parentIdHex = $current['parent_id'];
+    while ($current['parentId'] !== null) {
+        $parentIdHex = $current['parentId'];
         if (!isset($byId[$parentIdHex])) {
             break; // orphan, shouldn't happen
         }

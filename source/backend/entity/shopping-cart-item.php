@@ -3,18 +3,16 @@
 class ShoppingCartItem extends Product
 {
     private int $quantity;
-
     private ?ProductOption $selectedOptions;
 
     public function __construct(array $data) 
     {
         parent::__construct($data);
         $this->quantity = $data['quantity'] ?? 0;
-        $this->selectedOptions = $data['selected_options'] ?? null;
+        $this->selectedOptions = $data['selectedOptions'] ?? null;
     }
 
     // Getters
-
     public function getQuantity(): int 
     {
         return $this->quantity;
@@ -26,7 +24,6 @@ class ShoppingCartItem extends Product
     }
 
     // Setters
-
     public function setQuantity(int $quantity): void
     {
         $this->quantity = $quantity;
@@ -38,7 +35,6 @@ class ShoppingCartItem extends Product
     }
 
     // Utilities
-
     public static function deleteMultiple(array $idArray): bool
     {
         return true;
@@ -46,7 +42,6 @@ class ShoppingCartItem extends Product
 
     public static function deleteAll(): bool
     {
-        // Logic to delete all items goes here
         return true;
     }
 }

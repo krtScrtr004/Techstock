@@ -38,7 +38,7 @@ class ChatSessionModel implements Model
 
 			$csession = new ChatSession([
 				'id' => $i,
-				'other_party' => $randomStore,
+				'otherParty' => $randomStore,
 				'messages' => $messages
 			]);
 			$chatSessions[$csession->getId()] = $csession;

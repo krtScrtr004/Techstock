@@ -11,15 +11,15 @@ class ProductController implements Controller
         // Dummy
         $user = new User([
             'id' => uniqid(),
-            'first_name' => 'Kurt',
-            'last_name' => 'Secretario',
+            'firstName' => 'Kurt',
+            'lastName' => 'Secretario',
             'email' => 'kurtSecretario004@gmail.com',
             'address' => new Address([
-                'house_number' => '30',
+                'houseNumber' => '30',
                 'street' => 'Santol St. Panatag Rd.',
                 'city' => 'Mandaluyong City',
                 'region' => 'NCR',
-                'postal_code' => 1550
+                'postalCode' => 1550
             ])
         ]);
 
@@ -35,8 +35,8 @@ class ProductController implements Controller
             new Rating([
                 'id' => uniqid(),
                 'rater' => new User([
-                    'first_name' => 'Lucio',
-                    'last_name' => 'Tan',
+                    'firstName' => 'Lucio',
+                    'lastName' => 'Tan',
                     'email' => 'luciotan123@gmail.com',
                 ]),
                 'rating' => rand(1, 5),
@@ -46,8 +46,8 @@ class ProductController implements Controller
             new Rating([
                 'id' => uniqid(),
                 'rater' => new User([
-                    'first_name' => 'Mark',
-                    'last_name' => 'Tan',
+                    'firstName' => 'Mark',
+                    'lastName' => 'Tan',
                     'email' => 'marktan123@gmail.com',
                 ]),
                 'rating' => rand(1, 5),
@@ -62,8 +62,8 @@ class ProductController implements Controller
             new Rating([
                 'id' => uniqid(),
                 'rater' => new User([
-                    'first_name' => 'Mark',
-                    'last_name' => 'Tan',
+                    'firstName' => 'Mark',
+                    'lastName' => 'Tan',
                     'email' => 'marktan123@gmail.com',
                 ]),
                 'rating' => rand(1, 5),

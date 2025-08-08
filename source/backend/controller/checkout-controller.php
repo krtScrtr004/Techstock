@@ -10,21 +10,21 @@ class CheckoutController implements Controller
         // Dummy
         $buyer = new User([
             'id' => uniqid(),
-            'first_name' => 'Kurt',
-            'last_name' => 'Secretario',
+            'firstName' => 'Kurt',
+            'lastName' => 'Secretario',
             'email' => 'kurtSecretario004@gmail.com',
             'address' => new Address([
-                'house_number' => '30',
+                'houseNumber' => '30',
                 'street' => 'Santol St. Panatag Rd.',
                 'city' => 'Mandaluyong City',
                 'region' => 'NCR',
-                'postal_code' => 1550
+                'postalCode' => 1550
             ])
         ]);
 
         $checkoutSession = new CheckoutSession([
             'id' => uniqid(),
-            'payment_link' => 'https://www.payment-gateway101.com.ph/pay/'
+            'paymentLink' => 'https://www.payment-gateway101.com.ph/pay/'
         ]);
 
         $allStores = StoreModel::all();
@@ -110,7 +110,7 @@ class CheckoutController implements Controller
                 'buyer' => $buyer,
                 'store' => $store,
                 'orders' => $orderItems,
-                'checkout_session' => $checkoutSession
+                'checkoutSession' => $checkoutSession
             ]);
             array_push($orders, $order);
             array_splice($orderItems, 0);

@@ -5,13 +5,15 @@ class ChatSession implements Entity
     private $id;
     private User|Store $otherParty; 
     private DateTime $createdAt;
-    private array $messages;
+    private array $messages = [];
 
     public function __construct(array $data)
     {
-        $this->id = $data['id'];
-        $this->otherParty = $data['other_party'];
-        $this->createdAt = $data['created_at'] ?? new DateTime();
+        $this->id = $data['id'] ?? null;
+        if (isset($data['otherParty'])) {
+            $this->otherParty = $data['otherParty'];
+        }
+        $this->createdAt = $data['createdAt'] ?? new DateTime();
         if (isset($data['messages'])) {
             foreach ($data['messages'] as $message) {
                 $this->addMessage($message);
@@ -55,14 +57,13 @@ class ChatSession implements Entity
 
     public function setCreatedAt(DateTime $createdAt): void
     {
-        $this->createdAt;
+        $this->createdAt = $createdAt;
     }
 
     // Utilities
 
     public function addMessage(ChatMessage $message): bool
     {
-        // TODO: Sort insert
         $this->messages[$message->getId()] = $message;
         return true;
     }

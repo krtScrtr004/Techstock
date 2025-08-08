@@ -1,6 +1,6 @@
 <?php
 
-class RatingReply implements Entity
+class RatingReply implements Entity, JsonSerializable
 {
     private $id;
     private string $reply;
@@ -8,9 +8,9 @@ class RatingReply implements Entity
 
     public function __construct(array $data = [])
     {
-        $this->id = $data['id'];
-        $this->reply =  $data['reply'];
-        $this->createdAt = $data['created_at'] ?? new DateTime();
+        $this->id        = $data['id']        ?? null;
+        $this->reply     = $data['reply']     ?? '';
+        $this->createdAt = $data['createdAt'] ?? new DateTime();
     }
 
     // Getters
@@ -41,12 +41,16 @@ class RatingReply implements Entity
     }
 
     public function setCreatedAt(DateTime $createdAt): void
-    {            
+    {
         $this->createdAt = $createdAt;
     }
 
-    public function jsonSerialize(): array 
+    public function jsonSerialize(): array
     {
-        return get_object_vars($this);
+        return [
+            'id' => $this->id,
+            'reply' => $this->reply,
+            'createdAt' => $this->createdAt->format(DateTime::ATOM),
+        ];
     }
 }

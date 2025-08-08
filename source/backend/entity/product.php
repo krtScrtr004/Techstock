@@ -25,23 +25,22 @@ class Product implements Entity
         $this->stock = $data['stock'] ?? 0;
         $this->store = $data['store'] ?? new Store();
         $this->currency = $data['currency'] ?? DEFAULT_CURRENCY;
-        $this->rating = $data['rating'] ??
-            [
-                'average' => 0.0,
-                'count' => [
-                    'total' => 0,
-                    'five' => 0,
-                    'four' => 0,
-                    'three' => 0,
-                    'two' => 0,
-                    'one' => 0
-                ]
-            ];
+        $this->rating = $data['rating'] ?? [
+            'average' => 0.0,
+            'count' => [
+                'total' => 0,
+                'five' => 0,
+                'four' => 0,
+                'three' => 0,
+                'two' => 0,
+                'one' => 0
+            ]
+        ];
         $this->images = $data['images'] ?? null;
         $this->category = $data['category'] ?? null;
         $this->specification = $data['specification'] ?? null;
         $this->options = $data['options'] ?? null;
-        $this->soldCount = $data['sold_count'] ?? 0;
+        $this->soldCount = $data['soldCount'] ?? 0;
     }
 
     // Getter methods
@@ -151,7 +150,6 @@ class Product implements Entity
     }
 
     // Setter methods
-
     public function setId($id): void
     {
         $this->id = $id;
@@ -247,9 +245,8 @@ class Product implements Entity
         $this->soldCount = $soldCount;
     }
 
-    public function jsonSerialize(): array 
+    public function jsonSerialize(): array
     {
         return get_object_vars($this);
     }
 }
-

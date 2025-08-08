@@ -9,7 +9,8 @@ class OrderItem extends Product {
         parent::__construct($data);
         $this->id = $data['id'] ?? null;
         $this->quantity = $data['quantity'] ?? 1;
-        $this->shippingFee = $data['shipping_fee'] ?? 36.00;
+        // Changed shipping_fee (snake_case) to shippingFee (camelCase)
+        $this->shippingFee = $data['shippingFee'] ?? 36.00;
     }
 
     // Getters
@@ -37,7 +38,7 @@ class OrderItem extends Product {
 
     // Utilities
 
-    public function addOption(string|int $key, string|int $value): bool 
+    public function addOption(string|int $key, string|int $value): bool
     {
         $this->options->add($key, $value);
         return true;

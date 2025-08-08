@@ -1,6 +1,6 @@
 <?php
 
-class CheckoutSession implements Entity
+class CheckoutSession implements Entity, JsonSerializable
 {
 	private $id;
 	private string $paymentLink;
@@ -8,9 +8,11 @@ class CheckoutSession implements Entity
 
 	public function __construct(array $data)
 	{
-		$this->id = $data['id'];
-		$this->paymentLink = $data['payment_link'];
-		$this->createdAt = $data['created_at'] ?? new DateTime();
+		$this->id = $data['id'] ?? null;
+		$this->paymentLink = $data['paymentLink'] ?? '';
+		$this->createdAt = isset($data['createdAt'])
+			? ($data['createdAt'] instanceof DateTime ? $data['createdAt'] : new DateTime($data['createdAt']))
+			: new DateTime();
 	}
 
 	// Getters
@@ -47,8 +49,12 @@ class CheckoutSession implements Entity
 		$this->createdAt = $createdAt;
 	}
 
-	public function jsonSerialize(): array 
-    {
-        return get_object_vars($this);
-    }
+	public function jsonSerialize(): array
+	{
+		return [
+			'id' => $this->id,
+			'paymentLink' => $this->paymentLink,
+			'createdAt' => $this->createdAt->format(DateTime::ATOM),
+		];
+	}
 }

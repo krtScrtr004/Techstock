@@ -93,14 +93,14 @@ class StoreController implements Controller
             $parentId = $idNum++;
             $categoryRecords[] = [
                 'id' => $parentId,
-                'parent_id' => null,
+                'parentId' => null,
                 'name' => $parentName,
             ];
 
             foreach ($subcategories as $childName) {
                 $categoryRecords[] = [
                     'id' => $idNum++,
-                    'parent_id' => $parentId,
+                    'parentId' => $parentId,
                     'name' => $childName,
                 ];
             }
@@ -147,7 +147,7 @@ class StoreController implements Controller
 
                 'stock' => rand(0, 999999) % 10000,
 
-                'price' => round(mt_rand(1000000000, 20000000000) / 100000, 2), // 10.00 to 200.00
+                'price' => round(mt_rand(1000000000, 20000000000) / 100000, 2),
 
                 'store' => $store,
 
@@ -172,7 +172,6 @@ class StoreController implements Controller
                     IMAGE_PATH . $images[array_rand($images)]
                 ],
 
-
                 'category' => new ProductCategory(getRandomCategoryPath($categoryRecords)),
 
                 'specification' => [
@@ -181,7 +180,7 @@ class StoreController implements Controller
 
                 'option' => $options,
 
-                'sold_count' => rand(0, 500),
+                'soldCount' => rand(0, 500),
             ]));
         }
         require_once VIEW_PATH . 'store.php';

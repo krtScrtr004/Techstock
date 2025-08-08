@@ -3,7 +3,7 @@
 class StoreModel implements Model
 {
     // Implemented Methods
-    
+
     public static function all(): array
     {
 
@@ -25,22 +25,22 @@ class StoreModel implements Model
                 'name' => "Store " . ($i + 1),
                 'description' => "This is a description for Brand " . ($i + 1),
                 'logo' => IMAGE_PATH . 'brand logo' . DS . $logoFiles[$i % count($logoFiles)],
-                'site_link' => "https://brand" . ($i + 1) . ".com",
+                'siteLink' => "https://brand" . ($i + 1) . ".com",
                 'email' => "contact" . ($i + 1) . "@brand.com",
                 'contact' => '+63 912 345 678' . $i,
                 'location' => new Address([
-                    'house_number' => rand(1, 100),
+                    'houseNumber' => rand(1, 100),
                     'street' => 'Street ' . chr(65 + $i % 26), // A, B, C...
                     'city' => 'City ' . ($i + 1),
                     'region' => 'NCR',
-                    'postal_code' => 1000 + $i,
+                    'postalCode' => 1000 + $i,
                     'country' => 'Philippines'
                 ]),
                 'collection' => new StoreCollection(['Back To School', 'Windows Essentials', 'PC Parts']),
-                'product_count' => rand(10, 100),
-                'follower_count' => rand(100, 10000),
-                'is_verified' => (string)rand(0, 1),
-                'created_at' => (new DateTime())->modify("-{$i} days"),
+                'productCount' => rand(10, 100),
+                'followerCount' => rand(100, 10000),
+                'isVerified' => (string)rand(0, 1),
+                'createdAt' => (new DateTime())->modify("-{$i} days"),
             ]);
         }
 

@@ -6,15 +6,15 @@ class Store implements Entity
 	private string $name;
 	private ?string $description;
 	private ?string $logo;
-	private ?string $site_link;
+	private ?string $siteLink;
 	private string $email;
 	private ?string $contact;
 	private Address $location;
 	private ?StoreCollection $collection;
 	private int $productCount;
 	private int $followerCount;
-	private string $is_verified;
-	private readonly DateTime $created_at;
+	private string $isVerified;
+	private readonly DateTime $createdAt;
 
 	public function __construct(array $data = [])
 	{
@@ -22,16 +22,16 @@ class Store implements Entity
 		$this->name = $data['name'] ?? '';
 		$this->description = $data['description'] ?? null;
 		$this->logo = $data['logo'] ?? null;
-		$this->site_link = $data['site_link'] ?? null;
+		$this->siteLink = $data['siteLink'] ?? null;
 		$this->email = $data['email'] ?? '';
 		$this->contact = $data['contact'] ?? null;
 		$this->location = $data['location'] ?? new Address();
 		$this->collection = $data['collection'] ?? null;
-		$this->productCount = $data['product_count'] ?? 0;
-		$this->followerCount = $data['follower_count'] ?? 0;
-		$this->is_verified = $data['is_verified'] ?? '0';
-		$this->created_at = isset($data['created_at'])
-			? (is_a($data['created_at'], DateTime::class) ? $data['created_at'] : new DateTime($data['created_at']))
+		$this->productCount = $data['productCount'] ?? 0;
+		$this->followerCount = $data['followerCount'] ?? 0;
+		$this->isVerified = $data['isVerified'] ?? '0';
+		$this->createdAt = isset($data['createdAt'])
+			? ($data['createdAt'] instanceof DateTime ? $data['createdAt'] : new DateTime($data['createdAt']))
 			: new DateTime();
 	}
 
@@ -58,7 +58,7 @@ class Store implements Entity
 
 	public function getSiteLink(): ?string
 	{
-		return $this->site_link;
+		return $this->siteLink;
 	}
 
 	public function getEmail(): string
@@ -93,12 +93,12 @@ class Store implements Entity
 
 	public function getIsVerified(): string
 	{
-		return $this->is_verified;
+		return $this->isVerified;
 	}
 
 	public function getCreatedAt(): DateTime
 	{
-		return $this->created_at;
+		return $this->createdAt;
 	}
 
 	// Setters
@@ -122,9 +122,9 @@ class Store implements Entity
 		$this->logo = $logo;
 	}
 
-	public function setSiteLink(?string $site_link): void
+	public function setSiteLink(?string $siteLink): void
 	{
-		$this->site_link = $site_link;
+		$this->siteLink = $siteLink;
 	}
 
 	public function setEmail(string $email): void
@@ -157,13 +157,13 @@ class Store implements Entity
 		$this->followerCount = $followerCount;
 	}
 
-	public function setIsVerified(string $is_verified): void
+	public function setIsVerified(string $isVerified): void
 	{
-		$this->is_verified = $is_verified;
+		$this->isVerified = $isVerified;
 	}
 
-	public function jsonSerialize(): array 
-    {
-        return get_object_vars($this);
-    }
+	public function jsonSerialize(): array
+	{
+		return get_object_vars($this);
+	}
 }

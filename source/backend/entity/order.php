@@ -15,16 +15,16 @@ class Order implements Entity
 
     public function __construct(array $data = [])
     {
-        $this->id = $data['id'];
+        $this->id = $data['id'] ?? null;
         $this->buyer = $data['buyer'];
         $this->store = $data['store'];
-        $this->orders = $data['orders'];
+        $this->orders = $data['orders'] ?? [];
         $this->message = $data['message'] ?? null;
         $this->status = $data['status'] ?? 'pending';
-        $this->checkoutSession = $data['checkout_session'] ?? null;
-        $this->expectedArrival = $data['expected_arrival'] ?? new DateTime();
-        $this->actualArrival = $data['actual_arrival'] ?? new DateTime();
-        $this->createdAt = $data['created_at'] ?? new DateTime();
+        $this->checkoutSession = $data['checkoutSession'] ?? null;
+        $this->expectedArrival = $data['expectedArrival'] ?? new DateTime();
+        $this->actualArrival = $data['actualArrival'] ?? new DateTime();
+        $this->createdAt = $data['createdAt'] ?? new DateTime();
     }
 
     // Getters
@@ -154,13 +154,10 @@ class Order implements Entity
         return true;
     }
 
-    // Utilities
-
     public function calculateOrderPriceTotal(): float
     {
         $sum = 0;
-        $orderItems = $this->getOrders();
-        foreach ($orderItems as $item) {
+        foreach ($this->getOrders() as $item) {
             $sum += $item->getPrice() * $item->getQuantity();
         }
         return $sum;
@@ -169,8 +166,7 @@ class Order implements Entity
     public function calculateShippingFeeTotal(): float
     {
         $sum = 0;
-        $orderItems = $this->getOrders();
-        foreach ($orderItems as $item) {
+        foreach ($this->getOrders() as $item) {
             $sum += $item->getShippingFee();
         }
         return $sum;

@@ -14,15 +14,15 @@ class Rating implements Entity
 
     public function __construct(array $data = [])
     {
-        $this->id = $data['id'];
-        $this->rater = $data['rater'];
-        $this->rating = $data['rating'] ?? 0;
-        $this->comment = $data['comment'] ?? null;
-        $this->images = $data['images'] ?? null;
-        $this->like = $data['like'] ?? 0;
-        $this->createdAt = $data['created_at'] ?? new DateTime();
-        $this->reply = $data['reply'] ?? null;
-        $this->isLike = $data['is_like'] ?? false;
+        $this->id        = $data['id'] ?? null;
+        $this->rater     = $data['rater'] ?? null;
+        $this->rating    = $data['rating'] ?? 0;
+        $this->comment   = $data['comment'] ?? null;
+        $this->images    = $data['images'] ?? null;
+        $this->like      = $data['like'] ?? 0;
+        $this->createdAt = $data['createdAt'] ?? new DateTime();
+        $this->reply     = $data['reply'] ?? null;
+        $this->isLike    = $data['isLike'] ?? false;
     }
 
     // Getters
@@ -117,7 +117,7 @@ class Rating implements Entity
         $this->isLike = $isLike;
     }
 
-    public function jsonSerialize(): array 
+    public function jsonSerialize(): array
     {
         return get_object_vars($this);
     }

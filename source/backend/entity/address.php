@@ -2,33 +2,34 @@
 
 class Address implements Entity
 {
-    private ?string $house_number;
+    private ?string $houseNumber;
     private string $street;
     private string $city;
     private string $region;
-    private int $postal_code;
+    private int $postalCode;
     private string $country;
 
     public function __construct(array $data = [])
     {
-        $this->house_number = $data['house_number'] ?? null;
-        $this->street = $data['street'] ?? '';
-        $this->city = $data['city'] ?? '';
-        $this->region = $data['region'] ?? 'NCR';
-        $this->postal_code = $data['postal_code'] ?? 0;
-        $this->country = $data['country'] ?? 'Philippines';
+        // Accept both camelCase and legacy snake_case keys
+        $this->houseNumber = $data['houseNumber'] ?? $data['house_number'] ?? null;
+        $this->street      = $data['street'] ?? '';
+        $this->city        = $data['city'] ?? '';
+        $this->region      = $data['region'] ?? 'NCR';
+        $this->postalCode  = $data['postalCode'] ?? $data['postal_code'] ?? 0;
+        $this->country     = $data['country'] ?? 'Philippines';
     }
 
     public function __toString(): string
     {
-        $house_number = ($this->house_number) ? "$this->house_number," : '';
-        return "$house_number $this->street, $this->city, $this->postal_code, $this->region, $this->country";
+        $houseNumber = ($this->houseNumber) ? "{$this->houseNumber}," : '';
+        return "$houseNumber {$this->street}, {$this->city}, {$this->postalCode}, {$this->region}, {$this->country}";
     }
 
     // Getters
     public function getHouseNumber(): ?string
     {
-        return $this->house_number;
+        return $this->houseNumber;
     }
 
     public function getStreet(): string
@@ -48,7 +49,7 @@ class Address implements Entity
 
     public function getPostalCode(): int
     {
-        return $this->postal_code;
+        return $this->postalCode;
     }
 
     public function getCountry(): string
@@ -57,9 +58,9 @@ class Address implements Entity
     }
 
     // Setters
-    public function setHouseNumber(?string $house_number): void
+    public function setHouseNumber(?string $houseNumber): void
     {
-        $this->house_number = $house_number;
+        $this->houseNumber = $houseNumber;
     }
 
     public function setStreet(string $street): void
@@ -77,9 +78,9 @@ class Address implements Entity
         $this->region = $region;
     }
 
-    public function setPostalCode(int $postal_code): void
+    public function setPostalCode(int $postalCode): void
     {
-        $this->postal_code = $postal_code;
+        $this->postalCode = $postalCode;
     }
 
     public function setCountry(string $country): void
@@ -87,7 +88,7 @@ class Address implements Entity
         $this->country = $country;
     }
 
-    public function jsonSerialize(): array 
+    public function jsonSerialize(): array
     {
         return get_object_vars($this);
     }
