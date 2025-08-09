@@ -1,9 +1,11 @@
-import { dialog } from '../../render/dialog.js'
+import { shared } from './utility.js'
+const {
+    optionForms,
+    dialog
+} = shared
 
 try {
     const [white, blue, black] = ['#fffefe', '#02a9f7', '#01303f']
-
-    const optionForms = document.querySelectorAll('.option-form')
 
     function updateButtonStyle(status, button) {
         button.style.backgroundColor = (status) ? blue : white
@@ -11,9 +13,9 @@ try {
         button.style.color = (status) ? `${white}` : `${black}`
     }
 
-    optionForms.forEach(form => {
-        const hiddenWrappers = form.querySelectorAll('.hidden-wrapper')
+    optionForms?.forEach(form => {
         let lastCheckedButton = null
+        const hiddenWrappers = form.querySelectorAll('.hidden-wrapper')
         hiddenWrappers.forEach(wrapper => {
             const radio = wrapper.querySelector('input[type="radio"]')
             const button = wrapper.querySelector('button')

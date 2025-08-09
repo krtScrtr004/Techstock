@@ -7,7 +7,7 @@ class ProductController implements Controller
     public static function index(): void
     {
         global $session;
-        
+
         // Dummy
         $user = new User([
             'id' => uniqid(),
@@ -35,6 +35,7 @@ class ProductController implements Controller
             new Rating([
                 'id' => uniqid(),
                 'rater' => new User([
+                    'id' => uniqid(),
                     'firstName' => 'Lucio',
                     'lastName' => 'Tan',
                     'email' => 'luciotan123@gmail.com',
@@ -46,6 +47,7 @@ class ProductController implements Controller
             new Rating([
                 'id' => uniqid(),
                 'rater' => new User([
+                    'id' => uniqid(),
                     'firstName' => 'Mark',
                     'lastName' => 'Tan',
                     'email' => 'marktan123@gmail.com',
@@ -62,6 +64,7 @@ class ProductController implements Controller
             new Rating([
                 'id' => uniqid(),
                 'rater' => new User([
+                    'id' => uniqid(),
                     'firstName' => 'Mark',
                     'lastName' => 'Tan',
                     'email' => 'marktan123@gmail.com',

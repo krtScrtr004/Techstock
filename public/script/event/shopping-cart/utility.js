@@ -49,7 +49,7 @@ function calculateTotalPrice(dom) {
         const price = item.querySelector('.total-price')
 
         // Remove currency symbols and commas, then parse as float
-        const extract = price.innerText.replace(/[^0-9.]/g, '');
+        const extract = price.textContent.replace(/[^0-9.]/g, '');
         totalPrice += parseFloat(extract) || 0;
 
         itemCount++

@@ -1,14 +1,16 @@
-import { viewImage } from '../../utility/view-image.js'
-
-import { dialog } from '../../render/dialog.js'
+import { shared } from './utility.js'
+const {
+    imagesSection,
+    viewImage,
+    dialog
+} = shared
 
 try {
-    const imagesSection = document.querySelector('.images-section')
     if (imagesSection) {
         const featuredImage = imagesSection.querySelector('.featured-image')
         const imageCollection = imagesSection.querySelectorAll('.image-collection > .carousel > img')
 
-        imageCollection.forEach(image => {
+        imageCollection?.forEach(image => {
             image.addEventListener('click', e => {
                 e.stopPropagation()
 

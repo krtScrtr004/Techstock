@@ -21,7 +21,7 @@ try {
                         shared.resetList()
 
                         shared.insertProductCards(response.data)
-                        shared.collectionName = button.innerText
+                        shared.collectionName = button.textContent
 
                     }
                 })

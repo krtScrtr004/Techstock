@@ -30,15 +30,15 @@ try {
 
     function updateHeading(card) {
         const otherPartyId = card.querySelector('#other_party_id').value
-        const otherPartyName = card.querySelector('#other_party_name').innerText
+        const otherPartyName = card.querySelector('#other_party_name').textContent
         const otherPartyImage = card.querySelector('.other-party-image').src
 
         // Change content of the chat content heading
         const id = shared.chatContentHeading.querySelector('.other-party-id')
         const name = shared.chatContentHeading.querySelector('.other-party-name')
         const image = shared.chatContentHeading.querySelector('.other-party-image')
-        id.innerText = otherPartyId
-        name.innerText = otherPartyName
+        id.textContent = otherPartyId
+        name.textContent = otherPartyName
         image.src = otherPartyImage
     }
 
@@ -72,7 +72,7 @@ try {
 
             const isMuted = !muteIcon?.classList.contains('no-display')
             const dropdownMuteButton = dropdown.querySelector('.mute-button')
-            dropdownMuteButton.innerText = (isMuted) ? 'Unmute' : 'Mute'
+            dropdownMuteButton.textContent = (isMuted) ? 'Unmute' : 'Mute'
 
             dropdown.classList.toggle('no-display')
 
@@ -84,13 +84,13 @@ try {
 
                 if (button?.classList.contains('view-store-button')) {
                     const name = shared.chatContentHeading.querySelector('.other-party-name')
-                    shared.redirect.redirectToStore(name.innerText)
+                    shared.redirect.redirectToStore(name.textContent)
                 } else if (button?.classList.contains('mute-button')) {
                     muteIcon?.classList.toggle('no-display')
 
                     // TODO: Send to backend
                 } else if (button?.classList.contains('block-button')) {
-                    e.target.innerText = (e.target.innerText.toLowerCase() === 'block') ? 'Unblock' : 'Block'
+                    e.target.textContent = (e.target.textContent.toLowerCase() === 'block') ? 'Unblock' : 'Block'
                 } else if (button?.classList.contains('report-button')) {
                     if (true) {
                         shared.dialog.reportResult(true)

@@ -1,17 +1,21 @@
-import { likeRating } from '../../utility/like-rating.js'
-import { debounce } from '../../utility/debounce.js'
-import { viewImage } from '../../utility/view-image.js'
-import { insertFragment } from '../../utility/insert-fragment.js'
-import { http } from '../../utility/http.js'
-
-import { dialog } from '../../render/dialog.js'
-import { loader } from '../../render/loader.js'
+import { shared } from './utility.js'
+const {
+    ratings,
+    ratingList,
+    starFilterButtons,
+    viewImage,
+    displayRatings,
+    likeRating,
+    loader,
+    http,
+    debounce,
+    dialog
+} = shared
 
 try {
-    const ratings = document.querySelector('#ratings')
-    if (ratings) {
-        const hiddenWrappers = ratings.querySelectorAll('.star-filter-buttons > form > .hidden-wrapper')
 
+
+    if (ratings) {
         function updateButtonStyle(status, button) {
             if (status) {
                 button.classList.add('active');
@@ -21,7 +25,6 @@ try {
         }
 
         async function updateRatingList(/*ratingLevels*/) {
-            const ratingList = ratings.querySelector('.rating-list > .list')
             ratingList.innerHTML = '' // Remove all contents
 
             loader.full(ratingList)
@@ -31,24 +34,26 @@ try {
             // })
 
             // const endpoint = `dump/api/rating-card?${searchQuery.toString()}`
-            const response = await http.GET('dump/api/rating-card') // TODO
+            const response = await http?.GET('dump/api/rating-card') // TODO
             if (response) {
-                insertFragment(response.ratingCards, ratingList)
+                displayRatings(response.ratingCards)
                 likeRating() // Add like rating event
             }
 
             loader.delete()
 
             const ratingImages = ratings.querySelectorAll('.rating-image')
-            if (ratingImages) {
-                ratingImages.forEach(image => viewImage(image) )
-            }
+            ratingImages?.forEach(image => viewImage(image))
         }
 
         const firstHiddenWrapper = ratings.querySelector('.hidden-wrapper:first-child')
 
         const checkedFilters = [firstHiddenWrapper]
-        hiddenWrappers.forEach(wrapper => {
+        const hiddenWrappers = [...starFilterButtons].reduce((acc, section) => {
+            acc.push(...section.querySelectorAll('.hidden-wrapper'))
+            return acc
+        }, [])
+        hiddenWrappers?.forEach(wrapper => {
             const checkbox = wrapper.querySelector('input[type="checkbox"]')
             const button = wrapper.querySelector('button')
 

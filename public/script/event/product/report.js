@@ -1,24 +1,25 @@
-import { hideModal } from '../../utility/hide-modal.js'
-
-import { dialog } from '../../render/dialog.js'
+import { shared } from './utility.js'
+const {
+    reportButton,
+    reportReasonModalWrapper,
+    reportDescriptionModalWrapper,
+    reasonButtons,
+    hideModal,
+    dialog
+} = shared
 
 try {
-    const reportReasonModalWrapper = document.querySelector('.report-reason-modal-wrapper')
-    if (reportReasonModalWrapper) {
-        const reportDescriptionModalWrapper = document.querySelector('.report-description-modal-wrapper')
-
+    if (reportReasonModalWrapper && reportDescriptionModalWrapper) {
         function toggleModalWrapper(modalWrapper, status) {
             modalWrapper.style.display = (status) ? 'flex' : 'none'
         }
 
-        const reportButton = document.querySelector('.report-button')
-        reportButton.addEventListener('click', e => {
+        reportButton?.addEventListener('click', e => {
             e.preventDefault()
             toggleModalWrapper(reportReasonModalWrapper, true)
         })
 
-        const reasonButtons = reportReasonModalWrapper.querySelectorAll('.reason-button')
-        reasonButtons.forEach(button => {
+        reasonButtons?.forEach(button => {
             button.addEventListener('click', e => {
                 e.preventDefault()
 
@@ -38,6 +39,8 @@ try {
                     toggleModalWrapper(reportDescriptionModalWrapper, false)
                     toggleModalWrapper(reportReasonModalWrapper, true)
                 })
+
+                // TODO: Send to backend
             })
         })
 

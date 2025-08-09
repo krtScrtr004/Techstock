@@ -91,7 +91,7 @@ $productTotalRatingCount    =   htmlspecialchars($product->getTotalRatingCount()
                     </button>
                 </section>
 
-                <section class="misc_section flex-row flex-child-center-h">
+                <section class="misc-section flex-row flex-child-center-h">
                     <div class="flex-row">
                         <p class="black-text">Share</p>
 
@@ -114,7 +114,7 @@ $productTotalRatingCount    =   htmlspecialchars($product->getTotalRatingCount()
                         </button>
                     </div>
 
-                    <button type="button" class="favorite text-w-icon unset-button">
+                    <button type="button" class="favorite-button text-w-icon unset-button">
                         <img
                             src="<?= ICON_PATH . 'heart_empty.svg' ?>"
                             alt="Favorites"

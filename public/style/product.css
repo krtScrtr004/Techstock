@@ -92,22 +92,22 @@
 	cursor: pointer;
 }
 
-.misc_section {
+.misc-section {
 	gap: var(--space);
 }
 
-.misc_section > * {
+.misc-section > * {
 	gap: 5px;
 }
 
-.misc_section > * > * {
+.misc-section > * > * {
 	display: flex;
 	align-items: center;
 	font-size: 1rem;
 	font-weight: 500;
 }
 
-.misc_section > .text-w-icon > img {
+.misc-section > .text-w-icon > img {
 	margin-right: 0;
 }
 

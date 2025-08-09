@@ -1,27 +1,27 @@
-import { displayPagination } from '../../utility/display-pagination.js'
-import { likeRating } from '../../utility/like-rating.js'
-import { viewImage } from '../../utility/view-image.js'
-import { insertFragment } from '../../utility/insert-fragment.js'
-import { http } from '../../utility/http.js'
+import { shared } from './utility.js'
+const {
+    ratings,
+    ratingList,
+    likeRating,
+    viewImage,
+    displayRatings,
+    displayPagination,
+    loader,
+    http,
+    dialog
+} = shared
 
-import { dialog } from '../../render/dialog.js'
-import { loader } from '../../render/loader.js'
 
 try {
     const maxPage = 10
     let pageNumber = 1
 
-    const ratings = document.querySelector('#ratings')
-    if (ratings) {
-        const ratingList = ratings.querySelector('.rating-list > .list')
-
+    if (ratingList) {
         document.addEventListener('DOMContentLoaded', likeRating())// Add like rating event
 
         function viewRatingImage() {
-            const ratingImages = ratings.querySelectorAll('.rating-image')
-            if (ratingImages) {
-                ratingImages.forEach(image => viewImage(image))
-            }
+            const ratingImages = ratings?.querySelectorAll('.rating-image')
+            ratingImages?.forEach(image => viewImage(image))
         }
 
         // function createSearchParam() {
@@ -41,9 +41,9 @@ try {
             ratingList.innerHTML = '' // Remove all contents
             loader.full(ratingList)
 
-            const response = await http.GET('dump/api/rating-card') // TODO
+            const response = await http?.GET('dump/api/rating-card') // TODO
             if (response) {
-                insertFragment(response.ratingCards, ratingList)
+                displayRatings(response.ratingCards)
                 likeRating() // Add like rating event
             }
 

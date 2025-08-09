@@ -38,7 +38,6 @@ async function getResponse(callback, state, search = null) {
 
 function fragmentCreatorCallback(elem) {
     const fragment = document.createDocumentFragment()
-
     const wrapper = document.createElement('a')
     const nameSlug = elem.name?.replace(' ', '-')
     const productId = elem.id
@@ -59,14 +58,14 @@ function fragmentCreatorCallback(elem) {
 
     const name = document.createElement('h3')
     name.classList.add('product-name', 'multi-line-ellipsis')
-    name.title = name.innerText = elem.name
+    name.title = name.textContent = elem.name
     card.append(name)
 
     const span = document.createElement('span')
     const price = document.createElement('p')
-    price.innerText = elem.price
+    price.textContent = elem.price
     const soldCount = document.createElement('p')
-    soldCount.innerText = elem.soldCount
+    soldCount.textContent = elem.soldCount
     span.append(price, soldCount)
     card.append(span)
 
