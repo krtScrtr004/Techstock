@@ -8,9 +8,9 @@ try {
         carouselWrapper.forEach(wrapper => {
             const carousel = wrapper.querySelector('.carousel')
             const trackers = wrapper.querySelectorAll('.tracker')
-    
-            const children = Array.from(carousel.children); 
-            const visibleChildren = children.filter(child => {
+
+            const children = Array.from(carousel.children);
+            const visibleChildren = children?.filter(child => {
                 const containerRect = carousel.getBoundingClientRect()
                 const childRect = child.getBoundingClientRect()
 
@@ -32,10 +32,11 @@ try {
                 const maxScroll = carousel.scrollWidth - carousel.clientWidth
                 right.style.display = (carousel.scrollLeft >= maxScroll - EPSILON) ? 'none' : 'flex'
             }
-            hideTracker()
 
-            carousel.addEventListener('scroll', hideTracker);
-            trackers.forEach(tracker => {
+            window.addEventListener('load', hideTracker)
+
+            carousel?.addEventListener('scroll', hideTracker);
+            trackers?.forEach(tracker => {
                 tracker.addEventListener('click', e => {
                     e.stopPropagation()
 
@@ -47,8 +48,9 @@ try {
                     }
                 })
             })
-        })    
+        })
     }
 } catch (error) {
     dialog.errorOccurred(error.message)
+    console.error(error)
 }

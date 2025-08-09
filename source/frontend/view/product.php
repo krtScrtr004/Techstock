@@ -464,7 +464,6 @@ $productTotalRatingCount    =   htmlspecialchars($product->getTotalRatingCount()
     <script type="module" src="<?= htmlspecialchars(EVENT_PATH . 'product' . DS . 'report.js'); ?>" defer></script>
     <script type="module" src="<?= htmlspecialchars(EVENT_PATH . 'product' . DS . 'filter-ratings.js'); ?>" defer></script>
     <script type="module" src="<?= htmlspecialchars(EVENT_PATH . 'product' . DS . 'filter-page-tab.js'); ?>" defer></script>
-
 </body>
 
 </html>
