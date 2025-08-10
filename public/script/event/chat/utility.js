@@ -11,6 +11,8 @@ import { displayBatch } from '../../utility/display-batch.js'
 import { redirect } from '../../utility/redirect.js'
 
 function domMembers() {
+    const chatToggle = document.querySelector('.chat-toggle')
+
     const wrapper = document.querySelector('.chat-wrapper')
 
     const aside = wrapper?.querySelector('aside')
@@ -37,8 +39,8 @@ function domMembers() {
 
 
     return {
-        wrapper, aside, searchForm, chatList,
-        chatContent, chatContentHeading,
+        chatToggle, wrapper, aside, searchForm, 
+        chatList, chatContent, chatContentHeading,
         chatContentMain, messagesArea, sentinel, newMessageButton,
         messagesContainer, writeMessageArea, writeMessageForm,
         submitButton, message, hiddenInputs, filePickerButtons

@@ -1,4 +1,4 @@
-<section class="chat-wrapper fixed">
+<section class="chat-wrapper fixed close">
     <section class="flex-row white-bg">
         <!-- Chat Aside -->
         <aside class="flex-col">

@@ -4,13 +4,35 @@
 	right: 0;
 	bottom: 0;
 	z-index: 500;
+	transition: opacity 0.3s ease;
+}
+
+.chat-wrapper.show {
+	visibility: visible;
+	opacity: 1;
+}
+
+.chat-wrapper.close {
+	visibility: hidden;
+	opacity: 0;
 }
 
 .chat-wrapper > section {
 	width: fit-content;
 	height: 100%;
 	box-shadow: 1px 0 3px 2px var(--light-black);
+	transform: translateX(-100%); /* start off-screen left */
+	transition: transform 0.3s ease;
 }
+
+.chat-wrapper.show > section {
+	transform: translateX(0); /* slide into view */
+}
+
+.chat-wrapper.close > section {
+	transform: translateX(-100%); 
+}
+
 
 .chat-wrapper aside {
 	width: 330px;
