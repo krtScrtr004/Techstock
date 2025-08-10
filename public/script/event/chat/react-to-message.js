@@ -1,7 +1,11 @@
 import { shared } from './utility.js';
+const {
+    messagesArea,
+    dialog
+} = shared
 
 try {
-    shared.messagesArea?.addEventListener('click', e => {
+    messagesArea?.addEventListener('click', e => {
         const PATH = 'asset/image/icon/'
 
         const button = e.target.closest('.react-button')
@@ -15,6 +19,6 @@ try {
         }
     })
 } catch (error) {
-    shared.dialog.errorOccurred(error.message)
+    dialog.errorOccurred(error.message)
     console.error(error)
 }

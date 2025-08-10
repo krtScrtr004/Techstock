@@ -13,23 +13,23 @@ import { redirect } from '../../utility/redirect.js'
 function domMembers() {
     const wrapper = document.querySelector('.chat-wrapper')
 
-    const chatContent = wrapper.querySelector('.chat-content')
-    const chatContentHeading = chatContent.querySelector('.chat-content-heading')
-    const chatContentMain = chatContent.querySelector('.chat-content-main')
+    const chatContent = wrapper?.querySelector('.chat-content')
+    const chatContentHeading = chatContent?.querySelector('.chat-content-heading')
+    const chatContentMain = chatContent?.querySelector('.chat-content-main')
 
-    const messagesArea = chatContent.querySelector('.messages-area')
-    const sentinel = messagesArea.querySelector('.sentinel')
-    const messagesContainer = messagesArea.querySelector('.messages-container')
-    const newMessageButton = messagesArea.querySelector('.new-message-button')
+    const messagesArea = chatContent?.querySelector('.messages-area')
+    const sentinel = messagesArea?.querySelector('.sentinel')
+    const messagesContainer = messagesArea?.querySelector('.messages-container')
+    const newMessageButton = messagesArea?.querySelector('.new-message-button')
 
-    const writeMessageArea = wrapper.querySelector('.write-message-area')
-    const writeMessageForm = writeMessageArea.querySelector('form')
-    const submitButton = writeMessageArea.querySelector('.send-message-button')
+    const writeMessageArea = wrapper?.querySelector('.write-message-area')
+    const writeMessageForm = writeMessageArea?.querySelector('form')
+    const submitButton = writeMessageArea?.querySelector('.send-message-button')
 
-    const message = writeMessageForm.querySelector('.written-message-content')
+    const message = writeMessageForm?.querySelector('.written-message-content')
 
-    const hiddenInputs = writeMessageForm.querySelectorAll('input[type="file"]')
-    const filePickerButtons = writeMessageForm.querySelectorAll('.open-file-picker-button')
+    const hiddenInputs = writeMessageForm?.querySelectorAll('input[type="file"]')
+    const filePickerButtons = writeMessageForm?.querySelectorAll('.open-file-picker-button')
 
 
     return {

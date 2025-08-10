@@ -5,7 +5,7 @@ function insertFragment(
     prepend = false
 ) {
     if (!elems) {
-        throw new Error('No html array defined')
+        throw new Error('No element array defined')
     }
 
     if (!parentElem) {
@@ -37,8 +37,12 @@ export function displayBatch(
     fragmentCreatorCallback, 
     prepend = false
 ) {
-    if (!parentElem || !fragmentCreatorCallback) {
-        return
+    if (!parentElem) {
+        throw new Error('No parent element defined')
+    }
+
+    if (!fragmentCreatorCallback) {
+        throw new Error('No callback function defined')
     }
 
     let queue = []

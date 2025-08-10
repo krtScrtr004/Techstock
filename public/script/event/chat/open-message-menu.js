@@ -1,4 +1,8 @@
 import { shared } from './utility.js'
+const {
+    messagesArea,
+    dialog
+} = shared
 
 try {
     let lastOpenedMenu = null
@@ -47,17 +51,16 @@ try {
                 } else if (button.classList.contains('report-button')) {
                     // TODO: Send to backend
                     if (true) {
-                        shared.dialog.reportResult(true)
+                        dialog.reportResult(true)
                     } else {
-                        shared.dialog.reportResult(false)
+                        dialog.reportResult(false)
                     }
                 }
             }, { once: true })
         })
     }
 
-
-    shared.messagesArea?.addEventListener('contextmenu', e => {
+    messagesArea?.addEventListener('contextmenu', e => {
         e.preventDefault()
 
         const messageRow = e.target.closest('.message-row')
@@ -73,7 +76,7 @@ try {
 
             // Hide menu if clicked somewhere else
             document.addEventListener('click', e => {
-                if (!messageBoxMenu.contains(e.target) && messageBoxMenu.classList.contains('flex-col')) {
+                if (!messageBoxMenu?.contains(e.target) && messageBoxMenu.classList.contains('flex-col')) {
                     messageBoxMenu.classList.remove('flex-col')
                     messageBoxMenu.classList.add('no-display')
                     document.removeEventListener('click', handler)
@@ -82,6 +85,6 @@ try {
         }
     })
 } catch (error) {
-    shared.dialog.errorOccurred(error.message)
+    dialog.errorOccurred(error.message)
     console.error(error)
 }

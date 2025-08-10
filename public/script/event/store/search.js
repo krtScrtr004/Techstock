@@ -1,4 +1,16 @@
 import { shared } from './utility.js'
+const {
+    infiniteList,
+    productList,
+    sentinel,
+    collectionName,
+    state,
+    getResponse,
+    resetList,
+    insertProductCards,
+    loader,
+    dialog
+} = shared
 
 try {
     const form = document.querySelector('.search-store-form')
@@ -7,28 +19,28 @@ try {
         button?.addEventListener('click', async e => {
             e.preventDefault()
 
-            shared.state.observer?.unobserve(shared.sentinel)
+            state.observer?.unobserve(sentinel)
 
             const inputSearch = form.querySelector('#search_store').value
 
-            shared.loader.full(shared.productList)
-            await shared.getResponse((response) => {
-                shared.resetList()
+            loader.full(productList)
+            await getResponse((response) => {
+                resetList()
 
-                shared.insertProductCards(response.data)
-                shared.collectionName = ''
+                insertProductCards(response.data)
+                collectionName = ''
             }, inputSearch)
-            shared.loader.delete()
+            loader.delete()
 
-            const resultGrid = shared.infiniteList.querySelector('.result-grid')
+            const resultGrid = infiniteList?.querySelector('.result-grid')
             resultGrid.scrollIntoView({
                 behavior: 'smooth',
                 block: 'start'
             })
-            shared.state.observer?.observe(shared.sentinel)
+            state.observer?.observe(sentinel)
         })
     }
 } catch (error) {
-    shared.dialog.errorOccurred(error.message)
+    dialog.errorOccurred(error.message)
     console.error(error)
 }

@@ -15,10 +15,10 @@ try {
                     '.password-toggle-wrapper > img'
                 )
 
-                const displayIcon = () => {
+                function displayIcon() {
                     icon.style.display = 'inline-block';
                 }
-                const hideIcon = () => {
+                function hideIcon() {
                     icon.style.display = 'none';
                 }
 

@@ -4,13 +4,13 @@ import { dialog } from '../../render/dialog.js'
 
 function domMembers() {
     const body = document.querySelector('body.shopping-cart')
-    const form = body.querySelector('.shopping-cart-form')
+    const form = body?.querySelector('.shopping-cart-form')
 
-    const selectAll = form.querySelector('#select_all')
-    const tableContent = form.querySelector('.table-content')
-    const deleteItemButtons = form.querySelectorAll('.delete-item-button')
-    const removeCheckedButton = form.querySelector('.remove-checked-button')
-    const fieldsets = tableContent.querySelectorAll('fieldset')
+    const selectAll = form?.querySelector('#select_all')
+    const tableContent = form?.querySelector('.table-content')
+    const deleteItemButtons = form?.querySelectorAll('.delete-item-button')
+    const removeCheckedButton = form?.querySelector('.remove-checked-button')
+    const fieldsets = tableContent?.querySelectorAll('fieldset')
 
     return {
         body,

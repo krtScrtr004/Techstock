@@ -1,15 +1,21 @@
-import { shared } from "./utility.js"
+import { shared } from './utility.js'
+const {
+    fieldsets,
+    selectAll,
+    calculateTotalPrice,
+    dialog
+} = shared
 
 try {
     function updateSelectAllState() {
-        const allFieldsetsChecked = [...shared.fieldsets].every(fieldset => {
+        const allFieldsetsChecked = [...fieldsets].every(fieldset => {
             const fieldCheckbox = fieldset.querySelector(`input[type="checkbox"]#${fieldset.name}`)
             return fieldCheckbox.checked
         })
-        shared.selectAll.checked = allFieldsetsChecked
+        selectAll.checked = allFieldsetsChecked
     }
 
-    shared.fieldsets?.forEach(fieldset => {
+    fieldsets?.forEach(fieldset => {
         const fieldCheckbox = fieldset.querySelector(`input[type="checkbox"]#${fieldset.name}`)
         const itemCheckboxes = fieldset.querySelectorAll('.item-info input[type="checkbox"]')
 
@@ -21,7 +27,7 @@ try {
 
             // Update select all if any fieldset checkbox is unchecked
             updateSelectAllState()
-            shared.calculateTotalPrice()
+            calculateTotalPrice()
 
         })
 
@@ -32,25 +38,25 @@ try {
                 fieldCheckbox.checked = allItemsChecked
 
                 updateSelectAllState()
-                shared.calculateTotalPrice()
+                calculateTotalPrice()
             })
         })
     })
 
     // Select all toggles every fieldset and item
-    shared.selectAll?.addEventListener('change', () => {
-        shared.fieldsets?.forEach(fieldset => {
+    selectAll?.addEventListener('change', () => {
+        fieldsets?.forEach(fieldset => {
             const fieldCheckbox = fieldset.querySelector(`input[type="checkbox"]#${fieldset.name}`)
             const itemCheckboxes = fieldset.querySelectorAll('.item-info input[type="checkbox"]')
 
-            fieldCheckbox.checked = shared.selectAll.checked
+            fieldCheckbox.checked = selectAll.checked
             itemCheckboxes?.forEach(cb => {
-                cb.checked = shared.selectAll.checked
+                cb.checked = selectAll.checked
             })
         })
-        shared.calculateTotalPrice()
+        calculateTotalPrice()
     })
 } catch (error) {
-    shared.dialog.errorOccurred(error.message)
+    dialog.errorOccurred(error.message)
     console.error(error)
 }

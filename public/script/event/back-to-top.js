@@ -1,4 +1,5 @@
 import { dialog } from '../render/dialog.js'
+
 try {
     const backToTop = document.querySelector('.back-to-top')
     if (backToTop) {

@@ -16,23 +16,23 @@ function domMembers() {
     const infoSection = purchaseInfo?.querySelector('.info-section')
     const miscSection = purchaseInfo?.querySelector('.misc-section')
 
-    const optionSection = infoSection?.querySelectorAll('.option-section') || []
+    const optionSection = infoSection?.querySelectorAll('.option-section')
     const optionForms = [...optionSection].reduce((acc, section) => {
         acc.push(...section.querySelectorAll('.option-form'))
         return acc
     }, [])
 
-    const ratings = wrapper.querySelector('#ratings')
+    const ratings = wrapper?.querySelector('#ratings')
     const ratingsHeading = ratings?.querySelector('.heading')
     const starFilterButtons = ratingsHeading?.querySelectorAll('.star-filter-buttons')
 
     const ratingList = ratings?.querySelector('.rating-list > .list')
-    const ratingImages = ratings?.querySelectorAll('.rating-image') || []
+    const ratingImages = ratings?.querySelectorAll('.rating-image')
 
     const reportButton = infoSection?.querySelector('.report-button')
     const reportReasonModalWrapper = document.querySelector('.report-reason-modal-wrapper')
     const reportDescriptionModalWrapper = document.querySelector('.report-description-modal-wrapper')
-    const reasonButtons = reportReasonModalWrapper?.querySelectorAll('.reason-button') || []
+    const reasonButtons = reportReasonModalWrapper?.querySelectorAll('.reason-button')
 
     return {
         imagesSection, infoSection, optionSection,

@@ -1,27 +1,36 @@
 import { shared } from "./utility.js";
+const {
+    messagesArea,
+    messagesContainer,
+    newMessageButton,
+    sentinel,
+    loadMessages,
+    state,
+    dialog
+} = shared
 
 try {
     // Store interval ID so we can clear it on error
     let intervalId = setInterval(async () => {
-        if (!shared.state.lastActiveChat) {
+        if (!state.lastActiveChat) {
             return
         }
 
         try {
             // Check if the user's view scrolled first
             let isViewScrolled = false
-            if (shared.messagesArea.scrollTop + shared.messagesArea.clientHeight < shared.messagesArea.scrollHeight - 5) {
+            if (messagesArea.scrollTop + messagesArea.clientHeight < messagesArea.scrollHeight - 5) {
                 isViewScrolled = true;
             }
 
-            const chatSessionId = shared.state.lastActiveChat.getAttribute('data-id')
-            // await shared.loadMessages(chatSessionId)
+            const chatSessionId = state.lastActiveChat.getAttribute('data-id')
+            // await loadMessages(chatSessionId)
 
             // If view is scrolled, show button to go to the bottom
-            // if (isViewScrolled && !shared.newMessageButton?.classList.toggle('no-display')) {
-            //     shared.newMessageButton.classList.add('center-child')
+            // if (isViewScrolled && !newMessageButton?.classList.toggle('no-display')) {
+            //     newMessageButton.classList.add('center-child')
             // } else {
-            //     shared.messagesArea.scrollTop = shared.messagesArea.scrollHeight
+            //     messagesArea.scrollTop = messagesArea.scrollHeight
             // }
         } catch (error) {
             const html = `
@@ -32,15 +41,15 @@ try {
                     An error occurred while fetching messages!
                 </p>
             `
-            shared.messagesContainer?.insertAdjacentHTML('beforeend', html)
-            shared.messagesArea.scrollTop = shared.messagesArea.scrollHeight
+            messagesContainer?.insertAdjacentHTML('beforeend', html)
+            messagesArea.scrollTop = messagesArea.scrollHeight
 
-            shared.state.observer?.unobserve(shared.sentinel)
+            state.observer?.unobserve(sentinel)
 
             console.error(error)
             clearInterval(intervalId) // Stop the interval on error
         }
     }, 10000)
 } catch (error) {
-    shared.dialog.errorOccurred()
+    dialog.errorOccurred()
 }

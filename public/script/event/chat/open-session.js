@@ -1,28 +1,42 @@
 import { shared } from './utility.js'
+const {
+    wrapper,
+    chatContent,
+    chatContentHeading,
+    chatContentMain,
+    messagesArea,
+    messagesContainer,
+    newMessageButton,
+    state,
+    loadMessages,
+    debounce,
+    loader,
+    dialog
+} = shared
 
 try {
     function resetMessagesContainer(card) {
-        shared.state.newestMessageDate = shared.state.oldestMessageDate = null
+        state.newestMessageDate = state.oldestMessageDate = null
 
         card.classList.toggle('active')
-        if (shared.state.lastActiveChat) {
-            shared.state.lastActiveChat.classList.toggle('active')
+        if (state.lastActiveChat) {
+            state.lastActiveChat.classList.toggle('active')
         }
-        shared.state.lastActiveChat = card
+        state.lastActiveChat = card
 
-        shared.messagesContainer.innerHTML = ''
+        messagesContainer.innerHTML = ''
 
-        const messageErrorOccurred = shared.chatContent.querySelector('.message-error-occurred')
+        const messageErrorOccurred = chatContent.querySelector('.message-error-occurred')
         if (!messageErrorOccurred?.classList.contains('no-display')) {
             messageErrorOccurred.classList.add('no-display')
         }
 
-        const selectChatWall = shared.chatContent.querySelector('.select-chat-wall')
+        const selectChatWall = chatContent.querySelector('.select-chat-wall')
         if (!selectChatWall?.classList.contains('no-display')) {
             selectChatWall.classList.add('no-display')
         }
 
-        const noMessages = shared.chatContentMain.querySelector('.no-messages')
+        const noMessages = chatContentMain.querySelector('.no-messages')
         if (!noMessages?.classList.contains('no-display')) {
             noMessages?.classList.add('no-display')
         }
@@ -34,41 +48,41 @@ try {
         const otherPartyImage = card.querySelector('.other-party-image').src
 
         // Change content of the chat content heading
-        const id = shared.chatContentHeading.querySelector('.other-party-id')
-        const name = shared.chatContentHeading.querySelector('.other-party-name')
-        const image = shared.chatContentHeading.querySelector('.other-party-image')
+        const id = chatContentHeading.querySelector('.other-party-id')
+        const name = chatContentHeading.querySelector('.other-party-name')
+        const image = chatContentHeading.querySelector('.other-party-image')
         id.textContent = otherPartyId
         name.textContent = otherPartyName
         image.src = otherPartyImage
     }
 
-    const chatListCards = shared.wrapper.querySelectorAll('.chat-list-card')
+    const chatListCards = wrapper.querySelectorAll('.chat-list-card')
     chatListCards.forEach(card => {
-        card.addEventListener('click', shared.debounce(async e => {
+        card.addEventListener('click', debounce(async e => {
             e.preventDefault()
 
             resetMessagesContainer(card)
             updateHeading(card)
 
             // Load initial messages
-            shared.loader.full(shared.messagesArea)
+            loader.full(messagesArea)
             const chatSessionId = card.getAttribute('data-id')
-            await shared.loadMessages(chatSessionId)
-            shared.loader.delete()
+            await loadMessages(chatSessionId)
+            loader.delete()
 
-            shared.messagesArea.scrollTop = shared.messagesArea.scrollHeight
+            messagesArea.scrollTop = messagesArea.scrollHeight
         }, 300))
     })
 
     // Toggle More Options
-    const moreOptionsButton = shared.chatContentHeading.querySelector('.more-options > button')
-    const dropdown = shared.chatContentHeading.querySelector('.more-options .dropdown')
+    const moreOptionsButton = chatContentHeading.querySelector('.more-options > button')
+    const dropdown = chatContentHeading.querySelector('.more-options .dropdown')
 
     if (moreOptionsButton && dropdown) {
         moreOptionsButton.addEventListener('click', e => {
             e.preventDefault()
 
-            const muteIcon = shared.state.lastActiveChat?.querySelector('.mute-icon')
+            const muteIcon = state.lastActiveChat?.querySelector('.mute-icon')
 
             const isMuted = !muteIcon?.classList.contains('no-display')
             const dropdownMuteButton = dropdown.querySelector('.mute-button')
@@ -83,8 +97,8 @@ try {
                 }
 
                 if (button?.classList.contains('view-store-button')) {
-                    const name = shared.chatContentHeading.querySelector('.other-party-name')
-                    shared.redirect.redirectToStore(name.textContent)
+                    const name = chatContentHeading.querySelector('.other-party-name')
+                    redirect.redirectToStore(name.textContent)
                 } else if (button?.classList.contains('mute-button')) {
                     muteIcon?.classList.toggle('no-display')
 
@@ -93,9 +107,9 @@ try {
                     e.target.textContent = (e.target.textContent.toLowerCase() === 'block') ? 'Unblock' : 'Block'
                 } else if (button?.classList.contains('report-button')) {
                     if (true) {
-                        shared.dialog.reportResult(true)
+                        dialog.reportResult(true)
                     } else {
-                        shared.dialog.reportResult(false)
+                        dialog.reportResult(false)
                     }
                 }
                 dropdown.classList.toggle('no-display')
@@ -111,16 +125,16 @@ try {
     }
 
     // New messages button event to scroll to the bottom of the chats
-    shared.newMessageButton?.addEventListener('click', e => {
+    newMessageButton?.addEventListener('click', e => {
         e.preventDefault()
 
-        shared.messagesArea.scrollTop = shared.messagesArea.scrollHeight
+        messagesArea.scrollTop = messagesArea.scrollHeight
 
-        if (!shared.newMessageButton.classList.toggle('center-child')) {
-            shared.newMessageButton.classList.add('no-display')
+        if (!newMessageButton.classList.toggle('center-child')) {
+            newMessageButton.classList.add('no-display')
         }
     })
 } catch (error) {
-    shared.dialog.errorOccurred(error.message)
+    dialog.errorOccurred(error.message)
     console.error(error)
 }

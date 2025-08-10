@@ -1,4 +1,10 @@
 import { shared } from './utility.js'
+const {
+    deleteItemButtons,
+    removeCheckedButton,
+    calculateTotalPrice,
+    dialog
+} = shared
 
 try {
     function removeItemDom(elem) {
@@ -12,14 +18,14 @@ try {
             fieldset?.remove()
         }
 
-        shared.calculateTotalPrice()
+        calculateTotalPrice()
     }
 
     // TODO: SEND ITEM ID BACK TO SERVER
 
     // Delete Action Button
-    if (shared.deleteItemButtons?.length > 0) {
-        shared.deleteItemButtons.forEach(button => {
+    if (deleteItemButtons?.length > 0) {
+        deleteItemButtons.forEach(button => {
             button.addEventListener('click', e => {
                 e.preventDefault()
                 removeItemDom(button)
@@ -28,14 +34,14 @@ try {
     }
 
     // Multiple Delete
-    shared.removeCheckedButton?.addEventListener('click', e => {
+    removeCheckedButton?.addEventListener('click', e => {
         e.preventDefault()
-        const checkedItems = shared.getCheckedItems()
+        const checkedItems = getCheckedItems()
         if (checkedItems.length > 0) {
             checkedItems.forEach(item => removeItemDom(item))
         }
     })
 } catch (error) {
-    shared.dialog.errorOccurred(error.message)
+    dialog.errorOccurred(error.message)
     console.error(error)
 }

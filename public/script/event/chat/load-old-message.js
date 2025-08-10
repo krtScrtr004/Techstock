@@ -1,30 +1,39 @@
 import { shared } from './utility.js';
+const {
+    messagesArea,
+    messagesContainer,
+    sentinel,
+    state,
+    loadMessages,
+    loader,
+    dialog
+} = shared
 
 try {
-    if (!shared.state.observer) {
-        shared.state.observer = new IntersectionObserver(entries => {
+    if (!state.observer) {
+        state.observer = new IntersectionObserver(entries => {
             entries.forEach(async entry => {
-                if (entry.isIntersecting && !shared.state.isLoading) {
+                if (entry.isIntersecting && !state.isLoading) {
                     const el = entry.target
-                    if (shared.state.lastActiveChat) {
-                        const oldScrollHeight = shared.messagesArea.scrollHeight
+                    if (state.lastActiveChat) {
+                        const oldScrollHeight = messagesArea.scrollHeight
 
-                        shared.loader.lead(shared.messagesContainer)
-                        const chatSessionId = shared.state.lastActiveChat.getAttribute('data-id')
-                        await shared.loadMessages(chatSessionId, false, true)
-                        shared.loader.delete()
+                        loader.lead(messagesContainer)
+                        const chatSessionId = state.lastActiveChat.getAttribute('data-id')
+                        await loadMessages(chatSessionId, false, true)
+                        loader.delete()
 
-                        const newScrollHeight = shared.messagesArea.scrollHeight
-                        shared.messagesArea.scrollTop = newScrollHeight - oldScrollHeight
+                        const newScrollHeight = messagesArea.scrollHeight
+                        messagesArea.scrollTop = newScrollHeight - oldScrollHeight
                     }
                 }
             })
         })
     }
-    if (shared.sentinel) {
-        shared.state.observer?.observe(shared.sentinel)
+    if (sentinel) {
+        state.observer?.observe(sentinel)
     }
 } catch (error) {
-    shared.dialog.errorOccurred(error.message)
+    dialog.errorOccurred(error.message)
     console.error(error)
 }

@@ -1,29 +1,39 @@
 import { shared } from './utility.js'
+const {
+    productList,
+    noMoreProducts,
+    sentinel,
+    state,
+    insertProductCards,
+    getResponse,
+    loader,
+    dialog
+} = shared
 
 try {
     // Infinite Scroll Handler
-    shared.state.observer = new IntersectionObserver(entries => {
+    state.observer = new IntersectionObserver(entries => {
         entries.forEach(async entry => {
-            if (entry.isIntersecting && !shared.state.isLoading) {
+            if (entry.isIntersecting && !state.isLoading) {
 
                 const el = entry.target
-                shared.loader.trail(shared.productList.parentElement)
-                await shared.getResponse((response) => {
+                loader.trail(productList.parentElement)
+                await getResponse((response) => {
                     if (response.count > 0) {
-                        shared.insertProductCards(response.data)
+                        insertProductCards(response.data)
                     } else {
-                        shared.noMoreProducts.style.display = 'block'
-                        shared.state.observer?.unobserve(el)
+                        noMoreProducts.style.display = 'block'
+                        state.observer?.unobserve(el)
                     }
                 })
-                shared.loader.delete()
+                loader.delete()
             }
         })
     })
-    if (shared.sentinel) {
-        shared.state.observer?.observe(shared.sentinel)
+    if (sentinel) {
+        state.observer?.observe(sentinel)
     }
 } catch (error) {
-    shared.dialog.errorOccurred(error.message)
+    dialog.errorOccurred(error.message)
     console.error(error)
 }

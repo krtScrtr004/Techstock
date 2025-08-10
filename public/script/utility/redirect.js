@@ -1,4 +1,4 @@
-const Redirect = () => {
+export const redirect = (() => {
     function redirectTo(page) {
         window.location.href = `/Techstock/${page}`
     }
@@ -40,5 +40,4 @@ const Redirect = () => {
             redirectTo(`store/${slug}`)
         }
     }
-}
-export const redirect = Redirect()
+})()

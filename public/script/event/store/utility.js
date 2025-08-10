@@ -6,9 +6,9 @@ import { dialog } from '../../render/dialog.js'
 
 function domMembers() {
     const infiniteList = document.querySelector('.infinite-list')
-    const productList = infiniteList.querySelector('.product-grid')
-    const sentinel = infiniteList.querySelector('.sentinel')
-    const noMoreProducts = infiniteList.querySelector('.no-more-products')
+    const productList = infiniteList?.querySelector('.product-grid')
+    const sentinel = infiniteList?.querySelector('.sentinel')
+    const noMoreProducts = infiniteList?.querySelector('.no-more-products')
 
     return {
         infiniteList,

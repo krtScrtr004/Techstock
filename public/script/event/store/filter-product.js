@@ -1,7 +1,16 @@
 import { shared } from './utility.js'
+const {
+    infiniteList,
+    sentinel,
+    collectionName,
+    state,
+    resetList,
+    insertProductCards,
+    loader,
+} = shared
 
 try {
-    const collectionButtons = shared.infiniteList.querySelectorAll('.collection-button')
+    const collectionButtons = infiniteList.querySelectorAll('.collection-button')
     if (collectionButtons?.length > 0) {
         let lastActiveButton = collectionButtons[0]
         collectionButtons?.forEach(button => {
@@ -12,31 +21,31 @@ try {
                 button.classList.add('active')
                 lastActiveButton = button
 
-                shared.state.page = 1
-                shared.state.observer.unobserve(shared.sentinel)
+                state.page = 1
+                state.observer.unobserve(sentinel)
 
-                shared.loader.full(shared.productList)
-                await shared.getResponse((response) => {
+                loader.full(productList)
+                await getResponse((response) => {
                     if (response?.count > 0) {
-                        shared.resetList()
+                        resetList()
 
-                        shared.insertProductCards(response.data)
-                        shared.collectionName = button.textContent
+                        insertProductCards(response.data)
+                        collectionName = button.textContent
 
                     }
                 })
-                shared.loader.delete()
+                loader.delete()
 
-                const resultGrid = shared.infiniteList.querySelector('.result-grid')
+                const resultGrid = infiniteList.querySelector('.result-grid')
                 resultGrid.scrollIntoView({
                     behavior: 'instant',
                     block: 'start'
                 })
-                shared.state.observer?.observe(shared.sentinel)
+                state.observer?.observe(sentinel)
             })
         })
     }
 } catch (error) {
-    shared.dialog.errorOccurred(error.message)
+    dialog.errorOccurred(error.message)
     console.error(error)
 }

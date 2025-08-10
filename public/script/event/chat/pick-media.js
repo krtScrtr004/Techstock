@@ -1,15 +1,23 @@
 import { shared } from './utility.js'
+const {
+    writeMessageArea,
+    writeMessageForm,
+    filePickerButtons,
+    state,
+    debounce,
+    dialog
+} = shared
 
 try {
-    if (shared.writeMessageForm) {
-        const mediaPreview = shared.writeMessageArea.querySelector('.media-preview')
+    if (writeMessageForm) {
+        const mediaPreview = writeMessageArea.querySelector('.media-preview')
 
         function removeFile(id) {
-            if (shared.state.selectedFiles.get(id)) {
-                shared.state.selectedFiles.delete(id)
+            if (state.selectedFiles.get(id)) {
+                state.selectedFiles.delete(id)
 
                 // Hide media preview section 
-                if (shared.state.selectedFiles.size < 1) {
+                if (state.selectedFiles.size < 1) {
                     mediaPreview.classList.remove('flex-row')
                     mediaPreview.classList.add('no-display')
                 }
@@ -87,22 +95,22 @@ try {
             }
         }
 
-        shared.filePickerButtons.forEach(picker => {
-            picker.addEventListener('click', shared.debounce(e => {
+        filePickerButtons.forEach(picker => {
+            picker.addEventListener('click', debounce(e => {
                 e.preventDefault()
 
                 const hiddenInput = picker.parentElement.querySelector('input[type="file"]')
                 hiddenInput.addEventListener('change', e => {
                     Array.from(hiddenInput.files).forEach(async file => {
                         // Only push if no duplicates
-                        for (const entry of shared.state.selectedFiles.values()) {
+                        for (const entry of state.selectedFiles.values()) {
                             if (entry.name === file.name && entry.size === file.size) {
                                 return
                             }
                         }
 
                         const id = crypto.randomUUID()
-                        shared.state.selectedFiles.set(id, file)
+                        state.selectedFiles.set(id, file)
 
                         if (mediaPreview.classList.contains('no-display')) {
                             mediaPreview.classList.remove('no-display')
@@ -118,6 +126,6 @@ try {
         })
     }
 } catch (error) {
-    shared.dialog.errorOccurred(error.message)
+    dialog.errorOccurred(error.message)
     console.error(error)
 }
