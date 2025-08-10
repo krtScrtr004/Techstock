@@ -2,6 +2,7 @@
     <section class="flex-row white-bg">
         <!-- Chat Aside -->
         <aside class="flex-col">
+            <!-- Search Chat Session -->
             <section class="search-chat">
                 <form class="search-chat-form" action="" method="POST">
                     <div class="center-child">

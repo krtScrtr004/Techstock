@@ -102,6 +102,7 @@ class ChatController implements Controller
 
         include_once ENUM_PATH . 'chat-content-type.php';
 
+        // TODO: Make $param['id'] optional here
         if (!$param) {
             http_response_code(400);
             ob_clean();

@@ -13,6 +13,10 @@ import { redirect } from '../../utility/redirect.js'
 function domMembers() {
     const wrapper = document.querySelector('.chat-wrapper')
 
+    const aside = wrapper?.querySelector('aside')
+    const searchForm = aside?.querySelector('.search-chat-form')
+    const chatList = aside?.querySelector('.chat-list')
+
     const chatContent = wrapper?.querySelector('.chat-content')
     const chatContentHeading = chatContent?.querySelector('.chat-content-heading')
     const chatContentMain = chatContent?.querySelector('.chat-content-main')
@@ -33,7 +37,8 @@ function domMembers() {
 
 
     return {
-        wrapper, chatContent, chatContentHeading,
+        wrapper, aside, searchForm, chatList,
+        chatContent, chatContentHeading,
         chatContentMain, messagesArea, sentinel, newMessageButton,
         messagesContainer, writeMessageArea, writeMessageForm,
         submitButton, message, hiddenInputs, filePickerButtons
