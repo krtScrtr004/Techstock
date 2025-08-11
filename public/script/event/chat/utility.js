@@ -37,7 +37,6 @@ function domMembers() {
     const hiddenInputs = writeMessageForm?.querySelectorAll('input[type="file"]')
     const filePickerButtons = writeMessageForm?.querySelectorAll('.open-file-picker-button')
 
-
     return {
         chatToggle, wrapper, aside, searchForm, 
         chatList, chatContent, chatContentHeading,
@@ -95,7 +94,6 @@ async function loadMessages(
                         </p>
                     `
                     dom.messagesContainer?.insertAdjacentHTML('afterbegin', html)
-                    dom.messagesArea.scrollTop = dom.messagesArea.scrollHeight
                 } else {
                     const noMessages = dom.chatContentMain.querySelector('.no-messages')
                     if (noMessages?.classList.contains('no-display')) {

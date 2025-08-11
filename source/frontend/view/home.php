@@ -193,7 +193,6 @@
     <script type="module" src="<?= htmlspecialchars(EVENT_PATH . 'chat' . DS . 'open-session.js'); ?>" defer></script>
     <script type="module" src="<?= htmlspecialchars(EVENT_PATH . 'chat' . DS . 'react-to-message.js'); ?>" defer></script>
     <script type="module" src="<?= htmlspecialchars(EVENT_PATH . 'chat' . DS . 'open-message-menu.js'); ?>" defer></script>
-    <script type="module" src="<?= htmlspecialchars(EVENT_PATH . 'chat' . DS . 'load-old-message.js'); ?>" defer></script>
     <script type="module" src="<?= htmlspecialchars(EVENT_PATH . 'chat' . DS . 'send.js'); ?>" defer></script>
     <script type="module" src="<?= htmlspecialchars(EVENT_PATH . 'chat' . DS . 'auto-fetch-messages.js'); ?>" defer></script>
 

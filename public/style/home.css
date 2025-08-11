@@ -95,6 +95,15 @@
 	width: calc(100% / 10);
 }
 
+.category-card {
+	height: 100%;
+	padding: 10px;
+}
+
+.category-card:hover {
+	background-color: var(--dark-white);
+}
+
 .category-card > a > h3 {
 	margin-top: 20px;
 	max-width: 15ch;

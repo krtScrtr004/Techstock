@@ -7,6 +7,7 @@ const {
     messagesArea,
     messagesContainer,
     newMessageButton,
+    sentinel,
     state,
     loadMessages,
     debounce,
@@ -56,6 +57,32 @@ try {
         image.src = otherPartyImage
     }
 
+    function loadOldMessages() {
+        if (!state.observer) {
+            state.observer = new IntersectionObserver(entries => {
+                entries.forEach(async entry => {
+                    if (entry.isIntersecting && !state.isLoading) {
+                        const el = entry.target
+                        if (state.lastActiveChat) {
+                            const oldScrollHeight = messagesArea.scrollHeight
+
+                            loader.lead(messagesContainer)
+                            const chatSessionId = state.lastActiveChat.getAttribute('data-id')
+                            await loadMessages(chatSessionId, false, true)
+                            loader.delete()
+
+                            const newScrollHeight = messagesArea.scrollHeight
+                            messagesArea.scrollTop = newScrollHeight - oldScrollHeight
+                        }
+                    }
+                })
+            })
+        }
+        if (sentinel) {
+            state.observer?.observe(sentinel)
+        }
+    }
+
     const chatListCards = wrapper.querySelectorAll('.chat-list-card')
     chatListCards.forEach(card => {
         card.addEventListener('click', debounce(async e => {
@@ -71,6 +98,8 @@ try {
             loader.delete()
 
             messagesArea.scrollTop = messagesArea.scrollHeight
+
+            loadOldMessages()
         }, 300))
     })
 
