@@ -3,7 +3,6 @@ const {
     infiniteList,
     productList,
     sentinel,
-    collectionName,
     state,
     getResponse,
     resetList,
@@ -28,7 +27,7 @@ try {
                 resetList()
 
                 insertProductCards(response.data)
-                collectionName = ''
+                state.collectionName = ''
             }, inputSearch)
             loader.delete()
 

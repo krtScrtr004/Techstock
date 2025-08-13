@@ -36,52 +36,45 @@ class ChatController implements Controller
         $limit = 5;
         $userChatOutSessions = ChatSessionModel::all();
 
-        $requestedSession = $userChatOutSessions[$params['id']];
-        if (!isset($requestedSession)) {
-            ob_clean();
-            http_response_code(400);
-            echo json_encode([
-                'count' => 0,
-                'result' => 'Chat session not found'
-            ]);
-            exit();
-        }
-        $sessionMessages = $requestedSession->getMessages();
-
         $data = [];
         $limiterCount = 0;
         $oldestDate = null;
         $newestDate = null;
 
-        foreach ($sessionMessages as $message) {
-            if ($limiterCount >= $limit) {
-                break;
-            }
+        $requestedSession = $userChatOutSessions[$params['id']];
+        if (isset($requestedSession)) {
+            $sessionMessages = $requestedSession->getMessages();
 
-            $amITheSender = $me->getId() === $message->getSender()->getId();
-            $date = $message->getCreatedAt();
+            foreach ($sessionMessages as $message) {
+                if ($limiterCount >= $limit) {
+                    break;
+                }
 
-            $addMessage = false;
-            if (isset($dateOffset)) {
-                if ($thread === 'new' && $date >= $dateOffset) {
-                    $addMessage = true;
-                } else if ($thread === 'old' && $date <= $dateOffset) {
+                $amITheSender = $me->getId() === $message->getSender()->getId();
+                $date = $message->getCreatedAt();
+
+                $addMessage = false;
+                if (isset($dateOffset)) {
+                    if ($thread === 'new' && $date >= $dateOffset) {
+                        $addMessage = true;
+                    } else if ($thread === 'old' && $date <= $dateOffset) {
+                        $addMessage = true;
+                    }
+                } else {
                     $addMessage = true;
                 }
-            } else {
-                $addMessage = true;
-            }
 
-            if ($addMessage) {
-                array_push($data, $message);
-                $limiterCount++;
+                if ($addMessage) {
+                    array_push($data, $message);
+                    $limiterCount++;
 
-                // Track oldest and newest dates
-                if ($oldestDate === null || $date < $oldestDate) {
-                    $oldestDate = $date;
-                }
-                if ($newestDate === null || $date > $newestDate) {
-                    $newestDate = $date;
+                    // Track oldest and newest dates
+                    if ($oldestDate === null || $date < $oldestDate) {
+                        $oldestDate = $date;
+                    }
+                    if ($newestDate === null || $date > $newestDate) {
+                        $newestDate = $date;
+                    }
                 }
             }
         }
@@ -102,28 +95,27 @@ class ChatController implements Controller
 
         include_once ENUM_PATH . 'chat-content-type.php';
 
-        // TODO: Make $param['id'] optional here
         if (!$param) {
             http_response_code(400);
             ob_clean();
             echo json_encode([
-                'count' => 0,
-                'error' => 'No chat session ID provided'
-            ],  JSON_UNESCAPED_SLASHES);
+                'status' => 'error',
+                'error' => 'No chat session defined'
+            ]);
             exit();
         }
 
         header('Content-type: application/json');
-        $response = [];
+        $messages = [];
 
         $content = $_POST['message'];
         if ($content) {
-            $message = new ChatMessage([
+            array_push($messages, new ChatMessage([
                 'id' => uniqid(),
                 'sender' => $me,
                 'type' => ChatContentType::Text,
                 'content' => $content
-            ]);
+            ]));
         }
 
         if ($_FILES['image_upload']) {
@@ -139,16 +131,39 @@ class ChatController implements Controller
                     exit();
                 }
 
-                $message = new ChatMessage([
+                array_push($messages, new ChatMessage([
                     'id' => uniqid(),
                     'sender' => $me,
                     'type' => ChatContentType::Image,
                     'content' => IMAGE_PATH . 'laptop-1.jpg'
-                ]);
+                ]));
             }
         }
 
-        http_response_code(204);
+        if ($param['id'] === 'null') {
+            http_response_code(200);
+
+            $otherParty = null;
+            if (strtolower($_POST['otherPartyType']) === 'user') {
+                $otherParty = UserModel::all();
+            } else {
+                $otherParty = StoreModel::all()[0];
+            }
+
+            $newChatSession = new ChatSession([
+                'id' => uniqid(),
+                'otherParty' => $otherParty,
+                'messages' => $messages
+            ]);
+
+            ob_clean();
+            echo json_encode([
+                'chatListButton' => chatListCard($newChatSession)
+            ]);
+        } else {
+            http_response_code(204);
+        }
+
         exit();
     }
 }

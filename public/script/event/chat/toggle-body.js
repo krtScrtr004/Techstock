@@ -19,7 +19,7 @@ try {
         }, 300)
     }
 
-    chatToggle?.addEventListener('click', debounce(open, 300))
+    chatToggle?.addEventListener('click', open)
 
     wrapper.addEventListener('click', e => {
         const el = e.target

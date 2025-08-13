@@ -80,6 +80,16 @@ class ProductController implements Controller
             ])
         ];
 
+        $chatSessions = ChatSessionModel::all();
+        $storeChatSessionId = null;
+        foreach ($chatSessions as $csession) {
+            $storeId = $store->getId();
+            $otherPartyId = $csession->getOtherParty()->getId();
+            if ($storeId === $otherPartyId) {
+                $storeChatSession = $csession->getId();
+            }
+        }
+
         require_once VIEW_PATH . 'product.php';
     }
 }

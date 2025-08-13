@@ -27,7 +27,7 @@
             <!-- Chat List -->
             <section class="chat-list flex-col">
                 <?php foreach ($chatSessions as $chatSession) {
-                    echo chatListButton($chatSession);
+                    echo chatListCard($chatSession);
                 } ?>
             </section>
         </aside>
@@ -107,7 +107,7 @@
                         'chat_b.svg',
                         'No Messages Found!',
                         "Start A New Conversation",
-                        'small'
+                        'medium'
                     )
                     ?>
                 </div>

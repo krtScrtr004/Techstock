@@ -37,11 +37,15 @@ $productTotalRatingCount    =   htmlspecialchars($product->getTotalRatingCount()
     <link rel="stylesheet" href="<?= STYLE_PATH . 'confirm-order.css' ?>">
     <link rel="stylesheet" href="<?= STYLE_PATH . 'report-modal.css' ?>">
 
+    <link rel="stylesheet" href="<?= STYLE_PATH . 'chat.css' ?>">
     <link rel="stylesheet" href="<?= STYLE_PATH . 'product.css' ?>">
 </head>
 
 <body class="page-info">
-    <?php require_once COMPONENT_PATH . 'header.php' ?>
+    <?php
+    require_once COMPONENT_PATH . 'header.php';
+    include_once COMPONENT_PATH . 'chat.php';
+    ?>
 
     <main class="dark-white-bg flex-col">
         <?= categoryChain($product->getCategory(), $product->getName()) ?>
@@ -255,6 +259,7 @@ $productTotalRatingCount    =   htmlspecialchars($product->getTotalRatingCount()
         <section class="store-info major-section flex-row white-bg">
             <?php
             // Store Info
+            $storeId            =   htmlspecialchars($store->getId());
             $storeName          =   htmlspecialchars($store->getName());
             $storeLogo          =   htmlspecialchars($store->getLogo());
             $storeEmail         =   htmlspecialchars($store->getEmail());
@@ -267,6 +272,7 @@ $productTotalRatingCount    =   htmlspecialchars($product->getTotalRatingCount()
             <!-- Store Logo Section -->
             <section class="store-logo center-child">
                 <img
+                    id="store_logo"
                     src="<?= $storeLogo ?>"
                     alt="<?= $storeName ?>"
                     title="<?= $storeName ?>"
@@ -275,10 +281,18 @@ $productTotalRatingCount    =   htmlspecialchars($product->getTotalRatingCount()
 
             <!-- Store Chains Section -->
             <section class="chains flex-col flex-child-center-v">
-                <h3 class="store-name black-text"><?= $storeName ?></h3>
+                <h3 class="store-name black-text" id="store_name" data-id="<?= $storeId ?>"><?= $storeName ?></h3>
 
                 <div class="buttons flex-row">
-                    <button type="button" class="chat-button thin-button">
+                    <button
+                        type="button"
+                        class="chat-now-button thin-button"
+                        data-id="<?= $storeChatSessionId ?>"
+                        data-other-party-type="store"
+                        data-other-party-id="<?= $storeId ?>"
+                        data-other-party-name="<?= $storeName ?>"
+                        data-other-party-image="<?= $storeLogo ?>">
+
                         <div class="text-w-icon center-child">
                             <img
                                 src="<?= ICON_PATH . 'chat_bl.svg' ?>"
@@ -457,6 +471,15 @@ $productTotalRatingCount    =   htmlspecialchars($product->getTotalRatingCount()
     <script type="module" src="<?= htmlspecialchars(EVENT_PATH . 'copy-link.js'); ?>" defer></script>
     <script type="module" src="<?= htmlspecialchars(EVENT_PATH . 'break-text-fallback.js'); ?>" defer></script>
     <script type="module" src="<?= htmlspecialchars(EVENT_PATH . 'back-to-top.js'); ?>" defer></script>
+
+    <script type="module" src="<?= htmlspecialchars(EVENT_PATH . 'chat' . DS . 'toggle-body.js'); ?>" defer></script>
+    <script type="module" src="<?= htmlspecialchars(EVENT_PATH . 'chat' . DS . 'search-session.js'); ?>" defer></script>
+    <script type="module" src="<?= htmlspecialchars(EVENT_PATH . 'chat' . DS . 'open-session.js'); ?>" defer></script>
+    <script type="module" src="<?= htmlspecialchars(EVENT_PATH . 'chat' . DS . 'react-to-message.js'); ?>" defer></script>
+    <script type="module" src="<?= htmlspecialchars(EVENT_PATH . 'chat' . DS . 'pick-media.js'); ?>" defer></script>
+    <script type="module" src="<?= htmlspecialchars(EVENT_PATH . 'chat' . DS . 'open-message-menu.js'); ?>" defer></script>
+    <script type="module" src="<?= htmlspecialchars(EVENT_PATH . 'chat' . DS . 'send.js'); ?>" defer></script>
+    <script type="module" src="<?= htmlspecialchars(EVENT_PATH . 'chat' . DS . 'auto-fetch-messages.js'); ?>" defer></script>
 
     <script type="module" src="<?= htmlspecialchars(EVENT_PATH . 'product' . DS . 'show-click-image.js'); ?>" defer></script>
     <script type="module" src="<?= htmlspecialchars(EVENT_PATH . 'product' . DS . 'favorite.js'); ?>" defer></script>

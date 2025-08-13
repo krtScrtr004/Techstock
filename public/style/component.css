@@ -452,7 +452,7 @@
 
 .notification-wrapper,
 .notification-wrapper > * {
-	z-index: 15;
+	z-index: 1000;
 }
 
 .notification-wrapper {
@@ -513,6 +513,7 @@
 }
 
 /* -- Big */
+.empty-result.medium,
 .empty-result.big {
 	padding: var(--space);
 }
@@ -528,6 +529,21 @@
 
 .empty-result.big > p {
 	font-size: 1.3rem;
+}
+
+/* -- Medium */
+
+.empty-result.medium > img {
+	margin-bottom: 3px;
+	height: 6rem;
+}
+
+.empty-result.medium > h3 {
+	font-size: 1.3rem;
+}
+
+.empty-result.medium > p {
+	font-size: 1rem;
 }
 
 /* -- Small */

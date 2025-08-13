@@ -39,14 +39,14 @@
 }
 
 .add-to-cart-button,
-.chat-button {
+.chat-now-button {
 	position: relative;
 	border: 1px solid var(--blue);
 	z-index: 10;
 }
 
 .add-to-cart-button::before,
-.chat-button::before {
+.chat-now-button::before {
 	background-color: var(--blue);
 	content: '';
 	position: absolute;

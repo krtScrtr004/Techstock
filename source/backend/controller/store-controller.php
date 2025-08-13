@@ -183,6 +183,19 @@ class StoreController implements Controller
                 'soldCount' => rand(0, 500),
             ]));
         }
+
+        $chatSessions = ChatSessionModel::all();
+        
+        $storeChatSessionId = null;
+        foreach ($chatSessions as $csession) {
+            $storeId = $store->getId();
+            $otherPartyId = $csession->getOtherParty()->getId();
+            if ($storeId === $otherPartyId) {
+                $storeChatSession = $csession->getId();
+            }
+        }
+
+            
         require_once VIEW_PATH . 'store.php';
     }
 }

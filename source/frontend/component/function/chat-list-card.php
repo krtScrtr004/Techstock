@@ -1,6 +1,6 @@
 <?php
 
-function chatListButton(ChatSession $chatSession): string
+function chatListCard(ChatSession $chatSession): string
 {
     global $session, $me;
 
@@ -12,6 +12,7 @@ function chatListButton(ChatSession $chatSession): string
     $otherParty = $chatSession->getOtherParty();
 
     $otherPartyId = $otherParty->getId();
+    $otherPartyType = ($otherParty instanceof User) ? 'user' : 'store';
     $otherPartyImage = htmlspecialchars(
         ($otherParty instanceof User)
             ? $otherParty->getProfileImage()
@@ -40,12 +41,14 @@ function chatListButton(ChatSession $chatSession): string
 
     ob_start();
 ?>
-    <button class="chat-list-card unset-button" type="button" data-id="<?= $chatSessionId ?>">
-        <input
-            type="hidden"
-            name="other_party_id"
-            id="other_party_id"
-            value="<?= $otherPartyId ?>" />
+    <button 
+        class="chat-list-card unset-button" 
+        type="button" 
+        data-id="<?= $chatSessionId ?>"
+        data-other-party-type="<?= $otherPartyType ?>"
+        data-other-party-id="<?= $otherPartyId ?>"
+        data-other-party-name="<?= $otherPartyName ?>"
+        data-other-party-image="<?= $otherPartyImage ?>">
 
         <img
             class="other-party-image circle fit-contain white-bg"

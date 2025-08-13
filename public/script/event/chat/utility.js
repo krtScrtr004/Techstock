@@ -54,7 +54,7 @@ async function loadMessages(
     prepend = false,
     limit = 5
 ) {
-    if (!id || state.isLoading) {
+    if (state.isLoading) {
         return
     }
 
@@ -119,6 +119,7 @@ async function loadMessages(
 export const shared = (() => {
     const dom = domMembers()
     const state = {
+        chatSessions: new Map(),
         lastActiveChat: null,
         isLoading: false,
         oldestMessageDate: null, // For fetching old messages

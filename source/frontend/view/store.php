@@ -1,11 +1,12 @@
 <?php
-$name          =   htmlspecialchars($store->getName());
-$logo          =   htmlspecialchars($store->getLogo());
-$followerCount =   htmlspecialchars(formatNumber($store->getFollowerCount()));
-$productCount  =   htmlspecialchars(formatNumber($store->getProductCount()));
-$contact       =   htmlspecialchars($store->getContact()) ?? 'No contact detail';
-$email         =   htmlspecialchars($store->getEmail()) ?? 'No email address';
-$address       =   htmlspecialchars($store->getAddress());
+$id             =   htmlspecialchars($store->getId());
+$name           =   htmlspecialchars($store->getName());
+$logo           =   htmlspecialchars($store->getLogo());
+$followerCount  =   htmlspecialchars(formatNumber($store->getFollowerCount()));
+$productCount   =   htmlspecialchars(formatNumber($store->getProductCount()));
+$contact        =   htmlspecialchars($store->getContact()) ?? 'No contact detail';
+$email          =   htmlspecialchars($store->getEmail()) ?? 'No email address';
+$address        =   htmlspecialchars($store->getAddress());
 ?>
 
 <!DOCTYPE html>
@@ -25,11 +26,15 @@ $address       =   htmlspecialchars($store->getAddress());
     <link rel="stylesheet" href="<?= STYLE_PATH . 'footer.css' ?>">
     <link rel="stylesheet" href="<?= STYLE_PATH . 'root.css' ?>">
 
+    <link rel="stylesheet" href="<?= STYLE_PATH . 'chat.css' ?>">
     <link rel="stylesheet" href="<?= STYLE_PATH . 'store.css' ?>">
 </head>
 
 <body class="store relative">
-    <?php require_once COMPONENT_PATH . 'header.php' ?>
+    <?php
+    require_once COMPONENT_PATH . 'header.php';
+    include_once COMPONENT_PATH . 'chat.php';
+    ?>
 
     <main>
         <section class="heading flex-row white-bg">
@@ -37,6 +42,7 @@ $address       =   htmlspecialchars($store->getAddress());
                 <!-- Store Logo -->
                 <img
                     class="store-logo viewable-image circle fit-contain"
+                    id="store_logo"
                     src="<?= $logo ?>"
                     alt="<?= $name ?>"
                     title="<?= $name ?>"
@@ -44,13 +50,23 @@ $address       =   htmlspecialchars($store->getAddress());
 
                 <!--  -->
                 <div class="flex-col">
-                    <h1 class="store-name black-text bold-text wrap-text"><?= $name ?></h1>
+                    <h1 class="store-name black-text bold-text wrap-text" id="store_name">
+                        <?= $name ?>
+                    </h1>
                     <span class="misc-info block">
                         <p class="inline black-text"><?= $followerCount ?> Followers</p>
                         <!-- <p class="inline black-text">99% Positive Ratings</p> -->
                     </span>
                     <div class="buttons flex-row">
-                        <button class="unset-button" type="button">
+                        <button
+                            type="button"
+                            class="chat-now-button unset-button"
+                            data-id="<?= $storeChatSessionId ?>"
+                            data-other-party-type="store"
+                            data-other-party-id="<?= $id ?>"
+                            data-other-party-name="<?= $name ?>"
+                            data-other-party-image="<?= $logo ?>">
+
                             <div class="text-w-icon">
                                 <img src="<?= ICON_PATH . 'chat_b.svg' ?>" alt="Chat now" title="Chat now" height="16">
 
@@ -178,6 +194,15 @@ $address       =   htmlspecialchars($store->getAddress());
 
     <script type="module" src="<?= htmlspecialchars(EVENT_PATH . 'carousel-tracker.js'); ?>" defer></script>
     <script type="module" src="<?= htmlspecialchars(EVENT_PATH . 'back-to-top.js'); ?>" defer></script>
+
+    <script type="module" src="<?= htmlspecialchars(EVENT_PATH . 'chat' . DS . 'toggle-body.js'); ?>" defer></script>
+    <script type="module" src="<?= htmlspecialchars(EVENT_PATH . 'chat' . DS . 'search-session.js'); ?>" defer></script>
+    <script type="module" src="<?= htmlspecialchars(EVENT_PATH . 'chat' . DS . 'open-session.js'); ?>" defer></script>
+    <script type="module" src="<?= htmlspecialchars(EVENT_PATH . 'chat' . DS . 'react-to-message.js'); ?>" defer></script>
+    <script type="module" src="<?= htmlspecialchars(EVENT_PATH . 'chat' . DS . 'pick-media.js'); ?>" defer></script>
+    <script type="module" src="<?= htmlspecialchars(EVENT_PATH . 'chat' . DS . 'open-message-menu.js'); ?>" defer></script>
+    <script type="module" src="<?= htmlspecialchars(EVENT_PATH . 'chat' . DS . 'send.js'); ?>" defer></script>
+    <script type="module" src="<?= htmlspecialchars(EVENT_PATH . 'chat' . DS . 'auto-fetch-messages.js'); ?>" defer></script>
 
     <script type="module" src="<?= htmlspecialchars(EVENT_PATH . 'store' . DS . 'view-logo.js'); ?>" defer></script>
     <script type="module" src="<?= htmlspecialchars(EVENT_PATH . 'store' . DS . 'filter-product.js'); ?>" defer></script>

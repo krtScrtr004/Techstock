@@ -1,6 +1,7 @@
 import { shared } from './utility.js'
 const {
     wrapper,
+    chatList,
     chatContent,
     chatContentHeading,
     chatContentMain,
@@ -10,97 +11,157 @@ const {
     sentinel,
     state,
     loadMessages,
-    debounce,
+    notification,
+    redirect,
     loader,
     dialog
 } = shared
 
-try {
-    function resetMessagesContainer(card) {
-        state.newestMessageDate = state.oldestMessageDate = null
+function resetMessagesContainer() {
+    state.newestMessageDate = state.oldestMessageDate = null
 
-        card.classList.toggle('active')
-        if (state.lastActiveChat) {
-            state.lastActiveChat.classList.toggle('active')
-        }
-        state.lastActiveChat = card
+    messagesContainer.innerHTML = ''
 
-        messagesContainer.innerHTML = ''
-
-        const messageErrorOccurred = chatContent.querySelector('.message-error-occurred')
-        if (!messageErrorOccurred?.classList.contains('no-display')) {
-            messageErrorOccurred.classList.add('no-display')
-        }
-
-        const selectChatWall = chatContent.querySelector('.select-chat-wall')
-        if (!selectChatWall?.classList.contains('no-display')) {
-            selectChatWall.classList.add('no-display')
-        }
-
-        const noMessages = chatContentMain.querySelector('.no-messages')
-        if (!noMessages?.classList.contains('no-display')) {
-            noMessages?.classList.add('no-display')
-        }
+    const messageErrorOccurred = chatContent.querySelector('.message-error-occurred')
+    if (!messageErrorOccurred?.classList.contains('no-display')) {
+        messageErrorOccurred.classList.add('no-display')
     }
 
-    function updateHeading(card) {
-        const otherPartyId = card.querySelector('#other_party_id').value
-        const otherPartyName = card.querySelector('#other_party_name').textContent
-        const otherPartyImage = card.querySelector('.other-party-image').src
-
-        // Change content of the chat content heading
-        const id = chatContentHeading.querySelector('.other-party-id')
-        const name = chatContentHeading.querySelector('.other-party-name')
-        const image = chatContentHeading.querySelector('.other-party-image')
-        id.textContent = otherPartyId
-        name.textContent = otherPartyName
-        image.src = otherPartyImage
+    const selectChatWall = chatContent.querySelector('.select-chat-wall')
+    if (!selectChatWall?.classList.contains('no-display')) {
+        selectChatWall.classList.add('no-display')
     }
 
-    function loadOldMessages() {
-        if (!state.observer) {
-            state.observer = new IntersectionObserver(entries => {
-                entries.forEach(async entry => {
-                    if (entry.isIntersecting && !state.isLoading) {
-                        const el = entry.target
-                        if (state.lastActiveChat) {
-                            const oldScrollHeight = messagesArea.scrollHeight
+    const noMessages = chatContentMain.querySelector('.no-messages')
+    if (!noMessages?.classList.contains('no-display')) {
+        noMessages?.classList.add('no-display')
+    }
+}
 
-                            loader.lead(messagesContainer)
-                            const chatSessionId = state.lastActiveChat.getAttribute('data-id')
-                            await loadMessages(chatSessionId, false, true)
-                            loader.delete()
+function updateHeading(
+    otherPartyId,
+    otherPartyName,
+    otherPartyImage
+) {
+    // Change content of the chat content heading
+    const id = chatContentHeading.querySelector('.other-party-id')
+    const name = chatContentHeading.querySelector('.other-party-name')
+    const image = chatContentHeading.querySelector('.other-party-image')
+    id.textContent = otherPartyId
+    name.textContent = otherPartyName
+    image.src = otherPartyImage
+}
 
-                            const newScrollHeight = messagesArea.scrollHeight
-                            messagesArea.scrollTop = newScrollHeight - oldScrollHeight
-                        }
+async function loadInitialMessages(chatSessionId = null) {
+    // Load initial messages
+    loader.full(messagesArea)
+    await loadMessages(chatSessionId)
+    loader.delete()
+
+    messagesArea.scrollTop = messagesArea.scrollHeight
+}
+
+function loadOldMessages() {
+    if (!state.observer) {
+        state.observer = new IntersectionObserver(entries => {
+            entries.forEach(async entry => {
+                if (entry.isIntersecting && !state.isLoading) {
+                    const el = entry.target
+                    if (state.lastActiveChat) {
+                        const oldScrollHeight = messagesArea.scrollHeight
+
+                        loader.lead(messagesContainer)
+                        const chatSessionId = state.lastActiveChat.getAttribute('data-id')
+                        await loadMessages(chatSessionId, false, true)
+                        loader.delete()
+
+                        const newScrollHeight = messagesArea.scrollHeight
+                        messagesArea.scrollTop = newScrollHeight - oldScrollHeight
                     }
-                })
+                }
             })
-        }
-        if (sentinel) {
-            state.observer?.observe(sentinel)
-        }
+        })
     }
+    if (sentinel) {
+        state.observer?.observe(sentinel)
+    }
+}
 
-    const chatListCards = wrapper.querySelectorAll('.chat-list-card')
-    chatListCards.forEach(card => {
-        card.addEventListener('click', debounce(async e => {
-            e.preventDefault()
+try {
+    // Record existing chat sessions to map
+    Array.from(chatList.children).forEach(card => {
+        const id = card.getAttribute('data-id')
+        if (!state.chatSessions.has(id)) {
+            state.chatSessions.set(id, card)
+        }
+    })
 
-            resetMessagesContainer(card)
-            updateHeading(card)
+    // Load conversation from chat list cards
+    chatList?.addEventListener('click', e => {
+        const card = e.target.closest('.chat-list-card')
+        if (card) {
+            const idValue = card.getAttribute('data-id')
+            const chatSessionId = (idValue) ? idValue : null
+            if (!chatSessionId) {
+                notification.error(
+                    'An error occurred while loading your conversation.',
+                    3000,
+                    chatContentHeading
+                )
+                return
+            }
 
-            // Load initial messages
-            loader.full(messagesArea)
-            const chatSessionId = card.getAttribute('data-id')
-            await loadMessages(chatSessionId)
-            loader.delete()
+            const otherPartyId = card.getAttribute('data-other-party-id')
+            if (!state.chatSessions.has(otherPartyId)) {
+                state.chatSessions.set(otherPartyId, card)
+            }
 
-            messagesArea.scrollTop = messagesArea.scrollHeight
+            resetMessagesContainer()
+            card.classList.toggle('active')
+            if (state.lastActiveChat) {
+                state.lastActiveChat.classList.toggle('active')
+            }
+            state.lastActiveChat = card
 
+            const otherPartyName = card.getAttribute('data-other-party-name')
+            const otherPartyImage = card.getAttribute('data-other-party-image')
+            updateHeading(otherPartyId, otherPartyName, otherPartyImage)
+
+            loadInitialMessages(chatSessionId)
             loadOldMessages()
-        }, 300))
+        }
+    })
+
+    // Load conversation from chat now button
+    const chatNowButton = document.querySelector('.chat-now-button')
+    chatNowButton?.addEventListener('click', e => {
+        e.preventDefault()
+
+        const idValue = chatNowButton.getAttribute('data-id')
+        const chatSessionId = (idValue) ? idValue : null
+
+        if (state.chatSessions.has(chatSessionId)) {
+            const chatListCard = state.chatSessions.get(chatSessionId)
+            chatListCard.click()
+        } else if (wrapper.classList.toggle('show')) {
+            // README: This is so that we can access data- attributes that are 
+            // needed for BE, such as 'data-other-party-id' and 'data-other-party-type'.
+            // This will be replaced once chat list card is created for this new session
+            state.lastActiveChat = chatNowButton
+
+            state.lastActiveChat?.classList.remove('active')
+            wrapper.classList.remove('close')
+
+            const name = chatNowButton.getAttribute('data-other-party-name')
+            const id = chatNowButton.getAttribute('data-other-party-id')
+            const image = chatNowButton.getAttribute('data-other-party-image')
+
+            resetMessagesContainer()
+            updateHeading(id, name, image)
+
+            loadInitialMessages(chatSessionId)
+            loadOldMessages()
+        }
     })
 
     // Toggle More Options
@@ -110,6 +171,7 @@ try {
     if (moreOptionsButton && dropdown) {
         moreOptionsButton.addEventListener('click', e => {
             e.preventDefault()
+
 
             const muteIcon = state.lastActiveChat?.querySelector('.mute-icon')
 
@@ -127,7 +189,7 @@ try {
 
                 if (button?.classList.contains('view-store-button')) {
                     const name = chatContentHeading.querySelector('.other-party-name')
-                    redirect.redirectToStore(name.textContent)
+                    redirect.redirectToStore(name.textContent.trim())
                 } else if (button?.classList.contains('mute-button')) {
                     muteIcon?.classList.toggle('no-display')
 

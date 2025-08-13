@@ -2,6 +2,9 @@
 
 import { shared } from './utility.js'
 const {
+    chatList,
+    chatContentHeading,
+    messagesContainer,
     writeMessageArea,
     writeMessageForm,
     message,
@@ -10,40 +13,58 @@ const {
     http,
     notification,
     loader,
+    simplifyDate,
     dialog
 } = shared
 
-try {
-    async function sendToBackend(formData) {
-        try {
-            const chatSessionId = state.lastActiveChat?.getAttribute('data-id')
+async function sendToBackend(formData) {
+    try {
+        const idValue = state.lastActiveChat?.getAttribute('data-id')
+        const chatSessionId = (idValue) ? idValue : null
 
-            const endpoint = `backend/send-message/${chatSessionId}` // TODO
-            const response = await http.POST(endpoint, formData, false)
-            if (!response) {
-                throw new Error('Message cannot be sent')
-            }
+        const endpoint = `backend/send-message/${chatSessionId}` // TODO
+        const response = await http.POST(endpoint, formData, false)
+        if (!response) {
+            throw new Error('Message cannot be sent')
+        }
 
-            message.value = ''
-            state.newestMessageDate = new Date().toISOString()
+        // For new chat sessions 
+        if (response.chatListButton) {
+            chatList?.insertAdjacentHTML('afterbegin', response.chatListButton)
+        } else {
+            const activeChat = state.lastActiveChat
+            chatList?.insertBefore(activeChat, chatList?.firstElementChild)
+        }
+        chatList.firstElementChild?.classList.add('active')
+        state.lastActiveChat = chatList.firstElementChild
 
-            return true
-        } catch (error) {
-            console.error(error)
-            return null
-        } finally {
-            state.selectedFiles.clear()
-            message.value = ''
+        // If new chat session is created
+        const newChatSessionId = state.lastActiveChat?.getAttribute('data-id')
+        if (!state.chatSessions.has(newChatSessionId)) {
+            state.chatSessions.set(newChatSessionId, state.lastActiveChat)
+        }
 
-            const mediaPreview = writeMessageArea.querySelector('.media-preview')
-            mediaPreview.innerHTML = ''
-            if (mediaPreview?.classList.contains('flex-row')) {
-                mediaPreview.classList.remove('flex-row')
-                mediaPreview.classList.add('no-display')
-            }
+        message.value = ''
+        state.newestMessageDate = new Date().toISOString()
+
+        return true
+    } catch (error) {
+        console.error(error)
+        return null
+    } finally {
+        state.selectedFiles.clear()
+        message.value = ''
+
+        const mediaPreview = writeMessageArea.querySelector('.media-preview')
+        mediaPreview.innerHTML = ''
+        if (mediaPreview?.classList.contains('flex-row')) {
+            mediaPreview.classList.remove('flex-row')
+            mediaPreview.classList.add('no-display')
         }
     }
+}
 
+try {
     submitButton.addEventListener('click', async e => {
         e.preventDefault()
 
@@ -57,6 +78,11 @@ try {
 
         const formData = new FormData()
 
+        const id = state.lastActiveChat?.getAttribute('data-other-party-id')
+        const type = state.lastActiveChat?.getAttribute('data-other-party-type')
+
+        formData.append('otherPartyId', id)
+        formData.append('otherPartyType', type)
         for (const entry of state.selectedFiles.values()) {
             formData.append(
                 entry.type.includes('image/')

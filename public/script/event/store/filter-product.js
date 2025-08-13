@@ -1,9 +1,10 @@
 import { shared } from './utility.js'
 const {
     infiniteList,
+    productList,
     sentinel,
-    collectionName,
     state,
+    getResponse,
     resetList,
     insertProductCards,
     loader,
@@ -30,7 +31,7 @@ try {
                         resetList()
 
                         insertProductCards(response.data)
-                        collectionName = button.textContent
+                        state.collectionName = button.textContent
 
                     }
                 })
