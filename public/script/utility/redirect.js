@@ -1,8 +1,8 @@
-export const redirect = (() => {
-    function redirectTo(page) {
-        window.location.href = `/Techstock/${page}`
-    }
+function redirectTo(page) {
+    window.location.href = `/Techstock/${page}`
+}
 
+export const Redirect = (() => {
     return {
         redirectToLogin: () => {
             redirectTo('login')
@@ -30,7 +30,7 @@ export const redirect = (() => {
             } else {
                 // If there is no page on search query, that means user is in page 1
                 // Therefore, using the next button there would redirect on the 2nd page
-                q.append('page', 2) 
+                q.append('page', 2)
             }
             redirectTo(`search?${q.toString()}`)
         },

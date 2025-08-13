@@ -2,7 +2,7 @@ import { shared } from './utility.js'
 const {
     imagesSection,
     viewImage,
-    dialog
+    Dialog
 } = shared
 
 try {
@@ -10,7 +10,7 @@ try {
         const featuredImage = imagesSection.querySelector('.featured-image')
         const imageCollection = imagesSection.querySelectorAll('.image-collection > .carousel > img')
 
-        imageCollection?.forEach(image => {
+        imageCollection.forEach(image => {
             image.addEventListener('click', e => {
                 e.stopPropagation()
 
@@ -20,7 +20,7 @@ try {
         viewImage(featuredImage)
     }
 } catch (error) {
-    dialog.errorOccurred(error.message)
+    Dialog.errorOccurred(error.message)
     console.error(error)
 }
 

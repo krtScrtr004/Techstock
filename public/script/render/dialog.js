@@ -38,7 +38,7 @@ function render(
     hideModal(modalWrapper)
 }
 
-export const dialog = (() => {
+export const Dialog = (() => {
     return {
         errorOccurred: function (message) {
             render(

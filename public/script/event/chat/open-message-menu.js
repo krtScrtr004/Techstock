@@ -1,65 +1,65 @@
 import { shared } from './utility.js'
 const {
     messagesArea,
-    dialog
+    Dialog
 } = shared
 
-try {
-    let lastOpenedMenu = null
-    function updateLastOpenedMenu(newOpenedMenu) {
-        // Hide last opened menu
-        lastOpenedMenu?.classList.remove('flex-col')
-        lastOpenedMenu?.classList.add('no-display')
+let lastOpenedMenu = null
+function updateLastOpenedMenu(newOpenedMenu) {
+    // Hide last opened menu
+    lastOpenedMenu?.classList.remove('flex-col')
+    lastOpenedMenu?.classList.add('no-display')
 
-        lastOpenedMenu = newOpenedMenu
+    lastOpenedMenu = newOpenedMenu
+}
+
+function displayMenu(messageRow, messageBoxMenu, event) {
+    const rect = messageRow.getBoundingClientRect();
+
+    // Unset all positions to avoid conflicting styles
+    messageBoxMenu.style.left = '';
+    messageBoxMenu.style.right = '';
+    messageBoxMenu.style.top = '';
+    messageBoxMenu.style.bottom = '';
+
+    // Position horizontally
+    if (event.clientX + messageBoxMenu.offsetWidth > rect.right) {
+        // Handle overflow on x-axis
+        messageBoxMenu.style.right = (rect.right - event.clientX) + 'px';
+    } else {
+        messageBoxMenu.style.left = (event.clientX - rect.left) + 'px';
     }
 
-    function displayMenu(messageRow, messageBoxMenu, event) {
-        const rect = messageRow.getBoundingClientRect();
-
-        // Unset all positions to avoid conflicting styles
-        messageBoxMenu.style.left = '';
-        messageBoxMenu.style.right = '';
-        messageBoxMenu.style.top = '';
-        messageBoxMenu.style.bottom = '';
-
-        // Position horizontally
-        if (event.clientX + messageBoxMenu.offsetWidth > rect.right) {
-            // Handle overflow on x-axis
-            messageBoxMenu.style.right = (rect.right - event.clientX) + 'px';
-        } else {
-            messageBoxMenu.style.left = (event.clientX - rect.left) + 'px';
-        }
-
-        // Position vertically
-        if (event.clientY + messageBoxMenu.offsetHeight > rect.bottom) {
-            // Handle overflow on y-axis
-            messageBoxMenu.style.bottom = (rect.bottom - event.clientY) + 'px';
-        } else {
-            messageBoxMenu.style.top = (event.clientY - rect.top) + 'px';
-        }
-
-        messageBoxMenu.classList.add('flex-col');
+    // Position vertically
+    if (event.clientY + messageBoxMenu.offsetHeight > rect.bottom) {
+        // Handle overflow on y-axis
+        messageBoxMenu.style.bottom = (rect.bottom - event.clientY) + 'px';
+    } else {
+        messageBoxMenu.style.top = (event.clientY - rect.top) + 'px';
     }
 
-    function toggleMenuEvents(messageBoxMenu) {
-        const buttons = messageBoxMenu.querySelectorAll('button')
-        buttons?.forEach(button => {
-            button.addEventListener('click', e => {
-                if (button.classList.contains('delete-button')) {
-                    messageBoxMenu.parentElement.remove()
-                } else if (button.classList.contains('report-button')) {
-                    // TODO: Send to backend
-                    if (true) {
-                        dialog.reportResult(true)
-                    } else {
-                        dialog.reportResult(false)
-                    }
+    messageBoxMenu.classList.add('flex-col');
+}
+
+function toggleMenuEvents(messageBoxMenu) {
+    const buttons = messageBoxMenu.querySelectorAll('button')
+    buttons?.forEach(button => {
+        button.addEventListener('click', e => {
+            if (button.classList.contains('delete-button')) {
+                messageBoxMenu.parentElement.remove()
+            } else if (button.classList.contains('report-button')) {
+                // TODO: Send to backend
+                if (true) {
+                    Dialog.reportResult(true)
+                } else {
+                    Dialog.reportResult(false)
                 }
-            }, { once: true })
-        })
-    }
+            }
+        }, { once: true })
+    })
+}
 
+try {
     messagesArea?.addEventListener('contextmenu', e => {
         e.preventDefault()
 
@@ -85,6 +85,6 @@ try {
         }
     })
 } catch (error) {
-    dialog.errorOccurred(error.message)
+    Dialog.errorOccurred(error.message)
     console.error(error)
 }

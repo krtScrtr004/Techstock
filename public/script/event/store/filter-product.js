@@ -7,14 +7,15 @@ const {
     getResponse,
     resetList,
     insertProductCards,
-    loader,
+    Loader,
+    Dialog
 } = shared
 
 try {
     const collectionButtons = infiniteList.querySelectorAll('.collection-button')
     if (collectionButtons?.length > 0) {
         let lastActiveButton = collectionButtons[0]
-        collectionButtons?.forEach(button => {
+        collectionButtons.forEach(button => {
             button.addEventListener('click', async e => {
                 e.preventDefault()
 
@@ -25,7 +26,7 @@ try {
                 state.page = 1
                 state.observer.unobserve(sentinel)
 
-                loader.full(productList)
+                Loader.full(productList)
                 await getResponse((response) => {
                     if (response?.count > 0) {
                         resetList()
@@ -35,7 +36,7 @@ try {
 
                     }
                 })
-                loader.delete()
+                Loader.delete()
 
                 const resultGrid = infiniteList.querySelector('.result-grid')
                 resultGrid.scrollIntoView({
@@ -47,6 +48,6 @@ try {
         })
     }
 } catch (error) {
-    dialog.errorOccurred(error.message)
+    Dialog.errorOccurred(error.message)
     console.error(error)
 }

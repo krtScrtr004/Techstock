@@ -1,6 +1,6 @@
 import { viewImage } from '../../utility/view-image.js';
 
-import { dialog } from '../../render/dialog.js';
+import { Dialog } from '../../render/dialog.js';
 
 try {
     const slideshowImageWrapper = document.querySelector('.slide-show-wrapper')
@@ -9,7 +9,7 @@ try {
         const changeButtons = slideshowImageWrapper.querySelectorAll('.change-button')
         const dotTabs = slideshowImageWrapper.querySelectorAll('.dot-tab')
 
-        const path = 'asset/image/'
+        const IMAGE_PATH = 'asset/image/'
         const images = [
             'console-1.jpg',
             'controller-1.jpg',
@@ -35,12 +35,12 @@ try {
                 dotTabs[imageIndex].classList.add('active')
 
                 reflowImage()
-                slideshowImage.src = `${path}${images[imageIndex]}`
+                slideshowImage.src = `${IMAGE_PATH}${images[imageIndex]}`
             }, 8000);
         }
         autoNextImage()
 
-        changeButtons?.forEach(button => {
+        changeButtons.forEach(button => {
             button.addEventListener('click', e => {
                 e.stopPropagation()
 
@@ -55,11 +55,11 @@ try {
                 dotTabs[imageIndex].classList.add('active')
 
                 reflowImage()
-                slideshowImage.src = `${path}${images[imageIndex]}`
+                slideshowImage.src = `${IMAGE_PATH}${images[imageIndex]}`
             })
         })
 
-        dotTabs?.forEach((tab, index) => {
+        dotTabs.forEach((tab, index) => {
             tab.addEventListener('click', e => {
                 e.stopPropagation()
 
@@ -70,12 +70,12 @@ try {
                 tab.classList.add('active')
 
                 reflowImage()
-                slideshowImage.src = `${path}${images[index]}`
+                slideshowImage.src = `${IMAGE_PATH}${images[index]}`
             })
         })
 
         viewImage(slideshowImage)
     }
 } catch (error) {
-    dialog.errorOccurred(error.message)
+    Dialog.errorOccurred(drror.message)
 }

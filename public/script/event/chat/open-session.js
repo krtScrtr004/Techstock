@@ -11,10 +11,10 @@ const {
     sentinel,
     state,
     loadMessages,
-    notification,
-    redirect,
-    loader,
-    dialog
+    Notification,
+    Redirect,
+    Loader,
+    Dialog
 } = shared
 
 function resetMessagesContainer() {
@@ -54,9 +54,9 @@ function updateHeading(
 
 async function loadInitialMessages(chatSessionId = null) {
     // Load initial messages
-    loader.full(messagesArea)
+    Loader.full(messagesArea)
     await loadMessages(chatSessionId)
-    loader.delete()
+    Loader.delete()
 
     messagesArea.scrollTop = messagesArea.scrollHeight
 }
@@ -70,10 +70,10 @@ function loadOldMessages() {
                     if (state.lastActiveChat) {
                         const oldScrollHeight = messagesArea.scrollHeight
 
-                        loader.lead(messagesContainer)
+                        Loader.lead(messagesContainer)
                         const chatSessionId = state.lastActiveChat.getAttribute('data-id')
                         await loadMessages(chatSessionId, false, true)
-                        loader.delete()
+                        Loader.delete()
 
                         const newScrollHeight = messagesArea.scrollHeight
                         messagesArea.scrollTop = newScrollHeight - oldScrollHeight
@@ -103,7 +103,7 @@ try {
             const idValue = card.getAttribute('data-id')
             const chatSessionId = (idValue) ? idValue : null
             if (!chatSessionId) {
-                notification.error(
+                Notification.error(
                     'An error occurred while loading your conversation.',
                     3000,
                     chatContentHeading
@@ -140,12 +140,13 @@ try {
         const idValue = chatNowButton.getAttribute('data-id')
         const chatSessionId = (idValue) ? idValue : null
 
+        // If already has chat session, open it from chat list cards 
         if (state.chatSessions.has(chatSessionId)) {
             const chatListCard = state.chatSessions.get(chatSessionId)
             chatListCard.click()
         } else if (wrapper.classList.toggle('show')) {
             // README: This is so that we can access data- attributes that are 
-            // needed for BE, such as 'data-other-party-id' and 'data-other-party-type'.
+            // needed on BE, such as 'data-other-party-id' and 'data-other-party-type'.
             // This will be replaced once chat list card is created for this new session
             state.lastActiveChat = chatNowButton
 
@@ -189,7 +190,7 @@ try {
 
                 if (button?.classList.contains('view-store-button')) {
                     const name = chatContentHeading.querySelector('.other-party-name')
-                    redirect.redirectToStore(name.textContent.trim())
+                    Redirect.redirectToStore(name.textContent.trim())
                 } else if (button?.classList.contains('mute-button')) {
                     muteIcon?.classList.toggle('no-display')
 
@@ -198,9 +199,9 @@ try {
                     e.target.textContent = (e.target.textContent.toLowerCase() === 'block') ? 'Unblock' : 'Block'
                 } else if (button?.classList.contains('report-button')) {
                     if (true) {
-                        dialog.reportResult(true)
+                        Dialog.reportResult(true)
                     } else {
-                        dialog.reportResult(false)
+                        Dialog.reportResult(false)
                     }
                 }
                 dropdown.classList.toggle('no-display')
@@ -226,6 +227,6 @@ try {
         }
     })
 } catch (error) {
-    dialog.errorOccurred(error.message)
+    Dialog.errorOccurred(error.message)
     console.error(error)
 }

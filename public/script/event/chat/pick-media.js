@@ -5,7 +5,7 @@ const {
     filePickerButtons,
     state,
     debounce,
-    dialog
+    Dialog
 } = shared
 
 try {
@@ -126,6 +126,6 @@ try {
         })
     }
 } catch (error) {
-    dialog.errorOccurred(error.message)
+    Dialog.errorOccurred(error.message)
     console.error(error)
 }

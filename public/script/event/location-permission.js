@@ -1,6 +1,6 @@
-import { http } from '../utility/http.js'
+import { Http } from '../utility/http.js'
 
-import { dialog } from '../render/dialog.js'
+import { Dialog } from '../render/dialog.js'
 
 try {
     if (!document.cookie.includes('locationPermission')) {
@@ -11,7 +11,7 @@ try {
             e.preventDefault()
 
             locationPermissionModalWrapper.style.display = 'none'
-            await http.POST('form-submit/location-permission', { permission: permission })
+            await Http.POST('form-submit/location-permission', { permission: permission })
         }
 
         const rejectButton = locationPermissionModalWrapper.querySelector('.location-permission-modal .reject-button')
@@ -22,5 +22,5 @@ try {
         allowButton.addEventListener('click', e => executeRequest(e, true))
     }
 } catch (error) {
-    dialog.errorOccurred(error.message)
+    Dialog.errorOccurred(error.message)
 }

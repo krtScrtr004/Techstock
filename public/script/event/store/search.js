@@ -7,8 +7,8 @@ const {
     getResponse,
     resetList,
     insertProductCards,
-    loader,
-    dialog
+    Loader,
+    Dialog
 } = shared
 
 try {
@@ -22,14 +22,14 @@ try {
 
             const inputSearch = form.querySelector('#search_store').value
 
-            loader.full(productList)
+            Loader.full(productList)
             await getResponse((response) => {
                 resetList()
 
                 insertProductCards(response.data)
                 state.collectionName = ''
             }, inputSearch)
-            loader.delete()
+            Loader.delete()
 
             const resultGrid = infiniteList?.querySelector('.result-grid')
             resultGrid.scrollIntoView({
@@ -40,6 +40,6 @@ try {
         })
     }
 } catch (error) {
-    dialog.errorOccurred(error.message)
+    Dialog.errorOccurred(error.message)
     console.error(error)
 }

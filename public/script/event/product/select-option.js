@@ -1,19 +1,19 @@
 import { shared } from './utility.js'
 const {
     optionForms,
-    dialog
+    Dialog
 } = shared
 
+const [white, blue, black] = ['#fffefe', '#02a9f7', '#01303f']
+
+function updateButtonStyle(status, button) {
+    button.style.backgroundColor = (status) ? blue : white
+    button.style.border = (status) ? `1px solid ${blue}` : `1px solid ${black}`
+    button.style.color = (status) ? `${white}` : `${black}`
+}
+
 try {
-    const [white, blue, black] = ['#fffefe', '#02a9f7', '#01303f']
-
-    function updateButtonStyle(status, button) {
-        button.style.backgroundColor = (status) ? blue : white
-        button.style.border = (status) ? `1px solid ${blue}` : `1px solid ${black}`
-        button.style.color = (status) ? `${white}` : `${black}`
-    }
-
-    optionForms?.forEach(form => {
+    optionForms.forEach(form => {
         let lastCheckedButton = null
         const hiddenWrappers = form.querySelectorAll('.hidden-wrapper')
         hiddenWrappers.forEach(wrapper => {
@@ -38,7 +38,7 @@ try {
         })
     })
 } catch (error) {
-    dialog.errorOccurred(error.message)
+    Dialog.errorOccurred(error.message)
     console.error(error)
 }
 

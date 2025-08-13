@@ -6,8 +6,8 @@ const {
     state,
     insertProductCards,
     getResponse,
-    loader,
-    dialog
+    Loader,
+    Dialog
 } = shared
 
 try {
@@ -17,7 +17,7 @@ try {
             if (entry.isIntersecting && !state.isLoading) {
 
                 const el = entry.target
-                loader.trail(productList.parentElement)
+                Loader.trail(productList.parentElement)
                 await getResponse((response) => {
                     if (response.count > 0) {
                         insertProductCards(response.data)
@@ -26,7 +26,7 @@ try {
                         state.observer?.unobserve(el)
                     }
                 })
-                loader.delete()
+                Loader.delete()
             }
         })
     })
@@ -34,6 +34,6 @@ try {
         state.observer?.observe(sentinel)
     }
 } catch (error) {
-    dialog.errorOccurred(error.message)
+    Dialog.errorOccurred(error.message)
     console.error(error)
 }

@@ -10,11 +10,11 @@ const {
     message,
     submitButton,
     state,
-    http,
-    notification,
-    loader,
+    Http,
+    Notification,
+    Loader,
     simplifyDate,
-    dialog
+    Dialog
 } = shared
 
 async function sendToBackend(formData) {
@@ -23,7 +23,7 @@ async function sendToBackend(formData) {
         const chatSessionId = (idValue) ? idValue : null
 
         const endpoint = `backend/send-message/${chatSessionId}` // TODO
-        const response = await http.POST(endpoint, formData, false)
+        const response = await Http.POST(endpoint, formData, false)
         if (!response) {
             throw new Error('Message cannot be sent')
         }
@@ -74,7 +74,7 @@ try {
         }
 
         const buttonImage = submitButton.querySelector('img')
-        loader.patch(buttonImage)
+        Loader.patch(buttonImage)
 
         const formData = new FormData()
 
@@ -93,14 +93,14 @@ try {
         formData.append('message', message.value)
 
         if (!(await sendToBackend(formData))) {
-            notification.error(
+            Notification.error(
                 'Message cannot be sent! Please try again.',
                 3000,
                 chatContentHeading
             )
         }
 
-        loader.delete()
+        Loader.delete()
     })
 
     writeMessageForm?.addEventListener('submit', e => {
@@ -108,6 +108,6 @@ try {
         submitButton.click()
     })
 } catch (error) {
-    dialog.errorOccurred(error.message)
+    Dialog.errorOccurred(error.message)
     console.error(error)
 }

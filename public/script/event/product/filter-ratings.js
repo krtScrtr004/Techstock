@@ -6,10 +6,10 @@ const {
     viewImage,
     displayRatings,
     likeRating,
-    loader,
-    http,
+    Loader,
+    Http,
     debounce,
-    dialog
+    Dialog
 } = shared
 
 try {
@@ -27,20 +27,20 @@ try {
         async function updateRatingList(/*ratingLevels*/) {
             ratingList.innerHTML = '' // Remove all contents
 
-            loader.full(ratingList)
+            Loader.full(ratingList)
 
             // const searchQuery = new URLSearchParams({
             //     'rating-level': ratingLevels
             // })
 
             // const endpoint = `dump/api/rating-card?${searchQuery.toString()}`
-            const response = await http?.GET('dump/api/rating-card') // TODO
+            const response = await Http?.GET('dump/api/rating-card') // TODO
             if (response) {
                 displayRatings(response.ratingCards)
                 likeRating() // Add like rating event
             }
 
-            loader.delete()
+            Loader.delete()
 
             const ratingImages = ratings.querySelectorAll('.rating-image')
             ratingImages?.forEach(image => viewImage(image))
@@ -53,70 +53,69 @@ try {
             acc.push(...section.querySelectorAll('.hidden-wrapper'))
             return acc
         }, [])
-        hiddenWrappers?.forEach(wrapper => {
+        hiddenWrappers.forEach(wrapper => {
             const checkbox = wrapper.querySelector('input[type="checkbox"]')
             const button = wrapper.querySelector('button')
 
-            debounce(
-                button.addEventListener('click', e => {
-                    e.preventDefault()
+            function selectFilter(e) {
+                e.preventDefault()
 
-                    const ratingValue = checkbox.value
+                const ratingValue = checkbox.value
 
-                    // Helper function to uncheck a wrapper and update its style
-                    const uncheckWrapper = (targetWrapper) => {
-                        const targetCheckbox = targetWrapper.querySelector('input[type="checkbox"]')
-                        const targetButton = targetWrapper.querySelector('button')
-                        targetCheckbox.checked = false
-                        updateButtonStyle(false, targetButton)
+                // Helper function to uncheck a wrapper and update its style
+                const uncheckWrapper = (targetWrapper) => {
+                    const targetCheckbox = targetWrapper.querySelector('input[type="checkbox"]')
+                    const targetButton = targetWrapper.querySelector('button')
+                    targetCheckbox.checked = false
+                    updateButtonStyle(false, targetButton)
+                }
+
+                // Handle "all" filter
+                if (ratingValue === 'all') {
+                    checkedFilters.forEach(uncheckWrapper)
+                    checkedFilters.length = 0 // Clear the array
+                } else {
+                    // Deselect the "all" option if it was selected
+                    const allWrapper = ratings.querySelector('.hidden-wrapper:first-child')
+                    const allIndex = checkedFilters.indexOf(allWrapper)
+
+                    if (allIndex !== -1) {
+                        uncheckWrapper(allWrapper)
+                        checkedFilters.splice(allIndex, 1)
                     }
+                }
 
-                    // Handle "all" filter
-                    if (ratingValue === 'all') {
-                        checkedFilters.forEach(uncheckWrapper)
-                        checkedFilters.length = 0 // Clear the array
-                    } else {
-                        // Deselect the "all" option if it was selected
-                        const allWrapper = ratings.querySelector('.hidden-wrapper:first-child')
-                        const allIndex = checkedFilters.indexOf(allWrapper)
+                // Toggle current filter
+                const currentIndex = checkedFilters.indexOf(wrapper)
+                const isSelected = currentIndex === -1
 
-                        if (allIndex !== -1) {
-                            uncheckWrapper(allWrapper)
-                            checkedFilters.splice(allIndex, 1)
-                        }
-                    }
+                checkbox.checked = isSelected;
+                updateButtonStyle(isSelected, button)
 
-                    // Toggle current filter
-                    const currentIndex = checkedFilters.indexOf(wrapper)
-                    const isSelected = currentIndex === -1
+                if (isSelected) {
+                    checkedFilters.push(wrapper)
+                } else {
+                    checkedFilters.splice(currentIndex, 1)
+                }
 
-                    checkbox.checked = isSelected;
-                    updateButtonStyle(isSelected, button)
-
-                    if (isSelected) {
-                        checkedFilters.push(wrapper)
-                    } else {
-                        checkedFilters.splice(currentIndex, 1)
-                    }
-
-                    // Update visible product list or filters
-                    updateRatingList(
-                        checkedFilters.map(filter =>
-                            filter.querySelector('input[type="checkbox"]').value
-                        )
+                // Update visible product list or filters
+                updateRatingList(
+                    checkedFilters.map(filter =>
+                        filter.querySelector('input[type="checkbox"]').value
                     )
+                )
 
-                    // Default to "all" option if there is no other options selected
-                    if (checkedFilters.length === 0) {
-                        checkedFilters.push(firstHiddenWrapper)
-                        updateButtonStyle(true, firstHiddenWrapper.querySelector('button'))
-                    }
-                })
-            )
+                // Default to "all" option if there is no other options selected
+                if (checkedFilters.length === 0) {
+                    checkedFilters.push(firstHiddenWrapper)
+                    updateButtonStyle(true, firstHiddenWrapper.querySelector('button'))
+                }
+            }
+            button.addEventListener('click', e => debounce(selectFilter(e), 300))
         })
     }
 } catch (error) {
-    dialog.errorOccurred(error.message)
+    Dialog.errorOccurred(error.message)
     console.error(error)
 }
 

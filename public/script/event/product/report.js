@@ -5,7 +5,7 @@ const {
     reportDescriptionModalWrapper,
     reasonButtons,
     hideModal,
-    dialog
+    Dialog
 } = shared
 
 try {
@@ -19,7 +19,7 @@ try {
             toggleModalWrapper(reportReasonModalWrapper, true)
         })
 
-        reasonButtons?.forEach(button => {
+        reasonButtons.forEach(button => {
             button.addEventListener('click', e => {
                 e.preventDefault()
 
@@ -48,7 +48,7 @@ try {
         hideModal(reportReasonModalWrapper)
     }
 } catch (error) {
-    dialog.errorOccurred(error.message)
+    Dialog.errorOccurred(error.message)
     console.error(error)
 }   
 

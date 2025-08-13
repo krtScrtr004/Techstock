@@ -1,6 +1,6 @@
 import { viewImage } from '../../utility/view-image.js';
 
-import { dialog } from '../../render/dialog.js';
+import { Dialog } from '../../render/dialog.js';
 
 try {
     const storeLogo = document.querySelector('.store-logo')
@@ -8,6 +8,6 @@ try {
         viewImage(storeLogo)
     }
 } catch (error) {
-    dialog.errorOccurred(error.message)
+    Dialog.errorOccurred(error.message)
     console.error(error)
 }

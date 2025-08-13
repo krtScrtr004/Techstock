@@ -13,16 +13,21 @@
     <link rel="stylesheet" href="<?= STYLE_PATH . 'component.css' ?>">
     <link rel="stylesheet" href="<?= STYLE_PATH . 'header.css' ?>">
     <link rel="stylesheet" href="<?= STYLE_PATH . 'footer.css' ?>">
+    <link rel="stylesheet" href="<?= STYLE_PATH . 'loader.css' ?>">
 
+    <link rel="stylesheet" href="<?= STYLE_PATH . 'chat.css' ?>">
     <link rel="stylesheet" href="<?= STYLE_PATH . 'search.css' ?>">
 </head>
 
 <body class="search">
 
-    <?php require_once COMPONENT_PATH . 'header.php' ?>
+    <?php
+    require_once COMPONENT_PATH . 'header.php';
+    include_once COMPONENT_PATH . 'chat.php';
+    ?>
 
     <main class="flex-row dark-white-bg">
-        <aside class="flex-col white-bg">
+        <aside class="filters flex-col white-bg">
             <div class="text-w-icon flex-child-start-v">
                 <img
                     src="<?= ICON_PATH . 'filter.svg' ?>"
@@ -129,6 +134,15 @@
     <?php require_once COMPONENT_PATH . 'footer.php' ?>
 
     <script type="module" src="<?= htmlspecialchars(EVENT_PATH . 'page-tab.js'); ?>" defer></script>
+
+    <script type="module" src="<?= htmlspecialchars(EVENT_PATH . 'chat' . DS . 'toggle-body.js'); ?>" defer></script>
+    <script type="module" src="<?= htmlspecialchars(EVENT_PATH . 'chat' . DS . 'search-session.js'); ?>" defer></script>
+    <script type="module" src="<?= htmlspecialchars(EVENT_PATH . 'chat' . DS . 'open-session.js'); ?>" defer></script>
+    <script type="module" src="<?= htmlspecialchars(EVENT_PATH . 'chat' . DS . 'react-to-message.js'); ?>" defer></script>
+    <script type="module" src="<?= htmlspecialchars(EVENT_PATH . 'chat' . DS . 'pick-media.js'); ?>" defer></script>
+    <script type="module" src="<?= htmlspecialchars(EVENT_PATH . 'chat' . DS . 'open-message-menu.js'); ?>" defer></script>
+    <script type="module" src="<?= htmlspecialchars(EVENT_PATH . 'chat' . DS . 'send.js'); ?>" defer></script>
+    <script type="module" src="<?= htmlspecialchars(EVENT_PATH . 'chat' . DS . 'auto-fetch-messages.js'); ?>" defer></script>
 
     <script type="module" src="<?= htmlspecialchars(EVENT_PATH . 'search' . DS . 'filter.js'); ?>" defer></script>
 

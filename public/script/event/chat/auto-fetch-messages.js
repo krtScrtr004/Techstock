@@ -6,7 +6,7 @@ const {
     sentinel,
     loadMessages,
     state,
-    dialog
+    Dialog
 } = shared
 
 try {
@@ -51,5 +51,5 @@ try {
         }
     }, 10000)
 } catch (error) {
-    dialog.errorOccurred()
+    Dialog.errorOccurred()
 }

@@ -6,9 +6,9 @@ const {
     viewImage,
     displayRatings,
     displayPagination,
-    loader,
-    http,
-    dialog
+    Loader,
+    Http,
+    Dialog
 } = shared
 
 
@@ -17,7 +17,7 @@ try {
     let pageNumber = 1
 
     if (ratingList) {
-        document.addEventListener('DOMContentLoaded', likeRating())// Add like rating event
+        document.addEventListener('DOMContentLoaded', likeRating()) // Add like rating event
 
         function viewRatingImage() {
             const ratingImages = ratings?.querySelectorAll('.rating-image')
@@ -39,9 +39,9 @@ try {
             // const endpoint = `dump/api/rating-card${createSearchParam()}`
 
             ratingList.innerHTML = '' // Remove all contents
-            loader.full(ratingList)
+            Loader.full(ratingList)
 
-            const response = await http?.GET('dump/api/rating-card') // TODO
+            const response = await Http?.GET('dump/api/rating-card') // TODO
             if (response) {
                 displayRatings(response.ratingCards)
                 likeRating() // Add like rating event
@@ -56,7 +56,7 @@ try {
             pageNumber = page
             displayPagination(pageNumber, maxPage, redirectHandler)
 
-            loader.delete()
+            Loader.delete()
 
             viewRatingImage()
         }
@@ -65,7 +65,7 @@ try {
         displayPagination(pageNumber, maxPage, redirectHandler)
     }
 } catch (error) {
-    dialog.errorOccurred(error.message)
+    Dialog.errorOccurred(error.message)
     console.error(error)
 }
 

@@ -1,9 +1,9 @@
-import { redirect } from '../../utility/redirect.js'
+import { Redirect } from '../../utility/redirect.js'
 
-import { dialog } from '../../render/dialog.js'
+import { Dialog } from '../../render/dialog.js'
 
 try {
-    const searchFilterWrapper = document.querySelector('.search aside')
+    const searchFilterWrapper = document.querySelector('.search aside.filters')
     if (searchFilterWrapper) {
         const categoryFilterForm = searchFilterWrapper.querySelector('.category-filter>form')
         const ratingFilterButtons = searchFilterWrapper.querySelectorAll('.rating-filter>button')
@@ -86,7 +86,7 @@ try {
             const param = new URLSearchParams(filters)
             param.append('page', null)
             // Redirect with corresponding search filter query
-            redirect.redirectToSearch(param, 1)
+            Redirect.redirectToSearch(param, 1)
         }
 
         setFilterFromUrl() // Check filters on URL, then set them on search filter section
@@ -114,7 +114,7 @@ try {
         })    
     }
 } catch (error) {
-    dialog.errorOccurred(error.message)
+    Dialog.errorOccurred(error.message)
     console.error(error)
 }
 

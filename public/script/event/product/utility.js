@@ -1,13 +1,13 @@
-import { dialog } from '../../render/dialog.js'
-import { loader } from '../../render/loader.js'
-import { notification } from '../../render/notification.js'
+import { Dialog } from '../../render/dialog.js'
+import { Loader } from '../../render/loader.js'
+import { Notification } from '../../render/notification.js'
 
 import { hideModal } from '../../utility/hide-modal.js'
 import { displayPagination } from '../../utility/display-pagination.js'
 import { viewImage } from '../../utility/view-image.js'
 
 import { debounce } from '../../utility/debounce.js'
-import { http } from '../../utility/http.js'
+import { Http } from '../../utility/http.js'
 
 function domMembers() {
     const wrapper = document.querySelector('body.page-info')
@@ -44,10 +44,10 @@ function domMembers() {
 }
 
 function likeRating(dom) {
-    const PATH = 'asset/image/icon/'
+    const ICON_PATH = 'asset/image/icon/'
 
     const likeRatingButtons = dom.ratings?.querySelectorAll('button.like-rating')
-    likeRatingButtons?.forEach(button => {
+    likeRatingButtons.forEach(button => {
         button.addEventListener('click', e => {
             e.preventDefault()
 
@@ -56,10 +56,10 @@ function likeRating(dom) {
             const icon = button.querySelector('img')
             const regex = /dw/g
             if (regex.test(icon.src)) {
-                icon.src = PATH + 'like_bl.svg'
+                icon.src = ICON_PATH + 'like_bl.svg'
                 likeCount.textContent = parseInt(likeCount.textContent) + 1
             } else {
-                icon.src = PATH + 'like_dw.svg'
+                icon.src = ICON_PATH + 'like_dw.svg'
                 likeCount.textContent = parseInt(likeCount.textContent) - 1
             }
         })
@@ -80,11 +80,11 @@ export const shared = (() => {
 
     return {
         ...dom,
-        dialog,
-        loader,
-        http,
+        Dialog,
+        Loader,
+        Http,
         debounce,
-        notification,
+        Notification,
         hideModal,
         displayPagination,
         viewImage,

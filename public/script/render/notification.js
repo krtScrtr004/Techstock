@@ -1,44 +1,43 @@
 import { stickToTop } from '../utility/stick-to-top.js'
 
-const Notification = () => {
-    function remove(
-        notificationWrapper, 
-        notificationContent, 
-        duration
-    ) {
-        // Define the handler outside the setTimeout to prevent undefined behaviors 
-        // When copy-link button is clicked multiple successively
-        function onAnimationEnd(ev) {
-            if (ev.animationName === 'slide-up') {
-                notificationContent.removeEventListener('animationend', onAnimationEnd)
-                notificationWrapper.remove()
-            }
-        }
-
-        // Clear previous animation classes
-        notificationContent.classList.remove('slide-up')
-        notificationContent.classList.add('slide-down')
-
-        setTimeout(() => {
-            notificationContent.classList.remove('slide-down')
-            notificationContent.classList.add('slide-up')
-
-            // Remove existing listeners (optional safety) and add again
+function remove(
+    notificationWrapper,
+    notificationContent,
+    duration
+) {
+    // Define the handler outside the setTimeout to prevent undefined behaviors 
+    // When copy-link button is clicked multiple successively
+    function onAnimationEnd(ev) {
+        if (ev.animationName === 'slide-up') {
             notificationContent.removeEventListener('animationend', onAnimationEnd)
-            notificationContent.addEventListener('animationend', onAnimationEnd)
-        }, duration)
+            notificationWrapper.remove()
+        }
     }
 
-    function render(
-        status,
-        message,
-        duration,
-        parentElem
-    ) {
-        const statusStyle = status ? 'success' : 'error'
-        const backgroundColor = status ? 'blue' : 'red'
+    // Clear previous animation classes
+    notificationContent.classList.remove('slide-up')
+    notificationContent.classList.add('slide-down')
 
-        const html = `
+    setTimeout(() => {
+        notificationContent.classList.remove('slide-down')
+        notificationContent.classList.add('slide-up')
+
+        // Remove existing listeners (optional safety) and add again
+        notificationContent.removeEventListener('animationend', onAnimationEnd)
+        notificationContent.addEventListener('animationend', onAnimationEnd)
+    }, duration)
+}
+
+function render(
+    status,
+    message,
+    duration,
+    parentElem
+) {
+    const statusStyle = status ? 'success' : 'error'
+    const backgroundColor = status ? 'blue' : 'red'
+
+    const html = `
         <section class="notification-wrapper center-child block absolute ${statusStyle}">
             <div class="${backgroundColor}-bg">
                 <p class="white-text">${message}</p>
@@ -46,23 +45,24 @@ const Notification = () => {
         </section>
         `
 
-        parentElem.insertAdjacentHTML('afterend', html)
+    parentElem.insertAdjacentHTML('afterend', html)
 
-        const notificationWrapper = document.querySelector('.notification-wrapper')
-        const notificationContent = notificationWrapper.querySelector('div')
+    const notificationWrapper = document.querySelector('.notification-wrapper')
+    const notificationContent = notificationWrapper.querySelector('div')
 
-        stickToTop(notificationWrapper)
-        remove(
-            notificationWrapper,
-            notificationContent,
-            duration
-        )
-    }
+    stickToTop(notificationWrapper)
+    remove(
+        notificationWrapper,
+        notificationContent,
+        duration
+    )
+}
 
+export const Notification = (() => {
     return {
         success: function (
-            message, 
-            duration, 
+            message,
+            duration,
             parentElem = document.querySelector('header')
         ) {
             render(
@@ -74,8 +74,8 @@ const Notification = () => {
         },
 
         error: function (
-            message, 
-            duration, 
+            message,
+            duration,
             parentElem = document.querySelector('header')
         ) {
             render(
@@ -86,5 +86,4 @@ const Notification = () => {
             )
         }
     }
-}
-export const notification = Notification()
+})()

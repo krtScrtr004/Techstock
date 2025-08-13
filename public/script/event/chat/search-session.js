@@ -3,13 +3,13 @@ const {
     searchForm,
     chatList,
     debounce,
-    dialog
+    Dialog
 } = shared
 
 try {
     if (searchForm && chatList) {
         const searchBar = searchForm.querySelector('.search-chat-input')
-        const chatListCards = [...chatList.querySelectorAll('.chat-list-card')]
+        const chatListCards = [...chatList.children]
 
         function handleSearch() {
             const query = searchBar.value.toLowerCase()
@@ -23,6 +23,6 @@ try {
         searchBar?.addEventListener('input', debounce(handleSearch, 300))
     }
 } catch (error) {
-    dialog.errorOccurred(error.message)
+    Dialog.errorOccurred(error.message)
     console.error(error)
 }

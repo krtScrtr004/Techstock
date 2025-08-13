@@ -1,6 +1,6 @@
-const Http = () => {
-    const apiUrl = 'http://localhost/Techstock/'
+const apiUrl = 'http://localhost/Techstock/'
 
+export const Http = (() => {
     return {
         GET: async (endpoint) => {
             try {
@@ -50,5 +50,4 @@ const Http = () => {
             }
         }
     }
-}
-export const http = Http()
+})()

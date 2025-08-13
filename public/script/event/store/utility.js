@@ -1,8 +1,8 @@
 import { displayBatch } from '../../utility/display-batch.js'
-import { http } from '../../utility/http.js'
+import { Http } from '../../utility/http.js'
 
-import { loader } from '../../render/loader.js'
-import { dialog } from '../../render/dialog.js'
+import { Loader } from '../../render/loader.js'
+import { Dialog } from '../../render/dialog.js'
 
 function domMembers() {
     const infiniteList = document.querySelector('.infinite-list')
@@ -29,7 +29,7 @@ async function getResponse(callback, state, search = null) {
         endpoint = `${endpoint}&q=${search}`
     }
 
-    const response = await http.GET(endpoint) // TODO
+    const response = await Http.GET(endpoint) // TODO
     if (response) {
         callback(response)
     }
@@ -42,7 +42,7 @@ function fragmentCreatorCallback(elem) {
     const nameSlug = elem.name?.replace(' ', '-')
     const productId = elem.id
     const storeId = elem.store?.id
-    const redirectPath = `http://localhost/Techstock/product/${elem.name}-i.${productId}.${storeId}`
+    const redirectPath = `Http://localhost/Techstock/product/${nameSlug}-i.${productId}.${storeId}`
     wrapper.href = redirectPath
 
     const card = document.createElement('div')
@@ -101,9 +101,9 @@ export const shared = (() => {
     return {
         ...dom,
         state,
-        http,
-        loader,
-        dialog,
+        Http,
+        Loader,
+        Dialog,
         getResponse: async (callback, search = null) => getResponse(callback, state, search),
         insertProductCards: (cards) => insertProductCards(cards, dom),
         resetList: () => resetList(state, dom)

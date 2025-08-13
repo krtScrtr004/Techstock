@@ -1,6 +1,6 @@
 // TODO: Recalculate total price if user change quantity
 
-import { dialog } from '../../render/dialog.js'
+import { Dialog } from '../../render/dialog.js'
 
 function domMembers() {
     const body = document.querySelector('body.shopping-cart')
@@ -65,7 +65,7 @@ export const shared = (() => {
     const dom = domMembers()
     return {
         ...dom,
-        dialog,
+        Dialog,
         formatNumber: (number) => formatNumber(number),
         getCheckedItems: () => getCheckedItems(dom),
         calculateTotalPrice: () => calculateTotalPrice(dom)

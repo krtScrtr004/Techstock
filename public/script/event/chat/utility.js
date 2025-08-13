@@ -1,14 +1,14 @@
 import { messageFragmentCallback } from './messages-fragment-callback.js'
 
-import { dialog } from '../../render/dialog.js'
-import { loader } from '../../render/loader.js'
-import { notification } from '../../render/notification.js'
+import { Dialog } from '../../render/dialog.js'
+import { Loader } from '../../render/loader.js'
+import { Notification } from '../../render/notification.js'
 
 import { simplifyDate } from '../../utility/simplify-date.js'
 import { debounce } from '../../utility/debounce.js'
-import { http } from '../../utility/http.js'
+import { Http } from '../../utility/http.js'
 import { displayBatch } from '../../utility/display-batch.js'
-import { redirect } from '../../utility/redirect.js'
+import { Redirect } from '../../utility/redirect.js'
 
 function domMembers() {
     const chatToggle = document.querySelector('.chat-toggle')
@@ -69,7 +69,7 @@ async function loadMessages(
         searchParams.append('date', date)
         const endpoint = `backend/get-messages/${id}?${searchParams}`
 
-        const response = await http.GET(endpoint)
+        const response = await Http.GET(endpoint)
         if (response) {
             if (response.count > 0) {
                 const callback = displayBatch(dom.messagesContainer, messageFragmentCallback, prepend)
@@ -109,7 +109,7 @@ async function loadMessages(
             }
         }
     } catch (e) {
-        dialog.errorOccurred(e.message)
+        Dialog.errorOccurred(e.message)
         console.log(e)
     } finally {
         state.isLoading = false
@@ -131,13 +131,13 @@ export const shared = (() => {
     return {
         ...dom,
         state,
-        dialog,
-        loader,
+        Dialog,
+        Loader,
         debounce,
-        http,
-        redirect,
+        Http,
+        Redirect,
         displayBatch,
-        notification,
+        Notification,
         simplifyDate,
         loadMessages: async (id, newMessages = true, prepend = false) => loadMessages(id, dom, state, newMessages, prepend, 5)
     }

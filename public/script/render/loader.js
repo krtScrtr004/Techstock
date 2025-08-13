@@ -1,4 +1,4 @@
-const Loader = () => {
+export const Loader = (() => {
     let parent;
     let patchedElem = null
 
@@ -71,5 +71,4 @@ const Loader = () => {
             }
         }
     }
-}
-export const loader = Loader();
+})()

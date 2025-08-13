@@ -1,4 +1,4 @@
-import { dialog } from '../render/dialog.js'
+import { Dialog } from '../render/dialog.js'
 
 try {
     const EPSILON = 1 // Close to zero gap; Used to calculate right tracker scrollable area left
@@ -51,6 +51,6 @@ try {
         })
     }
 } catch (error) {
-    dialog.errorOccurred(error.message)
+    Dialog.errorOccurred(drror.message)
     console.error(error)
 }

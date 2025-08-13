@@ -2,25 +2,26 @@ import { shared } from './utility.js'
 const {
     deleteItemButtons,
     removeCheckedButton,
+    getCheckedItems,
     calculateTotalPrice,
-    dialog
+    Dialog
 } = shared
 
-try {
-    function removeItemDom(elem) {
-        const fieldset = elem.closest('fieldset')
-        const itemInfoParent = elem.closest('.item-info')
-        itemInfoParent?.remove()
+function removeItemDom(elem) {
+    const fieldset = elem.closest('fieldset')
+    const itemInfoParent = elem.closest('.item-info')
+    itemInfoParent?.remove()
 
-        // Remove store info when no items listed
-        const remainingItems = fieldset.querySelectorAll('.item-info input[type="checkbox"]')
-        if (remainingItems?.length < 1) {
-            fieldset?.remove()
-        }
-
-        calculateTotalPrice()
+    // Remove store info when no items listed
+    const remainingItems = fieldset.querySelectorAll('.item-info input[type="checkbox"]')
+    if (remainingItems?.length < 1) {
+        fieldset?.remove()
     }
 
+    calculateTotalPrice()
+}
+
+try {
     // TODO: SEND ITEM ID BACK TO SERVER
 
     // Delete Action Button
@@ -42,6 +43,6 @@ try {
         }
     })
 } catch (error) {
-    dialog.errorOccurred(error.message)
+    Dialog.errorOccurred(error.message)
     console.error(error)
 }

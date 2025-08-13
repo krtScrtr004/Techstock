@@ -1,4 +1,4 @@
-import { dialog } from '../render/dialog.js'
+import { Dialog } from '../render/dialog.js'
 
 try {
     const applyEllipsisFallback = (selector = '.multi-line-ellipsis', lines = 2) => {
@@ -21,6 +21,6 @@ try {
         }
     })
 } catch (error) {
-    dialog.errorOccurred(error.message)
+    Dialog.errorOccurred(error.message)
     console.error(error)
 }

@@ -1,11 +1,11 @@
 import { shared } from './utility.js'
 const {
     miscSection,
-    dialog
+    Dialog
 } = shared
 
 try {
-    const PATH = 'asset/image/icon/'
+    const ICON_PATH = 'asset/image/icon/'
 
     const favoriteButton = miscSection?.querySelector('.favorite-button')
     favoriteButton?.addEventListener('click', e => {
@@ -13,10 +13,10 @@ try {
 
         const icon = favoriteButton.querySelector('img')
         const regex = /empty/g
-        icon.src = PATH + (regex.test(icon.src) ? 'heart_fill.svg' : 'heart_empty.svg')
+        icon.src = ICON_PATH + (regex.test(icon.src) ? 'heart_fill.svg' : 'heart_empty.svg')
     })
 } catch (error) {
-    dialog.errorOccurred(error.message)
+    Dialog.errorOccurred(error.message)
     console.error(error)
 }
 
