@@ -51,5 +51,6 @@ try {
         }
     }, 10000)
 } catch (error) {
-    Dialog.errorOccurred()
+    Dialog.errorOccurred(error.message)
+    console.error(error)
 }

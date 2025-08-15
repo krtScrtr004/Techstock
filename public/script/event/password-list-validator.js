@@ -26,6 +26,6 @@ try {
         })
     })
 } catch (error) {
-    Dialog.errorOccurred(drror.message)
+    Dialog.errorOccurred(error.message)
     console.error(error)
 }

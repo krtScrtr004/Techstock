@@ -20,7 +20,7 @@ try {
 
         let imageIndex = 0
         let slideshowInterval = null
-        
+
         function reflowImage() {
             slideshowImage.classList.remove('fade');
             void slideshowImage.offsetWidth; // force reflow
@@ -77,5 +77,6 @@ try {
         viewImage(slideshowImage)
     }
 } catch (error) {
-    Dialog.errorOccurred(drror.message)
+    Dialog.errorOccurred(error.message)
+    console.error(error)
 }
