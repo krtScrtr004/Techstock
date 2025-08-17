@@ -5,6 +5,6 @@
 
     "POST": {
         "/Techstock/backend/location-permission": ["BackendController", "locationPermission"],
-        "Techstock/backend/send-message/{id:[\\w+_-]+}": ["ChatController", "sendMessage"]
+        "/Techstock/backend/send-message/{id:[\\w+_-]+}": ["ChatController", "sendMessage"]
     }
 }
