@@ -1,0 +1,61 @@
+.simple-header h3 {
+	font-size: 2rem;
+}
+
+.simple-header img {
+	height: 3rem;
+	margin-right: 5px;
+}
+
+.main-header {
+	gap: 1rem;
+}
+
+.top-link-section > * {
+	flex: 1;
+	gap: 0.5rem;
+}
+
+.link-w-icon {
+	gap: 7px;
+}
+
+.lower-header-body {
+	gap: 3rem;
+}
+
+.lower-header-body > span {
+	min-width: 200px;
+}
+
+.search-section {
+	flex: 1;
+}
+
+.search-section > form {
+	width: 100%;
+}
+
+.search-button {
+	width: fit-content;
+	border: 1px solid var(--white);
+	padding: 8px;
+	margin-left: 5px;
+}
+
+.search-button > img {
+	transition: opacity 300ms ease;
+}
+
+.search-button:hover > img {
+	opacity: 0.5;
+}
+
+.icon-section {
+	gap: var(--space);
+}
+
+.cart-count {
+	height: 15px;
+	width: 15px;
+}

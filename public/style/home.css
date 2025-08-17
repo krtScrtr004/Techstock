@@ -1,0 +1,183 @@
+.home main {
+	padding: 0;
+}
+
+.home main > * {
+	padding: var(--space) var(--content-side-padding);
+}
+
+@keyframes fade {
+	from {
+		opacity: 0.4;
+	}
+	to {
+		opacity: 1;
+	}
+}
+
+.fade {
+	animation: fade 1s ease forwards;
+}
+
+.slide-show-wrapper {
+	height: 300px;
+	width: 100%;
+}
+
+.slide-show {
+	width: 100%;
+	object-fit: cover;
+}
+
+.slide-show-wrapper:hover .change-button {
+	visibility: visible;
+}
+
+.change-button,
+.dot-tab {
+	opacity: 0.5;
+	z-index: 50;
+	cursor: pointer;
+}
+
+.change-button:hover,
+.dot-tab:hover {
+	opacity: 1;
+}
+
+.change-button {
+	display: grid;
+	place-items: center;
+	position: absolute;
+	background-color: var(--white);
+	visibility: hidden;
+	width: 30px;
+	height: 30px;
+	top: 50%;
+	transform: translate(0, -50%);
+}
+
+.change-button > img {
+	margin-left: 5px;
+}
+
+.change-button.previous {
+	left: 0;
+	transform: translate(0, -50%) scaleX(-1);
+}
+
+.change-button.next {
+	right: 0;
+}
+
+.slide-show-wrapper > span {
+	gap: 10px;
+	bottom: 20px;
+	left: 50%;
+	transform: translate(-50%, 0);
+}
+
+.dot-tab {
+	width: 10px;
+	height: 10px;
+}
+
+.dot-tab.active {
+	opacity: 1;
+}
+
+.category-section {
+	flex-wrap: nowrap;
+	margin-top: 2.5rem;
+}
+
+.category-section > ul > li {
+	width: calc(100% / 10);
+}
+
+.category-card {
+	height: 100%;
+	padding: 10px;
+}
+
+.category-card:hover {
+	background-color: var(--dark-white);
+}
+
+.category-card > a > h3 {
+	margin-top: 20px;
+	max-width: 15ch;
+	font-size: 1rem;
+	font-weight: 500;
+}
+
+.discover-more-section > h3 {
+	background-color: var(--white);
+	padding: 10px 1rem;
+	border-bottom: 3px solid var(--black);
+	top: 0;
+	z-index: 10;
+	margin-bottom: var(--space);
+}
+
+.carousel > .product-card,
+.carousel > .store-card {
+	flex: none;
+}
+
+.top-product-section {
+	position: relative;
+}
+
+.store-card {
+	width: var(--card-width);
+	height: var(--card-height);
+	overflow: hidden;
+	border: 1px solid transparent;
+}
+
+.store-card:hover {
+	border: 1px solid var(--black);
+}
+
+.store-card > img {
+	width: 100%;
+	padding: 10px;
+}
+
+.article-list {
+	gap: var(--space);
+}
+
+.article-list * {
+	color: var(--black);
+}
+
+.article-list > div {
+	gap: 20px;
+}
+
+.article-list > div > * {
+	flex: 1 1 0;
+}
+
+.article > h3 {
+	font-size: 1.5rem;
+	font-weight: 800;
+	margin-bottom: 1rem;
+}
+
+.article p {
+	line-height: 1.6;
+}
+
+.article > ul {
+	padding-inline-start: 0;
+}
+
+.article li {
+	list-style: disc;
+	list-style-position: inside;
+	padding-left: 1.5em;
+	text-indent: -1.4em;
+}

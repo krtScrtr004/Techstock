@@ -1,0 +1,78 @@
+<?php
+
+class ShoppingCartController implements Controller
+{
+    public static function index(): void
+    {
+        global $session;
+
+        // Dummy
+        $buyer = new User([
+            'id' => uniqid(),
+            'firstName' => 'Kurt',
+            'lastName' => 'Secretario',
+            'email' => 'kurtSecretario004@gmail.com',
+            'address' => new Address([
+                'houseNumber' => '30',
+                'street' => 'Santol St. Panatag Rd.',
+                'city' => 'Mandaluyong City',
+                'region' => 'NCR',
+                'postalCode' => 1550
+            ])
+        ]);
+
+        $allStores = StoreModel::all();
+        array_splice($allStores, 2);
+
+        $images = [
+            'console-1.jpg',
+            'controller-1.jpg',
+            'devices.jpg',
+            'handheld-1.jpg',
+            'laptop-1.jpg',
+            'laptop-2.jpg',
+            'mouse-1.jpg'
+        ];
+
+        $cart = new ShoppingCart();
+        foreach ($allStores as $store) {
+            for ($i = 0; $i < 2; $i++) {
+                $item = new ShoppingCartItem([
+                    'id' => uniqid(),
+
+                    'name' => "Product name number $i.",
+
+                    'price' => round(mt_rand(1000000000, 20000000000) / 100000, 2), // 10.00 to 200.00
+
+                    'store' => $store,
+
+                    'images' => [
+                        IMAGE_PATH . $images[array_rand($images)],
+                        IMAGE_PATH . $images[array_rand($images)],
+                        IMAGE_PATH . $images[array_rand($images)],
+                        IMAGE_PATH . $images[array_rand($images)],
+                        IMAGE_PATH . $images[array_rand($images)],
+                        IMAGE_PATH . $images[array_rand($images)]
+                    ],
+
+                    'options' => new ProductOption([
+                        'colors' => ['Red', 'green', 'black'],
+                        'variants' => ['Standard', 'Pro', 'Lite'],
+                        'models' => ['2022', '2323'],
+                    ]),
+
+                    'selectedOptions' => new ProductOption([
+                        'colors' => ['green'],
+                        'variants' => ['Pro'],
+                        'models' => ['2323']
+                    ]),
+
+                    'quantity' => rand(1, 10)
+                ]);
+                $cart->add($item);
+            }
+        }
+
+        require_once VIEW_PATH . 'shopping-cart.php';
+    }
+}
