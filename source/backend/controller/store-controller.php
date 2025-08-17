@@ -191,7 +191,7 @@ class StoreController implements Controller
             $storeId = $store->getId();
             $otherPartyId = $csession->getOtherParty()->getId();
             if ($storeId === $otherPartyId) {
-                $storeChatSession = $csession->getId();
+                $storeChatSessionId = $csession->getId();
             }
         }
 
