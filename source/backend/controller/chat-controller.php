@@ -140,7 +140,7 @@ class ChatController implements Controller
             }
         }
 
-        if ($param['id'] === 'null') {
+        if (!isset($param['id']) || $param['id'] === null || $param['id'] === 'null') {
             http_response_code(200);
 
             $otherParty = null;
@@ -149,7 +149,7 @@ class ChatController implements Controller
             } else {
                 $otherParty = StoreModel::all()[0];
             }
-
+            
             $newChatSession = new ChatSession([
                 'id' => uniqid(),
                 'otherParty' => $otherParty,
@@ -157,9 +157,7 @@ class ChatController implements Controller
             ]);
 
             ob_clean();
-            echo json_encode([
-                'chatListButton' => chatListCard($newChatSession)
-            ]);
+            echo json_encode(['chatListButton' => chatListCard($newChatSession)]);
         } else {
             http_response_code(204);
         }
