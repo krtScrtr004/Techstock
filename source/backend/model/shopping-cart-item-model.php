@@ -10,10 +10,10 @@ class ShoppingCartItemModel implements Model
         return [];
     }
 
-    public static function create(array $data): Product
+    public static function create(array $data): mixed
     {
         // TODO: Implement create() method.
-        return new Product();
+        return null;
     }
 
     public function delete(): bool
@@ -27,7 +27,7 @@ class ShoppingCartItemModel implements Model
         // TODO: Implement fill() method.
     }
 
-    public static function find($id): ?Product
+    public static function find($id): mixed
     {
         // TODO: Implement find() method.
         return null;
